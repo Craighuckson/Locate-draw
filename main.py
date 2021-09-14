@@ -4,7 +4,7 @@ def setup():
     size(600,600)
     stroke(255,0,0)
     fill(255,0,0)
-    rect(570,0,30,30)
+    rect(572,0,30,30)
 
 def draw():
     stroke(0)
