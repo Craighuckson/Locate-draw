@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://milchreis.github.io/uibooster-for-processing/ -->
+<html lang="en-US"><script src="chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/page/prompt.js"></script><script src="chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/page/runScript.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>uibooster-for-processing | 🚀 Creates fast and easy dialogs for utility tools for Processing</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="uibooster-for-processing">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="🚀 Creates fast and easy dialogs for utility tools for Processing">
+<meta property="og:description" content="🚀 Creates fast and easy dialogs for utility tools for Processing">
+<link rel="canonical" href="https://milchreis.github.io/uibooster-for-processing/">
+<meta property="og:url" content="https://milchreis.github.io/uibooster-for-processing/">
+<meta property="og:site_name" content="uibooster-for-processing">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="uibooster-for-processing">
+<script type="application/ld+json">
+{"headline":"uibooster-for-processing","description":"🚀 Creates fast and easy dialogs for utility tools for Processing","url":"https://milchreis.github.io/uibooster-for-processing/","@type":"WebSite","name":"uibooster-for-processing","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="./uibooster reference_files/style.css">
+  <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://milchreis.github.io/uibooster-for-processing/">uibooster-for-processing</a></h1>
+      
+
+      <p align="center">
+  <img src="./uibooster reference_files/logo.png">
+</p>
+
+<blockquote>
+  <p>UiBooster is a lean library to create fast and easy dialogs for utility tools.</p>
+</blockquote>
+
+<p>This project ports <a href="https://github.com/Milchreis/UiBooster/">UiBooster 1.13.1</a> full functionally to the Processing eco-system 
+as a library to create dialogs for your sketch fast as possible.
+With a lot of examples you will learn to use this library in less than five minutes.</p>
+
+<p>If you like this project, and you want to keep me awake 🤪, than please support me on ko-fi</p>
+
+<p><a href="https://ko-fi.com/L4L21072C" target="_blank"><img height="36" style="border:0px;height:36px;" src="./uibooster reference_files/kofi1.png" border="0" alt="Buy Me a Coffee at ko-fi.com"></a></p>
+
+<h2 id="breaking-changes-since-version-1120">Breaking changes since version 1.12.0<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#breaking-changes-since-version-1120" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>In version 1.12.0 of UiBooster the <code class="language-plaintext highlighter-rouge">ChangeListener</code> and the <code class="language-plaintext highlighter-rouge">FilledForm</code> are changed. Please check your code after updating if you
+used UiBooster in earlier versions before.</p>
+
+<p><strong>Breaking changes</strong></p>
+<ul>
+  <li>Now ChangeListener in form creation has 3 parameter: current form element, new value, your form
+    <ul>
+      <li>you will have to add <code class="language-plaintext highlighter-rouge">Form form</code> as third parameter to your listener</li>
+      <li>Here you can find an <a href="https://github.com/Milchreis/UiBooster/blob/master/src/test/java/de/milchreis/uibooster/FormBuilderChangeListenerTest.java#L22">example</a></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">FilledForm</code> is renamed to <code class="language-plaintext highlighter-rouge">Form</code>
+    <ul>
+      <li>you will have to change all FilledForms to Form (also in imports)</li>
+      <li>Here you can find an <a href="https://github.com/Milchreis/UiBooster/blob/master/src/test/java/de/milchreis/uibooster/CustomFormBuilderElementTest.java#L57">example</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="supporter-️">Supporter ❤️<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#supporter-%EF%B8%8F" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>A big thanks goes to the supporters of this project. I thank every single one of them for contributing to UiBooster.</p>
+
+<ul>
+  <li>federico-pepe (<a href="https://github.com/federico-pepe">GitHub</a>)</li>
+  <li>Devraj Joshi (<a href="https://twitter.com/DevrajJoshi">Twitter</a>)</li>
+  <li>Ralf Leggett (<a href="https://github.com/ralfleggett">Github</a>)</li>
+</ul>
+
+<h2 id="installation">Installation<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#installation" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>If you want to use this library in your processing sketch you can download it via the integrated <code class="language-plaintext highlighter-rouge">Contribution Manager</code>.</p>
+
+<p><img src="./uibooster reference_files/install.jpg" alt="alt install"></p>
+
+<h1 id="documentation">Documentation</h1>
+<p>The following examples show the usage of this library. If you interested in the javadoc documentation <a href="https://milchreis.github.io/uibooster-for-processing/reference/uibooster/UiBooster.html">look here.</a></p>
+
+<h2 id="components">Components<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#components" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<ul>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#information-dialogs">Information dialogs</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#text-input-dialog">Text input dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#confirmation-dialog">Confirmation dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#password-input-dialog">Password input dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#selection-dialog">Selection dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#multiple-selection-dialog">Multiple selection dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#slider-dialog">Slider dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#colorpicker">Colorpicker</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#datepicker">Datepicker</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#file-and-directory-selection-dialogs">File and directory selection dialogs</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#exception-dialog">Exception dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#list-dialog">List dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#login-dialog">Login dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#waiting-dialog">Waiting dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#progress-dialog">Progress dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#table-dialog">Table dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#gallery-dialog">Gallery dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#form-dialog">Form dialog</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#splash-screen">Splash screen</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#system-tray">System tray menu</a></li>
+  <li><a href="https://milchreis.github.io/uibooster-for-processing/#notification">Notification</a></li>
+</ul>
+
+<h3 id="information-dialogs">Information dialogs<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#information-dialogs" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/info.jpg" alt="screenshot info dialog">
+<img src="./uibooster reference_files/warn.jpg" alt="screenshot warn dialog">
+<img src="./uibooster reference_files/error.jpg" alt="screenshot error dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showInfoDialog</span><span class="o">(</span><span class="s">"UiBooster is a lean library to ...."</span><span class="o">);</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showWarningDialog</span><span class="o">(</span><span class="s">"Your computer has a low battery ...."</span><span class="o">,</span> <span class="s">"WARN"</span><span class="o">);</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showErrorDialog</span><span class="o">(</span><span class="s">"The connection to SQL database is failed."</span><span class="o">,</span> <span class="s">"ERROR"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="text-input-dialog">Text input dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#text-input-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/input.jpg" alt="screenshot input dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">opinion</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showTextInputDialog</span><span class="o">(</span><span class="s">"What do you think?"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="confirmation-dialog">Confirmation dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#confirmation-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/confirm.jpg" alt="screenshot confirm dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showConfirmDialog</span><span class="o">(</span>
+        <span class="s">"Do you really want this action?"</span><span class="o">,</span>
+        <span class="s">"Are you sure?"</span><span class="o">,</span>
+        <span class="o">()</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Action accepted"</span><span class="o">),</span>
+        <span class="o">()</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Action declined"</span><span class="o">));</span>
+</code></pre></div></div>
+
+<h3 id="password-input-dialog">Password input dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#password-input-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/password.jpg" alt="screenshot password dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">password</span> <span class="o">=</span> <span class="n">booster</span><span class="o">.</span><span class="na">showPasswordDialog</span><span class="o">(</span><span class="s">"Whats your password?"</span><span class="o">,</span> <span class="s">"Password"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="selection-dialog">Selection dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#selection-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/selection.jpg" alt="screenshot selection dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">selection</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showSelectionDialog</span><span class="o">(</span>
+        <span class="s">"What's your favorite movie?"</span><span class="o">,</span>
+        <span class="s">"Favorite Movie?"</span><span class="o">,</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Pulp Fiction"</span><span class="o">,</span> <span class="s">"Bambi"</span><span class="o">,</span> <span class="s">"The Godfather"</span><span class="o">,</span> <span class="s">"Hangover"</span><span class="o">));</span>
+</code></pre></div></div>
+
+<h3 id="multiple-selection-dialog">Multiple selection dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#multiple-selection-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/multiselection.jpg" alt="screenshot multiple selection dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">selectedElement</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showMultipleSelection</span><span class="o">(</span>
+        <span class="s">"What are your favorite hobbies?"</span><span class="o">,</span>
+        <span class="s">"Your hobbies"</span><span class="o">,</span>
+        <span class="s">"Reading"</span><span class="o">,</span> <span class="s">"Traveling"</span><span class="o">,</span> <span class="s">"Fishing"</span><span class="o">,</span> <span class="s">"Music"</span><span class="o">,</span> <span class="s">"Gardening"</span><span class="o">,</span> <span class="s">"Sport"</span><span class="o">,</span> <span class="s">"Television"</span><span class="o">,</span>
+        <span class="s">"Video Games"</span><span class="o">,</span> <span class="s">"Crafting"</span><span class="o">,</span> <span class="s">"Bird Watching"</span><span class="o">,</span> <span class="s">"Collecting"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="slider-dialog">Slider dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#slider-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/slider.jpg" alt="screenshot slider dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Integer</span> <span class="n">numberOfHotDogs</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showSlider</span><span class="o">(</span><span class="s">"How many HotDogs do you want?"</span><span class="o">,</span> <span class="s">"Your order"</span><span class="o">,</span>
+        <span class="mi">0</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="colorpicker">Colorpicker<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#colorpicker" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/color.jpg" alt="screenshot color dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Color</span> <span class="n">selectedColor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showColorPicker</span><span class="o">(</span><span class="s">"Choose your favorite color"</span><span class="o">,</span> <span class="s">"Color picking"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="datepicker">Datepicker<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#datepicker" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/dateselection.jpg" alt="screenshot datepicker"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Date</span> <span class="n">birthday</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showDatePicker</span><span class="o">(</span><span class="s">"What's your birthday?"</span><span class="o">,</span> <span class="s">"Birthday"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="file-and-directory-selection-dialogs">File and directory selection dialogs<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#file-and-directory-selection-dialogs" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/fileselection.jpg" alt="screenshot file dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">UiBooster</span> <span class="n">booster</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">();</span>
+        <span class="nc">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">booster</span><span class="o">.</span><span class="na">showFileSelection</span><span class="o">();</span>
+        <span class="nc">File</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">booster</span><span class="o">.</span><span class="na">showDirectorySelection</span><span class="o">();</span>
+        <span class="nc">File</span> <span class="n">fileOrDirectory</span> <span class="o">=</span> <span class="n">booster</span><span class="o">.</span><span class="na">showFileOrDirectorySelection</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="exception-dialog">Exception dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#exception-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/exception.jpg" alt="screenshot exception dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showException</span><span class="o">(</span>
+        <span class="s">"An error occurred"</span><span class="o">,</span>
+        <span class="s">"Exception message"</span><span class="o">,</span>
+        <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"Something went wrong ..."</span><span class="o">)</span>
+        <span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="list-dialog">List dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#list-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/list.jpg" alt="screenshot list dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ListElement</span> <span class="n">selectedElement</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showList</span><span class="o">(</span>
+        <span class="s">"Select a robot"</span><span class="o">,</span>
+        <span class="s">"Avatars from RoboHash.org"</span><span class="o">,</span>
+        <span class="n">element</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Selected: "</span> <span class="o">+</span> <span class="n">element</span><span class="o">.</span><span class="na">toString</span><span class="o">()),</span>
+        <span class="k">new</span> <span class="nf">ListElement</span><span class="o">(</span><span class="s">"Robo 1"</span><span class="o">,</span> <span class="s">"Green and strong"</span><span class="o">,</span>         <span class="s">"src/test/resources/avatar1.png"</span><span class="o">),</span>
+        <span class="k">new</span> <span class="nf">ListElement</span><span class="o">(</span><span class="s">"Robo 2"</span><span class="o">,</span> <span class="s">"Shy without an avatar!"</span><span class="o">),</span>
+        <span class="k">new</span> <span class="nf">ListElement</span><span class="o">(</span><span class="s">"Robo 3"</span><span class="o">,</span> <span class="s">"- Crazy\n- Fast\n- Funny"</span><span class="o">,</span> <span class="s">"src/test/resources/avatar2.png"</span><span class="o">),</span>
+        <span class="k">new</span> <span class="nf">ListElement</span><span class="o">(</span><span class="s">"Robo 4"</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span>                       <span class="s">"src/test/resources/avatar3.png"</span><span class="o">)</span>
+        <span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="login-dialog">Login dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#login-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/login.jpg" alt="screenshot login dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">LoginCredentials</span> <span class="n">credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showLogin</span><span class="o">(</span>
+        <span class="s">"Login"</span><span class="o">,</span>
+        <span class="s">"Internal area"</span><span class="o">,</span>
+        <span class="s">"Username"</span><span class="o">,</span>
+        <span class="s">"Password"</span><span class="o">,</span>
+        <span class="s">"Go"</span><span class="o">,</span>
+        <span class="s">"Cancel"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="waiting-dialog">Waiting dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#waiting-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/waiting.jpg" alt="screenshot waiting dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">WaitingDialog</span> <span class="n">dialog</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showWaitingDialog</span><span class="o">(</span><span class="s">"Starting"</span><span class="o">,</span> <span class="s">"Please wait"</span><span class="o">);</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">"Ready"</span><span class="o">);</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</code></pre></div></div>
+<p><img src="./uibooster reference_files/waiting_with_message.jpg" alt="screenshot waiting with message dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">WaitingDialog</span> <span class="n">dialog</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showWaitingDialog</span><span class="o">(</span><span class="s">"Starting"</span><span class="o">,</span> <span class="s">"Please wait"</span><span class="o">);</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">"Initializing"</span><span class="o">);</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">setLargeMessage</span><span class="o">(</span><span class="s">"Some more information...\nMaybe from log files or other resources. \nBe transparent to the user to understand long processes..."</span><span class="o">);</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="progress-dialog">Progress dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#progress-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/progress.jpg" alt="screenshot progress dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ProgressDialog</span> <span class="n">dialog</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showProgressDialog</span><span class="o">(</span><span class="s">"Please wait"</span><span class="o">,</span> <span class="s">"Waiting"</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">120</span><span class="o">);</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">setProgress</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+<span class="c1">// ...</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">setProgress</span><span class="o">(</span><span class="mi">120</span><span class="o">);</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">"Ready"</span><span class="o">);</span>
+        <span class="n">dialog</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="table-dialog">Table dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#table-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/table.jpg" alt="screenshot table dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="o">[][]</span> <span class="n">modifiedData</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showTable</span><span class="o">(</span>    <span class="c1">// showTableImmutable for immutable tables</span>
+        <span class="k">new</span> <span class="nc">String</span><span class="o">[][]{</span>
+        <span class="o">{</span><span class="s">"Jimmy Johnson"</span><span class="o">,</span> <span class="s">"35"</span><span class="o">,</span> <span class="s">"Zombieland"</span><span class="o">},</span>
+        <span class="o">{</span><span class="s">"Danny Durango"</span><span class="o">,</span> <span class="s">"23"</span><span class="o">,</span> <span class="s">"Hangover"</span><span class="o">},</span>
+        <span class="o">{</span><span class="s">"Larry Berry"</span><span class="o">,</span> <span class="s">"54"</span><span class="o">,</span> <span class="s">""</span><span class="o">}</span>
+        <span class="o">},</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Name"</span><span class="o">,</span> <span class="s">"Age"</span><span class="o">,</span> <span class="s">"Favorite movie"</span><span class="o">),</span>
+        <span class="s">"Favorite movies"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="gallery-dialog">Gallery dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#gallery-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/gallery.jpg" alt="screenshot gallery dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showPictures</span><span class="o">(</span>
+        <span class="s">"My picture"</span><span class="o">,</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+        <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"/home/nick/pictures/img-01.jpg"</span><span class="o">),</span>
+        <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"/home/nick/pictures/img-02.jpg"</span><span class="o">)</span>
+        <span class="o">)</span>
+        <span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="form-dialog">Form dialog<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#form-dialog" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/form.jpg" alt="screenshot gallery dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">UiBooster</span> <span class="n">booster</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">();</span>
+<span class="nc">Form</span> <span class="n">form</span> <span class="o">=</span> <span class="n">booster</span><span class="o">.</span><span class="na">createForm</span><span class="o">(</span><span class="s">"Personal information"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addText</span><span class="o">(</span><span class="s">"Whats your first name?"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addTextArea</span><span class="o">(</span><span class="s">"Tell me something about you"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addSelection</span><span class="o">(</span>
+                    <span class="s">"Whats your favorite movie?"</span><span class="o">,</span>
+                    <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Pulp Fiction"</span><span class="o">,</span> <span class="s">"Bambi"</span><span class="o">,</span> <span class="s">"The Godfather"</span><span class="o">,</span> <span class="s">"Hangover"</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">addLabel</span><span class="o">(</span><span class="s">"Choose an action"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addButton</span><span class="o">(</span><span class="s">"half full"</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">booster</span><span class="o">.</span><span class="na">showInfoDialog</span><span class="o">(</span><span class="s">"Optimist"</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">addButton</span><span class="o">(</span><span class="s">"half empty"</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">booster</span><span class="o">.</span><span class="na">showInfoDialog</span><span class="o">(</span><span class="s">"Pessimist"</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">addSlider</span><span class="o">(</span><span class="s">"How many liters did you drink today?"</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">show</span><span class="o">();</span>
+
+<span class="c1">// use .run() instead of show() to open the formBuilder without blocking.</span>
+</code></pre></div></div>
+<p>The form is very powerful and provides a lot of features:</p>
+<ul>
+  <li>add your own elements (<a href="https://github.com/Milchreis/UiBooster/blob/master/src/test/java/de/milchreis/uibooster/CustomFormBuilderElementTest.java">Example</a>)</li>
+  <li>put multiple elements in one row (<a href="https://github.com/Milchreis/UiBooster/blob/master/src/test/java/de/milchreis/uibooster/FormBuilderWithRowsTest.java#L41">Example</a>)</li>
+  <li>add a listener for any changes (<a href="https://github.com/Milchreis/UiBooster/blob/master/src/test/java/de/milchreis/uibooster/FormBuilderChangeListenerTest.java#L22">Example</a>)</li>
+  <li>set window setting, f.e. size and position (<a href="https://github.com/Milchreis/UiBooster/blob/master/src/test/java/de/milchreis/uibooster/FormBuilderTest.java#L116">Example</a>)</li>
+</ul>
+
+<h3 id="splash-screen">Splash screen<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#splash-screen" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/splash.jpg" alt="screenshot splash screen"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Splashscreen</span> <span class="n">splash</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">showSplashscreen</span><span class="o">(</span><span class="s">"/path/to/your/splash.png"</span><span class="o">);</span>
+<span class="c1">// do your stuff</span>
+<span class="n">splash</span><span class="o">.</span><span class="na">hide</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="system-tray">System tray<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#system-tray" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/tray.jpg" alt="screenshot gallery dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">UiBooster</span> <span class="n">booster</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">();</span>
+<span class="n">booster</span><span class="o">.</span><span class="na">createTrayMenu</span><span class="o">(</span><span class="s">"Food"</span><span class="o">,</span> <span class="s">"screenshots/color.jpg"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withPopupMenu</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">addMenu</span><span class="o">(</span><span class="s">"Hotdogs"</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">booster</span><span class="o">.</span><span class="na">showInfoDialog</span><span class="o">(</span><span class="s">"Sausage in a roll"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">addMenu</span><span class="o">(</span><span class="s">"Fries"</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">booster</span><span class="o">.</span><span class="na">showInfoDialog</span><span class="o">(</span><span class="s">"Fried potatoes"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">addMenu</span><span class="o">(</span><span class="s">"Pizza"</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">booster</span><span class="o">.</span><span class="na">showInfoDialog</span><span class="o">(</span><span class="s">"Dough with tomato sauce"</span><span class="o">));</span>
+</code></pre></div></div>
+
+<h3 id="notification">Notification<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#notification" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><img src="./uibooster reference_files/notification.jpg" alt="screenshot gallery dialog"></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">UiBooster</span><span class="o">().</span><span class="na">createNotification</span><span class="o">(</span><span class="s">"It's hot and delicious"</span><span class="o">,</span> <span class="s">"Dinner is ready"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h2 id="options">Options<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#options" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">UiBooster</span> <span class="n">booster</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UiBooster</span><span class="o">(</span>
+    <span class="nc">UiBoosterOptions</span><span class="o">.</span><span class="na">Theme</span><span class="o">.</span><span class="na">DARK_THEME</span><span class="o">,</span>
+    <span class="s">"/path/to/your/custom-window-icon.png"</span>
+<span class="o">);</span>
+</code></pre></div></div>
+<p>See some examples for UiBoosterOptions <a href="https://github.com/Milchreis/UiBooster/blob/master/src/test/java/de/milchreis/uibooster/UiBoosterOptionsTest.java">here</a></p>
+
+<h2 id="contribution">Contribution<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#contribution" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>Please report issues for bugs or feature requests with ideas for other useful dialogs. If you interested in the development
+process, take a look to the origin project <a href="https://github.com/milchreis/UiBooster/">UiBooster</a>.</p>
+
+<h2 id="updating-uibooster-for-processing">Updating UiBooster for Processing<a class="anchorjs-link " href="https://milchreis.github.io/uibooster-for-processing/#updating-uibooster-for-processing" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>The port of UiBooster works as copy from the original project with some package adjustments. An update script pulls
+the current UiBooster code and replace it with the code from this library. New features from UiBooster are 
+added as examples, and the README.md has been updated.</p>
+
+<p>This script updates the code. Attention: It removes the existing code!</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ./update/
+bash update-uibooster.sh
+</code></pre></div></div>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/Milchreis/uibooster-for-processing/edit/master/README.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="./uibooster reference_files/anchor.min.js.download" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  
+
+</body></html>
