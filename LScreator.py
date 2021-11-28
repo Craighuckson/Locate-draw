@@ -1,4 +1,6 @@
 import PySimpleGUI as sg
+
+
 #i am using a unit system of 24x24 on this one - weird i know
 # CONSTANTS
 
@@ -39,17 +41,20 @@ def arrow(dir,x,y):
     if dir.lower() not in ['n','s','e','w']:
         return
     if dir == 'n':
-        #graph.DrawPolygon([(x,y),(x-0.5,y-1),()])
-        pass
+        graph.DrawPolygon([(x,y),(x-0.25,y+0.5),(x+0.25,y+0.5)],fill_color='black',line_color='black')
+        graph.DrawLine((x,y+0.5),(x,y+1.5),width=1.5)
     elif dir == 's':
-        pass
+        graph.DrawPolygon([(x,y), (x-0.25, y-0.5), (x+0.25, y-0.5)], fill_color='black', line_color='black')
+        graph.DrawLine((x, y-0.5), (x, y-1.5), width=1.5)
     elif dir == 'e':
-        pass
+        graph.DrawPolygon([(x, y), (x - 0.5, y - 0.25), (x - 0.5, y + 0.25)], fill_color='black', line_color='black')
+        graph.DrawLine((x-0.5, y), (x-1.5, y), width=1.5)
     else:
-        pass
+        graph.DrawPolygon([(x, y), (x+0.5, y+0.25), (x+0.5, y-0.25)], fill_color='black', line_color='black')
+        graph.DrawLine((x+0.5, y), (x+1.5, y), width=1.5)
 
-def pole():
-    pass
+def pole(x,y):
+    graph.draw_circle((x,y), 0.4)
 
 def transformer():
     pass
@@ -60,8 +65,8 @@ def vault():
 def ped():
     pass
 
-def road():
-    pass
+def road(x1, y1, x2, y2):
+    graph.draw_line((x1, y1), (x2, y2), width=2)
 
 def cable():
     pass
@@ -71,17 +76,22 @@ def line():
 
         
 layout = [      
-               [sg.Graph(canvas_size=(480, 480), graph_bottom_left=(0,HEIGHT), graph_top_right=(WIDTH, 0), background_color='white', key='graph', enable_events=True)],
+               [sg.Graph(canvas_size=(480, 480), graph_bottom_left=(0,HEIGHT), graph_top_right=(WIDTH, 0), background_color='white', key='graph', enable_events=True, drag_submits=True)],
                [sg.Text('Select Image:'),sg.Input(key='file',enable_events=True),sg.FileBrowse(enable_events=True)],
                [sg.Button('Add to image',enable_events=True,key='add')]  
                ]      
 
-window = sg.Window('Graph test', layout, finalize=True,font='Verdana',resizable=True)       
+window = sg.Window('Graph test', layout, finalize=True,font='Verdana',resizable=True,return_keyboard_events=True)       
 
 graph = window['graph']
 #graph for testing
-
-
+#show_grid()
+arrow('n', 10, 10)
+arrow('s', 5, 5)
+arrow('w', 18,  18)
+arrow('e', 14, 14)
+pole(16,16)
+road(0,7,24,7)
  
 
 #line2 = graph.DrawLine((0,4),(24,4), color='black', width='3')    
@@ -99,8 +109,7 @@ while True:
         print(event,values)   
         if event == sg.WIN_CLOSED:      
             break
-        if event == 'add':
+        #if event == 'add':
                 #print(values['file'])
-                graph.DrawText((values['file']), (200,200))
-                graph.draw_image(filename=values['file'],location=(100,100))
-                window['graph'].update()
+                #graph.DrawText((values['file']), (200,200))
+                #graph.draw_image(filename=values['file'],location=(100,100))
