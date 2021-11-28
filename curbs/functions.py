@@ -137,6 +137,7 @@ def mHouse(num,x,y):
     x = x * 20
     y = y * 20
     push()
+    textAlign(CENTER,CENTER)
     stroke(0)
     fill(255)
     strokeWeight(1)

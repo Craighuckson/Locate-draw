@@ -57,18 +57,39 @@ def setup():
     
     
     #draw_grid()
-    
-    # routine for drawing pl to pl for bell
+    '''
+     routine for drawing pl to pl for bell
     road(curb[0],curb[1],curb[2],curb[3])
-    #road(18,1,18,10)
+    road(18,1,18,10)
     vtext(street, streettext[0], streettext[1],20)
     digbox(digarea[0], digarea[1], digarea[2], digarea[3])
     vtext(curblabel,cllocation[0],cllocation[1],12)
-    #vtext(,,,)
+    vtext(,,,)
     mHouse(hnum1,h1[0],h1[1])
     mHouse(hnum2,h2[0],h2[1])
     htext('LOCATED AREA CLEAR OF BELL',lastamp[0],lastamp[1],12)
     #vtext(,,,)
+    '''
+    #
+    #s pl to pl 1 cable
+    
+    htext('2ND LINE',12,2,20)
+    htext('SRE',21,3,10)
+    htext('1B',10,7,14)
+    for x in (3,15):
+        vtext('3.0m',x,6,12)
+    digbox(0,4,24,24)
+    mHouse('1109',10,18)
+    road(0,4,width/20,4)
+    cable(0,8,24,8)
+    cable(5,12,5,8)
+    ped(5,12)
+    sArrow(3,4)
+    sArrow(15,4)
+    nArrow(3,8)
+    nArrow(15,8)
+    htext('LOCATED AREA',12,11,13)
+    
     
     #wpl to pl
     
