@@ -56,21 +56,28 @@ def arrow(dir,x,y):
 def pole(x,y):
     graph.draw_circle((x,y), 0.4)
 
-def transformer():
-    pass
+def transformer(x,y):
+    graph.draw_rectangle((x-0.5, y-0.5), (x+0.5, y+0.5), line_color='black')
+    graph.draw_polygon([(x, y-0.5), (x-0.5, y+0.5), (x+0.5, y+0.5)], fill_color='black')
 
-def vault():
-    pass
+def vault(util,x,y):
+    if util.lower() == 'b':
+        vlbl = 'FTG'
+    else:
+        vlbl = 'HW'
+    graph.draw_rectangle((x-0.7, y-0.4), (x+0.7, y+0.4), line_color='black')
+    graph.draw_text(vlbl, (x, y), 'Arial 9 normal')
 
 def ped():
     pass
 
 def road(x1, y1, x2, y2):
-    graph.draw_line((x1, y1), (x2, y2), width=2)
+    graph.draw_line((x1, y1), (x2, y2), width=3)
 
-def cable():
-    pass
-
+def cable(x1, y1, x2, y2):
+    cable = graph.DrawLine((x1, y1),(x2, y2),width='2')
+    graph.TKCanvas.itemconfig(cable,dash=(10,5))
+    
 def line():
     pass
 
@@ -86,13 +93,15 @@ window = sg.Window('Graph test', layout, finalize=True,font='Verdana',resizable=
 graph = window['graph']
 #graph for testing
 #show_grid()
-arrow('n', 10, 10)
-arrow('s', 5, 5)
+arrow('n', 5,7)
+arrow('s', 5, 3)
 arrow('w', 18,  18)
 arrow('e', 14, 14)
 pole(16,16)
 road(0,7,24,7)
- 
+transformer(12,12)
+vault('r',9, 9)
+cable(0,3,24,3)
 
 #line2 = graph.DrawLine((0,4),(24,4), color='black', width='3')    
 
@@ -106,7 +115,7 @@ road(0,7,24,7)
 
 while True:      
         event, values = window.read()
-        print(event,values)   
+        #print(event,values)   
         if event == sg.WIN_CLOSED:      
             break
         #if event == 'add':
