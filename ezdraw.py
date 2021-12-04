@@ -1,3 +1,4 @@
+from tkinter import colorchooser
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import Debug, easy_print, popup, popup_get_file, popup_get_text
 import PIL.Image
@@ -137,16 +138,16 @@ def h_arrow(x1,x2,y,meas,measdir='l'):
         arrow('w',x1,y)
         arrow('e',x2,y)
         if measdir.lower() == 'l':
-            hlabel(meas,x2-2.8,y,11)
+            hlabelm(meas,x2-2.8,y,11)
         elif measdir.lower() =='r':
-            hlabel(meas,x1+2.8,y,11)
+            hlabelm(meas,x1+2.8,y,11)
     else:
         arrow('e',x1,y)
         arrow('w',x2,y)
         if measdir.lower() == 'l':
-            hlabel(meas,x1-2.8,y,11)
+            hlabelm(meas,x1-2.8,y,11)
         elif measdir.lower() == 'r':
-            hlabel(meas,x2+2.8,y,11)
+            hlabelm(meas,x2+2.8,y,11)
 
 def v_arrow(x,y1,y2,meas,measdir='u'):
     '''
@@ -166,16 +167,16 @@ def v_arrow(x,y1,y2,meas,measdir='u'):
         arrow('n',x,y1)
         arrow('s',x,y2)
         if measdir.lower() == 'u':
-            vlabel(meas,x,y2-2.8,11)
+            vlabelm(meas,x,y2-2.8,11)
         elif measdir.lower() =='d':
-            vlabel(meas,x,y1+2.8,11)
+            vlabelm(meas,x,y1+2.8,11)
     else:
         arrow('s',x,y1)
         arrow('n',x,y2)
         if measdir.lower() == 'u':
-            vlabel(meas,x,y1-2.8,11)
+            vlabelm(meas,x,y1-2.8,11)
         elif measdir.lower() == 'd':
-            vlabel(meas,x,y2+2.8,11)
+            vlabelm(meas,x,y2+2.8,11)
 
 def pole(x, y):
     graph.draw_circle((x, y), 0.4, fill_color="white")
@@ -202,14 +203,20 @@ def vault(util, x, y):
 
 
 def hlabel(msg, x, y, size):
-    sg.Graph.draw_text(graph, msg, (x, y), font="Arial " + str(size) + " normal")
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
 
+def hlabelm(msg, x, y, size):
+    sg.Graph.draw_text(graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal")
 
 def vlabel(msg, x, y, size):
     sg.Graph.draw_text(
-        graph, msg, (x, y), font="Arial " + str(size) + " normal", angle=90
+        graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal", angle=90
     )
 
+def vlabelm(msg, x, y, size):
+    sg.Graph.draw_text(
+        graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+    )
 
 def ped(x,y):
     sg.Graph.draw_rectangle(
@@ -287,8 +294,8 @@ def ped_multiarm(x,y,direction,meas1,meas2,distance,third_arm=False):
         #lower measurement
         v_arrow(x-arm_offset2,y,y+arm_offset,meas2,'d')   
 
-def road(*args):
-    return graph.draw_line((args[0], args[1]), (args[2], args[3]), width=3)
+def road(x1,y1,x2,y2):
+    graph.DrawLine((x1,y1),(x2,y2),width='3')
 
 def h_road(x1,x2,y):
     road(x1,y,x2,y)
@@ -296,9 +303,50 @@ def h_road(x1,x2,y):
 def v_road(x,y1,y2):
     road(x,y1,x,y2)
 
-def cable(x1, y1, x2, y2):
+def offset_line(x1,y1,x2,y2):
+    offset = graph.draw_line((x1,y1), (x2,y2), width='1')
+    graph.TKCanvas.itemconfig(offset, dash = (2, 7))
+
+def cable(x1, y1, x2, y2,label=''):
     cable = graph.DrawLine((x1, y1), (x2, y2), width="2")
     graph.TKCanvas.itemconfig(cable, dash=(10, 5))
+    if label:
+        #check for horizontal or vertical lines
+        if x1==x2:
+            #vertical cable
+            if (abs(y1 - y2) < 4) or (abs(y2 - y1) < 4):
+                gap = 2
+            else:
+                gap = 6
+            for y in range(round(y1),round(y2),gap):
+                #white box
+                if len(label) <= 2:
+                    s = 0.25
+                else:
+                    s = 0.6
+                sg.Graph.draw_rectangle(graph,(x1-s,y-s),(x1+s,y+s), fill_color = 'white', line_color = 'white')
+                vlabel(label,x1,y,7)
+
+        elif y1==y2:
+            #horizontal cable
+            #check for cable length to determine spacing
+            if (abs(x1 - x2) < 4) or (abs(x2 - x1) < 4):
+                gap = 2
+            else:
+                gap = 6
+            for x in range(round(x1),round(x2),gap):
+                #white box
+                #check for text size
+                if len(label) <= 2:
+                    s = 0.25
+                else:
+                    s = 0.6
+                sg.Graph.draw_rectangle(graph,(x-s,y1-s),(x+s,y1+s), fill_color = 'white', line_color = 'white')
+                #text
+                hlabel(label,x,y1,7)
+
+
+
 
 def h_cable(x1,x2,y,label=''):
     cable(x1,y,x2,y)
@@ -360,6 +408,29 @@ def house(x, y, size, num):
     if size == "m":
         graph.draw_rectangle((x, y), (x + 4, y + 4))
 
+def get_point1():
+    x, y = values['graph']
+    return x, y
+
+def get_point2():
+    a, b = values['graph']
+    return a,b
+
+def draw_point1(x,y,color='red'):
+    point1 = sg.Graph.draw_point(graph,(x, y), size=0.5, color= color)
+    return point1
+
+def draw_point2(x,y,color='blue'):
+    point2 = sg.Graph.draw_point(graph,(x,y),size=0.5,color=color)
+    return point2
+
+def cleanup_2point():
+            x=y=a=b=None
+            current_mode=''
+            graph.delete_figure(point1)
+            graph.delete_figure(point2)
+
+
 #barebones
 
 notify = sg.Text()
@@ -367,7 +438,7 @@ notify2 = sg.Text()
 
 col = [[
         sg.Graph(
-            canvas_size=(856, 1056),
+            canvas_size=(480, 480),
             graph_bottom_left=(0, HEIGHT),
             graph_top_right=(WIDTH, 0),
             background_color="white",
@@ -382,7 +453,7 @@ layout = [
     [
         notify,notify2
     ],
-    [sg.Column(col,scrollable=True,vertical_scroll_only=True,expand_y=True,expand_x=True)
+    [sg.Column(col,expand_x=True,expand_y=True)
     ]
 ]
 
@@ -408,21 +479,42 @@ graph.bind('<Motion>','motion')
 #small loop
 while True:
     event, values = window.read()
-    #notify2.update(event)
+    notify2.update(current_mode)
     if event == sg.WIN_CLOSED:
         break
-    if event.endswith('motion'):
+    """ if event.endswith('motion'):
         winx, winy = window.mouse_location()
-        notify2.update(f'{winx},{winy}')
+        notify2.update(f'{winx},{winy}') """
     if event == 'Escape:27':
                 notify.update('Cancelled')
-                current_mode = ''
+                current_mode = 'select'
     if event == 'i':
         img = popup_get_file('Select image')
         sg.Graph.draw_image(graph,location=(0,0),data=convert_to_bytes(img))
+    if event == 'h':
+        current_mode = 'harrow'
+        notify.update('Please select first arrow point')
+    if event == 'v':
+        current_mode = 'varrow'
+        notify.update('Please select first arrow point')
     if event == 'c':
         current_mode = 'cable'
-        notify.update('Please click first point of line:')
+        notify.update('Please click first point of cable line:')
+    if event == 'o':
+        current_mode = 'offsetline'
+        notify.update('Please click first point of offset line:')
+    if event == 'd':
+        current_mode = 'digbox'
+        notify.update('Please click first point of box: ')
+    if event == 'b':
+        current_mode = 'house'
+        notify.update('Please click upper left corner of building: ')
+    if event == 'r':
+        current_mode = 'road'
+        notify.update('Please click first point of curb line')
+    if event == 'l':
+        current_mode = 'line'
+        notify.update('Please click first point of line')
     if event == 'g':
         if isGrid == False:
             isGrid = not isGrid
@@ -447,29 +539,124 @@ while True:
         current_mode = 'vtext'
         entered_text = popup_get_text('Enter text')
         notify.update('Please click to enter text')
+    if event == '1':
+        current_mode = 'ped'
+        notify.update('Click to place pedestal')
+    if event == '2':
+        current_mode = 'pole'
+        notify.update('Click to place pole')
     if event.endswith('+UP'):
         if current_mode == 'cable':
-            x, y = values['graph']
-            point1 = (x, y)
-            dot1 = sg.Graph.draw_point(graph,(x, y), size=0.5, color='red')
-            notify.update(f'mode:{current_mode}, event = {event} points = {point1}')
-            current_mode='clickedonce'
-        elif current_mode == 'clickedonce':
-            a, b = values['graph']
-            point2 = (a, b)
-            dot2 = sg.Graph.draw_point(graph,(a,b), size=0.5, color='blue')
-            cable(x, y, a, b)
-            x=y=a=b=None
+            x, y = get_point1()
+            point1 = draw_point1(x,y)
+            notify.update('Click second point of line')
+            current_mode='cable2'
+        elif current_mode == 'offsetline':
+            x, y = get_point1()
+            point1 = draw_point1(x,y)
+            notify.update('Click second point of line')
+            current_mode='offsetline2'
+        elif current_mode == 'digbox':
+            x,y = get_point1()
+            point1 = draw_point1(x,y,'green')
+            notify.update('Click second point of line')
+            current_mode = 'digbox2'
+        elif current_mode == 'house':
+            x,y = get_point1()
+            point1 = draw_point1(x,y,'black')
+            notify.update('Click lower right corner of building')
+            current_mode = 'house2'
+        elif current_mode == 'road':
+            x,y = get_point1()
+            point1 = draw_point1(x,y,'purple')
+            notify.update('Click second point of curb')
+            current_mode = 'road2'
+        elif current_mode == 'line':
+            x,y = get_point1()
+            point1 = draw_point1(x,y,'blue')
+            notify.update('Click second point of line')
+            current_mode = 'line2'
+        elif current_mode =='harrow':
+            x,y = get_point1()
+            point1 = draw_point1(x,y,'orange')
+            notify.update('Click second arrow point')
+            current_mode = 'harrow2'
+        elif current_mode == 'varrow':
+            x,y = get_point1()
+            point1 = draw_point1(x,y,'orange')
+            notify.update('Click second arrow point')
+            current_mode = 'varrow2'
+        elif current_mode == 'cable2':
+            a, b = get_point2()
+            point2 = draw_point2(x,y,'red')
+            label = popup_get_text('Label? ')
+            cable(x, y, a, b,label)
+            cleanup_2point()
+        elif current_mode == 'offsetline2':
+            a, b = get_point2()
+            point2 = draw_point2(x,y,'brown')
+            offset_line(x,y,a,b)
+            cleanup_2point()
+            """ x=y=a=b=None
             current_mode=''
-            graph.delete_figure(dot1)
-            graph.delete_figure(dot2)
+            graph.delete_figure(point1)
+            graph.delete_figure(point2) """
+        elif current_mode == 'digbox2':
+            a,b = get_point2()
+            point2 = draw_point2(a,b,'green')
+            digbox(x,y,a,b)
+            cleanup_2point()
+        elif current_mode == 'house2':
+            a,b = get_point2()
+            point2 = draw_point2(a,b,'black')
+            #TODO wrap this
+            sg.Graph.draw_rectangle(graph,(x,y),(a,b),line_color='black')
+            cleanup_2point()
+        elif current_mode == 'road2':
+            a,b = get_point2()
+            point2 = draw_point2(a,b,'purple')
+            road(x,y,a,b)
+            cleanup_2point()
+            current_mode = 'road'
+        elif current_mode == 'line2':
+            a,b = get_point2()
+            point2 = draw_point2(a,b,'blue')
+            line(x,y,a,b)
+            cleanup_2point()
+            current_mode = 'line'
+        elif current_mode == 'harrow2':
+            a,b = get_point2()
+            point2 = draw_point2(a,b,'orange')
+            meas = popup_get_text('Measurement')
+            h_arrow(x,a,y,meas.lower())
+            cleanup_2point()
+        elif current_mode == 'varrow2':
+            a,b = get_point2()
+            point2 = draw_point2(a,b,'orange')
+            meas = popup_get_text('Measurement')
+            v_arrow(x,y,b,meas.lower())
+            cleanup_2point()
         elif current_mode == 'text':
-            x, y = values['graph']
-            hlabel(entered_text, x, y, 11)
+            x, y = get_point1()
+            hlabel(entered_text, x, y, 12)
             x=y=entered_text =None
         elif current_mode == 'vtext':
-            x, y = values['graph']
-            vlabel(entered_text,x,y,11)
+            x, y = get_point1()
+            vlabel(entered_text,x,y,12)
             x = y = entered_text = None
+        elif current_mode == 'ped':
+            x, y = get_point1()
+            ped(x,y)
+            x=y=None
+        elif current_mode == 'pole':
+            x, y = get_point1()
+            pole(x,y)
+            x=y=None
+        elif current_mode == 'select':
+            drag_figures =sg.Graph.get_figures_at_location(graph,values['graph'])
+            for fig in drag_figures:
+                #easy_print(type(fig))
+                graph.TKCanvas.itemconfig(fig,fill='red')
+
 
 window.close()

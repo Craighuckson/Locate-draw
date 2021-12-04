@@ -1,5 +1,7 @@
 import datetime
+from inspect import Attribute
 import PySimpleGUI as sg
+import PIL
 from PIL import ImageGrab, ImageFont
 from PIL import ImageDraw, Image
 import io
@@ -11,22 +13,26 @@ d = datetime.datetime.now()
 
 #CONSTANTS
 RPSIZE = (816,1056)
-TOTALPAGES = (776,27)
+TOTALPAGES = (776,20)
 UNITS = (765,105)
 MFONT = 'Arial 12 normal'
 LFONT = 'Arial 20 normal'
-NBOUNDARY = ((12+243)/2, (229+258)/2)
-SBOUNDARY = ((424+802)/2, (228+260)/2)
-WBOUNDARY = ((12+243)/2, (259+290)/2)
-EBOUNDARY = ((424+802)/2, (258+288)/2)
-DATE = '/'.join([d.strftime(x) for x in ['%Y', '%m', '%d']])
-NAME = 'Craig Huckson'
-NAMECOORDS = (409,967)
-DATECOORDS = (700,973)
+NBOUNDARY = (51,243)
+SBOUNDARY = (449,244)
+WBOUNDARY = (55,276)
+EBOUNDARY = (449,274)
+DATE = str('/'.join([d.strftime(x) for x in ['%Y', '%m', '%d']]))
+NAME = 'CRAIG HUCKSON'
+NAMECOORDS = (340,967)
+LOCATORID = 130003
+LOCATORIDCOORDS = (341,1003)
+DATECOORDS = (620,967)
 MOMTEXT = 'x'
-MOMCOORDS = (39,820)
+MOMCOORDS = (40,810)
 MEMAILTEXT = 'x'
-MEMAILCOORDS = (544,1008)
+MEMAILCOORDS = (544,1002)
+CLEARIMAGECOORDS = (428,536)
+rogclear = {'reg_clear':'rogclear.PNG','ftth':'ftthstamp.PNG','fo_only':'exclusion.PNG'}
 
 #FUNCTIONS
 
@@ -60,34 +66,22 @@ def convert_to_bytes(file_or_bytes, resize=None):
     del img
     return bio.getvalue()
 
-def save_element_as_file(element, filename):
-    """
-    Saves any element as an image file.  Element needs to have an underlyiong Widget available (almost if not all of them do)
-    :param element: The element to save
-    :param filename: The filename to save to. The extension of the filename determines the format (jpg, png, gif, ?)
-    """
-    try:
-        widget = element.Widget
-        box = (widget.winfo_rootx(), widget.winfo_rooty(), widget.winfo_rootx() + widget.winfo_width(), widget.winfo_rooty() + widget.winfo_height())
-        grab = ImageGrab.grab(bbox=box)
-        grab.save(filename)
-    except:
-        print('couldnt save')
-
 lcol = [
-    [sg.Text('Choose form:'),sg.I(k='infile'),sg.FileBrowse()]
+    [sg.Text('Choose form:'),sg.I(k='infile',enable_events=True),sg.FileBrowse()],
     [sg.Text('Total pages: '), sg.Input(s=5,key='tp'),sg.Text('Units: '), 
     sg.Input(size=5,k='lunits')],
-    [sg.Text('North Boundary: '), sg.Input(enable_events=True)],
-    [sg.Text('South Boundary: '), sg.Input(enable_events=True)],
-    [sg.Text('West Boundary: '), sg.Input(enable_events=True)],
-    [sg.Text('East Boundary: '), sg.Input(enable_events=True)],
-    [sg.B('Update',BUTTON_TYPE_READ_FORM)]
+    [sg.Text('North Boundary: '), sg.Input(enable_events=True,key='nb')],
+    [sg.Text('South Boundary: '), sg.Input(enable_events=True,key='sb')],
+    [sg.Text('West Boundary: '), sg.Input(enable_events=True,key='wb')],
+    [sg.Text('East Boundary: '), sg.Input(enable_events=True,key='eb')],
+    [sg.Radio('Marked',group_id='mc',default=True,k='rmarked',enable_events=True), sg.Radio('Clear',group_id='mc', k='rclear',enable_events=True),sg.Text('Clear reason:'),
+     sg.Combo(values=[rogclear['reg_clear'],rogclear['ftth'],rogclear['fo_only']], default_value=rogclear['reg_clear'],enable_events=True, k='clear_reason', visible=False)],
+    [sg.B('Update',BUTTON_TYPE_READ_FORM),sg.Button('Display')]
 ]
 
 rcol = [[sg.Image(size=(640,480),expand_y=True,key='img')]]
 
-layout = [[sg.Column(lcol), sg.Column(rcol)]]
+layout = [[sg.Column(lcol), sg.Column(rcol,scrollable=True,vertical_scroll_only=True,expand_x=True,expand_y=True)]]
 #tp = input('Total pages: ')
 #lunits = input('Units? ')
 #nbound = input('North boundary?')
@@ -102,12 +96,43 @@ while True:
     event, values = window.read()
     if event in (sg.WIN_CLOSED, 'Exit'):
         break
+    # shows stuff in right column
+    if event == 'infile':
+        window['img'].update(data=convert_to_bytes(values['infile']))
+    if event == 'rclear':
+        window['clear_reason'].update(visible=True)
+    elif event == 'rmarked':
+        window['clear_reason'].update(visible=False)
     if event == 'Update':
-        try:
-            out = Image.new('RGB', (856,1056), color='white')
-            fntm = ImageFont.truetype('Arial.ttf',12)
+        #this writes in the dig area and other shiT
+        with Image.open(values['infile']) as out:
+            fntm = ImageFont.truetype('arialbd.ttf',size=12)
+            fntl = ImageFont.truetype('arialbd.ttf',size=16)
             d = ImageDraw.Draw(out)
-            d.text(anchor='mm',xy=())
-        except:
-            pass
+            tdict = {
+            TOTALPAGES:str(values['tp']),
+            UNITS:values['lunits'],
+            NBOUNDARY:values['nb'],
+            SBOUNDARY:values['sb'],
+            WBOUNDARY:values['wb'],
+            EBOUNDARY:values['eb'],
+            NAMECOORDS:NAME,
+            DATECOORDS:str(DATE),
+            MEMAILCOORDS:MEMAILTEXT,
+            LOCATORIDCOORDS:str(LOCATORID)
+                    }
+
+            for k,v in tdict.items():
+                d.text(k, v, fill='black', font=fntm)
+            if 'M' in values['lunits']:
+                d.text(MOMCOORDS,MOMTEXT,fill='black',font=fntm)
+            else:
+                with Image.open(values['clear_reason']) as cr:
+                    out.paste(cr,CLEARIMAGECOORDS)
+            outfile = out.save('file.png')
+        #except AttributeError:
+            #pass
+    if event == 'Display':
+        window['img'].update(data=convert_to_bytes('file.png'))
+
 window.close()
