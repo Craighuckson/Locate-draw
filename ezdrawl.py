@@ -1,12 +1,13 @@
 import base64
 import logging
 import io
-from tkinter.constants import TRUE
+from warnings import filterwarnings
+import pyautogui as pag
 from PIL import ImageGrab
 
 import PIL.Image
 import PySimpleGUI as sg
-from PySimpleGUI.PySimpleGUI import (Window, easy_print, main, popup_error, popup_get_file,
+from PySimpleGUI.PySimpleGUI import (Window, easy_print, main, popup, popup_error, popup_get_file,
                                      popup_get_text)
 
 sg.theme('dark amber')
@@ -41,9 +42,9 @@ def save_element_as_file(element, filename):
     """
     widget = element.Widget
     box = (widget.winfo_rootx(), widget.winfo_rooty(), widget.winfo_rootx() + widget.winfo_width(), widget.winfo_rooty() + widget.winfo_height())
-    grab = ImageGrab.grab(bbox=box)
+    grab = ImageGrab.grab(bbox=box,include_layered_windows=True,)
     grab.save(filename)
-    ImageGrab.grab()
+    ImageGrab.grab(0)
 
 def convert_to_bytes(file_or_bytes, resize=None):
     '''
@@ -261,6 +262,19 @@ def pole(x, y):
     except:
         logerror()
 
+def arc(x1,y1,x2,y2):
+    '''
+    draw from horizontal section to vertical!
+    '''
+    if x2 > x1 and y2 > y1:
+        sg.Graph.draw_arc(graph,(x1-1,y1-1),(x2+1,y2+1),90,0,style='arc')
+    elif x2 > x1 and y2 < y1:
+        sg.Graph.draw_arc(graph,(x1-abs(x2-x1),y1-(2*abs(y2-y1))),(x2-x1,y2),-90,0,style='arc')
+    elif x2 < x1 and y2 > y1:
+        sg.Graph.draw_arc(graph,(x1,y1),(x2,y2),90,180,style='arc')
+    elif x2 < x1 and y2 < y1:
+        sg.Graph.draw_arc(graph,(x1,y1),(x1,y2),-90,180,style='arc')
+    
 
 def transformer(x, y):
     try:
@@ -284,7 +298,10 @@ def vault(util, x, y):
     )
     v2 = graph.draw_text(vlbl, (x, y), font="Arial 3 normal")
     # prfloat(v2)
-    graph.bring_figure_to_front("v2")
+    graph.bring_figure_to_front(v2)
+
+    for x in v1,v2:
+        group('vault',x)
 
 
 def hlabel(msg, x, y, size):
@@ -314,6 +331,13 @@ def vlabelm(msg, x, y, size):
         )
     except:
         logerror()
+
+def item_stamp(x,y):
+    try:
+        sg.Graph.draw_image(graph,location=(x-0.75,y-0.75),data=convert_to_bytes('Drilling.bmp'))
+    except:
+        logerror()
+
 
 def ped(x,y):
     try:
@@ -537,7 +561,14 @@ def located_area(x, y):
 
 def house(x, y, size, num):
     if size == "m":
-        graph.draw_rectangle((x, y), (x + 6, y + 6),line_color='black')
+        bldng = sg.Graph.draw_rectangle(graph,(x,y),(x+6,y+6),line_color='black',fill_color='white')
+        hnumber = hlabel(num,x+3,y+3,16)
+        nbl = hlabel('NBL',x+3,y-1,10)
+        sbl = hlabel('SBL',x+3,y+7,10)
+        wbl = vlabel('WBL',x-1,y+3,10)
+        ebl = vlabel('EBL',x+7,y+3,10)
+        for x in bldng,hnumber,nbl,sbl,wbl,ebl:
+            group('house_m','x')
     elif size == 'l':
         bldng = sg.Graph.draw_rectangle(graph,(x,y),(x+8,y+8),line_color='black',fill_color='white')
         hnumber = hlabel(num,x+4,y+4,16)
@@ -547,6 +578,27 @@ def house(x, y, size, num):
         ebl = vlabel('EBL',x+9,y+4,10)
         for x in bldng,hnumber,nbl,sbl,wbl,ebl:
             group('house_l','x')
+    elif size == 's':
+        bldng = sg.Graph.draw_rectangle(graph,(x,y),(x+4,y+4),line_color='black',fill_color='white')
+        hnumber = hlabel(num,x+2,y+2,16)
+        nbl = hlabel('NBL',x+2,y-1,10)
+        sbl = hlabel('SBL',x+2,y+5,10)
+        wbl = vlabel('WBL',x-1,y+2,10)
+        ebl = vlabel('EBL',x+5,y+2,10)
+        for x in bldng,hnumber,nbl,sbl,wbl,ebl:
+            group('house_s','x')
+
+def centre_pole():
+    pole(15,15)
+
+def centre_ped():
+    ped(15,15)
+
+def centre_tx():
+    transformer(15,15)
+
+def centre_stamp():
+    item_stamp(15,15)
 
 def get_point1():
     x, y = values['graph']
@@ -575,6 +627,14 @@ def cleanup_2point():
             current_mode=''
             graph.delete_figure(point1)
             graph.delete_figure(point2)
+
+def edit_text():
+    try:
+        string = popup_get_text('Enter new text')
+        TK.itemconfig('current',text=string)
+    except:
+        popup('Not a text object')
+        pass
 
 
 #callback routines
@@ -617,16 +677,74 @@ def short_gas():
         easy_print(logging.exception('err'))
         pass
 
+def long_gas():
+    try:
+        dir = popup_get_text('N, S, E, W?')
+        hnum = popup_get_text('House number?')
+        street = popup_get_text('Street name?')
+        if dir.lower() == 'n':
+            h_road(2,28,16)
+            h_road(2,28,22)
+            hlabel('NRE',27,15,11)
+            hlabel('SRE',27,21,11)
+            digbox(4,0,26,29)
+            house(12,3,'m',hnum)
+            hlabel(street,15,19,20)
+            pass
+        elif dir.lower() =='s':
+            h_road(2,28,8)
+            h_road(2,28,14)
+            hlabel('NRE',27,7,11)
+            hlabel('SRE',27,15,11)
+            digbox(4,1,26,30)
+            house(11,20,'m',hnum)
+            hlabel(street,15,11,20)
+        elif dir.lower() =='e':
+            pass
+        elif dir.lower() == 'w':
+            v_road(16,2,28)
+            v_road(22,2,28)
+            vlabel('WCL',15,3,11)
+            vlabel('ECL',23,3,11)
+            digbox(0,4,29,26)
+            house(2,11,'m',hnum)
+            vlabel(street,19,15,20)
+        else:
+            easy_print(logging.exception('err'))
+    except:
+        easy_print(logging.exception('err'))
+        pass
+
+def radius_sketch():
+    feature = ['ped','pole','tree','transformer','waterbox']
+    user_type = popup_get_text('Object type ?(ped,pole,tree,transformer,waterbox')
+    radius = int(popup_get_text('Radius in m?(int)'))
+    if user_type not in feature:
+        popup_get_text('Not a valid entry')
+        return
+    radiusdict ={
+                    'ped' : centre_ped,
+                    'pole': centre_pole,
+                    'tree': centre_stamp,
+                    'transformer': centre_tx,
+                    'waterbox': centre_stamp,
+                }
+    radiusdict[user_type]()
+    if radius < 3:
+        digbox(13,13,17,17)
+    else:
+        digbox(10,10,20,20)
 #barebones
 
 notify = sg.Text()
 notify2 = sg.Text()
+notify3 = sg.Text()
 
 menu_def = [
-            [
-                'File', 'Save',['Size',['24','30',]]
-            ],
+            ['File', ['Save',]],
+            ['Size',['24','30']]
 ]
+
 lcol = [
     [
         sg.Text('Curb: '), sg.DropDown(('N','S','E','W'),enable_events=True,k='curbddl'),
@@ -639,7 +757,7 @@ lcol = [
 
 col = [
     [   
-        notify, notify2
+        notify, notify2, notify3
     ],
     [
         sg.Graph(
@@ -655,7 +773,8 @@ col = [
         ),
     ],
     [
-        sg.Button('Short Gas',enable_events=True)
+        sg.Button('Short Gas',enable_events=True),sg.Button('Long Gas',enable_events=True),
+        sg.Button('Radius',enable_events=True)
     ],
     ]
 
@@ -663,7 +782,7 @@ layout = [
     [
         #sg.Column(lcol),
         sg.Menu(menu_def),
-        sg.Column(col,expand_x=True,expand_y=True)
+        sg.Column(col)
     ]
 ]
 
@@ -681,28 +800,29 @@ graph = window["graph"]
 TK = graph.TKCanvas
 # DRAW HERE
 
-
 mode = {0:'select', 1:'get points', 2:'draw'}
 current_mode = 'regular'
 x = y = a = b = None
 isGrid = False
 graph.bind('<B1-Motion>','drag')
 graph.bind('<Motion>','motion')
-#main()
+selected = []
+dragging = False
+start_point = end_point = prior_rect = None
+main()
 #small loop
 while True:
     event, values = window.read()
     notify2.update(event)
+    notify3.update(event)
     if event == sg.WIN_CLOSED:
         break
 
     #change drawing size
 
     if event == 'Save':
-        _savefile = popup_get_file('Save image as...',default_extension='*.png',save_as=True)
-        window.bring_to_front()
-        save_element_as_file(window['graph'],_savefile)
-        
+        _savefile = popup_get_file('Save image as...',default_path='C:\\Users\\Cr\\Documents\\',default_extension='*.png',save_as=True)
+        save_element_as_file(graph,_savefile)
 
     if event == '24':
         sg.Graph.set_size(graph,(480,480))
@@ -718,6 +838,10 @@ while True:
 
     if event == 'Short Gas':
         short_gas()
+    elif event == 'Long Gas':
+        long_gas()
+    elif event == 'Radius':
+        radius_sketch()
     #left hand stuff
 
     if event == 'curbddl':
@@ -755,21 +879,39 @@ while True:
         notify.update('Please click location to move to')
         current_mode='move'
 
+
     if event.endswith('motion'):
-        # try:
-        #     if l1:
-        #         graph.delete_figure(l1)
-        #     if l2:
-        #         graph.delete_figure(l2)
-        # except NameError:
-        #     pass
-        # x,y = values['graph']
         notify2.update(values['graph'])
-        # l1 = sg.Graph.draw_line(graph,(x,0),(x,HEIGHT))
-        # l2 = sg.Graph.draw_line(graph,(0,y),(WIDTH,y))
-        # sg.Graph.relocate_figure(graph,l1,x,y)
-        # sg.Graph.relocate_figure(graph,l2,x,y)
-        # graph.update()
+        notify3.update(TK.find_withtag('current'))
+    
+    if event.endswith('motion') and current_mode == 'move':
+        try:
+            for item in selected:
+                TK.itemconfig(item,state='disabled')
+                sg.Graph.relocate_figure(graph,item,values['graph'][0],values['graph'][1])
+                TK.itemconfig(item,state='normal')
+        except IndexError:
+            pass
+
+    if event == 'graph' and current_mode == 'select':
+        x,y = values['graph']
+        if not dragging:
+            start_point = (x,y)
+            dragging = True
+        else:
+            end_point = (x,y)
+        if prior_rect:
+            graph.delete_figure(prior_rect)
+    if event == 'graphdrag' and dragging == True:
+        try:
+            x,y = values['graph']
+            end_point = (x,y)
+            graph.delete_figure(prior_rect)
+            prior_rect = sg.Graph.draw_rectangle(graph,start_point,end_point,line_color='blue',line_width=1)
+            TK.coords(prior_rect,start_point[0]*20,start_point[1]*20,end_point[0]*20,end_point[1]*20)
+        except:
+            pass
+
 
     # if event.endswith('drag'):
     #     try:
@@ -784,14 +926,26 @@ while True:
     #     graph.update()
     if event == 'Escape:27':
         notify.update('Cancelled')
+        if selected is not None:
+            for item in selected:
+                if TK.type(item) == 'rectangle' or TK.type(item) == 'ellipse':
+                    TK.itemconfig(item,fill='white',outline='black')
+                elif TK.type(item) == 'line' or TK.type(item) == 'text' or TK.type(item) =='polygon':
+                    TK.itemconfig(item,fill='black')
+                selected.remove(item)
         #graph.delete_figure(bbr)
 
+    if event == 'F2:113':
+        edit_text()
     if event == 's':
         current_mode = 'select'
         notify.update('Select figure')
     if event == 'i':
         img = popup_get_file('Select image')
         sg.Graph.draw_image(graph,location=(0,0),data=convert_to_bytes(img))
+    if event == 'a':
+        current_mode = 'arc'
+        notify.update('Please select first arc point')
     if event == 'h':
         current_mode = 'harrow'
         notify.update('Please select first arrow point')
@@ -808,8 +962,11 @@ while True:
         current_mode = 'digbox'
         notify.update('Please click first point of box: ')
     if event == 'b':
-        current_mode = 'house'
+        current_mode = 'building'
         notify.update('Please click upper left corner of building: ')
+    if event == 'B':
+        current_mode = 'house'
+        notify.update('Please click upper left corner of house')
     if event == 'r':
         current_mode = 'road'
         notify.update('Please click first point of curb line')
@@ -832,10 +989,9 @@ while True:
             graph.delete_figure(ids[-1])
     if event == 'w':
         wipe()
-    if event == 'x' and current_mode == 'chosen':
-        if TK.itemcget(fig,'tag') is not None:
-            graph.delete_figure(TK.itemcget(fig,'tag'))
-        graph.delete_figure(fig)
+    if event == 'x':
+        if TK.find_withtag('current') is not None:
+            graph.delete_figure(TK.find_withtag('current'))
     if event == 't':
         current_mode = 'text'
         entered_text = popup_get_text('Enter text')
@@ -844,13 +1000,30 @@ while True:
         current_mode = 'vtext'
         entered_text = popup_get_text('Enter text')
         notify.update('Please click to enter text')
+    if event == 'e':
+        current_mode = 'street text'
+        entered_text = popup_get_text('Enter street name')
+        notify.update('Please click to enter text')
+    if event == 'E':
+        current_mode = 'street vtext'
+        entered_text = popup_get_text('Enter street name')
+        notify.update('Please click to enter text')
     if event == '1':
         current_mode = 'ped'
         notify.update('Click to place pedestal')
     if event == '2':
         current_mode = 'pole'
         notify.update('Click to place pole')
+    if event == '3':
+        current_mode = 'itemstamp'
+        notify.update('Click to place stamp')
+    if event == '4':
+        current_mode = 'transformer'
+        notify.update('Click to place transformer')
     if event.endswith('+UP'):
+        graph.delete_figure(prior_rect)
+        dragging = False
+        start_point = end_point = prior_rect = None
         if current_mode == 'cable':
             x, y = get_point1()
             point1 = draw_point1(x,y)
@@ -868,9 +1041,18 @@ while True:
             current_mode = 'digbox2'
         elif current_mode == 'house':
             x,y = get_point1()
+            hn = popup_get_text('House number:?')
+            hs = popup_get_text('Size (s/m/l):')
+            try:
+                house(x,y,hs,hn)
+            except:
+                logging.exception('ERROR')
+
+        elif current_mode == 'building':
+            x,y = get_point1()
             point1 = draw_point1(x,y,'black')
             notify.update('Click lower right corner of building')
-            current_mode = 'house2'
+            current_mode = 'building2'
         elif current_mode == 'road':
             x,y = get_point1()
             point1 = draw_point1(x,y,'purple')
@@ -881,6 +1063,11 @@ while True:
             point1 = draw_point1(x,y,'blue')
             notify.update('Click second point of line')
             current_mode = 'line2'
+        elif current_mode == 'arc':
+            x,y = get_point1()
+            point1 = draw_point1(x,y,'purple')
+            notify.update('Click second arc point')
+            current_mode = 'arc2'
         elif current_mode =='harrow':
             x,y = get_point1()
             point1 = draw_point1(x,y,'orange')
@@ -911,7 +1098,7 @@ while True:
             point2 = draw_point2(a,b,'green')
             digbox(x,y,a,b)
             cleanup_2point()
-        elif current_mode == 'house2':
+        elif current_mode == 'building2':
             a,b = get_point2()
             point2 = draw_point2(a,b,'black')
             #TODO wrap this
@@ -929,6 +1116,12 @@ while True:
             line(x,y,a,b)
             cleanup_2point()
             current_mode = 'line'
+        elif current_mode == 'arc2':
+            a,b = get_point2()
+            point2 = draw_point2(a,b,'purple')
+            arc(x,y,a,b)
+            cleanup_2point()
+            current_mode = 'arc'
         elif current_mode == 'harrow2':
             a,b = get_point2()
             point2 = draw_point2(a,b,'orange')
@@ -945,6 +1138,14 @@ while True:
             x, y = get_point1()
             hlabel(entered_text, x, y, 12)
             x=y=entered_text =None
+        elif current_mode == 'street text':
+            x,y = get_point1()
+            hlabel(entered_text,x,y,20)
+            x=y=entered_text=None
+        elif current_mode == 'street vtext':
+            x,y = get_point1()
+            vlabel(entered_text,x,y,20)
+            x=y=entered_text=None
         elif current_mode == 'vtext':
             x, y = get_point1()
             vlabel(entered_text,x,y,12)
@@ -957,31 +1158,43 @@ while True:
             x, y = get_point1()
             pole(x,y)
             x=y=None
+        elif current_mode == 'itemstamp':
+            x,y = get_point1()
+            item_stamp(x,y)
+            x=y=None
+        elif current_mode == 'transformer':
+            x,y = get_point1()
+            transformer(x,y)
+            x=y=None
         elif current_mode == 'select':
-            drag_figures =sg.Graph.get_figures_at_location(graph,values['graph'])
-            if drag_figures:
-                for fig in drag_figures:
-                    if TK.itemcget(fig,'tag') == 'grid':
-                        pass
-                    else:
+            fig = TK.find_withtag('current')
+            # drag_figures =sg.Graph.get_figures_at_location(graph,values['graph'])
+            # if drag_figures:
+            #     for fig in drag_figures:
+            #         if TK.itemcget(fig,'tag') == 'grid':
+            #             pass
+            #         else:
                     #easy_print(graph.TKCanvas.type(fig))
                 #easy_print(type(fig))
                         #bb = sg.Graph.get_bounding_box(graph,fig)
                         #bbr= sg.Graph.draw_rectangle(graph,(bb[0]),bb[1], line_color='blue')
-                        #easy_print(TK.itemconfig(fig))
-                        notify2.update(TK.type(fig) + ',' +TK.itemcget(fig,'tag'))
-                        current_mode = 'chosen'
+                        #notify2.update(TK.type(fig) + ',' +TK.itemcget(fig,'tag'))
+            TK.itemconfig(fig,fill='red')
+            selected.append(fig)
+            current_mode = 'chosen'
         elif current_mode=='move':
             try:
                 x,y=get_point1()
-                if TK.itemcget(fig,'tag') == 'arrow1':
-                    graph.relocate_figure('arrow1',x,y)
-                elif TK.itemcget(fig,'tag') == 'arrow2':
-                    graph.relocate_figure('arrow2',x,y)
-                elif TK.itemcget(fig,'tag') == 'cable':
-                    graph.relocate_figure('cable',x,y)
-                else:
-                    graph.relocate_figure(fig,x,y)
+                for item in selected:
+                    graph.relocate_figure(item,x,y)
+                # if TK.itemcget(fig,'tag') == 'arrow1':
+                #     graph.relocate_figure('arrow1',x,y)
+                # elif TK.itemcget(fig,'tag') == 'arrow2':
+                #     graph.relocate_figure('arrow2',x,y)
+                # elif TK.itemcget(fig,'tag') == 'cable':
+                #     graph.relocate_figure('cable',x,y)
+                # else:
+                #     graph.relocate_figure(fig,x,y)
                 #sg.Graph.delete_figure(bbr)
                 #TK.itemconfig(fig,fill='black')
                 x=y=None

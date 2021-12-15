@@ -1,7 +1,7 @@
 # TODO - MAKE SWITH FOR DIFFERENT FORMS BELL PRIM BELL AUX ROGERS PRIM AND AUX
 # TODO - finish update button handling for bell primary and test
 
-
+import shutil
 import datetime
 import PySimpleGUI as sg
 import PIL
@@ -10,7 +10,7 @@ from PIL import ImageDraw, Image
 import io
 import base64
 
-from PySimpleGUI.PySimpleGUI import BUTTON_TYPE_READ_FORM, WIN_CLOSED
+from PySimpleGUI.PySimpleGUI import BUTTON_TYPE_READ_FORM, WIN_CLOSED, popup
 
 d = datetime.datetime.now()
 
@@ -53,17 +53,12 @@ rogclear = {
 }
 
 bell_stickers = {
-    "bridge_f": "bsticker bridge.jpg",
-    "bridge_xy": (401, 497),
-    "priority_f": "bsticker priority.jpg",
-    "priority_xy": (412, 611),
-    "cablesmbinconduit_f": "bsticker cables mb in conduit.jpg",
-    "empty_conduit_f": "bsticker empty conduit.jpg",
-    "empty_conduit_xy": (157, 740),
-    "hand_dig_f": "bsticker hand dig.jpg",
-    "hand_dig_xy": (648, 722),
-    "future_use_f": "bsticker future use.jpg",
-    "future_use_xy": (614, 856),
+    "bridge": {"file": "bsticker bridge.jpg", "coords": (227, 452)},
+    "priority": {"file": "bsticker priority.jpg", "coords": (236, 567)},
+    "cabcon": {"file": "bsticker cables mb in conduit.jpg", "coords": (22, 703)},
+    "empty": {"file": "bsticker empty conduit.jpg", "coords": (30, 813)},
+    "handdig": {"file": "bsticker hand dig.jpg", "coords": (480, 686)},
+    "futureuse": {"file": "bsticker future use.jpg", "coords": (447, 808)},
 }
 
 # FUNCTIONS
@@ -102,6 +97,22 @@ def convert_to_bytes(file_or_bytes, resize=None):
     return bio.getvalue()
 
 
+def move_files(form, filename):
+    formdict = {
+        "rp": "rpfile.png",
+        "bp": "bpfile.png",
+        "ra": "rafile.png",
+        "ba": "bafile.png",
+    }
+    for k,v in formdict.items():
+        if k == form:
+            shutil.copy(v, f"C:\\Users\\Cr\\Documents\\{filename}")
+    move_file_notification(filename)
+
+def move_file_notification(filename):
+    popup(f'File saved to C:\\Users\\Cr\Documents\\{filename}')
+
+
 # LAYOUT
 
 rp_tab = [
@@ -129,7 +140,17 @@ rp_tab = [
             visible=False,
         ),
     ],
-    [sg.B("Update", BUTTON_TYPE_READ_FORM,k='rpupdate'), sg.Button("Display")],
+    [sg.Text("Insert Sketch:"), sg.I(k="rp_sketch"), sg.FileBrowse()],
+    [
+        sg.B("Update", BUTTON_TYPE_READ_FORM, k="rpupdate"),
+        sg.Button("Display", k="rp-display"),
+    ],
+    [
+        sg.Text("Save file name"),
+        sg.I(k="rpsavefile"),
+        sg.FileSaveAs(initial_folder="C:\\Users\\Cr\\Documents\\"),
+        sg.Button("Copy to Docs", k="rpfilemove"),
+    ],
 ]
 
 ra_tab = [[sg.Text("todo")]]
@@ -141,22 +162,33 @@ bp_tab = [
         sg.Text("Units: "),
         sg.Input(size=5, k="blunits"),
     ],
-    [sg.Text('Stickers:')],
-    [sg.Checkbox('Bridge',enable_events=True,k='bridge')], 
-    [sg.Checkbox('Priority',enable_events=True,k='priority')],
-    [sg.Checkbox('Cables MB In Conduit',enable_events=True,k='cabcon')],
-    [sg.Checkbox('Hand Dig Only',enable_events=True,k='handdig')],
-    [sg.Checkbox('Empty Conduits',enable_events=True,k='empty')],
-    [sg.Checkbox('Future Use',enable_events=True,k='futureuse')],
-    [sg.B("Update", BUTTON_TYPE_READ_FORM,k='bpupdate'), sg.Button("Display")],
+    [
+        sg.Checkbox("Cable", enable_events=True, k="cable"),
+        sg.Checkbox("Conduit", enable_events=True, k="conduit"),
+    ],
+    [sg.Text("Stickers:")],
+    [sg.Checkbox("Bridge", enable_events=True, k="bridge")],
+    [sg.Checkbox("Priority", enable_events=True, k="priority")],
+    [sg.Checkbox("Cables MB In Conduit", enable_events=True, k="cabcon")],
+    [sg.Checkbox("Hand Dig Only", enable_events=True, k="handdig")],
+    [sg.Checkbox("Empty Conduits", enable_events=True, k="empty")],
+    [sg.Checkbox("Future Use", enable_events=True, k="futureuse")],
+    [
+        sg.B("Update", BUTTON_TYPE_READ_FORM, k="bpupdate"),
+        sg.Button("Display", k="bp-display"),
+    ],
+    [
+        sg.Text("Save file name"),
+        sg.I(k="bpsavefile"),
+        sg.FileSaveAs(initial_folder="C:\\Users\\Cr\\Documents\\"),
+        sg.Button("Copy to Docs", k="bpfilemove"),
+    ],
 ]
 
 ba_tab = [[sg.Text("todo")]]
 
 lcol = [
-    [
-        sg.Text("Choose form:"), sg.I(k="infile", enable_events=True), sg.FileBrowse()
-    ],
+    [sg.Text("Choose form:"), sg.I(k="infile", enable_events=True), sg.FileBrowse()],
     [
         sg.TabGroup(
             [
@@ -168,7 +200,8 @@ lcol = [
                 ]
             ]
         )
-    ]
+    ],
+    
 ]
 rcol = [[sg.Image(size=(640, 480), expand_y=True, key="img")]]
 
@@ -193,7 +226,11 @@ layout = [
 # clearmsg = input('Clear message? ')
 
 window = sg.Window(
-    "Locate form filler", layout, resizable=True, grab_anywhere=True, finalize=True
+    "Locate form filler",
+    layout,
+    resizable=True,
+    grab_anywhere=True,
+    finalize=True,
 )
 
 while True:
@@ -228,32 +265,58 @@ while True:
 
             for k, v in rp_dict.items():
                 d.text(k, v, fill="black", font=fntm)
+
             if "M" in values["lunits"]:
                 d.text(RP_MOMCOORDS, RP_MOMTEXT, fill="black", font=fntm)
             else:
                 with Image.open(values["clear_reason"]) as cr:
                     out.paste(cr, RP_CLEARIMAGECOORDS)
-            outfile = out.save("file.png")
+
+            if values["rp_sketch"]:
+                with Image.open(values["rp_sketch"]) as skt:
+                    rskt = skt.resize(
+                        (718 - 142, 866 - 310),
+                    )
+                    out.paste(rskt, (142, 310))
+            outfile = out.save("rpfile.png")
         # except AttributeError:
         # pass
 
-    if event == 'bpupdate':
+    if event == "bpupdate":
         with Image.open(values["infile"]) as out:
             fntm = ImageFont.truetype("arialbd.ttf", size=12)
             fntl = ImageFont.truetype("arialbd.ttf", size=16)
             d = ImageDraw.Draw(out)
             bp_dict = {
-            BP_TOTALPAGES:str(values['bptp']),
-            BP_UNITS:values['blunits'],
-            BP_NAMECOORDS: NAME,
-            BP_DATECOORDS: str(DATE),
-            BP_GUIDELINES:BP_TEXT,
+                BP_TOTALPAGES: str(values["bptp"]),
+                BP_UNITS: values["blunits"],
+                BP_NAMECOORDS: NAME,
+                BP_DATECOORDS: str(DATE),
+                BP_GUIDELINES: BP_TEXT,
+            }
+        if values["cable"]:
+            d.text(BP_CABLE, BP_TEXT, fill="black", font=fntm)
+        if values["conduit"]:
+            d.text(BP_CONDUIT, BP_TEXT, fill="black", font=fntm)
+        if values["cable"] == True or values["conduit"] == True:
+            d.text(BP_PAINT, BP_TEXT, fill="black", font=fntm)
+        for k, v in bp_dict.items():
+            d.text(k, v, fill="black", font=fntm)
+        for item in bell_stickers:
+            if values[item] == True:
+                with Image.open(bell_stickers[item]["file"]) as sf:
+                    out.paste(sf, (bell_stickers[item]["coords"]))
 
-        }
-        for k,v in bp_dict.items():
-            d.text(k,v,)
+        outfile = out.save("bpfile.png")
 
-    if event == "Display":
-        window["img"].update(data=convert_to_bytes("file.png"))
+    if event == "rp-display":
+        window["img"].update(data=convert_to_bytes("rpfile.png"))
+    elif event == "bp-display":
+        window["img"].update(data=convert_to_bytes("bpfile.png"))
+
+    if event == 'rpfilemove':
+        move_files('rp',values['rpsavefile'])
+    elif event == "bpfilemove":
+        move_files('bp',values['bpsavefile'])
 
 window.close()
