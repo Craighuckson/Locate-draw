@@ -28,7 +28,6 @@ ESTREET = [ECURB[0]/2, HEIGHT/2]
 
 pointlist = []
 
-#classes
 
 # WRAPPER FUNCTIONS
 
@@ -165,9 +164,7 @@ def rarrow(x1,y1,x2,y2):
         elif x1 == x2 and y1 > y2:
             arrow1 = sg.Graph.draw_line(graph,(x1,y1),(x1,y1+2))
             arrow2 = sg.Graph.draw_line(graph,(x2,y2),(x2,y2-2))
-            vlabelm(meas,x1,y1+4,11)   
-        else:
-            popup('Cant do this')    
+            vlabelm(meas,x1,y1+4,11)       
         #diagonal ?
     #elif x1 != x2 and y1 != y2:
         #arrow1 = sg.Graph.draw_line(graph,(x1,y1),(x1-(x2-x1),y1-(y2-y1)))
@@ -295,36 +292,20 @@ def pole(x, y):
     except:
         logerror()
 
-def arc(x1,y1,x2,y2,line_type=None):
+def arc(x1,y1,x2,y2):
     '''
-    Draws an arc from a horizontal plane to vertical
-    (x1,y1) - horizontal starting point
-    (x2,y2) - vertical starting point
-
-    line_type -default is thin line, accepts 'road' or 'cable'
+    draw from horizontal section to vertical!
     '''
     if x2 > x1 and y2 > y1:
-        #down and right
-        id = sg.Graph.draw_arc(graph,(x1 - (x2-x1),y1),(x2,y2+(y2-y1)),-90,90,style='arc')
+        sg.Graph.draw_arc(graph,(x1-1,y1-1),(x2+1,y2+1),90,0,style='arc')
     elif x2 > x1 and y2 < y1:
-        #up and to the right
-        id = sg.Graph.draw_arc(graph,(x1 - (x2-x1),y2 - (y1-y2)),(x2,y1),90,270,style='arc')
+        sg.Graph.draw_arc(graph,(x1-abs(x2-x1),y1-(2*abs(y2-y1))),(x2-x1,y2),-90,0,style='arc')
     elif x2 < x1 and y2 > y1:
-        #down and to the left
-        id = sg.Graph.draw_arc(graph,(x2,y1),(x1 + (x1-x2), y2 + (y2-y1)),90,90,style='arc')
+        sg.Graph.draw_arc(graph,(x1,y1),(x2,y2),90,180,style='arc')
     elif x2 < x1 and y2 < y1:
-        #up and to the left
-        id = sg.Graph.draw_arc(graph,(x2,y2 - (y1-y2)),(x1 + (x1-x2),y1),-90,270,style='arc')
+        sg.Graph.draw_arc(graph,(x1,y1),(x1,y2),-90,180,style='arc')
+    
 
-    if line_type == 'road':
-        TK.itemconfig(id, width=3)
-        group('road',id)
-    elif line_type == 'cable':
-        TK.itemconfig(id,width=2,dash= (10,5))
-        group('cable',id)
-    
-    return id
-    
 def transformer(x, y):
     try:
         txr = graph.draw_rectangle((x - 0.5, y - 0.5), (x + 0.5, y + 0.5), line_color="black")
@@ -337,21 +318,15 @@ def transformer(x, y):
         logerror()
 
 
-def vault(x, y, utility=None):
-    '''
-    Draws vault at position x,y
-
-    utility : 'b' gives label 'FTG', otherwise label is 'HW'
-    '''
-
-    if utility == "b":
-        vault_label = "FTG"
+def vault(util, x, y):
+    if util.lower() == "b":
+        vlbl = "FTG"
     else:
-        vault_label = "HW"
+        vlbl = "HW"
     v1 = graph.draw_rectangle(
         (x - 0.7, y - 0.4), (x + 0.7, y + 0.4), line_color="black", fill_color=None
     )
-    v2 = graph.draw_text(vault_label, (x, y), font="Arial 7 bold")
+    v2 = graph.draw_text(vlbl, (x, y), font="Arial 3 normal")
     # prfloat(v2)
     graph.bring_figure_to_front(v2)
 
@@ -403,46 +378,40 @@ def ped(x,y):
         pedsq = sg.Graph.draw_rectangle(
             graph,(x-0.4,y-0.4), (x+0.4,y+0.4), line_color='black',fill_color='white',line_width=1
         )
+        group('ped',pedsq)
         pedline1 = sg.Graph.draw_line(graph,(x-0.4,y-0.4), (x+0.4,y+0.4))
+        group('ped',pedline1)
         pedline2 = sg.Graph.draw_line(graph,(x-0.4,y+0.4),(x+0.4,y-0.4))
-        for item in [pedsq,pedline1,pedline2]:
-            group('ped',item)
+        group('ped',pedline2)
+        TK.itemconfig('ped',activefill='red')
         
     except:
         logerror()
 
-def ped_1arm(pedx,pedy,intercept_x, intercept_y):
+def ped_1arm(x,y,direction='',distance=''):
     '''
-    Creates a ped with cable stub
+    Creates a ped with stub (with or without measurement)
 
         Parameters:
-            pedx : x coord
-            pedy: y coord
-            intercept_x : x coord of where stub meets connecting cable
-            intercept_y :y coords of where stub meets connecting cable
+            x : x coord
+            y: y coord
+            direction(str): N, S, E or W
+            distance: how many squares from ped
 
         Returns:
             None
     '''
-    cable(pedx,pedy,intercept_x,intercept_y)
-    ped(pedx,pedy)
-
-def pole_1arm(polex,poley,intercept_x, intercept_y):
-    '''
-    Creates a pole with cable stub
-
-        Parameters:
-            polex : x coord
-            poley: y coord
-            intercept_x : x coord of where stub meets connecting cable
-            intercept_y :y coords of where stub meets connecting cable
-
-        Returns:
-            None
-    '''
-    cable(polex,poley,intercept_x,intercept_y)
-    pole(polex,poley)
-
+    ped(x,y)
+    if direction.lower() == 'n':
+        cable(x,y-0.4,x,y-distance)
+    elif direction.lower() =='s':
+        cable(x,y+0.4,x,y+distance)
+    elif direction.lower() == 'w':
+        cable(x-0.4,y,x-distance,y)       
+    elif direction.lower() == 'e':
+        cable(x+0.4,y,x+distance,y)
+    else:
+        pass
 
 def ped_multiarm(x,y,direction,meas1,meas2,distance,third_arm=False):
     '''
@@ -484,45 +453,9 @@ def ped_multiarm(x,y,direction,meas1,meas2,distance,third_arm=False):
         if third_arm:
             h_cable(x-distance,x-ped_offset,y)
         #upper measurement
-        v_arrow(x-arm_offset,y-arm_offset,y,meas1,'8u')
+        v_arrow(x-arm_offset,y-arm_offset,y,meas1,'u')
         #lower measurement
         v_arrow(x-arm_offset2,y,y+arm_offset,meas2,'d')   
-
-def set_landbase(dir,edge_type='CL'):
-    #draws a landbase
-    if dir.lower() == 'n':
-        h_road(2,WIDTH-2,23)
-        hlabel(f'N{edge_type}',27,24,12)
-    elif dir.lower() == 's':
-        h_road(2,WIDTH-2, 7)
-        hlabel(f'S{edge_type}',27,8,12)
-    elif dir.lower() == 'e':
-        v_road(7,2,HEIGHT-2)
-        vlabel(f'E{edge_type}',8,3,12)
-    elif dir.lower() == 'w':
-        v_road(23,2,HEIGHT-2)
-        vlabel(f'W{edge_type}',22,3,12)
-    landbase = dir
-    return landbase
-
-def set_street_name(street,landbase):
-    #enters street name on sketch
-    if landbase == 'n':
-        hlabel(street,15,27,20)
-    elif landbase == 's':
-        hlabel(street,15,3,20)
-    elif landbase == 'e':
-        vlabel(street,3,15,20)
-    elif landbase == 'w':
-        vlabel(street,27,15,20)
-
-def get_digbox():
-    pass
-
-def set_digbox():
-    pass
-
-
 
 def road(x1,y1,x2,y2):
     try:
@@ -740,20 +673,6 @@ def edit_text():
 def get_input(prompt):
     return popup_get_text(prompt)
 
-def read_from_template(file):
-    if file is not None:
-        try:
-            with open(file) as f:
-                flist = f.readlines()
-                lb_strlist = flist[0].split()
-                dir = lb_strlist[0]
-                edge_type = lb_strlist[1].strip()
-                landbase = set_landbase(dir,edge_type)
-                set_street_name(flist[1], landbase)
-        except:
-            logging.exception('error')
-            popup('There was an error in template file')
-
 
 #callback routines
 
@@ -762,21 +681,31 @@ def short_gas():
         dir = popup_get_text('N, S, E, W?')
         hnum = popup_get_text('House number?')
         street = popup_get_text('Street name?')
-        landbase = set_landbase(dir)
-        set_street_name(street,landbase)
         if dir.lower() == 'n':
+            h_road(2,WIDTH-2,23)
+            hlabel('NCL',27,24,12)
             digbox(7,1,23,27)
             house(11,4,'l',hnum)
+            hlabel(street,15,27,20)
         elif dir.lower() == 's':
+            h_road(2,WIDTH-2, 7)
+            hlabel('SCL',27,8,12)
             digbox(7,3,23,29)
             house(11,18,'l',hnum)
+            hlabel(street,15,3,20)
             hlabel('LOCATED AREA',15,14,12)
         elif dir.lower() == 'e':
+            v_road(7,2,HEIGHT-2)
+            vlabel('ECL',8,3,12)
             digbox(3,7,29,23)
             house(18,11,'l',hnum)
+            vlabel(street,3,15,20)
         elif dir.lower() == 'w':
+            v_road(23,2,HEIGHT-2)
+            vlabel('WCL',22,3,12)
             digbox(1,7,27,23)
             house(4,11,'l',hnum)
+            vlabel(street,27,15,20)
         else:
             easy_print(logging.exception('err'))
             pass
@@ -849,16 +778,7 @@ def st_to_st():
     street2 = popup_get_text('Street 2 (mid)')
     street3 = popup_get_text('Street 3 (S or E)')
     if dir.lower() == 'n':
-        h_road(3,27,20)
-        v_road(3,10,20)
-        v_road(27,10,20)
-        hlabel('NCL',25,19,11)
-        vlabel('ECL',4,11,11)
-        vlabel('WCL',26,11,11)
-        vlabel(street1,1,15,20)
-        hlabel(street2,15,23,20)
-        vlabel(street3,29,15,20)
-
+        pass
     elif dir.lower() == 's':
         h_road(3,27,10)
         v_road(3,10,20)
@@ -880,7 +800,7 @@ menu_def = [
             ['Size',['24','30']]
 ]
 
-tab2layout = [
+tab1layout = [
     [
         sg.Text('Curb: '), sg.DropDown(('N','S','E','W'),k='curbddl'),
         sg.Radio('CL','roadtype',k='cl'), sg.Radio('RE','roadtype',k='re')
@@ -896,11 +816,6 @@ tab2layout = [
     ]
  ]
 
-tab1layout = [
-    [
-        sg.B('Read template',enable_events=True,k='read_file')
-    ]
-]
 lcol = [
      [
          sg.TabGroup(
@@ -908,7 +823,7 @@ lcol = [
              [
                  sg.Tab('SketchBuilder',tab1layout)
              ]
-         ],visible=True
+         ],visible=False
          )
      ]
  ]
@@ -938,7 +853,7 @@ col = [
 
 layout = [
     [
-        sg.Column(lcol),
+        #sg.Column(lcol),
         sg.Menu(menu_def),
         sg.Column(col)
     ]
@@ -968,10 +883,11 @@ selected = []
 dragging = False
 start_point = end_point = prior_rect = None
 
+
 #small loop - lol not anymore
 while True:
     event, values = window.read()
-    notify2.update(selected)
+    notify2.update(event)
     notify3.update(event)
     if event == sg.WIN_CLOSED:
         break
@@ -980,10 +896,7 @@ while True:
 
     if event == 'Save':
         _savefile = popup_get_file('Save image as...',default_path='C:\\Users\\Cr\\Documents\\',default_extension='*.png',save_as=True)
-        try:
-            save_element_as_file(graph,_savefile)
-        except ValueError:
-            popup('Missing file extension. Please try again')
+        save_element_as_file(graph,_savefile)
 
     if event == '24':
         sg.Graph.set_size(graph,(480,480))
@@ -1010,10 +923,6 @@ while True:
     if event == 'tab1getstreet':
         street = get_input('Enter street name')
         window['tab1street'].update(street)
-    
-    if event == 'read_file':
-        file = popup_get_file('Choose template')
-        read_from_template(file)
 
     if event == 'sketchbuild_submit':
         #draw sketchbuilder output
@@ -1075,13 +984,6 @@ while True:
             TK.coords(prior_rect,start_point[0]*20,start_point[1]*20,end_point[0]*20,end_point[1]*20)
         except:
             pass
-    if event == 'graphdrag' and current_mode == 'chosen':
-        x,y = values['graph']
-        try:
-            for item in selected:
-                graph.relocate_figure(item,x,y)
-        except IndexError:
-            pass
 
 
     # if event.endswith('drag'):
@@ -1131,9 +1033,6 @@ while True:
     if event == 'c':
         current_mode = 'cable'
         notify.update('Please click first point of cable line:')
-    if event == 'C':
-        current_mode = 'cable arc'
-        notify.update('Please click horizontal section of cable arc')
     if event == 'o':
         current_mode = 'offsetline'
         notify.update('Please click first point of offset line:')
@@ -1149,9 +1048,6 @@ while True:
     if event == 'r':
         current_mode = 'road'
         notify.update('Please click first point of curb line')
-    if event == 'R':
-        current_mode = 'road arc'
-        notify.update('Please click horizontal section of road arc')
     if event == 'l':
         current_mode = 'line'
         notify.update('Please click first point of line')
@@ -1193,41 +1089,24 @@ while True:
     if event == '1':
         current_mode = 'ped'
         notify.update('Click to place pedestal')
-    if event == '!':
-        current_mode = 'ped stub'
-        notify.update('Click on ped location')
     if event == '2':
         current_mode = 'pole'
         notify.update('Click to place pole')
-    if event == '@':
-        current_mode = 'pole stub'
-        notify.update('Click on pole location')
     if event == '3':
         current_mode = 'itemstamp'
         notify.update('Click to place stamp')
     if event == '4':
         current_mode = 'transformer'
         notify.update('Click to place transformer')
-    if event == '5':
-        current_mode = 'vault'
-        notify.update('Click to place vault')
-
     if event.endswith('+UP'):
-        #signals end of drag 
         graph.delete_figure(prior_rect)
         dragging = False
         start_point = end_point = prior_rect = None
-
         if current_mode == 'cable':
             x, y = get_point1()
             point1 = draw_point1(x,y)
             notify.update('Click second point of line')
             current_mode='cable2'
-        elif current_mode == 'cable arc':
-            x, y = get_point1()
-            point1 = draw_point1(x,y)
-            notify.update('Click vertical section of cable arc')
-            current_mode = 'cable arc 2'
         elif current_mode == 'offsetline':
             x, y = get_point1()
             point1 = draw_point1(x,y)
@@ -1257,11 +1136,6 @@ while True:
             point1 = draw_point1(x,y,'purple')
             notify.update('Click second point of curb')
             current_mode = 'road2'
-        elif current_mode == 'road arc':
-            x,y = get_point1()
-            point1 = draw_point1(x,y,'purple')
-            notify.update('Click vertical section of road arc')
-            current_mode = 'road arc 2'
         elif current_mode == 'line':
             x,y = get_point1()
             point1 = draw_point1(x,y,'blue')
@@ -1290,31 +1164,23 @@ while True:
         elif current_mode == 'arrow2':
             a,b = get_point2()
             point2 = draw_point2(x,y,color='orange')
-            try:
-                rarrow(x,y,a,b)
-            except:
-                
-                #FIXME - can't put 2 arrow heads on same point - crashes
-                pass
+            rarrow(x,y,a,b)
             cleanup_2point()
-
         elif current_mode == 'cable2':
             a, b = get_point2()
             point2 = draw_point2(x,y,'red')
             label = popup_get_text('Label? ')
             cable(x, y, a, b,label)
             cleanup_2point()
-        elif current_mode == 'cable arc 2':
-            a, b = get_point2()
-            point2 = draw_point2(x,y,'red')
-            arc(x, y, a, b, 'cable')
-            cleanup_2point()
-            current_mode == 'cable arc'
         elif current_mode == 'offsetline2':
             a, b = get_point2()
             point2 = draw_point2(x,y,'brown')
             offset_line(x,y,a,b)
             cleanup_2point()
+            """ x=y=a=b=None
+            current_mode='''
+            graph.delete_figure(point1)
+            graph.delete_figure(point2) """
         elif current_mode == 'digbox2':
             a,b = get_point2()
             point2 = draw_point2(a,b,'green')
@@ -1332,12 +1198,6 @@ while True:
             road(x,y,a,b)
             cleanup_2point()
             current_mode = 'road'
-        elif current_mode == 'road arc 2':
-            a,b =get_point2()
-            point2 =draw_point2(a,b,'purple')
-            arc(x,y,a,b,'road')
-            cleanup_2point()
-            current_mode = 'road arc'
         elif current_mode == 'line2':
             a,b = get_point2()
             point2 = draw_point2(a,b,'blue')
@@ -1382,30 +1242,10 @@ while True:
             x, y = get_point1()
             ped(x,y)
             x=y=None
-        elif current_mode == 'ped stub':
-            x, y = get_point1()
-            point1 = draw_point1(x, y)
-            notify.update('Click cable stub end')
-            current_mode = 'ped stub 2'
-        elif current_mode == 'ped stub 2':
-            a, b = get_point2()
-            point2 = draw_point2(x, y, 'red')
-            ped_1arm(x,y,a,b)
-            cleanup_2point()
         elif current_mode == 'pole':
             x, y = get_point1()
             pole(x,y)
             x=y=None
-        elif current_mode == 'pole stub':
-            x , y = get_point1()
-            point1 = draw_point1(x, y)
-            notify.update('Click cable stub end')
-            current_mode = 'pole stub 2'
-        elif current_mode == 'pole stub 2':
-            a, b = get_point2()
-            point2 = draw_point2(a, b, 'red')
-            pole_1arm(x,y,a,b)
-            cleanup_2point()
         elif current_mode == 'itemstamp':
             x,y = get_point1()
             item_stamp(x,y)
@@ -1414,13 +1254,6 @@ while True:
             x,y = get_point1()
             transformer(x,y)
             x=y=None
-        elif current_mode == 'vault':
-            x,y = get_point1()
-            utility = get_input('Bell?')
-            if utility in ['y','Y','yes','YES','Yes']:
-                vault(x, y, 'b')
-            else:
-                vault(x,y)
         elif current_mode == 'select':
             fig = TK.find_withtag('current')
             # drag_figures =sg.Graph.get_figures_at_location(graph,values['graph'])
@@ -1434,16 +1267,9 @@ while True:
                         #bb = sg.Graph.get_bounding_box(graph,fig)
                         #bbr= sg.Graph.draw_rectangle(graph,(bb[0]),bb[1], line_color='blue')
                         #notify2.update(TK.type(fig) + ',' +TK.itemcget(fig,'tag'))
-            if 'ped' in TK.gettags(fig):
-                TK.itemconfig(fig,fill='green')
-                TK.itemconfig(fig[0]+1,fill='green')
-                selected.append(fig)
-                selected.append(fig[0]+1)
-            else:
-                TK.itemconfig(fig,fill='red')
-                selected.append(fig)
+            TK.itemconfig(fig,fill='red')
+            selected.append(fig)
             current_mode = 'chosen'
-
         elif current_mode=='move':
             try:
                 x,y=get_point1()
