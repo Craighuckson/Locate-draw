@@ -10,6 +10,7 @@ from PIL import ImageDraw, Image
 import io
 import base64
 
+
 from PySimpleGUI.PySimpleGUI import BUTTON_TYPE_READ_FORM, WIN_CLOSED, popup
 
 d = datetime.datetime.now()
@@ -22,10 +23,14 @@ RP_UNITS = (765, 105)
 BP_UNITS = (775, 104)
 MFONT = "Arial 12 normal"
 LFONT = "Arial 20 normal"
-NBOUNDARY = (51, 243)
-SBOUNDARY = (449, 244)
-WBOUNDARY = (55, 276)
-EBOUNDARY = (449, 274)
+RP_NBOUNDARY = (51, 243)
+RP_SBOUNDARY = (449, 244)
+RP_WBOUNDARY = (55, 276)
+RP_EBOUNDARY = (449, 274)
+RA_NBOUNDARY = (60,220)
+RA_SBOUNDARY = (443,220)
+RA_WBOUNDARY = (57,238)
+RA_EBOUNDARY = (443,238)
 DATE = str("/".join([d.strftime(x) for x in ["%Y", "%m", "%d"]]))
 NAME = "CRAIG HUCKSON"
 RP_NAMECOORDS = (340, 967)
@@ -104,13 +109,14 @@ def move_files(form, filename):
         "ra": "rafile.png",
         "ba": "bafile.png",
     }
-    for k,v in formdict.items():
+    for k, v in formdict.items():
         if k == form:
             shutil.copy(v, f"C:\\Users\\Cr\\Documents\\{filename}")
     move_file_notification(filename)
 
+
 def move_file_notification(filename):
-    popup(f'File saved to C:\\Users\\Cr\Documents\\{filename}')
+    popup(f"File saved to C:\\Users\\Cr\Documents\\{filename}")
 
 
 # LAYOUT
@@ -148,12 +154,26 @@ rp_tab = [
     [
         sg.Text("Save file name"),
         sg.I(k="rpsavefile"),
-        sg.FileSaveAs(initial_folder="C:\\Users\\Cr\\Documents\\"),
         sg.Button("Copy to Docs", k="rpfilemove"),
     ],
 ]
 
-ra_tab = [[sg.Text("todo")]]
+ra_tab = [
+    [sg.Text("North Boundary: "), sg.Input(enable_events=True, key="ranb")],
+    [sg.Text("South Boundary: "), sg.Input(enable_events=True, key="rasb")],
+    [sg.Text("West Boundary: "), sg.Input(enable_events=True, key="rawb")],
+    [sg.Text("East Boundary: "), sg.Input(enable_events=True, key="raeb")],
+    [sg.Text("Insert Sketch:"), sg.I(k="ra_sketch"), sg.FileBrowse()],
+    [
+        sg.B("Update", BUTTON_TYPE_READ_FORM, k="raupdate"),
+        sg.Button("Display", k="ra-display"),
+    ],
+    [
+        sg.Text("Save file name"),
+        sg.I(k="rasavefile"),
+        sg.Button("Copy to Docs", k="rafilemove"),
+    ],
+]
 
 bp_tab = [
     [
@@ -180,7 +200,6 @@ bp_tab = [
     [
         sg.Text("Save file name"),
         sg.I(k="bpsavefile"),
-        sg.FileSaveAs(initial_folder="C:\\Users\\Cr\\Documents\\"),
         sg.Button("Copy to Docs", k="bpfilemove"),
     ],
 ]
@@ -201,9 +220,8 @@ lcol = [
             ]
         )
     ],
-    
 ]
-rcol = [[sg.Image(size=(640, 480), expand_y=True, key="img")]]
+rcol = [[sg.Image(expand_y=True,expand_x=True,key="img")]]
 
 layout = [
     [
@@ -211,7 +229,6 @@ layout = [
         sg.Column(
             rcol,
             scrollable=True,
-            vertical_scroll_only=True,
             expand_x=True,
             expand_y=True,
         ),
@@ -233,43 +250,70 @@ window = sg.Window(
     finalize=True,
 )
 
+# SETUP SECTION
+
+fntm = ImageFont.truetype("arialbd.ttf", size=12)
+fntl = ImageFont.truetype("arialbd.ttf", size=16)
+
+
+# MAIN LOOP
+
 while True:
     event, values = window.read()
+
     if event in (sg.WIN_CLOSED, "Exit"):
         break
+
     # shows stuff in right column
     if event == "infile":
         window["img"].update(data=convert_to_bytes(values["infile"]))
+
     if event == "rclear":
         window["clear_reason"].update(visible=True)
+
     elif event == "rmarked":
         window["clear_reason"].update(visible=False)
+
     if event == "rpupdate":
         # this writes in the dig area and other shiT
         with Image.open(values["infile"]) as out:
-            fntm = ImageFont.truetype("arialbd.ttf", size=12)
-            fntl = ImageFont.truetype("arialbd.ttf", size=16)
+
             d = ImageDraw.Draw(out)
-            rp_dict = {
-                RP_TOTALPAGES: str(values["tp"]),
-                RP_UNITS: values["lunits"],
-                NBOUNDARY: values["nb"],
-                SBOUNDARY: values["sb"],
-                WBOUNDARY: values["wb"],
-                EBOUNDARY: values["eb"],
+
+            """
+               rp_dict = {
+                    RP_TOTALPAGES: str(values["tp"]),
+                    RP_UNITS: values["lunits"],
+                    RP_NBOUNDARY: values["nb"],
+                RP_SBOUNDARY: values["sb"],
+                RP_WBOUNDARY: values["wb"],
+                RP_EBOUNDARY: values["eb"],
                 RP_NAMECOORDS: NAME,
                 RP_DATECOORDS: str(DATE),
                 MEMAILCOORDS: RP_MEMAILTEXT,
                 LOCATORIDCOORDS: str(LOCATORID),
             }
 
+            """
+            rp_dict = {
+                RP_NBOUNDARY: values["nb"],
+                RP_SBOUNDARY: values["sb"],
+                RP_WBOUNDARY: values["wb"],
+                RP_EBOUNDARY: values["eb"],
+            }
+
             for k, v in rp_dict.items():
                 d.text(k, v, fill="black", font=fntm)
 
-            if "M" in values["lunits"]:
-                d.text(RP_MOMCOORDS, RP_MOMTEXT, fill="black", font=fntm)
-            else:
-                with Image.open(values["clear_reason"]) as cr:
+            # TODO
+            # if "M" in values["lunits"]:
+            #     d.text(RP_MOMCOORDS, RP_MOMTEXT, fill="black", font=fntm)
+            # else:
+            #     with Image.open(values["clear_reason"]) as cr:
+            #         out.paste(cr, RP_CLEARIMAGECOORDS)
+
+            if event == 'rclear':
+                with Image.open(values['clear_reason']) as cr:
                     out.paste(cr, RP_CLEARIMAGECOORDS)
 
             if values["rp_sketch"]:
@@ -282,10 +326,30 @@ while True:
         # except AttributeError:
         # pass
 
+    if event == "raupdate":
+        with Image.open(values["infile"]) as out:
+
+            d = ImageDraw.Draw(out)
+
+            ra_dict = {
+                RA_NBOUNDARY: values["ranb"],
+                RA_SBOUNDARY: values["rasb"],
+                RA_WBOUNDARY: values["rawb"],
+                RA_EBOUNDARY: values["raeb"],
+            }
+
+            for k, v in ra_dict.items():
+                d.text(k, v, fill="black", font=fntm)
+
+            if values["ra_sketch"]:
+                with Image.open(values["ra_sketch"]) as skt:
+                    out.paste(skt, (70, 294))
+
+            outfile = out.save("rafile.png")
+
     if event == "bpupdate":
         with Image.open(values["infile"]) as out:
-            fntm = ImageFont.truetype("arialbd.ttf", size=12)
-            fntl = ImageFont.truetype("arialbd.ttf", size=16)
+
             d = ImageDraw.Draw(out)
             bp_dict = {
                 BP_TOTALPAGES: str(values["bptp"]),
@@ -294,29 +358,37 @@ while True:
                 BP_DATECOORDS: str(DATE),
                 BP_GUIDELINES: BP_TEXT,
             }
-        if values["cable"]:
-            d.text(BP_CABLE, BP_TEXT, fill="black", font=fntm)
-        if values["conduit"]:
-            d.text(BP_CONDUIT, BP_TEXT, fill="black", font=fntm)
-        if values["cable"] == True or values["conduit"] == True:
-            d.text(BP_PAINT, BP_TEXT, fill="black", font=fntm)
-        for k, v in bp_dict.items():
-            d.text(k, v, fill="black", font=fntm)
-        for item in bell_stickers:
-            if values[item] == True:
-                with Image.open(bell_stickers[item]["file"]) as sf:
-                    out.paste(sf, (bell_stickers[item]["coords"]))
+            if values["cable"]:
+                d.text(BP_CABLE, BP_TEXT, fill="black", font=fntm)
+            if values["conduit"]:
+                d.text(BP_CONDUIT, BP_TEXT, fill="black", font=fntm)
+            if values["cable"] == True or values["conduit"] == True:
+                d.text(BP_PAINT, BP_TEXT, fill="black", font=fntm)
+            for k, v in bp_dict.items():
+                d.text(k, v, fill="black", font=fntm)
+            for item in bell_stickers:
+                if values[item] == True:
+                    with Image.open(bell_stickers[item]["file"]) as sf:
+                        out.paste(sf, (bell_stickers[item]["coords"]))
 
-        outfile = out.save("bpfile.png")
+            outfile = out.save("bpfile.png")
 
     if event == "rp-display":
         window["img"].update(data=convert_to_bytes("rpfile.png"))
+
     elif event == "bp-display":
         window["img"].update(data=convert_to_bytes("bpfile.png"))
 
-    if event == 'rpfilemove':
-        move_files('rp',values['rpsavefile'])
+    elif event == "ra-display":
+        window["img"].update(data=convert_to_bytes("rafile.png"))
+
+    if event == "rpfilemove":
+        move_files("rp", values["rpsavefile"])
+
     elif event == "bpfilemove":
-        move_files('bp',values['bpsavefile'])
+        move_files("bp", values["bpsavefile"])
+
+    elif event == "rafilemove":
+        move_files("ra", values["rasavefile"])
 
 window.close()

@@ -668,3 +668,68 @@ Traceback (most recent call last):
   File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 366, in hlabel
     sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
 AttributeError: 'NoneType' object has no attribute 'upper'
+2021-12-23 10:54:08,274
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 366, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
+AttributeError: 'NoneType' object has no attribute 'upper'
+2021-12-23 11:15:06,726
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 389, in vlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'lower'
+2021-12-23 17:10:37,858
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 366, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
+AttributeError: 'NoneType' object has no attribute 'upper'
+2021-12-23 17:10:38,514
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 366, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
+AttributeError: 'NoneType' object has no attribute 'upper'
+2021-12-23 21:13:20,243
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 366, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
+AttributeError: 'NoneType' object has no attribute 'upper'
+2021-12-23 21:33:51,934
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 81, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2021-12-23 21:33:51,934
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 389, in vlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'lower'
+2021-12-23 21:36:47,917
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 366, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
+AttributeError: 'NoneType' object has no attribute 'upper'
+2021-12-23 21:44:17,357
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 81, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2021-12-23 21:44:17,357
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 389, in vlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'lower'
+2021-12-23 21:48:55,207
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 381, in vlabel
+    graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'upper'
+2021-12-23 21:50:10,127
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 81, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2021-12-23 21:50:10,127
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 372, in hlabelm
+    sg.Graph.draw_text(graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal")
+AttributeError: 'NoneType' object has no attribute 'lower'

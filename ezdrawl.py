@@ -6,7 +6,7 @@ from PIL import ImageGrab
 import PIL.Image
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import (Window, easy_print, main, popup, popup_error, popup_get_file,popup_get_text)
-
+main() 
 sg.theme('system default')
 #ystem of 24x24 on this one - weird i know
 logging.basicConfig(filename='ezdraw.log',level=logging.WARNING, format='%(asctime)s')
@@ -967,7 +967,6 @@ graph.bind('<Motion>','motion')
 selected = []
 dragging = False
 start_point = end_point = prior_rect = None
-
 #small loop - lol not anymore
 while True:
     event, values = window.read()
