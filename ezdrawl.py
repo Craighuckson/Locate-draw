@@ -6,6 +6,9 @@ from PIL import ImageGrab
 import PIL.Image
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import (Window, easy_print, main, popup, popup_error, popup_get_file,popup_get_text)
+import pickle
+
+
 main() 
 sg.theme('system default')
 #ystem of 24x24 on this one - weird i know
@@ -110,24 +113,15 @@ def show_grid():
     #     TK.addtag_withtag('grid', grid4)
     #     TK.itemconfig('grid',state='disabled')
     try:
-        for x in range(0,WIDTH):
-            for y in range(0,HEIGHT):
-                gpt = sg.Graph.draw_point(graph,(x,y),color='grey',size=0.1)
-                TK.addtag_withtag('grid',gpt)
-        for a in range(0, WIDTH, 2):
-            grid3 = graph.DrawText(a, (a, 0.4), font="Arial 9 normal", angle=90)
-            TK.addtag_withtag('grid', grid3)
-        for b in range(0, HEIGHT, 2):
-            grid4 = graph.DrawText(
-                b,
-                (0.4, b),
-                font="Arial 9 normal",
-            )
-            TK.addtag_withtag('grid',grid4)
-            graph.send_figure_to_back('grid')
-            TK.itemconfig('grid',state='disabled')
+        gdwg = 'grid.png'
+        grid = sg.Graph.draw_image(graph, location=(0,0),data=convert_to_bytes(gdwg))
+        TK.addtag_withtag('grid',grid)
+        graph.send_figure_to_back('grid')
+        TK.itemconfig('grid',state='disabled')
     except:
+        popup('Error')
         logging.exception('Caught an error')
+
 
 def hide_grid():
     TK.itemconfig('grid',state='hidden')
@@ -315,15 +309,17 @@ def arc(x1,y1,x2,y2,line_type=None):
     elif x2 < x1 and y2 < y1:
         #up and to the left
         id = sg.Graph.draw_arc(graph,(x2,y2 - (y1-y2)),(x1 + (x1-x2),y1),-90,270,style='arc')
-
-    if line_type == 'road':
-        TK.itemconfig(id, width=3)
-        group('road',id)
-    elif line_type == 'cable':
-        TK.itemconfig(id,width=2,dash= (10,5))
-        group('cable',id)
-    
-    return id
+    try:
+        if line_type == 'road':
+            TK.itemconfig(id, width=3)
+            group('road',id)
+        elif line_type == 'cable':
+            TK.itemconfig(id,width=2,dash= (10,5))
+            group('cable',id)
+        
+        return id
+    except:
+        logerror()
     
 def transformer(x, y):
     try:
@@ -363,7 +359,7 @@ def hlabel(msg, x, y, size):
     try:
         if msg == 'la' or msg == 'LA':
             msg = 'LOCATED AREA'
-        sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
+        sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold")
     except:
         logerror()
 
@@ -378,7 +374,7 @@ def vlabel(msg, x, y, size):
         if msg == 'la' or msg == 'LA':
             msg = 'LOCATED AREA'
         sg.Graph.draw_text(
-            graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal", angle=90
+            graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold", angle=90
         )
     except:
         logerror()
@@ -493,9 +489,39 @@ def set_landbase(dir,edge_type='CL'):
     if dir.lower() == 'n':
         h_road(2,WIDTH-2,23)
         hlabel(f'N{edge_type}',27,24,12)
+    elif dir.lower() == 'ne':
+        h_road(9,28,23)
+        hlabel(f'N{edge_type}',27,24,11)
+        v_road(9,2,23)
+        vlabel(f'E{edge_type}',10,3,11)
+    elif dir.lower() == 'nw':
+        h_road(2,23,23)
+        hlabel(f'N{edge_type}',3,22,11)
+        v_road(23,2,23)
+        vlabel(f'W{edge_type}',22,3,11)
     elif dir.lower() == 's':
         h_road(2,WIDTH-2, 7)
         hlabel(f'S{edge_type}',27,8,12)
+    elif dir.lower() == 'sw':
+        h_road(2,23,7)
+        hlabel(f'S{edge_type}',3,8,11)
+        v_road(23,7,28)
+        swvcurbx = WIDTH - 7
+        swvcurby1 = HEIGHT - 23
+        swvcurby2 = HEIGHT - 2
+        vlabel(f'W{edge_type}',swvcurbx - 1,swvcurby2 -1,11)
+    elif dir.lower() == 'se':
+        sehcurbx1 = 7
+        sehcurbx2 = 28
+        sehcurby = 7
+        sevcurbx = 7
+        sevcurby1 = 7
+        sevcurby2 = 28
+        h_road(sehcurbx1,sehcurbx2,sehcurby)
+        hlabel(f'S{edge_type}',sehcurbx2-1,sehcurby - 1,11)
+        v_road(sevcurbx,sevcurby1,sevcurby2)
+        vlabel(f'E{edge_type}',sevcurbx+1, sevcurby2 - 1,11)
+
     elif dir.lower() == 'e':
         v_road(7,2,HEIGHT-2)
         vlabel(f'E{edge_type}',8,3,12)
@@ -515,6 +541,25 @@ def set_street_name(street,landbase):
         vlabel(street,3,15,20)
     elif landbase == 'w':
         vlabel(street,27,15,20)
+
+def get_intersection_name():
+    hstreet = get_input('Enter horizontal street name')
+    vstreet = get_input('Enter vertical street name')
+    return hstreet,vstreet
+
+def set_intersection_name(hstreet,vstreet,landbase):
+    if landbase == 'ne':
+        set_street_name(hstreet,'n')
+        set_street_name(vstreet,'e')
+    elif landbase == 'nw':
+        set_street_name(hstreet,'n')
+        set_street_name(vstreet, 'w')
+    elif landbase == 'se':
+        set_street_name(hstreet,'s')
+        set_street_name(vstreet,'e')
+    elif landbase == 'sw':
+        set_street_name(hstreet,'s')
+        set_street_name(vstreet,'w')
 
 def get_digbox():
     pass
@@ -644,11 +689,42 @@ def h_line(x1,x2,y):
 def v_line(x,y1,y2):
     line(x,y1,x,y2)
 
+def get_figure_type(tag_or_id):
+    fig_type = TK.type(tag_or_id)
+    return fig_type
+
+def get_figure_coords(tag_or_id):
+    fig_coords = TK.coords(tag_or_id)
+    return fig_coords
+
+def clone_item(tag_or_ID):
+    config = TK.itemconfig(tag_or_ID)
+    clone = {key: config[key][-1] for key in config.keys()}
+    return clone
+
+def paste_figure(fig_type, coords,clone):
+    if clone is not None:
+        new_coords  = [coord + 10 for coord in coords]
+        if fig_type == 'rectangle':
+            TK.create_rectangle(new_coords, **clone)
+        elif fig_type == 'oval':
+            TK.create_oval(new_coords, **clone)
+        elif fig_type == 'line':
+            TK.create_line(new_coords, **clone)
+        elif fig_type == 'text':
+            TK.create_text(new_coords, **clone)
+        elif fig_type == 'image':
+            TK.create_image(new_coords, **clone)
+
+
+
+
+
 
 def digbox(x1, y1, x2, y2):
     try:
-        db = graph.draw_rectangle((x1, y1), (x2, y2), fill_color="#D3D3D3", line_color="black")
-        graph.TKCanvas.itemconfig(db, stipple="gray50")
+        db = graph.draw_rectangle((x1, y1), (x2, y2), fill_color="gainsboro", line_color="black")
+        graph.TKCanvas.itemconfig(db, stipple="gray25")
         graph.send_figure_to_back(db)
         TK.addtag_withtag('digbox',db)
     except:
@@ -656,7 +732,7 @@ def digbox(x1, y1, x2, y2):
 
 def located_area(x, y):
     try:
-        sg.Graph.draw_text(graph, "LOCATED AREA", (x, y), font="Arial 12 bold")
+        sg.Graph.draw_text(graph, "LOCATED AREA", (x, y), font="Arial 11 bold")
     except:
         logerror()
 
@@ -749,12 +825,55 @@ def read_from_template(file):
                 dir = lb_strlist[0]
                 edge_type = lb_strlist[1].strip()
                 landbase = set_landbase(dir,edge_type)
-                set_street_name(flist[1], landbase)
+                if dir in ['ne','nw','se','sw']:
+                    set_intersection_name(flist[1],flist[2],landbase)
+                else:
+                    set_street_name(flist[1],landbase)
+
+        except IndexError:
+            pass
+
         except:
             logging.exception('error')
             popup('There was an error in template file')
 
+def save_sketch_template():
+    filename = popup_get_file('Save template as', save_as=True)
+    typelist = []
+    coordslist = []
+    clonelist = []
+    list_of_all_figures = []
+    for id in TK.find_all():
+        typelist.append(get_figure_type(id))
+        coordslist.append(get_figure_coords(id))
+        clonelist.append(clone_item(id))
+    list_of_all_figures.extend([typelist,coordslist,clonelist])
+    easy_print(list_of_all_figures)
+    with open(filename+'.pkl','wb') as pk:
+        pickled_obj = pickle.dump(list_of_all_figures,pk)
 
+def load_sketch_template():
+    filename = popup_get_file('Choose template file...')
+    with open(filename,'rb') as pk:
+        list_of_all_figures = pickle.load(pk)
+    typelist = list_of_all_figures[0]
+    coordslist = list_of_all_figures[1]
+    clonelist = list_of_all_figures[2]
+    for x,y,z in zip(typelist,coordslist,clonelist):
+        if x == 'rectangle':
+            TK.create_rectangle(y,**z)
+        elif x == 'oval':
+            TK.create_oval(y, **z)
+        elif x == 'line':
+            TK.create_line(y, **z)
+        elif x == 'text':
+            TK.create_text(y, **z)
+        #elif x == 'image':
+            #TK.create_image(y, **z)
+        elif x == 'polygon':
+            TK.create_polygon(y, **z)
+        elif x == 'arc':
+            TK.create_arc(y, **z)    
 #callback routines
 
 def short_gas():
@@ -869,6 +988,28 @@ def st_to_st():
         vlabel(street1,1,15,20)
         hlabel(street2,15,7,20)
         vlabel(street3,29,15,20)
+
+    elif dir.lower() == 'w':
+        v_road(20,3,27)
+        h_road(10,20,3)
+        h_road(10,20,27)
+        hlabel('SCL',11,4,11)
+        vlabel('WCL',21,15,11)
+        hlabel('NCL',11,26,11)
+        hlabel(street1,11,1,20)
+        vlabel(street2,26,15,20)
+        hlabel(street3,11,29,20)
+
+    elif dir.lower() == 'e':
+        v_road(10,3,27)
+        h_road(10,20,3)
+        h_road(10,20,27)
+        hlabel('SCL',19,4,11)
+        hlabel('NCL',19,26,11)
+        vlabel('ECL',9,14,11)
+        hlabel(street1,21,2,20)
+        vlabel(street2,5,14,20)
+        hlabel(street3,21,28,20)
 #barebones
 
 notify = sg.Text()
@@ -876,8 +1017,8 @@ notify2 = sg.Text()
 notify3 = sg.Text()
 
 menu_def = [
-            ['File', ['Save',]],
-            ['Size',['24','30']]
+            ['File', ['Save','Save template as...', 'Load template']],
+            ['Size',['24','30']],
 ]
 
 tab2layout = [
@@ -983,6 +1124,12 @@ while True:
             save_element_as_file(graph,_savefile)
         except ValueError:
             popup('Missing file extension. Please try again')
+    if event == 'Save template as...':
+        save_sketch_template()
+
+    if event == 'Load template':
+        load_sketch_template()
+
 
     if event == '24':
         sg.Graph.set_size(graph,(480,480))
@@ -1154,6 +1301,13 @@ while True:
     if event == 'l':
         current_mode = 'line'
         notify.update('Please click first point of line')
+    if event == 'y':
+        if TK.find_withtag('current') is not None:
+            clone = clone_item('current')
+            coords = get_figure_coords('current')
+            figure_type = get_figure_type('current')
+    if event == 'p':
+        paste_figure(figure_type,coords,clone)
     if event == 'g':
         if isGrid == False:
             isGrid = not isGrid
