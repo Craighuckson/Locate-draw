@@ -999,3 +999,8 @@ Traceback (most recent call last):
   File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 317, in arc
     TK.itemconfig(id,width=2,dash= (10,5))
 UnboundLocalError: local variable 'id' referenced before assignment
+2022-01-05 21:05:17,410
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 384, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold")
+AttributeError: 'NoneType' object has no attribute 'upper'

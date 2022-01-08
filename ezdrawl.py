@@ -8,9 +8,7 @@ import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import (Window, easy_print, main, popup, popup_error, popup_get_file,popup_get_text)
 import pickle
 
-
-main() 
-sg.theme('system default')
+sg.theme('hot dog stand')
 #ystem of 24x24 on this one - weird i know
 logging.basicConfig(filename='ezdraw.log',level=logging.WARNING, format='%(asctime)s')
 # CONSTANTS
@@ -26,8 +24,29 @@ SCURB = [2,HEIGHT/3,WIDTH-2,HEIGHT/3]
 NSTREET = [WIDTH/2,(NCURB[1] + HEIGHT)/2]
 SSTREET = [WIDTH/2, (SCURB[1])/2]
 WSTREET = [(WCURB[0] + WIDTH)/2, HEIGHT/2]
-ESTREET = [ECURB[0]/2, HEIGHT/2]
+ESTREET = [ECURB[0]/2, HEIGHT/2, 20]
 
+NBLHOUSE1 = (2,8,'s') 
+NBLHOUSE2 = (24,8,'s')
+NWBLHOUSE = (8,8,'m')
+NEBLHOUSE = (18,8,'m')
+SBLHOUSE1 = (2,18,'s')
+SBLHOUSE2 = (24,18,'s')
+SWBLHOUSE = (9,16,'m')
+SEBLHOUSE = (16,16,'m')
+WBLHOUSE1 = (5,2,'s')
+WBLHOUSE2 = (5,24,'s')
+EBLHOUSE1 = (20,2,'s')
+EBLHOUSE2 = (20,24,'s')
+
+NPLTOPL_DIGBOX = (6,16,24,28)
+NWPLTOPL_DIGBOX = (8,8,28,28)
+NEPLTOPL_DIGBOX = (4,8,24,28)
+SPLTOPL_DIGBOX = (6,2,24,14)
+SWPLTOPL_DIGBOX = (9,3,27,22)
+SEPLTOPL_DIGBOX = (3,3,22,22)
+WPLTOPL_DIGBOX = (14,6,28,24)
+EPLTOPL_DIGBOX = (2,2,15,28)
 
 pointlist = []
 
@@ -354,6 +373,9 @@ def vault(x, y, utility=None):
     for x in v1,v2:
         group('vault',x)
 
+def catch_basin(x,y):
+    sg.Graph.draw_rectangle(graph,(x-0.5,y-0.5),(x+0.5,y+0.5),line_color='black',line_width=1.5)
+
 
 def hlabel(msg, x, y, size):
     try:
@@ -604,7 +626,7 @@ def cable(x1, y1, x2, y2,label=''):
                 if (abs(y1 - y2) < 4) or (abs(y2 - y1) < 4):
                     gap = 2
                 else:
-                    gap = 6
+                    gap = 5
                 for y in range(round(y1),round(y2),gap):
                     #white box
                     if len(label) <= 2:
@@ -622,7 +644,7 @@ def cable(x1, y1, x2, y2,label=''):
                 if (abs(x1 - x2) < 4) or (abs(x2 - x1) < 4):
                     gap = 2
                 else:
-                    gap = 6
+                    gap = 5
                 for x in range(round(x1),round(x2),gap):
                     #white box
                     #check for text size
@@ -837,8 +859,11 @@ def read_from_template(file):
             logging.exception('error')
             popup('There was an error in template file')
 
-def save_sketch_template():
-    filename = popup_get_file('Save template as', save_as=True)
+def save_sketch_template(file=''):
+    if file is not None:
+        filename = file
+    else:
+        filename = popup_get_file('Save template as', save_as=True)
     typelist = []
     coordslist = []
     clonelist = []
@@ -853,27 +878,30 @@ def save_sketch_template():
         pickled_obj = pickle.dump(list_of_all_figures,pk)
 
 def load_sketch_template():
-    filename = popup_get_file('Choose template file...')
-    with open(filename,'rb') as pk:
-        list_of_all_figures = pickle.load(pk)
-    typelist = list_of_all_figures[0]
-    coordslist = list_of_all_figures[1]
-    clonelist = list_of_all_figures[2]
-    for x,y,z in zip(typelist,coordslist,clonelist):
-        if x == 'rectangle':
-            TK.create_rectangle(y,**z)
-        elif x == 'oval':
-            TK.create_oval(y, **z)
-        elif x == 'line':
-            TK.create_line(y, **z)
-        elif x == 'text':
-            TK.create_text(y, **z)
-        #elif x == 'image':
-            #TK.create_image(y, **z)
-        elif x == 'polygon':
-            TK.create_polygon(y, **z)
-        elif x == 'arc':
-            TK.create_arc(y, **z)    
+        try:
+            filename = popup_get_file('Choose template file...')
+            with open(f'{filename}.pkl','rb') as pk:
+                list_of_all_figures = pickle.load(pk)
+            typelist = list_of_all_figures[0]
+            coordslist = list_of_all_figures[1]
+            clonelist = list_of_all_figures[2]
+            for x,y,z in zip(typelist,coordslist,clonelist):
+                if x == 'rectangle':
+                    TK.create_rectangle(y,**z)
+                elif x == 'oval':
+                    TK.create_oval(y, **z)
+                elif x == 'line':
+                    TK.create_line(y, **z)
+                elif x == 'text':
+                    TK.create_text(y, **z)
+                #elif x == 'image':
+                    #TK.create_image(y, **z)
+                elif x == 'polygon':
+                    TK.create_polygon(y, **z)
+                elif x == 'arc':
+                    TK.create_arc(y, **z)   
+        except:
+            pass 
 #callback routines
 
 def short_gas():
@@ -1010,6 +1038,44 @@ def st_to_st():
         hlabel(street1,21,2,20)
         vlabel(street2,5,14,20)
         hlabel(street3,21,28,20)
+
+def bl_to_bl():
+    dir = get_input('N, S, E or W?')
+    hnum1 = get_input('House number 1?')
+    if dir in ['nw','ne','se','sw']:
+        hstreet,vstreet = get_intersection_name()
+        set_intersection_name(hstreet,vstreet,dir)
+        landbase = set_landbase(dir)
+    else:
+        hnum2 = get_input('House number 2?')
+        street = get_input('Street name?')
+        landbase = set_landbase(dir)
+        set_street_name(street,landbase)
+    if dir.lower() == 'n':
+        house(*NBLHOUSE1,hnum1)
+        house(*NBLHOUSE2,hnum2)
+        digbox(*NPLTOPL_DIGBOX)
+    elif dir.lower() == 'nw':
+        house(*NWBLHOUSE,hnum1)
+        digbox(*NWPLTOPL_DIGBOX)
+    elif dir.lower() == 'ne':
+        house(*NEBLHOUSE,hnum1)
+        digbox(*NEPLTOPL_DIGBOX)
+    elif dir.lower() == 's':
+        house(*SBLHOUSE1,hnum1)
+        house(*SBLHOUSE2,hnum2)
+        digbox(*SPLTOPL_DIGBOX)
+    elif dir.lower() == 'sw':
+        house(*SWBLHOUSE,hnum1)
+        digbox(*SWPLTOPL_DIGBOX)
+    elif dir.lower() == 'e':
+        house(*EBLHOUSE1,hnum1)
+        house(*EBLHOUSE2,hnum2)
+        digbox(*EPLTOPL_DIGBOX)
+    elif dir.lower() == 'w':
+        house(*WBLHOUSE1,hnum1)
+        house(*WBLHOUSE2,hnum2)
+        digbox(*WPLTOPL_DIGBOX)
 #barebones
 
 notify = sg.Text()
@@ -1073,7 +1139,7 @@ col = [
     ],
     [
         sg.Button('Short Gas',enable_events=True),sg.Button('Long Gas',enable_events=True),
-        sg.Button('Radius',enable_events=True),sg.Button('St to St',enable_events=True),
+        sg.Button('Radius',enable_events=True),sg.Button('St to St',enable_events=True),sg.Button('BL to BL',enable_events=True)
     ],
     ]
 
@@ -1093,6 +1159,7 @@ window = sg.Window(
     resizable=True,
     return_keyboard_events=True,
     use_default_focus=True,
+    grab_anywhere=True,
 )
 graph = window["graph"]
 TK = graph.TKCanvas
@@ -1108,6 +1175,11 @@ graph.bind('<Motion>','motion')
 selected = []
 dragging = False
 start_point = end_point = prior_rect = None
+
+#testing unpacking this is neat
+road(*ECURB)
+vlabel('SOME COOL STREET',*ESTREET)
+
 #small loop - lol not anymore
 while True:
     event, values = window.read()
@@ -1119,14 +1191,14 @@ while True:
     #change drawing size
 
     if event == 'Save':
-        _savefile = popup_get_file('Save image as...',default_path='C:\\Users\\Cr\\Documents\\',default_extension='*.png',save_as=True)
+        _savefile = popup_get_text('Save file name?')
         try:
-            save_element_as_file(graph,_savefile)
+            save_element_as_file(graph, f'C:\\Users\\Cr\\Documents\\{_savefile}.png')
+            save_sketch_template(_savefile)
         except ValueError:
             popup('Missing file extension. Please try again')
-    if event == 'Save template as...':
+    if event == 'Save template only':
         save_sketch_template()
-
     if event == 'Load template':
         load_sketch_template()
 
@@ -1151,6 +1223,8 @@ while True:
         radius_sketch()
     elif event == 'St to St':
         st_to_st()
+    elif event == 'BL to BL':
+        bl_to_bl()
     #left hand stuff
 
     if event == 'tab1getstreet':
@@ -1364,6 +1438,9 @@ while True:
     if event == '5':
         current_mode = 'vault'
         notify.update('Click to place vault')
+    if event == '6':
+        current_mode = 'catch basin'
+        notify.update('Click on catch basin location')
 
     if event.endswith('+UP'):
         #signals end of drag 
@@ -1457,6 +1534,7 @@ while True:
             label = popup_get_text('Label? ')
             cable(x, y, a, b,label)
             cleanup_2point()
+            current_mode = 'cable'
         elif current_mode == 'cable arc 2':
             a, b = get_point2()
             point2 = draw_point2(x,y,'red')
@@ -1574,6 +1652,9 @@ while True:
                 vault(x, y, 'b')
             else:
                 vault(x,y)
+        elif current_mode == 'catch basin':
+            x,y = get_point1()
+            catch_basin(x,y)
         elif current_mode == 'select':
             fig = TK.find_withtag('current')
             # drag_figures =sg.Graph.get_figures_at_location(graph,values['graph'])
