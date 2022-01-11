@@ -1,15 +1,15 @@
 import base64
 import logging
 import io
+from typing import Collection
 from PIL import ImageGrab
 
 import PIL.Image
 import PySimpleGUI as sg
-from PySimpleGUI.PySimpleGUI import (Window, easy_print, main, popup, popup_error, popup_get_file,popup_get_text)
+from PySimpleGUI.PySimpleGUI import (Window, easy_print, main, popup, popup_error, popup_get_file,popup_get_text, popup_yes_no)
 import pickle
 
 sg.theme('hot dog stand')
-#ystem of 24x24 on this one - weird i know
 logging.basicConfig(filename='ezdraw.log',level=logging.WARNING, format='%(asctime)s')
 # CONSTANTS
 
@@ -141,6 +141,13 @@ def show_grid():
         popup('Error')
         logging.exception('Caught an error')
 
+def snap_to_grid_off():
+    sg.Graph.change_coordinates(graph,(0,600),(600,0))
+    graph.update()
+
+def snap_to_grid_on():
+    sg.Graph.change_coordinates(graph,(0,30),(30,0))
+    graph.update()
 
 def hide_grid():
     TK.itemconfig('grid',state='hidden')
@@ -150,7 +157,11 @@ def group(group_name,figure):
     TK.addtag_withtag(group_name,figure)
 
 def wipe():
-    graph.erase()
+    confirm = popup_yes_no('Erase entire image?')
+    if confirm == 'Yes':
+        graph.erase()
+    else:
+        pass
 
 def rarrow(x1,y1,x2,y2):
     try:
@@ -611,6 +622,14 @@ def offset_line(x1,y1,x2,y2):
         graph.TKCanvas.itemconfig(offset, dash = (2, 7))
         TK.itemconfig(offset,activefill='red')
         TK.addtag_withtag('oline',offset)
+    except:
+        logerror()
+
+def cable_poly(*points):
+    try:
+        cable = sg.Graph.draw_lines(graph,points,width='2')
+        TK.itemconfig(cable,dash=(10,5))
+        TK.addtag_withtag('cable',cable)
     except:
         logerror()
 
@@ -1120,6 +1139,8 @@ lcol = [
      ]
  ]
 
+canvasmenu = ['',['Snap to Grid']]
+
 col = [
     [   
         notify, notify2, notify3
@@ -1130,6 +1151,7 @@ col = [
             graph_bottom_left=(0, HEIGHT),
             graph_top_right=(WIDTH, 0),
             background_color="white",
+            right_click_menu=canvasmenu,
             key="graph",
             enable_events=True,
             drag_submits=True,
@@ -1142,6 +1164,8 @@ col = [
         sg.Button('Radius',enable_events=True),sg.Button('St to St',enable_events=True),sg.Button('BL to BL',enable_events=True)
     ],
     ]
+
+
 
 layout = [
     [
@@ -1159,7 +1183,6 @@ window = sg.Window(
     resizable=True,
     return_keyboard_events=True,
     use_default_focus=True,
-    grab_anywhere=True,
 )
 graph = window["graph"]
 TK = graph.TKCanvas
@@ -1170,15 +1193,16 @@ mode = {0:'select', 1:'get points', 2:'draw'}
 current_mode = 'regular'
 x = y = a = b = None
 isGrid = False
+gridSnap = True
 graph.bind('<B1-Motion>','drag')
 graph.bind('<Motion>','motion')
 selected = []
 dragging = False
 start_point = end_point = prior_rect = None
 
+#cable_poly((14,0),(14,6),(20,6))
+
 #testing unpacking this is neat
-road(*ECURB)
-vlabel('SOME COOL STREET',*ESTREET)
 
 #small loop - lol not anymore
 while True:
@@ -1202,6 +1226,15 @@ while True:
     if event == 'Load template':
         load_sketch_template()
 
+    if event == 'Snap to Grid':
+        if gridSnap == True:
+            gridSnap = not gridSnap
+            snap_to_grid_off()
+            notify3.update(f'Snap to grid: {gridSnap}')
+        else:
+            gridSnap = not gridSnap
+            snap_to_grid_on()
+            notify3.update(f'Snap to grid: {gridSnap}')
 
     if event == '24':
         sg.Graph.set_size(graph,(480,480))
@@ -1303,6 +1336,9 @@ while True:
         except IndexError:
             pass
 
+    if event=='graphpoly':
+        notify2.update('Polyline')
+
 
     # if event.endswith('drag'):
     #     try:
@@ -1327,6 +1363,10 @@ while True:
                     TK.itemconfig('digbox',fill='#D3D3D3',stipple='gray25')
                 selected.remove(item)
         #graph.delete_figure(bbr)
+
+    if event == 'n':
+        current_mode = 'polyline'
+        notify.update('Click next point of line')
 
     if event == 'F2:113':
         edit_text()
@@ -1453,6 +1493,11 @@ while True:
             point1 = draw_point1(x,y)
             notify.update('Click second point of line')
             current_mode='cable2'
+        if current_mode == 'polyline':
+            x, y = get_point1()
+            point1 = draw_point1(x,y)
+            notify.update('Click next point of line')
+            current_mode = 'cablenext'
         elif current_mode == 'cable arc':
             x, y = get_point1()
             point1 = draw_point1(x,y)
@@ -1535,6 +1580,12 @@ while True:
             cable(x, y, a, b,label)
             cleanup_2point()
             current_mode = 'cable'
+        elif current_mode == 'cablenext':
+            cpoints = []
+            collecting = True
+            while collecting:
+                a,b = get_point2()
+                point2 = draw_point2(a,b,'red')
         elif current_mode == 'cable arc 2':
             a, b = get_point2()
             point2 = draw_point2(x,y,'red')
