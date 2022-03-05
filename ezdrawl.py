@@ -112,6 +112,25 @@ def convert_measurement():
     except TypeError:
         logging.exception('empty measurement')
         return
+
+def convert_multi_measurement():
+    '''
+    returns a measurement list
+    '''
+    newmeas = []
+    meas = popup_get_text('Enter measurements(int) separated by space')
+    for p in meas.split(" "):
+        try:
+            if len(p) == 1:
+                newmeas.append('0.' + p + 'm')
+            elif len(p) ==2:
+                newmeas.append(p[0] + '.' + p[1] + 'm')
+            elif len(p) ==3:
+                newmeas.append([0] + p[1] + '.' + p[2] + 'm')
+            return newmeas
+        except TypeError:
+            logging.exception('empty measurement')
+            return
 def logerror():
     logging.exception('Caught an error')
 
@@ -318,6 +337,29 @@ def pole(x, y):
         TK.addtag_withtag('pole',p)
     except:
         logerror()
+
+def v_multi_arrow(x,yo,y1,y2,meas,measdir='u'):
+    #pass
+    try:
+        if yo > y1:
+            arrow('n',x,yo)
+            arrow('s',x,y1)
+            arrow('s',x,y2)
+            if measdir.lower() == 'u':
+                vlabelm(meas,x,y2-2.8,11)
+            else:
+                vlabelm(meas,x,yo+2.8,11)
+        else:
+            arrow('s',x,yo)
+            arrow('n',x,y1)
+            arrow('n',x,y2)
+            if measdir.lower == 'u':
+                vlabelm(meas,x,yo-2.8,11)
+            else:
+                vlabelm(meas,x,y2+2.8,11)
+    except:
+        logerror()
+
 
 def arc(x1,y1,x2,y2,line_type=None):
     '''
@@ -826,6 +868,10 @@ def get_point2():
     a, b = values['graph']
     return a,b
 
+def get_point3():
+    c, d = values['graph']
+    return c,d
+
 def draw_point1(x,y,color='red'):
     try:
         point1 = sg.Graph.draw_point(graph,(x, y), size=0.5, color= color)
@@ -837,6 +883,13 @@ def draw_point2(x,y,color='blue'):
     try:
         point2 = sg.Graph.draw_point(graph,(x,y),size=0.5,color=color)
         return point2
+    except:
+        logerror()
+
+def draw_point3(x,y,color='green'):
+    try:
+        point3 = sg.Graph.draw_point(graph,(x,y),size=0.5,color=color)
+        return point3
     except:
         logerror()
 
@@ -1388,6 +1441,9 @@ while True:
     if event == 'v':
         current_mode = 'varrow'
         notify.update('Please select first arrow point')
+    if event == 'V':
+        current_mode = 'vmultiarrow'
+        notify.update('Please select reference point')
     if event == 'c':
         current_mode = 'cable'
         notify.update('Please click first point of cable line:')
@@ -1490,10 +1546,10 @@ while True:
 
         if current_mode == 'cable':
             x, y = get_point1()
-            point1 = draw_point1(x,y)
+            point1 = draw_point1(x,y,'red')
             notify.update('Click second point of line')
             current_mode='cable2'
-        if current_mode == 'polyline':
+        elif current_mode == 'polyline':
             x, y = get_point1()
             point1 = draw_point1(x,y)
             notify.update('Click next point of line')
@@ -1557,6 +1613,11 @@ while True:
             point1 = draw_point1(x,y,'orange')
             notify.update('Click second arrow point')
             current_mode = 'varrow2'
+        elif current_mode == 'vmultiarrow':
+            x,y = get_point1()
+            point1 = draw_point1(x,y,'orange')
+            notify.update('Click first cable')
+            current_mode == 'vmultiarrow2'
         elif current_mode == 'arrow1':
             x,y = get_point1()
             point1 = draw_point1(x,y,'orange')
@@ -1644,6 +1705,20 @@ while True:
             meas = convert_measurement()
             v_arrow(x,y,b,meas)
             cleanup_2point()
+        elif current_mode == 'vmultiarrow2':
+            a,b = get_point2()
+            point2 = draw_point2(a,b,'orange')
+            current_mode == 'vmultiarrow3'
+            notify.update('Please select 2ndcable')
+        elif current_mode == 'vmultiarrow3':
+            c,d = get_point3()
+            point3 = draw_point3(c,d,'orange')
+            newmeas = convert_multi_measurement()
+            v_multi_arrow(x,y,b,d,f'{newmeas[0]},{newmeas[1]}')
+            x=y=a=b=c=d=None
+            for _ in (point1,point2,point3):
+                graph.delete_figure(_)
+            current_mode = 'select'
         elif current_mode == 'text':
             x, y = get_point1()
             hlabel(entered_text, x, y, 12)

@@ -1004,3 +1004,58 @@ Traceback (most recent call last):
   File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 384, in hlabel
     sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold")
 AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-02 12:06:18,682
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 395, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold")
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-02 12:06:20,838
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 395, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold")
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-02 12:06:55,257
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 395, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold")
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-04 13:45:42,916
+2022-03-04 13:45:42,947
+2022-03-04 13:47:24,243
+2022-03-04 13:47:24,243
+2022-03-04 13:48:29,894
+2022-03-04 13:48:29,894
+2022-03-04 13:48:30,939
+Traceback (most recent call last):
+  File "C:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 527, in ped
+    (x - 0.4, y - 0.4),
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
+2022-03-04 13:48:45,932
+Traceback (most recent call last):
+  File "C:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 479, in hlabel
+    graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-04 13:48:46,685
+Traceback (most recent call last):
+  File "C:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 479, in hlabel
+    graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-04 13:48:46,845
+Traceback (most recent call last):
+  File "C:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 479, in hlabel
+    graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-04 13:48:47,646
+Traceback (most recent call last):
+  File "C:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 479, in hlabel
+    graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-04 13:48:48,731
+Traceback (most recent call last):
+  File "C:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 479, in hlabel
+    graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-04 15:47:54,100
+2022-03-04 15:47:54,100
+2022-03-04 15:51:07,956
+2022-03-04 15:51:07,956
