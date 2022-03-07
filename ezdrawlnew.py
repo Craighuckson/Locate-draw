@@ -16,7 +16,7 @@ from PySimpleGUI.PySimpleGUI import (
 import pickle
 import time
 
-main()
+#main()
 
 sg.theme("hot dog stand")
 logging.basicConfig(filename="ezdraw.log", level=logging.DEBUG, format="%(asctime)s")
@@ -406,17 +406,17 @@ def v_multi_arrow(x, yo, y1, y2, meas, measdir="u"):
             arrow("s", x, y1)
             arrow("s", x, y2)
             if measdir.lower() == "u":
-                vlabelm(meas, x, y2 - 3.0, 11)
+                vlabelm(meas, x, y2 - 3.3, 11)
             else:
-                vlabelm(meas, x, yo + 3.0, 11)
+                vlabelm(meas, x, yo + 3.3, 11)
         else:
             arrow("s", x, yo)
             arrow("n", x, y1)
             arrow("n", x, y2)
             if measdir.lower == "u":
-                vlabelm(meas, x, yo - 3, 11)
+                vlabelm(meas, x, yo - 3.3, 11)
             else:
-                vlabelm(meas, x, y2 + 3, 11)
+                vlabelm(meas, x, y2 + 3.3, 11)
     except:
         logerror()
 
