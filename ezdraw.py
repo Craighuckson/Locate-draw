@@ -65,12 +65,12 @@ def show_grid():
     #     grid2 = graph.DrawLine((0, y), (WIDTH, y), color="grey")
     #     TK.addtag_withtag('grid', grid2)
     # # draws in numbers
-   
+       
     #     TK.addtag_withtag('grid', grid4)
     #     TK.itemconfig('grid',state='disabled')
     try:
-        for x in range(0,WIDTH):
-            for y in range(0,HEIGHT):
+        for x in range(WIDTH):
+            for y in range(HEIGHT):
                 gpt = sg.Graph.draw_point(graph,(x,y),color='grey',size=0.1)
                 TK.addtag_withtag('grid',gpt)
         for a in range(0, WIDTH, 2):
@@ -233,10 +233,7 @@ def transformer(x, y):
 
 
 def vault(util, x, y):
-    if util.lower() == "b":
-        vlbl = "FTG"
-    else:
-        vlbl = "HW"
+    vlbl = "FTG" if util.lower() == "b" else "HW"
     v1 = graph.draw_rectangle(
         (x - 0.7, y - 0.4), (x + 0.7, y + 0.4), line_color="black", fill_color=None
     )
@@ -260,16 +257,26 @@ def hlabelm(msg, x, y, size):
 def vlabel(msg, x, y, size):
     try:
         sg.Graph.draw_text(
-            graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal", angle=90
+            graph,
+            msg.upper(),
+            (x, y),
+            font=f"Arial {str(size)} normal",
+            angle=90,
         )
+
     except:
         logerror()
 
 def vlabelm(msg, x, y, size):
     try:
         sg.Graph.draw_text(
-            graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+            graph,
+            msg.lower(),
+            (x, y),
+            font=f"Arial {str(size)} normal",
+            angle=90,
         )
+
     except:
         logerror()
 
@@ -302,11 +309,9 @@ def ped_1arm(x,y,direction='',distance=''):
     elif direction.lower() =='s':
         cable(x,y+0.4,x,y+distance)
     elif direction.lower() == 'w':
-        cable(x-0.4,y,x-distance,y)       
+        cable(x-0.4,y,x-distance,y)
     elif direction.lower() == 'e':
         cable(x+0.4,y,x+distance,y)
-    else:
-        pass
 
 def ped_multiarm(x,y,direction,meas1,meas2,distance,third_arm=False):
     '''
@@ -390,10 +395,7 @@ def cable(x1, y1, x2, y2,label=''):
                     gap = 6
                 for y in range(round(y1),round(y2),gap):
                     #white box
-                    if len(label) <= 2:
-                        s = 0.25
-                    else:
-                        s = 0.6
+                    s = 0.25 if len(label) <= 2 else 0.6
                     tbox = sg.Graph.draw_rectangle(graph,(x1-s,y-s),(x1+s,y+s), fill_color = 'white', line_color = 'white')
                     TK.addtag_withtag('cable','tbox')
                     tlab = sg.Graph.draw_text(graph,label.upper(),(x1,y),font='Arial 7 normal')
@@ -409,10 +411,7 @@ def cable(x1, y1, x2, y2,label=''):
                 for x in range(round(x1),round(x2),gap):
                     #white box
                     #check for text size
-                    if len(label) <= 2:
-                        s = 0.25
-                    else:
-                        s = 0.6
+                    s = 0.25 if len(label) <= 2 else 0.6
                     tbox = sg.Graph.draw_rectangle(graph,(x-s,y1-s),(x+s,y1+s), fill_color = 'white', line_color = 'white')
                     TK.addtag_withtag('cable',tbox)
                     #text
@@ -434,10 +433,7 @@ def h_cable(x1,x2,y,label=''):
         for x in range(round(x1),round(x2),gap):
             #white box
             #check for text size
-            if len(label) <= 2:
-                s = 0.25
-            else:
-                s = 0.6
+            s = 0.25 if len(label) <= 2 else 0.6
             sg.Graph.draw_rectangle(graph,(x-s,y-s),(x+s,y+s), fill_color = 'white', line_color = 'white')
             #text
             hlabel(label,x,y,7)
@@ -451,10 +447,7 @@ def v_cable(x,y1,y2,label=''):
             gap = 6
         for y in range(round(y1),round(y2),gap):
             #white box
-            if len(label) <= 2:
-                s = 0.25
-            else:
-                s = 0.6
+            s = 0.25 if len(label) <= 2 else 0.6
             sg.Graph.draw_rectangle(graph,(x-s,y-s),(x+s,y+s), fill_color = 'white', line_color = 'white')
             vlabel(label,x,y,7)   
 
@@ -503,15 +496,13 @@ def get_point2():
 
 def draw_point1(x,y,color='red'):
     try:
-        point1 = sg.Graph.draw_point(graph,(x, y), size=0.5, color= color)
-        return point1
+        return sg.Graph.draw_point(graph,(x, y), size=0.5, color= color)
     except:
         logerror()
 
 def draw_point2(x,y,color='blue'):
     try:
-        point2 = sg.Graph.draw_point(graph,(x,y),size=0.5,color=color)
-        return point2
+        return sg.Graph.draw_point(graph,(x,y),size=0.5,color=color)
     except:
         logerror()
 

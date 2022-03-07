@@ -12,9 +12,9 @@ def show_grid(graph):
     Turns grid on
     """
     # draws grid
-    for x in range(0, WIDTH, 1):
+    for x in range(WIDTH):
         graph.DrawLine((x, 0), (x, HEIGHT), color="grey")
-    for y in range(0, HEIGHT, 1):
+    for y in range(HEIGHT):
         graph.DrawLine((0, y), (WIDTH, y), color="grey")
 
     # draws in numbers
@@ -142,10 +142,7 @@ def transformer(graph,x, y):
 
 
 def vault(graph,util, x, y):
-    if util.lower() == "b":
-        vlbl = "FTG"
-    else:
-        vlbl = "HW"
+    vlbl = "FTG" if util.lower() == "b" else "HW"
     v1 = graph.draw_rectangle(
         (x - 0.7, y - 0.4), (x + 0.7, y + 0.4), line_color="black", fill_color=None
     )
@@ -155,12 +152,12 @@ def vault(graph,util, x, y):
 
 
 def hlabel(graph,msg, x, y, size):
-    sg.Graph.draw_text(graph, msg, (x, y), font="Arial " + str(size) + " normal")
+    sg.Graph.draw_text(graph, msg, (x, y), font=f"Arial {str(size)} normal")
 
 
 def vlabel(graph,msg, x, y, size):
     sg.Graph.draw_text(
-        graph, msg, (x, y), font="Arial " + str(size) + " normal", angle=90
+        graph, msg, (x, y), font=f"Arial {str(size)} normal", angle=90
     )
 
 
@@ -190,11 +187,9 @@ def ped_1arm(x,y,direction='',distance=''):
     elif direction.lower() =='s':
         cable(x,y+0.4,x,y+distance)
     elif direction.lower() == 'w':
-        cable(x-0.4,y,x-distance,y)       
+        cable(x-0.4,y,x-distance,y)
     elif direction.lower() == 'e':
         cable(x+0.4,y,x+distance,y)
-    else:
-        pass
 
 def ped_multiarm(x,y,direction,meas1,meas2,distance,third_arm=False):
     '''
@@ -264,10 +259,7 @@ def h_cable(graph,x1,x2,y,label=''):
         for x in range(round(x1),round(x2),gap):
             #white box
             #check for text size
-            if len(label) <= 2:
-                s = 0.25
-            else:
-                s = 0.6
+            s = 0.25 if len(label) <= 2 else 0.6
             sg.Graph.draw_rectangle(graph,(x-s,y-s),(x+s,y+s), fill_color = 'white', line_color = 'white')
             #text
             hlabel(label,x,y,7)
@@ -281,10 +273,7 @@ def v_cable(graph,x,y1,y2,label=''):
             gap = 6
         for y in range(round(y1),round(y2),gap):
             #white box
-            if len(label) <= 2:
-                s = 0.25
-            else:
-                s = 0.6
+            s = 0.25 if len(label) <= 2 else 0.6
             sg.Graph.draw_rectangle(graph,(x-s,y-s),(x+s,y+s), fill_color = 'white', line_color = 'white')
             vlabel(label,x,y,7)   
 

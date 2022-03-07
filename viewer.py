@@ -45,9 +45,7 @@ while True:
     if event == 'Resize':
         try:
             if values['-W-'] and values['-H-']:
-                    new_size = int(values['-W-']), int(values['-H-'])
-            else:
-                pass
+                new_size = int(values['-W-']), int(values['-H-'])
             window['-IMAGE-'].update(data=convert_to_bytes(values['-FILE-'],resize=new_size))
         except:
             pass
