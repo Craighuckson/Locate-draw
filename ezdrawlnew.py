@@ -151,10 +151,10 @@ def convert_measurement():
     meas = popup_get_text("Enter measurement(int)")
     try:
         if len(meas) == 1:
-            newmeas = "0." + meas + "m"
+            newmeas = f"0.{meas}m"
             return newmeas
         elif len(meas) == 2:
-            newmeas = meas[0] + "." + meas[1] + "m"
+            newmeas = f'{meas[0]}.{meas[1]}m'
             return newmeas
         elif len(meas) == 3:
             newmeas = meas[0] + meas[1] + "." + meas[2] + "m"
@@ -174,9 +174,9 @@ def convert_multi_measurement():
     for p in meas.split(','):
         try:
             if len(p) == 1:
-                newmeas.append("0." + p + "m")
+                newmeas.append(f"0.{p}m")
             elif len(p) == 2:
-                newmeas.append(p[0] + "." + p[1] + "m")
+                newmeas.append(f'{p[0]}.{p[1]}m')
             elif len(p) == 3:
                 newmeas.append([0] + p[1] + "." + p[2] + "m")
             assert newmeas is not None
@@ -241,8 +241,6 @@ def wipe():
     confirm = popup_yes_no("Erase entire image?")
     if confirm == "Yes":
         graph.erase()
-    else:
-        pass
 
 
 def rarrow(x1, y1, x2, y2):
@@ -495,10 +493,7 @@ def vault(x, y, utility=None):
     utility : 'b' gives label 'FTG', otherwise label is 'HW'
     """
 
-    if utility == "b":
-        vault_label = "FTG"
-    else:
-        vault_label = "HW"
+    vault_label = "FTG" if utility == "b" else "HW"
     v1 = graph.draw_rectangle(
         (x - 0.7, y - 0.4), (x + 0.7, y + 0.4), line_color="black", fill_color=None
     )
@@ -522,11 +517,9 @@ def catch_basin(x, y):
 
 def hlabel(msg, x, y, size):
     try:
-        if msg == "la" or msg == "LA":
+        if msg in ["la", "LA"]:
             msg = "LOCATED AREA"
-        sg.Graph.draw_text(
-            graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
-        )
+        sg.Graph.draw_text(graph, msg.upper(), (x, y), font=f"Arial {str(size)} bold")
     except:
         logerror()
 
@@ -534,19 +527,25 @@ def hlabel(msg, x, y, size):
 def hlabelm(msg, x, y, size):
     try:
         sg.Graph.draw_text(
-            graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
+            graph, msg.lower(), (x, y), font=f"Arial {str(size)} normal"
         )
+
     except:
         logerror()
 
 
 def vlabel(msg, x, y, size):
     try:
-        if msg == "la" or msg == "LA":
+        if msg in ["la", "LA"]:
             msg = "LOCATED AREA"
         sg.Graph.draw_text(
-            graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold", angle=90
+            graph,
+            msg.upper(),
+            (x, y),
+            font=f"Arial {str(size)} bold",
+            angle=90,
         )
+
     except:
         logerror()
 
@@ -554,8 +553,13 @@ def vlabel(msg, x, y, size):
 def vlabelm(msg, x, y, size):
     try:
         sg.Graph.draw_text(
-            graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+            graph,
+            msg.lower(),
+            (x, y),
+            font=f"Arial {str(size)} normal",
+            angle=90,
         )
+
     except:
         logerror()
 
@@ -716,8 +720,7 @@ def set_landbase(dir, edge_type="CL"):
         hlabel(f"N{edge_type}", *HNCURBLABEL)
         road(*HSCURB)
         hlabel(f"S{edge_type}", *HSCURBLABEL)
-    landbase = dir.lower()
-    return landbase
+    return dir.lower()
 
 
 def set_street_name(street, landbase):
@@ -812,10 +815,7 @@ def cable(x1, y1, x2, y2, label=""):
                     gap = 5
                 for y in range(round(y1), round(y2), gap):
                     # white box
-                    if len(label) <= 2:
-                        s = 0.25
-                    else:
-                        s = 0.6
+                    s = 0.25 if len(label) <= 2 else 0.6
                     tbox = sg.Graph.draw_rectangle(
                         graph,
                         (x1 - s, y - s),
@@ -839,10 +839,7 @@ def cable(x1, y1, x2, y2, label=""):
                 for x in range(round(x1), round(x2), gap):
                     # white box
                     # check for text size
-                    if len(label) <= 2:
-                        s = 0.25
-                    else:
-                        s = 0.6
+                    s = 0.25 if len(label) <= 2 else 0.6
                     tbox = sg.Graph.draw_rectangle(
                         graph,
                         (x - s, y1 - s),
@@ -871,10 +868,7 @@ def h_cable(x1, x2, y, label=""):
         for x in range(round(x1), round(x2), gap):
             # white box
             # check for text size
-            if len(label) <= 2:
-                s = 0.25
-            else:
-                s = 0.6
+            s = 0.25 if len(label) <= 2 else 0.6
             sg.Graph.draw_rectangle(
                 graph,
                 (x - s, y - s),
@@ -895,10 +889,7 @@ def v_cable(x, y1, y2, label=""):
             gap = 6
         for y in range(round(y1), round(y2), gap):
             # white box
-            if len(label) <= 2:
-                s = 0.25
-            else:
-                s = 0.6
+            s = 0.25 if len(label) <= 2 else 0.6
             sg.Graph.draw_rectangle(
                 graph,
                 (x - s, y - s),
@@ -926,19 +917,16 @@ def v_line(x, y1, y2):
 
 
 def get_figure_type(tag_or_id):
-    fig_type = TK.type(tag_or_id)
-    return fig_type
+    return TK.type(tag_or_id)
 
 
 def get_figure_coords(tag_or_id):
-    fig_coords = TK.coords(tag_or_id)
-    return fig_coords
+    return TK.coords(tag_or_id)
 
 
 def clone_item(tag_or_ID):
     config = TK.itemconfig(tag_or_ID)
-    clone = {key: config[key][-1] for key in config.keys()}
-    return clone
+    return {key: config[key][-1] for key in config.keys()}
 
 
 def paste_figure(fig_type, coords, clone):
@@ -1010,7 +998,7 @@ def house(x, y, size, num):
         sbl = hlabel("SBL", x + 4, y + 9, 10)
         wbl = vlabel("WBL", x - 1, y + 4, 10)
         ebl = vlabel("EBL", x + 9, y + 4, 10)
-        for x in bldng, hnumber, nbl, sbl, wbl, ebl:
+        for _ in bldng, hnumber, nbl, sbl, wbl, ebl:
             group("house_l", "x")
     elif size == "s":
         bldng = sg.Graph.draw_rectangle(
@@ -1021,7 +1009,7 @@ def house(x, y, size, num):
         sbl = hlabel("SBL", x + 2, y + 5, 10)
         wbl = vlabel("WBL", x - 1, y + 2, 10)
         ebl = vlabel("EBL", x + 5, y + 2, 10)
-        for x in bldng, hnumber, nbl, sbl, wbl, ebl:
+        for _ in bldng, hnumber, nbl, sbl, wbl, ebl:
             group("house_s", "x")
 
 
@@ -1058,24 +1046,21 @@ def get_point3():
 
 def draw_point1(x, y, color="red"):
     try:
-        point1 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
-        return point1
+        return sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
     except:
         logerror()
 
 
 def draw_point2(x, y, color="blue"):
     try:
-        point2 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
-        return point2
+        return sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
     except:
         logerror()
 
 
 def draw_point3(x, y, color="green"):
     try:
-        point3 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
-        return point3
+        return sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
     except:
         logerror()
 
@@ -1093,7 +1078,6 @@ def edit_text():
         TK.itemconfig("current", text=string)
     except:
         popup("Not a text object")
-        pass
 
 
 def get_input(prompt):
@@ -1105,8 +1089,7 @@ def draw_cursor(input_mode):
         return
     c1 = sg.Graph.draw_line(graph, (15, 14), (15, 16), color="blue")
     c2 = sg.Graph.draw_line(graph, (14, 15), (16, 15), color="blue")
-    cursorid = (c1, c2)
-    return cursorid
+    return c1, c2
 
 
 def update_cursor_position(cursor):
@@ -1123,25 +1106,26 @@ def hide_cursor(cursorid):
 
 
 def read_from_template(file):
-    if file is not None:
-        try:
-            with open(file) as f:
-                flist = f.readlines()
-                lb_strlist = flist[0].split()
-                dir = lb_strlist[0]
-                edge_type = lb_strlist[1].strip()
-                landbase = set_landbase(dir, edge_type)
-                if dir in ["ne", "nw", "se", "sw"]:
-                    set_intersection_name(flist[1], flist[2], landbase)
-                else:
-                    set_street_name(flist[1], landbase)
+    if file is None:
+        return
+    try:
+        with open(file) as f:
+            flist = f.readlines()
+            lb_strlist = flist[0].split()
+            dir = lb_strlist[0]
+            edge_type = lb_strlist[1].strip()
+            landbase = set_landbase(dir, edge_type)
+            if dir in ["ne", "nw", "se", "sw"]:
+                set_intersection_name(flist[1], flist[2], landbase)
+            else:
+                set_street_name(flist[1], landbase)
 
-        except IndexError:
-            pass
+    except IndexError:
+        pass
 
-        except:
-            logging.exception("error")
-            popup("There was an error in template file")
+    except:
+        logging.exception("error")
+        popup("There was an error in template file")
 
 
 def save_sketch_template(file=""):
@@ -1152,14 +1136,13 @@ def save_sketch_template(file=""):
     typelist = []
     coordslist = []
     clonelist = []
-    list_of_all_figures = []
     for id in TK.find_all():
         typelist.append(get_figure_type(id))
         coordslist.append(get_figure_coords(id))
         clonelist.append(clone_item(id))
-    list_of_all_figures.extend([typelist, coordslist, clonelist])
+    list_of_all_figures = list([typelist, coordslist, clonelist])
     easy_print(list_of_all_figures)
-    with open(filename + ".pkl", "wb") as pk:
+    with open(f'{filename}.pkl', "wb") as pk:
         pickled_obj = pickle.dump(list_of_all_figures, pk)
 
 
@@ -1215,11 +1198,8 @@ def short_gas():
             house(4, 11, "l", hnum)
         else:
             easy_print(logging.exception("err"))
-            pass
-
     except:
         easy_print(logging.exception("err"))
-        pass
 
 
 def long_gas():
@@ -1235,7 +1215,6 @@ def long_gas():
             digbox(4, 0, 26, 29)
             house(12, 3, "m", hnum)
             hlabel(street, 15, 19, 20)
-            pass
         elif dir.lower() == "s":
             h_road(2, 28, 8)
             h_road(2, 28, 14)
@@ -1258,7 +1237,6 @@ def long_gas():
             easy_print(logging.exception("err"))
     except:
         easy_print(logging.exception("err"))
-        pass
 
 
 def radius_sketch():
