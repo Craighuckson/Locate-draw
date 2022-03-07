@@ -16,14 +16,14 @@ from PySimpleGUI.PySimpleGUI import (
 import pickle
 import time
 
-#main()
+main()
 
 sg.theme("hot dog stand")
 logging.basicConfig(filename="ezdraw.log", level=logging.DEBUG, format="%(asctime)s")
 Print = easy_print
 # CONSTANTS
 
-edge_type = ''
+edge_type = ""
 HEIGHT = 30
 WIDTH = 30
 
@@ -31,8 +31,8 @@ ECURB = [WIDTH / 3, 2, WIDTH / 3, HEIGHT - 2]
 WCURB = [(WIDTH * 2) / 3, 2, (WIDTH * 2) / 3, HEIGHT - 2]
 NCURB = [2, (HEIGHT * 2) / 3, WIDTH - 2, (HEIGHT * 2) / 3]
 SCURB = [2, HEIGHT / 3, WIDTH - 2, HEIGHT / 3]
-HNCURB = [NCURB[0], SCURB[1] + 2,NCURB[2],SCURB[1]+2]
-HSCURB = [SCURB[0], NCURB[1]-2,NCURB[2],NCURB[1]-2]
+HNCURB = [NCURB[0], SCURB[1] + 2, NCURB[2], SCURB[1] + 2]
+HSCURB = [SCURB[0], NCURB[1] - 2, NCURB[2], NCURB[1] - 2]
 
 NSTREET = [WIDTH / 2, (NCURB[1] + HEIGHT) / 2]
 SSTREET = [WIDTH / 2, (SCURB[1]) / 2]
@@ -40,8 +40,8 @@ WSTREET = [(WCURB[0] + WIDTH) / 2, HEIGHT / 2]
 ESTREET = [ECURB[0] / 2, HEIGHT / 2, 20]
 HSTREET = [WIDTH / 2, HEIGHT / 2, 20]
 
-HNCURBLABEL = [27,13,12]
-HSCURBLABEL = [27,19,12]
+HNCURBLABEL = [27, 13, 12]
+HSCURBLABEL = [27, 19, 12]
 
 NBLHOUSE1 = (2, 8, "s")
 NBLHOUSE2 = (24, 8, "s")
@@ -85,10 +85,12 @@ pointlist = []
 
 # WRAPPER FUNCTIONS
 
-def event_switch(modestring,notifystring):
+
+def event_switch(modestring, notifystring):
     current_mode = modestring
     notify.update(notifystring)
     return current_mode
+
 
 def save_element_as_file(element, filename):
     """
@@ -160,6 +162,29 @@ def convert_measurement():
     except TypeError:
         logging.exception("empty measurement")
         return
+
+
+def convert_multi_measurement():
+    """
+    returns a measurement list
+    """
+    newmeas = []
+    meas = popup_get_text("Enter measurements(int) separated by comma")
+    Print(meas.split(','))
+    for p in meas.split(','):
+        try:
+            if len(p) == 1:
+                newmeas.append("0." + p + "m")
+            elif len(p) == 2:
+                newmeas.append(p[0] + "." + p[1] + "m")
+            elif len(p) == 3:
+                newmeas.append([0] + p[1] + "." + p[2] + "m")
+            assert newmeas is not None
+        except TypeError:
+            logging.exception("empty measurement")
+            return
+    assert len(newmeas) > 1
+    return newmeas
 
 
 def logerror():
@@ -372,25 +397,26 @@ def v_arrow(x, y1, y2, meas, measdir="u"):
     except:
         logerror()
 
-def v_multi_arrow(x,yo,y1,y2,meas,measdir='u'):
-    #pass
+
+def v_multi_arrow(x, yo, y1, y2, meas, measdir="u"):
+    # pass
     try:
         if yo > y1:
-            arrow('n',x,yo)
-            arrow('s',x,y1)
-            arrow('s',x,y2)
-            if measdir.lower() == 'u':
-                vlabelm(meas,x,y2-2.8,11)
+            arrow("n", x, yo)
+            arrow("s", x, y1)
+            arrow("s", x, y2)
+            if measdir.lower() == "u":
+                vlabelm(meas, x, y2 - 3.0, 11)
             else:
-                vlabelm(meas,x,yo+2.8,11)
+                vlabelm(meas, x, yo + 3.0, 11)
         else:
-            arrow('s',x,yo)
-            arrow('n',x,y1)
-            arrow('n',x,y2)
-            if measdir.lower == 'u':
-                vlabelm(meas,x,yo-2.8,11)
+            arrow("s", x, yo)
+            arrow("n", x, y1)
+            arrow("n", x, y2)
+            if measdir.lower == "u":
+                vlabelm(meas, x, yo - 3, 11)
             else:
-                vlabelm(meas,x,y2+2.8,11)
+                vlabelm(meas, x, y2 + 3, 11)
     except:
         logerror()
 
@@ -402,7 +428,8 @@ def pole(x, y):
     except:
         logerror()
 
-def ped_stub(pedx,pedy,stub_endx,stub_endy):
+
+def ped_stub(pedx, pedy, stub_endx, stub_endy):
     pass
 
 
@@ -684,11 +711,11 @@ def set_landbase(dir, edge_type="CL"):
     elif dir.lower() == "w":
         v_road(23, 2, HEIGHT - 2)
         vlabel(f"W{edge_type}", 22, 3, 12)
-    elif dir.lower() == 'h':
+    elif dir.lower() == "h":
         road(*HNCURB)
-        hlabel(f'N{edge_type}',*HNCURBLABEL)
+        hlabel(f"N{edge_type}", *HNCURBLABEL)
         road(*HSCURB)
-        hlabel(f'S{edge_type}',*HSCURBLABEL)
+        hlabel(f"S{edge_type}", *HSCURBLABEL)
     landbase = dir.lower()
     return landbase
 
@@ -703,8 +730,8 @@ def set_street_name(street, landbase):
         vlabel(street, 3, 15, 20)
     elif landbase.lower() == "w":
         vlabel(street, 27, 15, 20)
-    elif landbase.lower() == 'h':
-        hlabel(street,*HSTREET)
+    elif landbase.lower() == "h":
+        hlabel(street, *HSTREET)
 
 
 def get_intersection_name():
@@ -885,7 +912,7 @@ def v_cable(x, y1, y2, label=""):
 def line(x1, y1, x2, y2):
     try:
         l = sg.Graph.draw_line(graph, (x1, y1), (x2, y2))
-        TK.itemconfig(l,activefill='red')
+        TK.itemconfig(l, activefill="red")
     except:
         logerror()
 
@@ -940,9 +967,17 @@ def digbox(x1, y1, x2, y2):
     except:
         logerror()
 
-def building(x1,y1,x2,y2):
+
+def building(x1, y1, x2, y2):
     try:
-        sg.Graph.draw_rectangle(graph,(x1,y1), (x2,y2), fill_color = 'white', line_color = 'black', line_width = 1)
+        sg.Graph.draw_rectangle(
+            graph,
+            (x1, y1),
+            (x2, y2),
+            fill_color="white",
+            line_color="black",
+            line_width=1,
+        )
     except:
         logerror()
 
@@ -1016,6 +1051,11 @@ def get_point2():
     return a, b
 
 
+def get_point3():
+    c, d = values["graph"]
+    return c, d
+
+
 def draw_point1(x, y, color="red"):
     try:
         point1 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
@@ -1028,6 +1068,14 @@ def draw_point2(x, y, color="blue"):
     try:
         point2 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
         return point2
+    except:
+        logerror()
+
+
+def draw_point3(x, y, color="green"):
+    try:
+        point3 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
+        return point3
     except:
         logerror()
 
@@ -1051,12 +1099,13 @@ def edit_text():
 def get_input(prompt):
     return popup_get_text(prompt)
 
+
 def draw_cursor(input_mode):
-    if input_mode != 'keyboard':
+    if input_mode != "keyboard":
         return
-    c1= sg.Graph.draw_line(graph,(15,14),(15,16),color='blue')
-    c2 =sg.Graph.draw_line(graph,(14,15),(16,15), color='blue')
-    cursorid = (c1,c2)
+    c1 = sg.Graph.draw_line(graph, (15, 14), (15, 16), color="blue")
+    c2 = sg.Graph.draw_line(graph, (14, 15), (16, 15), color="blue")
+    cursorid = (c1, c2)
     return cursorid
 
 
@@ -1064,13 +1113,14 @@ def update_cursor_position(cursor):
     refline = TK.coords(cursor[0])
     cursorx = refline[0] / 20
     cursory = (refline[1] + refline[3]) / 2 / 20
-    #Print(cursorx, cursory)
-    return [cursorx,cursory]
+    # Print(cursorx, cursory)
+    return [cursorx, cursory]
 
-    
+
 def hide_cursor(cursorid):
     for x in cursorid:
-        TK.itemconfig(x,state='disabled')
+        TK.itemconfig(x, state="disabled")
+
 
 def read_from_template(file):
     if file is not None:
@@ -1394,40 +1444,39 @@ window = sg.Window(
     resizable=True,
     return_keyboard_events=True,
     use_default_focus=True,
-
 )
 graph = window["graph"]
 TK = graph.TKCanvas
 # DRAW HERE
 # SETUP
 
-#dictionary for key input to draw function mapping
+# dictionary for key input to draw function mapping
 
 buttoniomulti = {
-    'a' : arc,
-    'b' : building,
-    'B' : house,
-    'c' : cable,
-    'C' : arc,
-    'd' : digbox,
-    'h' : h_arrow,
-    'l' : line,
-    'n' : cable,
-    'o' : offset_line,
-    'r' : road,
-    'R' : arc,
-    'v' : v_arrow,
-    '!' : ped_1arm,
-    '@' : pole_1arm,
+    "a": arc,
+    "b": building,
+    "B": house,
+    "c": cable,
+    "C": arc,
+    "d": digbox,
+    "h": h_arrow,
+    "l": line,
+    "n": cable,
+    "o": offset_line,
+    "r": road,
+    "R": arc,
+    "v": v_arrow,
+    "!": ped_1arm,
+    "@": pole_1arm,
 }
 
 buttoniosingle = {
-    '1' : ped,
-    '2' : pole,
-    '3' : item_stamp,
-    '4' : transformer,
-    '5' : vault,
-    '6' : catch_basin,
+    "1": ped,
+    "2": pole,
+    "3": item_stamp,
+    "4": transformer,
+    "5": vault,
+    "6": catch_basin,
 }
 
 mode = {0: "select", 1: "get points", 2: "draw"}
@@ -1436,9 +1485,9 @@ x = y = a = b = 0
 isGrid = False
 gridSnap = True
 graph.bind("<B1-Motion>", "drag")
-#graph.bind("<Motion>", "motion")
-#graph.bind("<KeyPress-g>",'gridon')
-#graph.bind("<KeyRelease-g>",'gridoff')
+# graph.bind("<Motion>", "motion")
+# graph.bind("<KeyPress-g>",'gridon')
+# graph.bind("<KeyRelease-g>",'gridoff')
 selected = []
 dragging = False
 start_point = end_point = prior_rect = None
@@ -1490,18 +1539,17 @@ while True:
             snap_to_grid_on()
             notify3.update(f"Snap to grid: {gridSnap}")
 
-    if event == 'Exit':
+    if event == "Exit":
         window.close()
 
     if event == "Keyboard":
-        input_mode = 'keyboard'
-        #draw_cursor
+        input_mode = "keyboard"
+        # draw_cursor
         cursor = draw_cursor(input_mode)
-    
-    if event == "Mouse/Keyboard":
-        input_mode = ''
-        hide_cursor()
 
+    if event == "Mouse/Keyboard":
+        input_mode = ""
+        hide_cursor()
 
     if event == "24":
         sg.Graph.set_size(graph, (480, 480))
@@ -1560,26 +1608,31 @@ while True:
             vlabel(street, ESTREET[0], ESTREET[1], 20)
 
     if event == "m" and current_mode == "chosen":
-        current_mode = event_switch('move','Please click location to move to')
+        current_mode = event_switch("move", "Please click location to move to")
 
     if event.endswith("MOVE"):
-        
+
         notify3.update(end_point)
 
-    if event.endswith("MOVE") and (current_mode == 'line2' or current_mode == 'endcable' or current_mode == 'offsetline2' or current_mode == 'road2'):
+    if event.endswith("MOVE") and (
+        current_mode == "line2"
+        or current_mode == "endcable"
+        or current_mode == "offsetline2"
+        or current_mode == "road2"
+    ):
         notify2.update(end_point)
         notify3.update(current_mode)
         try:
-            #notify2.update(TK.itemcget(hashline))
-            end_point = values['graph']
-            sg.Graph.delete_figure(graph,hashline)
-            #TK.coords(hashline,start_point[0]*20,start_point[1]*20,end_point[0]*20,end_point[1*20])
-            hashline = sg.Graph.draw_line(graph,start_point,end_point,color='black')
-            TK.itemconfig(hashline,dash=(2,2))
-           
+            # notify2.update(TK.itemcget(hashline))
+            end_point = values["graph"]
+            sg.Graph.delete_figure(graph, hashline)
+            # TK.coords(hashline,start_point[0]*20,start_point[1]*20,end_point[0]*20,end_point[1*20])
+            hashline = sg.Graph.draw_line(graph, start_point, end_point, color="black")
+            TK.itemconfig(hashline, dash=(2, 2))
+
         except:
             pass
-       
+
     if event.endswith("MOVE") and current_mode == "move":
         try:
             for item in selected:
@@ -1637,28 +1690,26 @@ while True:
     #     db = sg.Graph.draw_rectangle(graph,(startx,starty),(currentx,currenty),line_color='red')
     #     graph.update()
 
-    #keyboard cursor control
-    if event == 'Down:40' and input_mode == 'keyboard':
+    # keyboard cursor control
+    if event == "Down:40" and input_mode == "keyboard":
         for section in cursor:
-            sg.Graph.move_figure(graph,section,0,1)
+            sg.Graph.move_figure(graph, section, 0, 1)
             cursorpos = update_cursor_position(cursor)
-            #Print(cursorpos)
+            # Print(cursorpos)
 
-    elif event == 'Up:38' and input_mode == 'keyboard':
+    elif event == "Up:38" and input_mode == "keyboard":
         for section in cursor:
-            sg.Graph.move_figure(graph,section,0,-1)
-            cursorpos = update_cursor_position(cursor)
-
-    elif event == 'Right:39' and input_mode == 'keyboard':
-        for section in cursor:
-            sg.Graph.move_figure(graph,section,1,0)  
-            cursorpos = update_cursor_position(cursor)
-    elif event == 'Left:37' and input_mode == 'keyboard':
-        for section in cursor:
-            sg.Graph.move_figure(graph,section,-1,0)
+            sg.Graph.move_figure(graph, section, 0, -1)
             cursorpos = update_cursor_position(cursor)
 
-
+    elif event == "Right:39" and input_mode == "keyboard":
+        for section in cursor:
+            sg.Graph.move_figure(graph, section, 1, 0)
+            cursorpos = update_cursor_position(cursor)
+    elif event == "Left:37" and input_mode == "keyboard":
+        for section in cursor:
+            sg.Graph.move_figure(graph, section, -1, 0)
+            cursorpos = update_cursor_position(cursor)
 
     if event == "Escape:27" and current_mode == "nextcable":
         collecting = False
@@ -1688,49 +1739,59 @@ while True:
                 selected.remove(item)
         # graph.delete_figure(bbr)
 
-    #try it out...
+    # try it out...
 
     if event in buttoniosingle.keys():
-        notify.update('Choose insertion point')
-        x,y = get_point1()
-        buttoniosingle[event](x,y)
+        notify.update("Choose insertion point")
+        x, y = get_point1()
+        buttoniosingle[event](x, y)
 
     if event == "n":
-        current_mode = event_switch('polyline','Click next point of line')
+        current_mode = event_switch("polyline", "Click next point of line")
 
     if event == "F2:113":
         edit_text()
     if event == ">":
-        current_mode = event_switch('arrow1','Please click first arrow head')
+        current_mode = event_switch("arrow1", "Please click first arrow head")
     if event == "s":
-        current_mode = event_switch('select','Select figure')
+        current_mode = event_switch("select", "Select figure")
     if event == "i":
         img = popup_get_file("Select image")
         sg.Graph.draw_image(graph, location=(0, 0), data=convert_to_bytes(img))
     if event == "a":
-        current_mode = event_switch('arc','Please select first arc point')
+        current_mode = event_switch("arc", "Please select first arc point")
     if event == "h":
-        current_mode = event_switch('harrow','Please select first arrow point')
+        current_mode = event_switch("harrow", "Please select first arrow point")
     if event == "v":
-        current_mode = event_switch('varrow','Please select first arrow point')
+        current_mode = event_switch("varrow", "Please select first arrow point")
+    if event == "V":
+        current_mode = event_switch("vmultiarrow", "Please select reference point")
     if event == "c":
-        current_mode = event_switch('cable','Please click first point of cable line:')
+        current_mode = event_switch("cable", "Please click first point of cable line:")
     if event == "C":
-        current_mode = event_switch('cable arc','Please click horizontal section of cable arc')
+        current_mode = event_switch(
+            "cable arc", "Please click horizontal section of cable arc"
+        )
     if event == "o":
-        current_mode = event_switch('offsetline','Please click first point of offset line:')
+        current_mode = event_switch(
+            "offsetline", "Please click first point of offset line:"
+        )
     if event == "d":
-        current_mode = event_switch('digbox','Please click first point of box:')
+        current_mode = event_switch("digbox", "Please click first point of box:")
     if event == "b":
-        current_mode = event_switch('building','Please click upper left corner of building:')
+        current_mode = event_switch(
+            "building", "Please click upper left corner of building:"
+        )
     if event == "B":
-        current_mode = event_switch('house','Please click upper left corner of house')
+        current_mode = event_switch("house", "Please click upper left corner of house")
     if event == "r":
-        current_mode = event_switch('road','Please click first point of curb line')
+        current_mode = event_switch("road", "Please click first point of curb line")
     if event == "R":
-        current_mode = event_switch('road arc', 'Please click horizontal section of road arc')
+        current_mode = event_switch(
+            "road arc", "Please click horizontal section of road arc"
+        )
     if event == "l":
-        current_mode = event_switch('line', 'Please click first point of line')
+        current_mode = event_switch("line", "Please click first point of line")
     if event == "y":
         if TK.find_withtag("current") is not None:
             clone = clone_item("current")
@@ -1738,7 +1799,7 @@ while True:
             figure_type = get_figure_type("current")
     if event == "p":
         paste_figure(figure_type, coords, clone)
-    if event == 'g':
+    if event == "g":
         if isGrid == False:
             isGrid = not isGrid
             show_grid()
@@ -1759,16 +1820,16 @@ while True:
             graph.delete_figure(TK.find_withtag("current"))
     if event == "t":
         entered_text = popup_get_text("Enter text")
-        current_mode = event_switch('text', 'Please click to enter text')
+        current_mode = event_switch("text", "Please click to enter text")
     if event == "T":
         entered_text = popup_get_text("Enter text")
-        current_mode = event_switch('vtext', 'Please click to enter text')
+        current_mode = event_switch("vtext", "Please click to enter text")
     if event == "e":
         entered_text = popup_get_text("Enter street name")
-        current_mode = event_switch('street text', 'Please click to enter text')
+        current_mode = event_switch("street text", "Please click to enter text")
     if event == "E":
         entered_text = popup_get_text("Enter street name")
-        current_mode = event_switch('street vtext', 'Please click to enter text')
+        current_mode = event_switch("street vtext", "Please click to enter text")
     # if event == "1":
     #     current_mode = event_switch('ped', 'Click to place pedestal')
     # if event == "!":
@@ -1797,32 +1858,32 @@ while True:
         start_point = end_point = prior_rect = None
 
         if current_mode == "cable":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
-            current_mode = "endcable"    
-            start_point = (x,y)
+            current_mode = "endcable"
+            start_point = (x, y)
             point1 = draw_point1(x, y)
             # had to add this in since the event was registering 2 clicks for some reason?
             time.sleep(0.15)
             current_mode = "endcable"
-            #easy_print("obtained point1")
+            # easy_print("obtained point1")
             notify.update("Click second point of line")
 
         elif current_mode == "polyline":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
-            point1 = draw_point1(x,y)
+            point1 = draw_point1(x, y)
             cpoints.append((x, y))
             cnodes.append(point1)
             x = y = point1 = None
             notify.update("Click next point of line")
             current_mode = "nextcable"
         elif current_mode == "cable arc":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1830,17 +1891,17 @@ while True:
             notify.update("Click vertical section of cable arc")
             current_mode = "cable arc 2"
         elif current_mode == "offsetline":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
-            start_point = (x,y)
-            current_mode = "offsetline2"    
+            start_point = (x, y)
+            current_mode = "offsetline2"
             point1 = draw_point1(x, y)
             notify.update("Click second point of line")
-            
+
         elif current_mode == "digbox":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1848,7 +1909,7 @@ while True:
             notify.update("Click second point of line")
             current_mode = "digbox2"
         elif current_mode == "house":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1860,7 +1921,7 @@ while True:
                 logging.exception("ERROR")
 
         elif current_mode == "building":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1868,17 +1929,17 @@ while True:
             notify.update("Click lower right corner of building")
             current_mode = "building2"
         elif current_mode == "road":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
-            start_point = (x,y)
-            current_mode = "road2"    
+            start_point = (x, y)
+            current_mode = "road2"
             point1 = draw_point1(x, y, "purple")
             notify.update("Click second point of curb")
-            
+
         elif current_mode == "road arc":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1886,18 +1947,18 @@ while True:
             notify.update("Click vertical section of road arc")
             current_mode = "road arc 2"
         elif current_mode == "line":
-            
-            if input_mode == 'keyboard':
+
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
-            start_point = (x,y)
+            start_point = (x, y)
             current_mode = "line2"
             point1 = draw_point1(x, y, "blue")
             notify.update("Click second point of line")
-            
+
         elif current_mode == "arc":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1905,7 +1966,7 @@ while True:
             notify.update("Click second arc point")
             current_mode = "arc2"
         elif current_mode == "harrow":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1913,15 +1974,24 @@ while True:
             notify.update("Click second arrow point")
             current_mode = "harrow2"
         elif current_mode == "varrow":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
             point1 = draw_point1(x, y, "orange")
             notify.update("Click second arrow point")
             current_mode = "varrow2"
+        elif current_mode == "vmultiarrow":
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
+            else:
+                x, y = get_point1()
+            point1 = draw_point1(x, y, "orange")
+            notify.update("Click first cable")
+            current_mode = "vmultiarrow2"
+            
         elif current_mode == "arrow1":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1929,7 +1999,7 @@ while True:
             notify.update("Click second arrow head")
             current_mode = "arrow2"
         elif current_mode == "arrow2":
-            if input_mode == 'keyboard':
+            if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
@@ -1943,217 +2013,237 @@ while True:
             cleanup_2point()
 
         elif current_mode == "endcable":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point1()
+                a, b = get_point1()
             point2 = draw_point2(a, b, "red")
-            #easy_print("received point 2")
+            # easy_print("received point 2")
             # label = popup_get_text('Label? ')
             cable(x, y, a, b)
             cleanup_2point()
             current_mode = "cable"
         elif current_mode == "nextcable":
             collecting = True
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "red")
             cpoints.append((a, b))
             cnodes.append(point2)
             a = b = point2 = None
         elif current_mode == "cable arc 2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(x, y, "red")
             arc(x, y, a, b, "cable")
             cleanup_2point()
             current_mode == "cable arc"
         elif current_mode == "offsetline2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(x, y, "brown")
             offset_line(x, y, a, b)
             cleanup_2point()
         elif current_mode == "digbox2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "green")
             digbox(x, y, a, b)
             cleanup_2point()
         elif current_mode == "building2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "black")
             # TODO wrap this
-            building(x,y,a,b)
+            building(x, y, a, b)
             cleanup_2point()
         elif current_mode == "road2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "purple")
             road(x, y, a, b)
             cleanup_2point()
             current_mode = "road"
         elif current_mode == "road arc 2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "purple")
             arc(x, y, a, b, "road")
             cleanup_2point()
             current_mode = "road arc"
         elif current_mode == "line2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "blue")
             line(x, y, a, b)
             cleanup_2point()
             current_mode = "line"
         elif current_mode == "arc2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "purple")
             arc(x, y, a, b)
             cleanup_2point()
             current_mode = "arc"
         elif current_mode == "harrow2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "orange")
             meas = convert_measurement()
             h_arrow(x, a, y, meas)
             cleanup_2point()
         elif current_mode == "varrow2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "orange")
             meas = convert_measurement()
             v_arrow(x, y, b, meas)
             cleanup_2point()
-        elif current_mode == "text":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+        elif current_mode == "vmultiarrow2":
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                a, b = get_point2()
+            point2 = draw_point2(a, b, "orange")
+            current_mode = "vmultiarrow3"
+            notify.update("Please select 2ndcable")
+        elif current_mode == "vmultiarrow3":
+            c, d = get_point3()
+            point3 = draw_point3(c, d, "orange")
+            newmeas = convert_multi_measurement()
+            try:
+                v_multi_arrow(x, y, b, d, f"{newmeas[0]},{newmeas[1]}")
+            except IndexError:
+                logerror()
+            x = y = a = b = c = d = None
+            for _ in (point1, point2, point3):
+                graph.delete_figure(_)
+            current_mode = "select"
+        elif current_mode == "text":
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
+            else:
+                x, y = get_point1()
             hlabel(entered_text, x, y, 12)
             x = y = entered_text = None
         elif current_mode == "street text":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             hlabel(entered_text, x, y, 20)
             x = y = entered_text = None
         elif current_mode == "street vtext":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             vlabel(entered_text, x, y, 20)
             x = y = entered_text = None
         elif current_mode == "vtext":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             vlabel(entered_text, x, y, 12)
             x = y = entered_text = None
         elif current_mode == "ped":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             ped(x, y)
             x = y = None
         elif current_mode == "ped stub":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             point1 = draw_point1(x, y)
             notify.update("Click cable stub end")
             current_mode = "ped stub 2"
         elif current_mode == "ped stub 2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
-            point2 = draw_point2(a,b, "red")
+                a, b = get_point2()
+            point2 = draw_point2(a, b, "red")
             ped_1arm(x, y, a, b)
             cleanup_2point()
         elif current_mode == "pole":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             pole(x, y)
             x = y = None
         elif current_mode == "pole stub":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             point1 = draw_point1(x, y)
             notify.update("Click cable stub end")
             current_mode = "pole stub 2"
         elif current_mode == "pole stub 2":
-            if input_mode == 'keyboard':
-                a,b = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                a, b = update_cursor_position(cursor)
             else:
-                a,b = get_point2()
+                a, b = get_point2()
             point2 = draw_point2(a, b, "red")
             pole_1arm(x, y, a, b)
             cleanup_2point()
         elif current_mode == "itemstamp":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             item_stamp(x, y)
             x = y = None
         elif current_mode == "transformer":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             transformer(x, y)
             x = y = None
         elif current_mode == "vault":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             utility = get_input("Bell?")
             if utility in ["y", "Y", "yes", "YES", "Yes"]:
                 vault(x, y, "b")
             else:
                 vault(x, y)
         elif current_mode == "catch basin":
-            if input_mode == 'keyboard':
-                x,y = update_cursor_position(cursor)
+            if input_mode == "keyboard":
+                x, y = update_cursor_position(cursor)
             else:
-                x,y = get_point1()
+                x, y = get_point1()
             catch_basin(x, y)
         elif current_mode == "select":
             fig = TK.find_withtag("current")
