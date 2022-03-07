@@ -15,9 +15,9 @@ def show_grid():
     Turns grid on
     """
     # draws grid
-    for x in range(0, WIDTH, 1):
+    for x in range(WIDTH):
         graph.DrawLine((x, 0), (x, HEIGHT), color="grey")
-    for y in range(0, HEIGHT, 1):
+    for y in range(HEIGHT):
         graph.DrawLine((0, y), (WIDTH, y), color="grey")
 
     # draws in numbers
@@ -148,10 +148,7 @@ def transformer(x, y):
 
 
 def vault(util, x, y):
-    if util.lower() == "b":
-        vlbl = "FTG"
-    else:
-        vlbl = "HW"
+    vlbl = "FTG" if util.lower() == "b" else "HW"
     v1 = graph.draw_rectangle(
         (x - 0.7, y - 0.4), (x + 0.7, y + 0.4), line_color="black", fill_color=None
     )
@@ -161,12 +158,12 @@ def vault(util, x, y):
 
 
 def hlabel(msg, x, y, size):
-    sg.Graph.draw_text(graph, msg, (x, y), font="Arial " + str(size) + " normal")
+    sg.Graph.draw_text(graph, msg, (x, y), font=f"Arial {str(size)} normal")
 
 
 def vlabel(msg, x, y, size):
     sg.Graph.draw_text(
-        graph, msg, (x, y), font="Arial " + str(size) + " normal", angle=90
+        graph, msg, (x, y), font=f"Arial {str(size)} normal", angle=90
     )
 
 
@@ -200,8 +197,6 @@ def ped_1arm(x, y, direction="", distance=""):
         cable(x - 0.4, y, x - distance, y)
     elif direction.lower() == "e":
         cable(x + 0.4, y, x + distance, y)
-    else:
-        pass
 
 
 def ped_multiarm(x, y, direction, meas1, meas2, distance, third_arm=False):
@@ -277,10 +272,7 @@ def h_cable(x1, x2, y, label=""):
         for x in range(round(x1), round(x2), gap):
             # white box
             # check for text size
-            if len(label) <= 2:
-                s = 0.25
-            else:
-                s = 0.6
+            s = 0.25 if len(label) <= 2 else 0.6
             sg.Graph.draw_rectangle(
                 graph,
                 (x - s, y - s),
@@ -301,10 +293,7 @@ def v_cable(x, y1, y2, label=""):
             gap = 6
         for y in range(round(y1), round(y2), gap):
             # white box
-            if len(label) <= 2:
-                s = 0.25
-            else:
-                s = 0.6
+            s = 0.25 if len(label) <= 2 else 0.6
             sg.Graph.draw_rectangle(
                 graph,
                 (x - s, y - s),
@@ -528,8 +517,6 @@ while True:
     if event == sg.WIN_CLOSED:
         break
     if event == "u":
-        if len(ids) < 1:
-            pass
         ids = list(graph.TKCanvas.find_all())
         graph.delete_figure(ids[-1])
     elif event == "Submit":
