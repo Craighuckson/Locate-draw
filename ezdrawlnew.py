@@ -1,22 +1,17 @@
 import base64
-import logging
 import io
-from contextlib import suppress
-from PIL import ImageGrab
-import PIL.Image
-import PySimpleGUI as sg
-from PySimpleGUI.PySimpleGUI import (
-    easy_print,
-    main,
-    popup,
-    popup_get_file,
-    popup_get_text,
-    popup_yes_no,
-)
+import logging
 import pickle
 import time
+from contextlib import suppress
 
-#main()
+import PIL.Image
+import PySimpleGUI as sg
+from PIL import ImageGrab
+from PySimpleGUI.PySimpleGUI import (easy_print, main, popup, popup_get_file,
+                                     popup_get_text, popup_yes_no)
+
+main()
 
 sg.theme("hot dog stand")
 logging.basicConfig(filename="ezdraw.log", level=logging.DEBUG, format="%(asctime)s")
@@ -520,12 +515,14 @@ def catch_basin(x, y):
     )
 
 
-def hlabel(msg, x, y, size):
+def hlabel(msg, x, y, size,bold=True):
     try:
-        if msg == "la" or msg == "LA":
+        if msg in ('la','LA'):
             msg = "LOCATED AREA"
+        isbold = ' bold' if bold else ' normal'
+        fontstr = f'Arial {str(size)} {isbold}'
         sg.Graph.draw_text(
-            graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
+            graph, msg.upper(), (x, y), font=fontstr
         )
     except:
         logerror()
@@ -540,12 +537,14 @@ def hlabelm(msg, x, y, size):
         logerror()
 
 
-def vlabel(msg, x, y, size):
+def vlabel(msg, x, y, size,bold=True):
     try:
-        if msg == "la" or msg == "LA":
+        if msg in ('la','LA'):
             msg = "LOCATED AREA"
+        isbold = ' bold' if bold else ' normal'
+        fontstr = f'Arial {str(size)} {isbold}'
         sg.Graph.draw_text(
-            graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold", angle=90
+            graph, msg.upper(), (x, y), font=fontstr,angle=90
         )
     except:
         logerror()
@@ -671,28 +670,28 @@ def set_landbase(dir, edge_type="CL"):
     # draws a landbase
     if dir.lower() == "n":
         h_road(2, WIDTH - 2, 23)
-        hlabel(f"N{edge_type}", 27, 24, 12)
+        hlabel(f"N{edge_type}", 27, 24, 10)
     elif dir.lower() == "ne":
         h_road(9, 28, 23)
-        hlabel(f"N{edge_type}", 27, 24, 11)
+        hlabel(f"N{edge_type}", 27, 24, 10)
         v_road(9, 2, 23)
-        vlabel(f"E{edge_type}", 10, 3, 11)
+        vlabel(f"E{edge_type}", 10, 3, 10)
     elif dir.lower() == "nw":
         h_road(2, 23, 23)
-        hlabel(f"N{edge_type}", 3, 22, 11)
+        hlabel(f"N{edge_type}", 3, 22, 10)
         v_road(23, 2, 23)
-        vlabel(f"W{edge_type}", 22, 3, 11)
+        vlabel(f"W{edge_type}", 22, 3, 10)
     elif dir.lower() == "s":
         h_road(2, WIDTH - 2, 7)
-        hlabel(f"S{edge_type}", 27, 8, 12)
+        hlabel(f"S{edge_type}", 27, 8, 10)
     elif dir.lower() == "sw":
         h_road(2, 23, 7)
-        hlabel(f"S{edge_type}", 3, 8, 11)
+        hlabel(f"S{edge_type}", 3, 8, 10)
         v_road(23, 7, 28)
         swvcurbx = WIDTH - 7
         swvcurby1 = HEIGHT - 23
         swvcurby2 = HEIGHT - 2
-        vlabel(f"W{edge_type}", swvcurbx - 1, swvcurby2 - 1, 11)
+        vlabel(f"W{edge_type}", swvcurbx - 1, swvcurby2 - 1, 10)
     elif dir.lower() == "se":
         sehcurbx1 = 7
         sehcurbx2 = 28
@@ -701,16 +700,16 @@ def set_landbase(dir, edge_type="CL"):
         sevcurby1 = 7
         sevcurby2 = 28
         h_road(sehcurbx1, sehcurbx2, sehcurby)
-        hlabel(f"S{edge_type}", sehcurbx2 - 1, sehcurby - 1, 11)
+        hlabel(f"S{edge_type}", sehcurbx2 - 1, sehcurby - 1, 10)
         v_road(sevcurbx, sevcurby1, sevcurby2)
-        vlabel(f"E{edge_type}", sevcurbx + 1, sevcurby2 - 1, 11)
+        vlabel(f"E{edge_type}", sevcurbx + 1, sevcurby2 - 1, 10)
 
     elif dir.lower() == "e":
         v_road(7, 2, HEIGHT - 2)
-        vlabel(f"E{edge_type}", 8, 3, 12)
+        vlabel(f"E{edge_type}", 8, 3, 10)
     elif dir.lower() == "w":
         v_road(23, 2, HEIGHT - 2)
-        vlabel(f"W{edge_type}", 22, 3, 12)
+        vlabel(f"W{edge_type}", 22, 3, 10)
     elif dir.lower() == "h":
         road(*HNCURB)
         hlabel(f"N{edge_type}", *HNCURBLABEL)
@@ -723,13 +722,13 @@ def set_landbase(dir, edge_type="CL"):
 def set_street_name(street, landbase):
     # enters street name on sketch
     if landbase.lower() == "n":
-        hlabel(street, 15, 27, 20)
+        hlabel(street, 15, 27, 20,bold=False)
     elif landbase.lower() == "s":
-        hlabel(street, 15, 3, 20)
+        hlabel(street, 15, 3, 20,bold=False)
     elif landbase.lower() == "e":
-        vlabel(street, 3, 15, 20)
+        vlabel(street, 3, 15, 20,bold=False)
     elif landbase.lower() == "w":
-        vlabel(street, 27, 15, 20)
+        vlabel(street, 27, 15, 20,bold=False)
     elif landbase.lower() == "h":
         hlabel(street, *HSTREET)
 
@@ -1106,6 +1105,8 @@ def draw_cursor(input_mode):
     c1 = sg.Graph.draw_line(graph, (15, 14), (15, 16), color="blue")
     c2 = sg.Graph.draw_line(graph, (14, 15), (16, 15), color="blue")
     cursorid = (c1, c2)
+    for _ in cursorid:
+        TK.addtag_withtag("cursor",_)
     return cursorid
 
 
@@ -1118,8 +1119,7 @@ def update_cursor_position(cursor):
 
 
 def hide_cursor(cursorid):
-    for x in cursorid:
-        TK.itemconfig(x, state="disabled")
+    TK.itemconfig("cursor",state='hidden')
 
 
 def read_from_template(file):
@@ -1159,8 +1159,9 @@ def save_sketch_template(file=""):
         clonelist.append(clone_item(id))
     list_of_all_figures.extend([typelist, coordslist, clonelist])
     easy_print(list_of_all_figures)
-    with open(filename + ".pkl", "wb") as pk:
-        pickled_obj = pickle.dump(list_of_all_figures, pk)
+    if filename is not None:
+        with open(filename + ".pkl", "wb") as pk:
+            pickled_obj = pickle.dump(list_of_all_figures, pk)
 
 
 def load_sketch_template():
@@ -1187,7 +1188,7 @@ def load_sketch_template():
             elif x == "arc":
                 TK.create_arc(y, **z)
     except:
-        pass
+        logerror()
 
 
 # callback routines
@@ -1287,6 +1288,8 @@ def st_to_st():
     street1 = popup_get_text("Street 1 (W or N)")
     street2 = popup_get_text("Street 2 (mid)")
     street3 = popup_get_text("Street 3 (S or E)")
+    if dir.lower() is None:
+        return
     if dir.lower() == "n":
         h_road(3, 27, 20)
         v_road(3, 10, 20)
@@ -1479,6 +1482,9 @@ buttoniosingle = {
     "6": catch_basin,
 }
 
+
+# THESE GLOBALS ARE AN EMBARRASSMENT
+
 mode = {0: "select", 1: "get points", 2: "draw"}
 current_mode = ""
 x = y = a = b = 0
@@ -1497,6 +1503,7 @@ cnodes = []
 input_mode = "mouse"
 cursorx = 0
 cursory = 0
+cursor = None
 hashline = None
 newmouse = None
 
@@ -1544,12 +1551,18 @@ while True:
 
     if event == "Keyboard":
         input_mode = "keyboard"
-        # draw_cursor
-        cursor = draw_cursor(input_mode)
+        # if cursor was previously disabled, re-enable it
+
+        if TK.itemcget("cursor",'state') == 'hidden':
+            TK.itemconfig("cursor",state='normal')
+                          
+        # draw_cursor if it wasn't already created
+        if not TK.find_withtag("cursor"):
+            cursor = draw_cursor(input_mode)
 
     if event == "Mouse/Keyboard":
         input_mode = ""
-        hide_cursor()
+        hide_cursor(cursor)
 
     if event == "24":
         sg.Graph.set_size(graph, (480, 480))
@@ -1653,7 +1666,7 @@ while True:
             end_point = (x, y)
         if prior_rect:
             graph.delete_figure(prior_rect)
-    if event == "graphdrag" and dragging == True:
+    if event == "graphdrag" and dragging == True and current_mode == 'select':
         try:
             x, y = values["graph"]
             end_point = (x, y)
@@ -1661,6 +1674,7 @@ while True:
             prior_rect = sg.Graph.draw_rectangle(
                 graph, start_point, end_point, line_color="blue", line_width=1
             )
+            
             # TK.coords(
             #     prior_rect,
             #     start_point[0] * 20,
@@ -2153,14 +2167,14 @@ while True:
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
-            hlabel(entered_text, x, y, 20)
+            hlabel(entered_text, x, y, 20, bold=False)
             x = y = entered_text = None
         elif current_mode == "street vtext":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
             else:
                 x, y = get_point1()
-            vlabel(entered_text, x, y, 20)
+            vlabel(entered_text, x, y, 20, bold=False)
             x = y = entered_text = None
         elif current_mode == "vtext":
             if input_mode == "keyboard":
