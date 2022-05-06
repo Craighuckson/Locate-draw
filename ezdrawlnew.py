@@ -4,12 +4,20 @@ import logging
 import pickle
 import time
 from contextlib import suppress
+from tkinter import Image
+import tkinter as tk
 
 import PIL.Image
 import PySimpleGUI as sg
-from PIL import ImageGrab
-from PySimpleGUI.PySimpleGUI import (easy_print, main, popup, popup_get_file,
-                                     popup_get_text, popup_yes_no)
+from PIL import ImageGrab,ImageTk
+from PySimpleGUI.PySimpleGUI import (
+    easy_print,
+    main,
+    popup,
+    popup_get_file,
+    popup_get_text,
+    popup_yes_no,
+)
 
 main()
 
@@ -74,6 +82,7 @@ SW_DW = ()
 SE_DW = ()
 
 pointlist = []
+
 
 
 # classes
@@ -165,8 +174,8 @@ def convert_multi_measurement():
     """
     newmeas = []
     meas = popup_get_text("Enter measurements(int) separated by comma")
-    Print(meas.split(','))
-    for p in meas.split(','):
+    Print(meas.split(","))
+    for p in meas.split(","):
         try:
             if len(p) == 1:
                 newmeas.append("0." + p + "m")
@@ -202,15 +211,14 @@ def show_grid():
 
     #     TK.addtag_withtag('grid', grid4)
     #     TK.itemconfig('grid',state='disabled')
-    try:
-        gdwg = "grid.png"
-        grid = sg.Graph.draw_image(graph, location=(0, 0), data=convert_to_bytes(gdwg))
-        TK.addtag_withtag("grid", grid)
-        graph.send_figure_to_back("grid")
-        TK.itemconfig("grid", state="disabled")
-    except:
-        popup("Error")
-        logging.exception("Caught an error")
+    gdwg = "grid.png"
+    grid = sg.Graph.draw_image(graph, location=(0, 0), data=convert_to_bytes(gdwg))
+    TK.addtag_withtag("grid", grid)
+    graph.send_figure_to_back("grid")
+    TK.itemconfig("grid", state="disabled")
+    # except:
+    #     popup("Error")
+    #     logging.exception("Caught an error")
 
 
 def snap_to_grid_off():
@@ -515,15 +523,13 @@ def catch_basin(x, y):
     )
 
 
-def hlabel(msg, x, y, size,bold=True):
+def hlabel(msg, x, y, size, bold=True):
     try:
-        if msg in ('la','LA'):
+        if msg in ("la", "LA"):
             msg = "LOCATED AREA"
-        isbold = ' bold' if bold else ' normal'
-        fontstr = f'Arial {str(size)} {isbold}'
-        sg.Graph.draw_text(
-            graph, msg.upper(), (x, y), font=fontstr
-        )
+        isbold = " bold" if bold else " normal"
+        fontstr = f"Arial {str(size)} {isbold}"
+        sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
     except:
         logerror()
 
@@ -537,15 +543,13 @@ def hlabelm(msg, x, y, size):
         logerror()
 
 
-def vlabel(msg, x, y, size,bold=True):
+def vlabel(msg, x, y, size, bold=True):
     try:
-        if msg in ('la','LA'):
+        if msg in ("la", "LA"):
             msg = "LOCATED AREA"
-        isbold = ' bold' if bold else ' normal'
-        fontstr = f'Arial {str(size)} {isbold}'
-        sg.Graph.draw_text(
-            graph, msg.upper(), (x, y), font=fontstr,angle=90
-        )
+        isbold = " bold" if bold else " normal"
+        fontstr = f"Arial {str(size)} {isbold}"
+        sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
     except:
         logerror()
 
@@ -722,13 +726,13 @@ def set_landbase(dir, edge_type="CL"):
 def set_street_name(street, landbase):
     # enters street name on sketch
     if landbase.lower() == "n":
-        hlabel(street, 15, 27, 20,bold=False)
+        hlabel(street, 15, 27, 20, bold=False)
     elif landbase.lower() == "s":
-        hlabel(street, 15, 3, 20,bold=False)
+        hlabel(street, 15, 3, 20, bold=False)
     elif landbase.lower() == "e":
-        vlabel(street, 3, 15, 20,bold=False)
+        vlabel(street, 3, 15, 20, bold=False)
     elif landbase.lower() == "w":
-        vlabel(street, 27, 15, 20,bold=False)
+        vlabel(street, 27, 15, 20, bold=False)
     elif landbase.lower() == "h":
         hlabel(street, *HSTREET)
 
@@ -941,18 +945,21 @@ def clone_item(tag_or_ID):
 
 
 def paste_figure(fig_type, coords, clone):
-    if clone is not None:
-        new_coords = [coord + 10 for coord in coords]
-        if fig_type == "rectangle":
-            TK.create_rectangle(new_coords, **clone)
-        elif fig_type == "oval":
-            TK.create_oval(new_coords, **clone)
-        elif fig_type == "line":
-            TK.create_line(new_coords, **clone)
-        elif fig_type == "text":
-            TK.create_text(new_coords, **clone)
-        elif fig_type == "image":
-            TK.create_image(new_coords, **clone)
+    try:
+        if clone is not None:
+            new_coords = [coord + 10 for coord in coords]
+            if fig_type == "rectangle":
+                TK.create_rectangle(new_coords, **clone)
+            elif fig_type == "oval":
+                TK.create_oval(new_coords, **clone)
+            elif fig_type == "line":
+                TK.create_line(new_coords, **clone)
+            elif fig_type == "text":
+                TK.create_text(new_coords, **clone)
+            elif fig_type == "image":
+                TK.create_image(new_coords, **clone)
+    except NameError:
+        sg.popup("Nothing to paste")
 
 
 def digbox(x1, y1, x2, y2):
@@ -1106,7 +1113,7 @@ def draw_cursor(input_mode):
     c2 = sg.Graph.draw_line(graph, (14, 15), (16, 15), color="blue")
     cursorid = (c1, c2)
     for _ in cursorid:
-        TK.addtag_withtag("cursor",_)
+        TK.addtag_withtag("cursor", _)
     return cursorid
 
 
@@ -1119,7 +1126,7 @@ def update_cursor_position(cursor):
 
 
 def hide_cursor(cursorid):
-    TK.itemconfig("cursor",state='hidden')
+    TK.itemconfig("cursor", state="hidden")
 
 
 def read_from_template(file):
@@ -1553,9 +1560,9 @@ while True:
         input_mode = "keyboard"
         # if cursor was previously disabled, re-enable it
 
-        if TK.itemcget("cursor",'state') == 'hidden':
-            TK.itemconfig("cursor",state='normal')
-                          
+        if TK.itemcget("cursor", "state") == "hidden":
+            TK.itemconfig("cursor", state="normal")
+
         # draw_cursor if it wasn't already created
         if not TK.find_withtag("cursor"):
             cursor = draw_cursor(input_mode)
@@ -1666,7 +1673,7 @@ while True:
             end_point = (x, y)
         if prior_rect:
             graph.delete_figure(prior_rect)
-    if event == "graphdrag" and dragging == True and current_mode == 'select':
+    if event == "graphdrag" and dragging == True and current_mode == "select":
         try:
             x, y = values["graph"]
             end_point = (x, y)
@@ -1674,7 +1681,7 @@ while True:
             prior_rect = sg.Graph.draw_rectangle(
                 graph, start_point, end_point, line_color="blue", line_width=1
             )
-            
+
             # TK.coords(
             #     prior_rect,
             #     start_point[0] * 20,
@@ -1812,15 +1819,24 @@ while True:
             coords = get_figure_coords("current")
             figure_type = get_figure_type("current")
     if event == "p":
-        paste_figure(figure_type, coords, clone)
+        try:
+            paste_figure(figure_type, coords, clone)
+        except NameError:
+            pass
     if event == "g":
         if isGrid == False:
             isGrid = not isGrid
-            show_grid()
+            try:
+                show_grid()
+            except FileNotFoundError:
+                sg.popup('"grid.png" could not be found - check location')
         else:
             if isGrid == True:
                 isGrid = not isGrid
-            hide_grid()
+            try:
+                hide_grid()
+            except FileNotFoundError:
+                sg.popup('"grid.png" could not be found - check location')
     if event == "u":
         ids = list(graph.TKCanvas.find_all())
         if len(ids) < 1:
@@ -2003,7 +2019,7 @@ while True:
             point1 = draw_point1(x, y, "orange")
             notify.update("Click first cable")
             current_mode = "vmultiarrow2"
-            
+
         elif current_mode == "arrow1":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -2277,6 +2293,11 @@ while True:
                 TK.itemconfig(fig[0] + 1, fill="green")
                 selected.append(fig)
                 selected.append(fig[0] + 1)
+            elif TK.type(fig) == "image":
+                imgb = TK.bbox(fig)
+                figrect = sg.Graph.draw_rectangle(graph,(imgb[0],imgb[1]),(imgb[2],imgb[3]),line_color='red')
+                selected.append(fig)
+                selected.append(figrect)
             else:
                 TK.itemconfig(fig, fill="red")
                 selected.append(fig)

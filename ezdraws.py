@@ -92,7 +92,7 @@ def hide_grid():
     TK.itemconfig('grid',state='hidden')
     #graph.delete_figure('grid')
 
-def group(group_name,figure):
+def group(group_name: str,figure: str) -> None:
     TK.addtag_withtag(group_name,figure)
 
 def wipe():
@@ -245,7 +245,7 @@ def vault(util, x, y):
     graph.bring_figure_to_front("v2")
 
 
-def hlabel(msg, x, y, size):
+def hlabel(msg:str, x, y, size):
     try:
         sg.Graph.draw_text(graph, msg.upper(), (x, y), font="Arial " + str(size) + " normal")
     except:

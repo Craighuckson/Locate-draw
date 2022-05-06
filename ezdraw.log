@@ -1074,3 +1074,370 @@ Traceback (most recent call last):
   File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 528, in hlabel
     graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
 AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-07 16:29:17,266
+2022-03-07 16:29:17,297
+2022-03-07 16:29:18,389
+2022-03-07 16:29:18,389
+2022-03-07 16:29:36,002
+2022-03-07 16:29:36,002
+2022-03-07 16:33:23,929
+2022-03-07 16:33:23,929
+2022-03-07 16:35:36,414
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2275, in <module>
+    graph.relocate_figure(item, x, y)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\site-packages\PySimpleGUI\PySimpleGUI.py", line 5956, in relocate_figure
+    self._TKCanvas2.move(figure, shift_converted[0] - xy[0], shift_converted[1] - xy[1])
+IndexError: list index out of range
+2022-03-07 16:36:12,498
+2022-03-07 16:36:12,498
+2022-03-07 16:36:19,949
+2022-03-07 16:36:19,949
+2022-03-07 16:36:29,611
+2022-03-07 16:36:29,611
+2022-03-07 16:36:40,194
+2022-03-07 16:36:40,194
+2022-03-07 16:38:07,701
+2022-03-07 16:38:07,701
+2022-03-07 16:38:16,044
+2022-03-07 16:38:16,044
+2022-03-07 16:38:52,394
+2022-03-07 16:38:52,394
+2022-03-07 16:39:19,966
+2022-03-07 16:39:19,966
+2022-03-07 16:53:47,484
+2022-03-07 16:53:47,484
+2022-03-07 16:53:48,425
+2022-03-07 16:53:48,425
+2022-03-07 16:56:49,154
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1169, in load_sketch_template
+    with open(f"{filename}.pkl", "rb") as pk:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Cr/Locatedraw/Locate-draw/95 magnum rd.pkl.pkl'
+2022-03-07 16:57:22,262
+2022-03-07 16:57:22,262
+2022-03-07 17:26:23,909
+2022-03-07 17:26:23,909
+2022-03-08 10:08:08,650
+2022-03-08 10:08:08,666
+2022-03-08 10:08:10,212
+2022-03-08 10:08:10,212
+2022-03-08 10:09:21,755
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2271, in <module>
+    graph.relocate_figure(item, x, y)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\site-packages\PySimpleGUI\PySimpleGUI.py", line 5956, in relocate_figure
+    self._TKCanvas2.move(figure, shift_converted[0] - xy[0], shift_converted[1] - xy[1])
+IndexError: list index out of range
+2022-03-08 10:13:50,442
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 148, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-03-08 10:13:50,443
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 532, in hlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-03-08 10:15:17,501
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 523, in hlabel
+    graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-08 10:17:51,692
+2022-03-08 10:17:51,692
+2022-03-08 10:18:04,458
+2022-03-08 10:18:04,458
+2022-03-08 10:18:15,525
+2022-03-08 10:18:15,525
+2022-03-08 11:22:40,927
+2022-03-08 11:22:40,927
+2022-03-08 11:22:50,455
+2022-03-08 11:22:50,455
+2022-03-08 11:26:13,213
+2022-03-08 11:26:13,213
+2022-03-08 11:29:41,789
+2022-03-08 11:29:41,789
+2022-03-08 11:31:41,507
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 523, in hlabel
+    graph, msg.upper(), (x, y), font="Arial " + str(size) + " bold"
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-08 11:33:25,768
+2022-03-08 11:33:25,768
+2022-03-08 17:39:39,640
+2022-03-08 17:39:39,702
+2022-03-22 14:35:20,727
+2022-03-22 14:35:20,727
+2022-03-22 14:38:49,879
+2022-03-22 14:38:49,879
+2022-03-22 14:38:56,476
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 09:57:13,943
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1168, in load_sketch_template
+    with open(f"{filename}.pkl", "rb") as pk:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Cr/Locatedraw/Locate-draw/wbltobl.pkl.pkl'
+2022-03-24 09:58:02,490
+2022-03-24 09:58:02,490
+2022-03-24 10:01:31,458
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:17,212
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:18,289
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:19,615
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:25,075
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:37,414
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:42,984
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:43,592
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:45,651
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 10:02:50,160
+2022-03-24 10:02:50,175
+2022-03-24 10:02:50,175
+2022-03-24 10:02:50,191
+2022-03-24 10:02:50,191
+2022-03-24 10:02:50,222
+2022-03-24 10:02:50,222
+2022-03-24 10:02:50,284
+2022-03-24 10:02:50,300
+2022-03-24 10:02:50,316
+2022-03-24 10:02:50,331
+2022-03-24 10:02:50,331
+2022-03-24 10:02:50,347
+2022-03-24 10:02:50,347
+2022-03-24 10:02:50,347
+2022-03-24 10:02:50,362
+2022-03-24 10:02:50,378
+2022-03-24 10:02:50,440
+2022-03-24 10:02:50,456
+2022-03-24 10:02:50,472
+2022-03-24 10:02:50,472
+2022-03-24 10:02:50,487
+2022-03-24 10:02:50,487
+2022-03-24 10:02:50,487
+2022-03-24 10:02:50,487
+2022-03-24 10:02:50,503
+2022-03-24 10:02:50,503
+2022-03-24 10:02:50,534
+2022-03-24 10:02:50,550
+2022-03-24 10:02:50,581
+2022-03-24 10:02:50,596
+2022-03-24 10:02:50,612
+2022-03-24 10:02:50,612
+2022-03-24 10:02:50,674
+2022-03-24 10:02:50,690
+2022-03-24 10:02:50,690
+2022-03-24 10:02:50,690
+2022-03-24 10:02:50,721
+2022-03-24 10:02:50,737
+2022-03-24 10:02:50,752
+2022-03-24 10:02:50,784
+2022-03-24 10:02:50,799
+2022-03-24 10:02:50,799
+2022-03-24 10:02:50,830
+2022-03-24 10:02:50,846
+2022-03-24 10:02:50,877
+2022-03-24 10:02:50,893
+2022-03-24 10:04:09,486
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1168, in load_sketch_template
+    with open(f"{filename}.pkl", "rb") as pk:
+FileNotFoundError: [Errno 2] No such file or directory: 'None.pkl'
+2022-03-24 10:10:07,028
+2022-03-24 10:10:07,028
+2022-03-24 10:14:57,904
+2022-03-24 10:14:57,904
+2022-03-24 10:15:34,860
+2022-03-24 10:15:34,860
+2022-03-24 10:25:16,559
+2022-03-24 10:25:16,559
+2022-03-24 10:31:44,228
+2022-03-24 10:31:44,228
+2022-03-24 10:49:41,007
+2022-03-24 10:49:41,007
+2022-03-24 10:57:41,800
+2022-03-24 10:57:41,800
+2022-03-24 15:48:03,072
+2022-03-24 15:48:03,072
+2022-03-24 15:50:04,378
+2022-03-24 15:50:04,378
+2022-03-24 15:50:20,833
+2022-03-24 15:50:20,833
+2022-03-24 15:50:31,356
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-03-24 15:50:35,767
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-04 08:26:35,472
+2022-05-04 08:26:35,488
+2022-05-04 08:27:59,243
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 547, in vlabel
+    graph, msg.upper(), (x, y), font=fontstr,angle=90
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-04 08:27:59,883
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 547, in vlabel
+    graph, msg.upper(), (x, y), font=fontstr,angle=90
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-04 08:28:00,195
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 547, in vlabel
+    graph, msg.upper(), (x, y), font=fontstr,angle=90
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-04 08:28:00,413
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 547, in vlabel
+    graph, msg.upper(), (x, y), font=fontstr,angle=90
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-04 08:28:00,600
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 547, in vlabel
+    graph, msg.upper(), (x, y), font=fontstr,angle=90
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-04 08:28:40,119
+2022-05-04 08:28:40,119
+2022-05-04 08:28:59,666
+2022-05-04 08:28:59,666
+2022-05-04 08:29:03,954
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 525, in hlabel
+    graph, msg.upper(), (x, y), font=fontstr
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-05 09:16:39,989
+2022-05-05 09:16:40,020
+2022-05-05 09:18:10,976
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-05 09:19:23,143
+2022-05-05 09:19:23,143
+2022-05-05 09:23:09,464
+2022-05-05 09:23:09,464
+2022-05-05 09:26:41,565
+2022-05-05 09:26:41,565
+2022-05-05 09:27:04,852
+2022-05-05 09:27:04,852
+2022-05-05 09:27:43,943
+2022-05-05 09:27:43,943
+2022-05-05 09:28:42,164
+2022-05-05 09:28:42,164
+2022-05-05 09:31:33,349
+2022-05-05 09:31:33,349
+2022-05-05 09:31:44,529
+2022-05-05 09:31:44,529
+2022-05-05 09:32:13,190
+2022-05-05 09:32:13,190
+2022-05-05 09:32:28,098
+2022-05-05 09:32:28,098
+2022-05-05 09:34:58,849
+2022-05-05 09:34:58,850
+2022-05-05 09:45:54,631
+2022-05-05 09:45:54,631
+2022-05-05 09:46:56,115
+2022-05-05 09:46:56,115
+2022-05-05 09:53:13,311
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 549, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-05 10:21:28,075
+2022-05-05 10:21:28,075
+2022-05-05 10:29:25,690
+2022-05-05 10:29:25,690
+2022-05-05 10:33:42,576
+2022-05-05 10:33:42,576
+2022-05-05 10:34:24,656
+2022-05-05 10:34:24,657
+2022-05-05 10:34:24,657
+2022-05-05 10:34:24,657
+2022-05-05 10:34:24,657
+2022-05-05 10:51:15,764
+2022-05-05 10:51:15,764
+2022-05-05 10:51:15,764
+2022-05-05 10:51:15,764
+2022-05-05 10:51:15,764
+2022-05-05 11:03:12,940
+2022-05-05 11:03:12,940
+2022-05-05 11:03:48,046
+2022-05-05 11:03:48,046
+2022-05-05 11:03:48,959
+2022-05-05 11:03:48,959
+2022-05-05 11:08:57,832
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 569, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
+2022-05-05 11:09:07,611
+2022-05-05 11:09:07,611
+2022-05-05 11:12:42,071
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 569, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
+2022-05-05 11:15:48,573
+2022-05-05 11:15:48,573
+2022-05-05 12:28:58,747
+2022-05-05 12:28:58,747
+2022-05-05 12:29:00,406
+2022-05-05 12:29:00,406
+2022-05-05 12:44:36,134
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 569, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
+2022-05-05 13:06:29,196
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 569, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
+2022-05-05 13:17:42,679
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 2313, in <module>
+    graph.relocate_figure(item, x, y)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\site-packages\PySimpleGUI\PySimpleGUI.py", line 5956, in relocate_figure
+    self._TKCanvas2.move(figure, shift_converted[0] - xy[0], shift_converted[1] - xy[1])
+IndexError: list index out of range
