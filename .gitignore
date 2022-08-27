@@ -1061,3 +1061,7 @@ dist/ezdrawl/tk/ttk/vistaTheme.tcl
 dist/ezdrawl/tk/ttk/winTheme.tcl
 dist/ezdrawl/tk/ttk/xpTheme.tcl
 dist/ezdrawl/win32com/shell/shell.pyd
+.vscode/launch.json
+.template.txt.un~
+._vimrc.swp
+ezdraw.log

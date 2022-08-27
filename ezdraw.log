@@ -1441,3 +1441,2229 @@ Traceback (most recent call last):
   File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\site-packages\PySimpleGUI\PySimpleGUI.py", line 5956, in relocate_figure
     self._TKCanvas2.move(figure, shift_converted[0] - xy[0], shift_converted[1] - xy[1])
 IndexError: list index out of range
+2022-05-11 09:25:21,541
+2022-05-11 09:25:21,572
+2022-05-11 09:25:21,681
+2022-05-11 09:25:21,681
+2022-05-11 09:25:23,067
+2022-05-11 09:25:23,067
+2022-05-11 09:25:23,868
+2022-05-11 09:25:23,868
+2022-05-11 09:48:46,471
+2022-05-11 09:48:46,471
+2022-05-11 09:51:06,153
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1210, in short_gas
+    landbase = set_landbase(dir)
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 676, in set_landbase
+    if dir.lower() == "n":
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-05-11 09:53:49,911
+2022-05-11 09:53:49,911
+2022-05-11 10:03:58,979
+2022-05-11 10:03:58,979
+2022-05-11 10:04:44,334
+2022-05-11 10:04:44,334
+2022-05-11 10:04:46,140
+2022-05-11 10:04:46,140
+2022-05-11 10:24:51,896
+2022-05-11 10:24:51,896
+2022-05-11 10:36:55,665
+2022-05-11 10:36:55,665
+2022-05-11 11:03:02,363
+2022-05-11 11:03:02,363
+2022-05-11 11:10:19,040
+2022-05-11 11:10:19,040
+2022-05-11 11:10:21,312
+2022-05-11 11:10:21,312
+2022-05-11 12:32:40,807
+2022-05-11 12:32:40,807
+2022-05-11 12:33:53,494
+2022-05-11 12:33:53,494
+2022-05-11 13:34:42,245
+2022-05-11 13:34:42,245
+2022-05-11 13:35:24,195
+2022-05-11 13:35:24,210
+2022-05-11 13:40:21,288
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 159, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-05-11 13:40:21,288
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 542, in hlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-05-24 08:35:13,505
+2022-05-24 08:35:13,505
+2022-05-24 08:35:14,176
+2022-05-24 08:35:14,176
+2022-05-24 08:42:17,529
+2022-05-24 08:42:17,529
+2022-05-25 08:13:37,467
+2022-05-25 08:13:37,483
+2022-05-25 08:30:08,997
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:30:09,893
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:30:10,246
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:49,752
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:50,302
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:50,680
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:50,981
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:51,283
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:52,651
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:52,973
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:53,195
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:53,547
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:56,217
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:32:56,487
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:08,155
+2022-05-25 08:34:08,155
+2022-05-25 08:34:19,113
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:19,944
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:23,895
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:24,969
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:26,510
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:31,118
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:38,981
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:40,125
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:46,090
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:47,863
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:52,364
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:34:53,713
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:35:49,686
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:35:52,049
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:35:59,021
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:04,486
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:08,662
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:19,639
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:26,220
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:30,154
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:40,170
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:45,101
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:46,516
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:52,024
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:56,499
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:58,381
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:36:59,688
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:37:23,351
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:37:38,020
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:37:40,742
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:37:47,119
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:38:10,024
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:38:10,778
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:38:20,248
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:38:21,082
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:38:30,647
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:38:31,324
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:38:37,166
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:38:37,956
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:09,187
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:09,752
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:09,927
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:10,087
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:13,402
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:13,418
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:22,560
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:24,880
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:26,468
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:28,117
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:32,418
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:34,064
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:52,636
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:39:56,469
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:03,135
+2022-05-25 08:40:03,135
+2022-05-25 08:40:15,744
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:26,021
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:27,419
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:35,919
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:37,551
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:38,564
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:39,896
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:42,122
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:52,858
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:40:53,801
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:04,770
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:06,603
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:10,171
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:11,677
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:16,169
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:16,924
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:22,328
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:23,038
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:38,749
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:42,851
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:48,286
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:53,371
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:41:57,134
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:12,281
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:13,681
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:14,639
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:16,427
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:28,058
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:39,153
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:41,085
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:42,279
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:47,071
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:48,279
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:50,829
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:52,995
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:53,829
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:56,308
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:42:58,017
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:01,272
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:03,028
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:05,741
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:07,200
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:11,553
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:12,656
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:14,376
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:15,731
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:17,145
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:29,660
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:30,465
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:36,489
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:37,450
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:42,817
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:45,065
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:47,192
+2022-05-25 08:43:47,192
+2022-05-25 08:43:51,463
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:56,656
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:43:56,656
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-25 08:44:03,019
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:44:03,820
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:45:51,871
+2022-05-25 08:45:51,871
+2022-05-25 08:45:56,861
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:45:59,643
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:03,029
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:06,572
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:07,749
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:18,157
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:19,977
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:22,232
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:23,742
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:27,827
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:29,065
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:29,962
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:30,984
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:31,192
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:32,040
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:37,827
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:45,249
+2022-05-25 08:46:45,249
+2022-05-25 08:46:47,838
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:46:58,619
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:01,167
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:06,165
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:07,253
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:08,164
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:10,078
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:11,229
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:12,424
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:15,425
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:16,024
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:17,878
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:25,341
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:31,187
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:34,326
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:47:59,064
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:10,650
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:15,211
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:19,091
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:21,609
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:23,534
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:24,491
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:36,299
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:40,130
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:45,710
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:46,371
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:51,805
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:52,559
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:58,435
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:48:59,159
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:49:08,110
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:49:10,565
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:49:11,762
+2022-05-25 08:49:11,762
+2022-05-25 08:49:54,101
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1187, in load_sketch_template
+    with open(f"{filename}.pkl", "rb") as pk:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Cr/Locatedraw/Locate-draw/MAIN ST & WELDON RD SW R.pkl.pkl'
+2022-05-25 08:49:56,086
+2022-05-25 08:49:56,086
+2022-05-25 08:49:57,343
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:49:57,503
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:49:58,082
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:49:58,559
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:49:59,249
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:50:22,139
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:55:30,595
+2022-05-25 08:55:30,595
+2022-05-25 08:55:44,710
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:55:46,247
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:55:47,272
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:55:49,123
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:55:53,562
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:55:54,584
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:55:57,922
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:55:59,033
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:02,084
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:03,420
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:08,753
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:11,040
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:13,685
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:15,239
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:19,282
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:21,395
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:25,599
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:28,435
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:51,035
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:56:58,814
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:00,599
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:01,604
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:08,997
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:13,512
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:18,172
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:19,723
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:21,086
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:33,690
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:36,132
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:38,686
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:52,508
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:57:53,951
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:00,510
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:06,244
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:11,815
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:11,815
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 562, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-25 08:58:15,330
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:22,032
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:26,681
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:33,121
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:34,048
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:41,902
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:42,468
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:46,556
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:47,191
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:53,775
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:54,341
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:59,337
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:58:59,967
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:59:07,896
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:59:08,087
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:59:20,606
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:59:24,887
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 08:59:26,139
+2022-05-25 08:59:26,139
+2022-05-25 08:59:30,030
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 1902, in <module>
+    enclosing =  TK.coords(
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2761, in coords
+    self.tk.call((self._w, 'coords') + args))]
+_tkinter.TclError: wrong # args: should be ".!toplevel2.!frame.!frame2.!frame2.!canvas coords tagOrId ?x y x y ...?"
+2022-05-25 09:09:13,054
+2022-05-25 09:09:13,054
+2022-05-25 09:11:14,541
+2022-05-25 09:11:14,541
+2022-05-25 09:11:40,391
+2022-05-25 09:11:40,391
+2022-05-25 09:12:12,627
+2022-05-25 09:12:12,627
+2022-05-25 09:15:50,195
+2022-05-25 09:15:50,195
+2022-05-25 09:15:57,950
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-25 09:15:58,799
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-05-25 09:44:19,033
+2022-05-25 09:44:19,033
+2022-05-25 09:47:03,360
+2022-05-25 09:47:03,360
+2022-05-25 10:00:15,065
+2022-05-25 10:00:15,065
+2022-05-25 10:12:49,371
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 2362, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-05-25 10:12:50,610
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 2362, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-05-25 11:00:23,600
+2022-05-25 11:00:23,600
+2022-05-25 11:00:50,026
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 2376, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-05-25 11:00:50,690
+Traceback (most recent call last):
+  File "c:/Users/Cr/Locatedraw/Locate-draw/ezdrawlnew.py", line 2376, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-06-08 08:01:56,195
+2022-06-08 08:01:56,195
+2022-06-08 08:01:57,297
+2022-06-08 08:01:57,297
+2022-06-08 08:02:10,778
+2022-06-08 08:02:10,778
+2022-06-08 08:03:59,665
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-06-08 08:04:01,325
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-06-08 08:04:02,393
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-06-08 08:04:03,722
+2022-06-08 08:04:03,722
+2022-06-08 08:04:05,068
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-06-08 08:04:06,011
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-06-17 09:49:43,685
+2022-06-17 09:49:43,700
+2022-06-17 09:50:57,962
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 167, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-06-17 09:50:57,977
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 550, in hlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-06-17 09:51:47,400
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2376, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-06-17 09:52:23,507
+2022-06-17 09:52:23,507
+2022-06-17 09:52:35,184
+2022-06-17 09:52:35,184
+2022-06-17 09:53:35,881
+2022-06-17 09:53:35,881
+2022-06-17 09:56:19,144
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2376, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-06-17 09:56:56,909
+2022-06-17 09:56:56,909
+2022-06-17 09:58:02,256
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2376, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-06-17 10:00:14,360
+2022-06-17 10:00:14,360
+2022-06-17 10:00:45,199
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 542, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-06-17 10:01:14,414
+2022-06-17 10:01:14,414
+2022-06-17 10:01:21,263
+2022-06-17 10:01:21,263
+2022-06-17 10:05:01,123
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 167, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-06-17 10:05:01,123
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 550, in hlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-06-17 10:05:42,382
+2022-06-17 10:05:42,382
+2022-06-17 10:06:35,064
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2376, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-06-17 10:07:14,163
+2022-06-17 10:07:14,163
+2022-06-17 10:07:34,814
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2376, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-07-20 09:26:56,008
+2022-07-20 09:26:56,055
+2022-07-20 09:26:56,055
+2022-07-20 09:26:56,055
+2022-07-20 09:26:56,055
+2022-07-20 09:26:56,071
+2022-07-20 09:26:56,071
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,118
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,133
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:26:56,149
+2022-07-20 09:28:14,643
+2022-07-20 09:28:14,643
+2022-07-20 09:28:14,643
+2022-07-20 09:28:14,643
+2022-07-20 09:28:14,643
+2022-07-20 09:28:14,658
+2022-07-20 09:28:14,658
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,690
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,705
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:28:14,721
+2022-07-20 09:31:48,539
+2022-07-20 09:31:48,539
+2022-07-20 09:34:30,285
+2022-07-20 09:34:30,285
+2022-07-20 09:41:29,514
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 165, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-07-20 09:41:29,514
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 568, in vlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-07-20 09:41:41,383
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 540, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-22 16:06:45,446
+2022-08-22 16:06:45,446
+2022-08-22 16:06:46,273
+2022-08-22 16:06:46,273
+2022-08-22 16:09:18,948
+2022-08-22 16:09:18,948
+2022-08-22 16:12:36,008
+2022-08-22 16:12:36,008
+2022-08-22 16:27:21,714
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 560, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-22 16:27:27,027
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 560, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-22 16:27:27,877
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 560, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-22 16:29:20,340
+2022-08-22 16:29:20,340
+2022-08-23 10:03:11,610
+2022-08-23 10:03:11,626
+2022-08-23 10:03:12,546
+2022-08-23 10:03:12,546
+2022-08-23 10:04:05,117
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 545, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 10:04:50,110
+2022-08-23 10:04:50,110
+2022-08-23 10:05:01,536
+2022-08-23 10:05:01,536
+2022-08-23 10:13:34,294
+2022-08-23 10:13:34,310
+2022-08-23 10:13:34,310
+2022-08-23 10:13:34,331
+2022-08-23 10:13:34,336
+2022-08-23 10:13:34,356
+2022-08-23 10:13:34,372
+2022-08-23 10:13:34,465
+2022-08-23 10:13:34,481
+2022-08-23 10:13:34,497
+2022-08-23 10:13:34,497
+2022-08-23 10:13:34,497
+2022-08-23 10:13:34,512
+2022-08-23 10:13:34,512
+2022-08-23 10:13:34,512
+2022-08-23 10:13:34,528
+2022-08-23 10:13:34,543
+2022-08-23 10:13:34,590
+2022-08-23 10:13:34,606
+2022-08-23 10:13:34,606
+2022-08-23 10:13:34,621
+2022-08-23 10:13:34,637
+2022-08-23 10:13:34,637
+2022-08-23 10:13:34,637
+2022-08-23 10:13:34,653
+2022-08-23 10:13:34,653
+2022-08-23 10:13:34,653
+2022-08-23 10:13:34,668
+2022-08-23 10:13:34,684
+2022-08-23 10:13:34,699
+2022-08-23 10:13:34,699
+2022-08-23 10:13:34,715
+2022-08-23 10:13:34,715
+2022-08-23 10:13:34,762
+2022-08-23 10:13:34,762
+2022-08-23 10:13:34,762
+2022-08-23 10:13:34,762
+2022-08-23 10:13:34,777
+2022-08-23 10:13:34,793
+2022-08-23 10:13:34,809
+2022-08-23 10:13:34,824
+2022-08-23 10:13:34,824
+2022-08-23 10:13:34,824
+2022-08-23 10:13:34,933
+2022-08-23 10:13:34,933
+2022-08-23 10:13:34,949
+2022-08-23 10:13:34,965
+2022-08-23 10:13:40,192
+2022-08-23 10:13:40,192
+2022-08-23 10:13:40,192
+2022-08-23 10:13:40,192
+2022-08-23 10:13:40,192
+2022-08-23 10:14:43,067
+2022-08-23 10:14:43,067
+2022-08-23 10:15:15,131
+2022-08-23 10:15:15,131
+2022-08-23 10:15:15,131
+2022-08-23 10:15:15,131
+2022-08-23 10:15:15,131
+2022-08-23 10:15:15,131
+2022-08-23 12:08:03,734
+2022-08-23 12:08:03,734
+2022-08-23 12:12:06,072
+2022-08-23 12:12:06,072
+2022-08-23 12:13:12,937
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2374, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-08-23 12:17:00,172
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 549, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 12:17:02,272
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 549, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 12:17:03,517
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 549, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 12:17:05,700
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 549, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 12:17:37,580
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 12:17:39,351
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 12:18:06,282
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 12:18:07,432
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 12:19:10,424
+2022-08-23 12:19:10,424
+2022-08-23 12:19:20,102
+2022-08-23 12:19:20,102
+2022-08-23 12:24:23,350
+2022-08-23 12:24:23,350
+2022-08-23 12:25:43,929
+2022-08-23 12:25:43,929
+2022-08-23 12:28:05,788
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 170, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-08-23 12:28:05,789
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 557, in vlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-08-23 15:02:54,647
+2022-08-23 15:02:54,663
+2022-08-23 15:10:30,552
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 15:10:33,844
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 15:10:34,852
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 15:10:37,566
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 15:10:42,220
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 15:10:45,424
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 15:11:09,708
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2374, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-08-23 15:11:11,167
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2374, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-08-23 15:12:45,631
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 170, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-08-23 15:12:45,678
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 557, in vlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-08-23 15:13:21,315
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-08-23 15:13:43,849
+2022-08-23 15:13:43,849
+2022-08-23 15:17:52,586
+2022-08-23 15:17:52,586
+2022-08-24 11:27:37,075
+2022-08-24 11:27:37,075
+2022-08-24 11:27:37,889
+2022-08-24 11:27:37,889
+2022-08-26 13:12:52,022
+2022-08-26 13:12:52,038
+2022-08-26 13:12:53,084
+2022-08-26 13:12:53,084
+2022-08-26 13:15:34,466
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2374, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-08-26 13:15:37,078
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2374, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-08-26 13:21:12,216
+2022-08-26 13:21:12,216
+2022-08-26 13:21:29,796
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
