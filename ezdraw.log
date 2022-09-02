@@ -3667,3 +3667,198 @@ Traceback (most recent call last):
   File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
     sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
 AttributeError: 'NoneType' object has no attribute 'upper'
+2022-09-01 09:48:38,389
+2022-09-01 09:48:38,404
+2022-09-01 12:45:32,704
+2022-09-01 12:45:32,720
+2022-09-01 12:45:56,099
+2022-09-01 12:45:56,099
+2022-09-01 12:49:19,798
+2022-09-01 12:49:19,798
+2022-09-01 12:51:02,976
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2374, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-09-01 12:51:05,254
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2374, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-09-01 12:51:53,576
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1174, in load_sketch_template
+    with open(f"{filename}.pkl", "rb") as pk:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Cr/Locatedraw/Locate-draw/TAPSCOTT RD 980 APT.pkl.pkl'
+2022-09-01 12:51:55,729
+2022-09-01 12:51:55,729
+2022-09-01 12:52:11,809
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1174, in load_sketch_template
+    with open(f"{filename}.pkl", "rb") as pk:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Cr/Locatedraw/Locate-draw/TAPSCOTT RD 980 APT.pkl.pkl'
+2022-09-01 12:52:12,940
+2022-09-01 12:52:12,940
+2022-09-01 12:52:14,377
+2022-09-01 12:52:14,377
+2022-09-01 12:52:14,782
+2022-09-01 12:52:14,782
+2022-09-01 12:53:50,668
+2022-09-01 12:53:50,668
+2022-09-01 13:09:18,713
+2022-09-01 13:09:18,729
+2022-09-01 13:12:10,296
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1174, in load_sketch_template
+    with open(f"{filename}.pkl", "rb") as pk:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Cr/Locatedraw/Locate-draw/MORNINGSIDE AVE 9370 APT.pkl.pkl'
+2022-09-01 13:12:13,240
+2022-09-01 13:12:13,240
+2022-09-01 13:12:13,835
+2022-09-01 13:12:13,835
+2022-09-01 13:12:31,200
+2022-09-01 13:12:31,200
+2022-09-01 13:13:01,423
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-09-01 13:13:14,431
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 549, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-09-01 13:13:16,199
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 549, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-09-01 13:13:50,356
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 549, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-09-01 13:22:42,816
+2022-09-01 13:22:42,816
+2022-09-01 13:23:11,129
+2022-09-01 13:23:11,129
+2022-09-01 13:24:48,939
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2374, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-09-01 21:32:50,168
+2022-09-01 21:32:50,184
+2022-09-01 21:34:01,510
+2022-09-01 21:34:01,510
+2022-09-01 21:40:14,658
+2022-09-01 21:40:14,658
+2022-09-02 09:49:32,133
+2022-09-02 09:49:32,180
+2022-09-02 09:50:58,266
+2022-09-02 09:50:58,266
+2022-09-02 11:02:56,461
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 810, in cable
+    TK.itemconfig(cable, capstyle='ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "ROUND": must be butt, projecting, or round
+2022-09-02 11:03:01,833
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 770, in road
+    TK.itemconfig(r, capstyle="ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "ROUND": must be butt, projecting, or round
+2022-09-02 11:04:07,714
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 810, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:04:14,545
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 922, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:04:16,907
+2022-09-02 11:04:16,907
+2022-09-02 11:04:19,818
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 770, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:05:03,026
+2022-09-02 11:05:03,026
+2022-09-02 11:05:05,314
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 770, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:05:08,065
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 810, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:05:15,902
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 788, in offset_line
+    TK.itemconfig(offset, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:05:35,053
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 800, in cable_poly
+    TK.itemconfig(cablepoly, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:06:11,109
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 810, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:06:24,479
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 810, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-09-02 11:34:06,225
+2022-09-02 11:34:06,225

@@ -500,7 +500,7 @@ def vault(x, y, utility=None):
     else:
         vault_label = "HW"
     v1 = graph.draw_rectangle(
-        (x - 0.7, y - 0.4), (x + 0.7, y + 0.4), line_color="black", fill_color=None
+        (x - 0.7, y - 0.4), (x + 0.7, y + 0.4), line_color="black", fill_color='White'
     )
     v2 = graph.draw_text(vault_label, (x, y), font="Arial 7 bold")
     # prfloat(v2)
@@ -767,6 +767,7 @@ def road(x1, y1, x2, y2):
     try:
         r = graph.DrawLine((x1, y1), (x2, y2), width="3")
         graph.TKCanvas.itemconfig(r, activefill="red")
+        TK.itemconfig(r, capstyle="tk.ROUND")
         TK.addtag_withtag("road", r)
     except:
         logerror()
@@ -784,6 +785,7 @@ def offset_line(x1, y1, x2, y2):
     try:
         offset = graph.draw_line((x1, y1), (x2, y2), width="1")
         graph.TKCanvas.itemconfig(offset, dash=(2, 7))
+        TK.itemconfig(offset, capstyle="tk.ROUND")
         TK.itemconfig(offset, activefill="red")
         TK.addtag_withtag("oline", offset)
     except:
@@ -792,16 +794,20 @@ def offset_line(x1, y1, x2, y2):
 
 def cable_poly(*points):
     try:
-        cablepoly = sg.Graph.draw_lines(graph, points, width="2")
+        cablepoly = sg.Graph.draw_lines(graph, points, width="3")
         TK.itemconfig(cablepoly, dash=(10, 5))
+        TK.itemconfig(cablepoly, activefill='red')
+        TK.itemconfig(cablepoly, capstyle='tk.ROUND')
     except:
         logerror()
 
 
 def cable(x1, y1, x2, y2, label=""):
     try:
-        cable = sg.Graph.draw_line(graph, (x1, y1), (x2, y2), width="2")
-        TK.itemconfig(cable, dash=(10, 5))
+        cable = sg.Graph.draw_line(graph, (x1, y1), (x2, y2), width="3")
+        TK.itemconfig(cable, dash=(20, 10))
+        TK.itemconfig(cable, activefill='red')
+        TK.itemconfig(cable, capstyle='tk.ROUND')
         if label:
             # check for horizontal or vertical lines
             if x1 == x2:
@@ -913,6 +919,7 @@ def line(x1, y1, x2, y2):
     try:
         l = sg.Graph.draw_line(graph, (x1, y1), (x2, y2))
         TK.itemconfig(l, activefill="red")
+        TK.itemconfig(l, capstyle="tk.ROUND")
     except:
         logerror()
 
@@ -1428,7 +1435,7 @@ col = [
     [notify, notify2, notify3],
     [
         sg.Graph(
-            canvas_size=(750, 600),
+            canvas_size=(600, 600),
             graph_bottom_left=(0, HEIGHT),
             graph_top_right=(WIDTH, 0),
             background_color="white",
