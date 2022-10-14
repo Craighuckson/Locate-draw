@@ -27,10 +27,10 @@ RP_NBOUNDARY = (51, 243)
 RP_SBOUNDARY = (449, 244)
 RP_WBOUNDARY = (55, 276)
 RP_EBOUNDARY = (449, 274)
-RA_NBOUNDARY = (60,220)
-RA_SBOUNDARY = (443,220)
-RA_WBOUNDARY = (57,238)
-RA_EBOUNDARY = (443,238)
+RA_NBOUNDARY = (60, 220)
+RA_SBOUNDARY = (443, 220)
+RA_WBOUNDARY = (57, 238)
+RA_EBOUNDARY = (443, 238)
 DATE = str("/".join([d.strftime(x) for x in ["%Y", "%m", "%d"]]))
 NAME = "CRAIG HUCKSON"
 RP_NAMECOORDS = (340, 967)
@@ -60,7 +60,10 @@ rogclear = {
 bell_stickers = {
     "bridge": {"file": "bsticker bridge.jpg", "coords": (227, 452)},
     "priority": {"file": "bsticker priority.jpg", "coords": (236, 567)},
-    "cabcon": {"file": "bsticker cables mb in conduit.jpg", "coords": (22, 703)},
+    "cabcon": {
+        "file": "bsticker cables mb in conduit.jpg",
+        "coords": (22, 703),
+    },
     "empty": {"file": "bsticker empty conduit.jpg", "coords": (30, 813)},
     "handdig": {"file": "bsticker hand dig.jpg", "coords": (480, 686)},
     "futureuse": {"file": "bsticker future use.jpg", "coords": (447, 808)},
@@ -94,7 +97,8 @@ def convert_to_bytes(file_or_bytes, resize=None):
         new_width, new_height = resize
         scale = min(new_height / cur_height, new_width / cur_width)
         img = img.resize(
-            (int(cur_width * scale), int(cur_height * scale)), PIL.Image.ANTIALIAS
+            (int(cur_width * scale), int(cur_height * scale)),
+            PIL.Image.ANTIALIAS,
         )
     bio = io.BytesIO()
     img.save(bio, format="PNG")
@@ -134,12 +138,20 @@ rp_tab = [
     [sg.Text("East Boundary: "), sg.Input(enable_events=True, key="eb")],
     [
         sg.Radio(
-            "Marked", group_id="mc", default=True, k="rmarked", enable_events=True
+            "Marked",
+            group_id="mc",
+            default=True,
+            k="rmarked",
+            enable_events=True,
         ),
         sg.Radio("Clear", group_id="mc", k="rclear", enable_events=True),
         sg.Text("Clear reason:"),
         sg.Combo(
-            values=[rogclear["reg_clear"], rogclear["ftth"], rogclear["fo_only"]],
+            values=[
+                rogclear["reg_clear"],
+                rogclear["ftth"],
+                rogclear["fo_only"],
+            ],
             default_value=rogclear["reg_clear"],
             enable_events=True,
             k="clear_reason",
@@ -207,7 +219,11 @@ bp_tab = [
 ba_tab = [[sg.Text("todo")]]
 
 lcol = [
-    [sg.Text("Choose form:"), sg.I(k="infile", enable_events=True), sg.FileBrowse()],
+    [
+        sg.Text("Choose form:"),
+        sg.I(k="infile", enable_events=True),
+        sg.FileBrowse(),
+    ],
     [
         sg.TabGroup(
             [
@@ -221,7 +237,7 @@ lcol = [
         )
     ],
 ]
-rcol = [[sg.Image(expand_y=True,expand_x=True,key="img")]]
+rcol = [[sg.Image(expand_y=True, expand_x=True, key="img")]]
 
 layout = [
     [
@@ -312,8 +328,8 @@ while True:
             #     with Image.open(values["clear_reason"]) as cr:
             #         out.paste(cr, RP_CLEARIMAGECOORDS)
 
-            if event == 'rclear':
-                with Image.open(values['clear_reason']) as cr:
+            if event == "rclear":
+                with Image.open(values["clear_reason"]) as cr:
                     out.paste(cr, RP_CLEARIMAGECOORDS)
 
             if values["rp_sketch"]:

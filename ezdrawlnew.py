@@ -2,6 +2,7 @@ import base64
 from enum import Enum
 import io
 import logging
+import json
 import pickle
 import time
 from contextlib import suppress
@@ -83,27 +84,25 @@ NE_DW = ()
 SW_DW = ()
 SE_DW = ()
 
-pointlist = []
+pointlist: list = []
+
 
 # enums
-
 class CurrentMode(Enum):
     SELECT = 1
     CHOSEN = 2
 
-
-
-
 # classes
+
 
 class TDInterface():
 
     def __init__(self):
-        pass        
+        pass
 # WRAPPER FUNCTIONS
 
 
-def event_switch(modestring:str, notifystring:str)->str:
+def event_switch(modestring: str, notifystring: str) -> str:
     current_mode = modestring
     notify.update(notifystring)
     return current_mode
@@ -185,7 +184,7 @@ def convert_multi_measurement() -> list:
     """
     returns a measurement list
     """
-    newmeas:list = []
+    newmeas: list = []
     meas = popup_get_text("Enter measurements(int) separated by comma")
     Print(meas.split(","))
     for p in meas.split(","):
@@ -233,12 +232,12 @@ def hide_grid():
     TK.itemconfig("grid", state="hidden")
 
 
-def group(group_name:str, figure:int):
+def group(group_name: str, figure: int):
     TK.addtag_withtag(group_name, figure)
 
 
 def wipe():
-    confirm:str = popup_yes_no("Erase entire image?")
+    confirm: str = popup_yes_no("Erase entire image?")
     if confirm == "Yes":
         graph.erase()
     else:
@@ -1172,34 +1171,33 @@ def save_sketch_template(file=""):
     easy_print(list_of_all_figures)
     if filename is not None:
         with open(filename + ".pkl", "wb") as pk:
-            pickled_obj = pickle.dump(list_of_all_figures, pk)
+            pickle.dump(list_of_all_figures, pk)
+        with open(filename + ".json", "w") as js:
+            json.dump(list_of_all_figures, js)
 
 
-def load_sketch_template():
-    try:
-        filename = popup_get_file("Choose template file...")
-        with open(f"{filename}.pkl", "rb") as pk:
-            list_of_all_figures = pickle.load(pk)
-        typelist = list_of_all_figures[0]
-        coordslist = list_of_all_figures[1]
-        clonelist = list_of_all_figures[2]
-        for x, y, z in zip(typelist, coordslist, clonelist):
-            if x == "rectangle":
-                TK.create_rectangle(y, **z)
-            elif x == "oval":
-                TK.create_oval(y, **z)
-            elif x == "line":
-                TK.create_line(y, **z)
-            elif x == "text":
-                TK.create_text(y, **z)
-            # elif x == 'image':
-            # TK.create_image(y, **z)
-            elif x == "polygon":
-                TK.create_polygon(y, **z)
-            elif x == "arc":
-                TK.create_arc(y, **z)
-    except:
-        logerror()
+def load_sketch_template() -> None:
+    filename: str = popup_get_file("Choose template file...")
+    with open(f"{filename}", "rb") as pk:
+        list_of_all_figures: list = pickle.load(pk)
+    typelist = list_of_all_figures[0]
+    coordslist = list_of_all_figures[1]
+    clonelist = list_of_all_figures[2]
+    for x, y, z in zip(typelist, coordslist, clonelist):
+        if x == "rectangle":
+            TK.create_rectangle(y, **z)
+        elif x == "oval":
+            TK.create_oval(y, **z)
+        elif x == "line":
+            TK.create_line(y, **z)
+        elif x == "text":
+            TK.create_text(y, **z)
+        elif x == 'image':
+            pass
+        elif x == "polygon":
+            TK.create_polygon(y, **z)
+        elif x == "arc":
+            TK.create_arc(y, **z)
 
 
 # callback routines
@@ -1415,11 +1413,11 @@ tab2layout = [
     [sg.B("Intersecting street:", k="tab2getstreet"), sg.I(k="tab1intersection")],
     [sg.Submit(k="sketchbuild_submit")],
 ]
-tab1layout = [[]]
+tab1layout: list = [[]]
 lcol = [
-    [sg.Sizer(0,0)],
+    [sg.Sizer(0, 0)],
     [notify_inputmode],
-    [sg.Button('Select',button_color=('yellow','black'))],
+    [sg.Button('Select', button_color=('yellow', 'black'))],
     [sg.Button('Line')],
     [sg.Button('Cable')],
     [sg.Button('Road')],
@@ -1457,7 +1455,8 @@ col = [
 ]
 
 rcol = [[sg.Text("Object features")],
-        [sg.Text("Object type:"), sg.Input()],
+        [sg.Text("Object type:",), sg.Input(k='lblobject_type', readonly=True)],
+        [sg.Text("Coords:"), sg.Input(k='objcoords', readonly=True)]
         ]
 
 
@@ -1565,7 +1564,10 @@ while True:
     if event == "Save template only":
         save_sketch_template()
     if event == "Load template":
-        load_sketch_template()
+        try:
+            load_sketch_template()
+        except FileNotFoundError:
+            popup('Could not load template')
 
     if event == "Snap to Grid":
         if gridSnap == True:
@@ -1630,7 +1632,7 @@ while True:
     if event == "sketchbuild_submit":
         # draw sketchbuilder output
 
-        if values["cl"] == True:
+        if values["cl"]:
             rtype = "CL"
         else:
             rtype = "RE"
@@ -1691,7 +1693,6 @@ while True:
         except:
             pass
 
-
     if event.endswith("MOVE") and current_mode == "move":
         try:
             for item in selected:
@@ -1712,7 +1713,7 @@ while True:
             end_point = (x, y)
         if prior_rect:
             graph.delete_figure(prior_rect)
-    if event == "graphdrag" and dragging == True and current_mode == "select":
+    if event == "graphdrag" and dragging and current_mode == "select":
         try:
             x, y = values["graph"]
             end_point = (x, y)
@@ -1725,8 +1726,8 @@ while True:
     if event == "graphdrag" and current_mode == "chosen":
         x, y = values["graph"]
         try:
-            for idx,item in enumerate(selected):
-               graph.relocate_figure(item, x, y)
+            for idx, item in enumerate(selected):
+                graph.relocate_figure(item, x, y)
             #    deltax = x - spoints[idx][0]
             #    deltay = y - spoints[idx][1]
             #    graph.move_figure(item, deltax, deltay)
@@ -2338,10 +2339,12 @@ while True:
             catch_basin(x, y)
         elif current_mode == "select":
             fig = TK.find_withtag("current")
+            window['lblobject_type'].update(TK.type(fig))
+            window['objcoords'].update(TK.coords(fig))
             # drag_figures =sg.Graph.get_figures_at_location(graph,values['graph'])
             # if drag_figures:
             #     for fig in drag_figures:
-            #         if TK.itemcget(fig,'tag') == 'grid':
+            #         if TK.itemcget(fig,'tag') == 'g/rid':
             #             pass
             #         else:
             # easy_print(graph.TKCanvas.type(fig))

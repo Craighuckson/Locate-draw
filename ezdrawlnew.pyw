@@ -1275,14 +1275,19 @@ def long_gas():
 
 def radius_sketch():
     feature = ["ped", "pole", "tree", "transformer", "waterbox"]
-    user_type = popup_get_text("Object type ?(ped,pole,tree,transformer,waterbox")
+
+    try:
+        user_type = popup_get_text("Object type ?(ped,pole,tree,transformer,waterbox")
+    except (TypeError, ValueError):
+        popup('Invalid object type')
+        return
+
     try:
         radius = int(popup_get_text("Radius in m?(int)"))
-    except ValueError:
+    except (ValueError, TypeError):
+        popup('Radius must be a number')
         return
-    if user_type not in feature:
-        popup_get_text("Not a valid entry")
-        return
+
     radiusdict = {
         "ped": centre_ped,
         "pole": centre_pole,
@@ -1290,6 +1295,8 @@ def radius_sketch():
         "transformer": centre_tx,
         "waterbox": centre_stamp,
     }
+
+    #This calls the function assigned to the value of the given key
     radiusdict[user_type]()
     if radius < 3:
         digbox(13, 13, 17, 17)
