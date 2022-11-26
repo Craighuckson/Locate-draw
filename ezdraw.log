@@ -4667,3 +4667,1673 @@ _tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
 2022-10-03 09:20:08,885
 2022-10-03 09:20:09,590
 2022-10-03 09:20:09,590
+2022-11-11 08:44:12,994
+2022-11-11 08:44:13,010
+2022-11-11 08:44:21,418
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-11 08:44:46,940
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-11 08:44:53,617
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-11 08:45:22,149
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:23:36,567
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:23:36,677
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:23:36,677
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:23:39,095
+2022-11-23 08:23:39,095
+2022-11-23 08:23:39,784
+2022-11-23 08:23:39,784
+2022-11-23 08:23:48,211
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:25:39,552
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:25:43,418
+2022-11-23 08:25:43,418
+2022-11-23 08:26:52,922
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:26:52,922
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:27:59,621
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:28:02,105
+2022-11-23 08:28:02,105
+2022-11-23 08:30:01,821
+2022-11-23 08:30:01,837
+2022-11-23 08:31:27,829
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 08:31:31,219
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:04:10,173
+2022-11-23 09:04:10,173
+2022-11-23 09:05:10,155
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:05:19,516
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:05:30,122
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:05:33,142
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:05:35,663
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:05:39,738
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:05:44,549
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:05:48,345
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:05:58,534
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:06:46,531
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 799, in cable_poly
+    TK.itemconfig(cablepoly, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:07:09,075
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:07:47,701
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:07:50,787
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:08:08,549
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:08:16,467
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:08:18,969
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:08:41,240
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:10:09,303
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 799, in cable_poly
+    TK.itemconfig(cablepoly, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:10:27,305
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:10:56,713
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:11:01,575
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:11:06,508
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:11:16,209
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:11:53,571
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:11:58,964
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:12:51,883
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 169, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-11-23 09:12:51,883
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 536, in hlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-11-23 09:16:34,778
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:16:39,981
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:16:42,550
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:17:58,975
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:18:00,279
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:18:01,640
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:18:07,484
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:18:10,026
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:18:12,342
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:19:52,081
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:20:06,193
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:20:08,441
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:20:12,325
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:20:14,422
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:20:15,630
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:21:42,699
+2022-11-23 09:21:42,699
+2022-11-23 09:23:17,138
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:25:11,936
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:25:24,150
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:25:27,899
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:25:37,472
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:25:49,699
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:25:57,752
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:25:59,780
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:26:04,680
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:26:07,860
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:27:13,478
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:27:17,472
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:29:47,927
+2022-11-23 09:29:47,927
+2022-11-23 09:33:36,257
+2022-11-23 09:33:36,257
+2022-11-23 09:34:36,712
+2022-11-23 09:34:36,712
+2022-11-23 09:34:51,002
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:36:25,492
+2022-11-23 09:36:25,492
+2022-11-23 09:36:34,208
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:37:24,352
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:40:24,107
+2022-11-23 09:40:24,107
+2022-11-23 09:41:05,606
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:41:16,365
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:41:21,275
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:41:37,835
+2022-11-23 09:41:37,835
+2022-11-23 09:43:01,234
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:53:27,112
+2022-11-23 09:53:27,112
+2022-11-23 09:55:53,476
+2022-11-23 09:55:53,476
+2022-11-23 09:56:16,185
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:56:39,993
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 548, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-11-23 09:56:40,838
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 548, in vlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+AttributeError: 'NoneType' object has no attribute 'upper'
+2022-11-23 09:57:30,317
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:57:42,483
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:58:03,413
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:58:20,016
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:58:23,953
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:58:55,555
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:59:02,811
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:59:23,696
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:59:39,807
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:59:42,875
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 09:59:53,615
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:04:05,668
+2022-11-23 10:04:05,668
+2022-11-23 10:05:44,588
+2022-11-23 10:05:44,588
+2022-11-23 10:06:19,693
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:06:34,733
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:07:49,450
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:07:59,759
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:08:01,514
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:08:06,698
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:08:14,505
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:08:18,538
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:08:22,391
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:09:24,591
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 799, in cable_poly
+    TK.itemconfig(cablepoly, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:10:35,585
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 787, in offset_line
+    TK.itemconfig(offset, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:10:40,414
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 787, in offset_line
+    TK.itemconfig(offset, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:11:01,717
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:11:12,035
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:11:21,336
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:11:56,243
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:12:01,888
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:12:04,770
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:14:27,678
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 536, in hlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-11-23 10:18:21,827
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:18:26,575
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:18:39,376
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:38:38,446
+2022-11-23 10:38:38,446
+2022-11-23 10:40:57,852
+2022-11-23 10:40:57,852
+2022-11-23 10:47:24,621
+2022-11-23 10:47:24,621
+2022-11-23 10:48:27,572
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:49:18,256
+2022-11-23 10:49:18,256
+2022-11-23 10:50:00,037
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:50:30,378
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:50:35,866
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:50:45,410
+2022-11-23 10:50:45,410
+2022-11-23 10:51:50,832
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 10:52:08,950
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 11:03:21,110
+2022-11-23 11:03:21,110
+2022-11-23 11:03:25,081
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 11:04:03,278
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 12:23:30,322
+2022-11-23 12:23:30,369
+2022-11-23 12:23:48,945
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 12:24:57,018
+2022-11-23 12:24:57,018
+2022-11-23 12:25:00,132
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 12:26:09,996
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-23 12:26:13,707
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:35:52,220
+2022-11-24 08:35:52,267
+2022-11-24 08:36:04,269
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:37:49,496
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:38:03,868
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:38:34,648
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:38:40,390
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:38:42,385
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:38:45,524
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:38:48,081
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:38:50,794
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:40:22,389
+2022-11-24 08:40:22,389
+2022-11-24 08:40:44,343
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:40:44,343
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:44:45,630
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:45:23,013
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 809, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:50:16,815
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:53:19,342
+2022-11-24 08:53:19,342
+2022-11-24 08:53:26,271
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 08:55:48,255
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 565, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
+2022-11-24 09:00:04,458
+2022-11-24 09:00:04,458
+2022-11-24 09:02:44,640
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 921, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:02:50,035
+2022-11-24 09:02:50,035
+2022-11-24 09:11:52,973
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:11:52,973
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:11:52,989
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:11:58,905
+2022-11-24 09:11:58,936
+2022-11-24 09:12:34,612
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:12:38,246
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:12:44,593
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:14:48,529
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:14:53,255
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:14:55,972
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 769, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:26:10,053
+2022-11-24 09:26:10,053
+2022-11-24 09:27:41,703
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 770, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:28:03,794
+2022-11-24 09:28:03,794
+2022-11-24 09:28:03,794
+2022-11-24 09:28:03,810
+2022-11-24 09:28:03,826
+2022-11-24 09:28:03,857
+2022-11-24 09:28:03,872
+2022-11-24 09:28:04,091
+2022-11-24 09:28:04,106
+2022-11-24 09:28:04,106
+2022-11-24 09:28:04,127
+2022-11-24 09:28:04,127
+2022-11-24 09:28:04,127
+2022-11-24 09:28:04,143
+2022-11-24 09:28:04,143
+2022-11-24 09:28:04,143
+2022-11-24 09:28:04,158
+2022-11-24 09:28:04,205
+2022-11-24 09:28:04,221
+2022-11-24 09:28:04,236
+2022-11-24 09:28:04,236
+2022-11-24 09:28:04,252
+2022-11-24 09:28:04,252
+2022-11-24 09:28:04,252
+2022-11-24 09:28:04,267
+2022-11-24 09:28:04,283
+2022-11-24 09:28:04,283
+2022-11-24 09:28:04,283
+2022-11-24 09:28:04,299
+2022-11-24 09:28:04,314
+2022-11-24 09:28:04,330
+2022-11-24 09:28:04,330
+2022-11-24 09:28:04,345
+2022-11-24 09:28:04,423
+2022-11-24 09:28:04,423
+2022-11-24 09:28:04,423
+2022-11-24 09:28:04,423
+2022-11-24 09:28:04,423
+2022-11-24 09:28:04,439
+2022-11-24 09:28:04,455
+2022-11-24 09:28:04,470
+2022-11-24 09:28:04,470
+2022-11-24 09:28:04,470
+2022-11-24 09:28:04,735
+2022-11-24 09:28:04,767
+2022-11-24 09:28:04,782
+2022-11-24 09:28:04,798
+2022-11-24 09:28:29,022
+2022-11-24 09:28:29,038
+2022-11-24 09:28:29,038
+2022-11-24 09:28:29,038
+2022-11-24 09:28:29,038
+2022-11-24 09:52:53,064
+2022-11-24 09:52:53,064
+2022-11-24 09:53:07,497
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 810, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:53:14,254
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 810, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:53:29,564
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 922, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:53:33,466
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 922, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 09:54:09,838
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 169, in convert_measurement
+    if len(meas) == 1:
+TypeError: object of type 'NoneType' has no len()
+2022-11-24 09:54:09,838
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 557, in vlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-11-24 09:54:21,248
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 557, in vlabelm
+    graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
+AttributeError: 'NoneType' object has no attribute 'lower'
+2022-11-24 10:25:23,472
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2408, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-11-24 10:25:24,545
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2408, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-11-24 10:25:24,676
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2408, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+TypeError: 'NoneType' object is not subscriptable
+2022-11-24 10:25:29,944
+2022-11-24 10:25:29,944
+2022-11-24 10:26:36,240
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-24 10:36:25,069
+2022-11-24 10:36:25,069
+2022-11-25 08:47:53,230
+2022-11-25 08:47:53,261
+2022-11-25 08:47:54,299
+2022-11-25 08:47:54,299
+2022-11-25 08:49:07,677
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:38:24,272
+2022-11-25 09:38:24,272
+2022-11-25 09:38:30,793
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:38:30,816
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:38:38,701
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:38:38,701
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:38:39,907
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:38:39,907
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:41:44,965
+2022-11-25 09:41:44,965
+2022-11-25 09:41:51,880
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:41:51,883
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:44:16,288
+2022-11-25 09:44:16,288
+2022-11-25 09:44:33,570
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:44:33,586
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:44:45,160
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:44:45,160
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:44:59,717
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2022-11-25 09:44:59,717
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 774, in road
+    TK.itemconfig(r, capstyle="tk.ROUND")
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 2898, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+  File "C:\Users\Cr\AppData\Local\Programs\Python\Python38-32\lib\tkinter\__init__.py", line 1627, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round

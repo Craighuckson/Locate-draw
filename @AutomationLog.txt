@@ -1,0 +1,4 @@
+2022-11-09 22:07:47.183 form.py[83] save_bitmap -> Find Control Timeout(10s): {Name: 'Export...', ControlType: MenuItemControl}
+2022-11-09 22:46:54.443 form.py[85] save_bitmap -> Find Control Timeout(10s): {Name: 'File name:', ControlType: EditControl}
+2022-11-09 22:47:36.371 form.py[85] save_bitmap -> Find Control Timeout(10s): {Name: 'File name:', ControlType: EditControl}
+2022-11-10 10:16:09.850 analysedtomobile.py[8] <module> -> Find Control Timeout(10s): {Name: 'Grid', ControlType: ListItemControl}

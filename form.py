@@ -2,6 +2,7 @@ import sys
 
 
 def get_teldig_data() -> dict:
+    import uiautomation as auto
     from ahk import AHK
     from ahk.window import Window
     ahk = AHK()
@@ -65,31 +66,26 @@ def get_form(utility: str, page: str) -> str:
 
 def save_bitmap(filename: str = ''):
     import pyautogui as pg
+    import uiautomation as auto
     pg.MINIMUM_SLEEP = 0.8
     from pathlib import Path
+    win =  auto.WindowControl(SubName='TelDig SketchTool')
+    if not win.Exists(3,1):
+        auto.MessageBox('SketchTool window not open or accessible', 'Window not open')
+        sys.exit()
     if filename is None or filename == '':
         filename = pg.prompt('Enter save file name', 'BMP file name')
     fp = str(Path('C:/Users/Cr/Locatedraw/Locate-draw/') / filename)
     if filename is None:
         pg.alert('Could not save file')
         return
-    try:
-        win = pg.getWindowsWithTitle('TelDig SketchTo')[0]
-    except IndexError:
-        print('SketchTool window not open or accessible')
-        sys.exit()
-    win.activate()
-    pg.hotkey('alt', 'f')
-    pg.press('enter')
-    pg.sleep(3)
-    pg.typewrite(fp)
-    pg.sleep(1)
-    pg.hotkey('alt', 't')
-    pg.sleep(1)
-    pg.press('b')
-    pg.sleep(1)
-    pg.press('enter')
-
+    win.GetWindowPattern().SetWindowVisualState(1)
+    win.MenuItemControl(Name='File').GetInvokePattern().Invoke()
+    win.SendKeys('{Down}{Enter}')
+    sa = win.WindowControl(Name='Save As')
+    sa.EditControl(Name='File name:').GetValuePattern().SetValue(fp)
+    sa.ComboBoxControl(Name='Save as type:').GetExpandCollapsePattern().Expand()
+    sa.ListItemControl(Name='Bitmap (*.bmp)').GetSelectionItemPattern().Select()
 
 if __name__ == '__main__':
     current_page: int = 1

@@ -30,8 +30,8 @@ Print = easy_print
 # CONSTANTS
 
 edge_type = ""
-HEIGHT = 30
-WIDTH = 30
+HEIGHT = 70
+WIDTH = 60
 
 ECURB = [WIDTH / 3, 2, WIDTH / 3, HEIGHT - 2]
 WCURB = [(WIDTH * 2) / 3, 2, (WIDTH * 2) / 3, HEIGHT - 2]
@@ -300,32 +300,32 @@ def arrow(dir, x, y):
     try:
         if dir == "n":
             graph.DrawPolygon(
-                [(x, y), (x - 0.25, y + 0.5), (x + 0.25, y + 0.5)],
+                [(x, y), (x - ((0.25/30)*HEIGHT), y + ((0.5/30)*HEIGHT)), (x + ((0.25/30)*HEIGHT), y + ((0.5/30)*HEIGHT))],
                 fill_color="black",
                 line_color="black",
             )
-            graph.DrawLine((x, y + 0.5), (x, y + 1.5), width=1.5)
+            graph.DrawLine((x, y + ((0.5/30)*HEIGHT)), (x, y + ((1.5/30)*HEIGHT)), width=1.5)
         elif dir == "s":
             graph.DrawPolygon(
-                [(x, y), (x - 0.25, y - 0.5), (x + 0.25, y - 0.5)],
+                [(x, y), (x - ((0.25/30)*HEIGHT), y - ((0.5/30)*HEIGHT)), (x + ((0.25/30)*HEIGHT), y - ((0.5/30)*HEIGHT))],
                 fill_color="black",
                 line_color="black",
             )
-            graph.DrawLine((x, y - 0.5), (x, y - 1.5), width=1.5)
+            graph.DrawLine((x, y - ((0.5/30)*HEIGHT)), (x, y - ((1.5/30)*HEIGHT)), width=1.5)
         elif dir == "e":
             graph.DrawPolygon(
-                [(x, y), (x - 0.5, y - 0.25), (x - 0.5, y + 0.25)],
+                [(x, y), (x - ((0.5/30)*HEIGHT), y - ((0.25/30)*HEIGHT)), (x - ((0.5/30)*HEIGHT), y + ((0.25/30)*HEIGHT))],
                 fill_color="black",
                 line_color="black",
             )
-            graph.DrawLine((x - 0.5, y), (x - 1.5, y), width=1.5)
+            graph.DrawLine((x - ((0.5/30)*HEIGHT), y), (x - ((1.5/30)*HEIGHT), y), width=1.5)
         else:
             graph.DrawPolygon(
-                [(x, y), (x + 0.5, y + 0.25), (x + 0.5, y - 0.25)],
+                [(x, y), (x + ((0.5/30)*HEIGHT), y + ((0.25/30)*HEIGHT)), (x + ((0.5/30)*HEIGHT), y - ((0.25/30)*HEIGHT))],
                 fill_color="black",
                 line_color="black",
             )
-            graph.DrawLine((x + 0.5, y), (x + 1.5, y), width=1.5)
+            graph.DrawLine((x + ((0.5/30)*HEIGHT), y), (x + ((1.5/30)*HEIGHT), y), width=1.5)
     except:
         logging.exception("caught an error")
 
@@ -422,8 +422,9 @@ def v_multi_arrow(x, yo, y1, y2, meas, measdir="u"):
 
 def pole(x, y):
     try:
-        p = graph.draw_circle((x, y), 0.4, fill_color="white")
+        p = graph.draw_circle((x, y), 1, fill_color="white")
         TK.addtag_withtag("pole", p)
+        TK.itemconfig(p,activefill='blue')
     except:
         logerror()
 
@@ -476,10 +477,10 @@ def arc(x1, y1, x2, y2, line_type=None):
 def transformer(x, y):
     try:
         txr = graph.draw_rectangle(
-            (x - 0.5, y - 0.5), (x + 0.5, y + 0.5), line_color="black"
+            (x - ((1/HEIGHT)*HEIGHT), y - ((1/HEIGHT)*HEIGHT)), (x + ((1/HEIGHT)*HEIGHT), y + ((1/HEIGHT)*HEIGHT)), line_color="black"
         )
         txtri = graph.draw_polygon(
-            [(x, y - 0.5), (x - 0.5, y + 0.5), (x + 0.5, y + 0.5)], fill_color="black"
+            [(x, y - ((1/HEIGHT)*HEIGHT)), (x - ((1/HEIGHT)*HEIGHT), y + ((1/HEIGHT)*HEIGHT)), (x + ((1/HEIGHT)*HEIGHT), y + ((1/HEIGHT)*HEIGHT))], fill_color="black"
         )
         TK.addtag_withtag("transformer", txr)
         TK.addtag_withtag("transformer", txtri)
@@ -499,9 +500,12 @@ def vault(x, y, utility=None):
     else:
         vault_label = "HW"
     v1 = graph.draw_rectangle(
-        (x - 0.7, y - 0.4), (x + 0.7, y + 0.4), line_color="black", fill_color='White'
+        (x - 2, y - 1), (x + 2, y + 1), line_color="black", fill_color='White'
     )
+    #TK.itemconfig(v1,activeoutline='red')
+   
     v2 = graph.draw_text(vault_label, (x, y), font="Arial 7 bold")
+    TK.itemconfig(v2,activefill='red')
     # prfloat(v2)
     graph.bring_figure_to_front(v2)
 
@@ -510,13 +514,14 @@ def vault(x, y, utility=None):
 
 
 def catch_basin(x, y):
-    sg.Graph.draw_rectangle(
+    cb = sg.Graph.draw_rectangle(
         graph,
-        (x - 0.5, y - 0.5),
-        (x + 0.5, y + 0.5),
+        (x - ((1/HEIGHT)*HEIGHT), y - ((1/HEIGHT)*HEIGHT)),
+        (x + ((1/HEIGHT)*HEIGHT), y + ((1/HEIGHT)*HEIGHT)),
         line_color="black",
         line_width=1.5,
     )
+    group("cb", cb)
 
 
 def hlabel(msg, x, y, size, bold=True):
@@ -572,14 +577,14 @@ def ped(x, y):
     try:
         pedsq = sg.Graph.draw_rectangle(
             graph,
-            (x - 0.4, y - 0.4),
-            (x + 0.4, y + 0.4),
+            (x - 1, y - 1),
+            (x + 1, y + 1),
             line_color="black",
             fill_color="white",
             line_width=1,
         )
-        pedline1 = sg.Graph.draw_line(graph, (x - 0.4, y - 0.4), (x + 0.4, y + 0.4))
-        pedline2 = sg.Graph.draw_line(graph, (x - 0.4, y + 0.4), (x + 0.4, y - 0.4))
+        pedline1 = sg.Graph.draw_line(graph, (x - 1, y - 1), (x + 1, y + 1))
+        pedline2 = sg.Graph.draw_line(graph, (x - 1, y + 1), (x + 1, y - 1))
         for item in [pedsq, pedline1, pedline2]:
             group("ped", item)
 
@@ -772,6 +777,12 @@ def road(x1, y1, x2, y2):
         logerror()
 
 
+def road_corner(start, arc_start, arc_end, end):
+    road(*start, *arc_start)
+    arc(*arc_start, *arc_end, 'road')
+    road(*arc_end, *end)
+
+
 def h_road(x1, x2, y):
     road(x1, y, x2, y)
 
@@ -818,7 +829,7 @@ def cable(x1, y1, x2, y2, label=""):
                 for y in range(round(y1), round(y2), gap):
                     # white box
                     if len(label) <= 2:
-                        s = 0.25
+                        s = ((((0.25/30)*HEIGHT)/30)*HEIGHT)
                     else:
                         s = 0.6
                     tbox = sg.Graph.draw_rectangle(
@@ -845,7 +856,7 @@ def cable(x1, y1, x2, y2, label=""):
                     # white box
                     # check for text size
                     if len(label) <= 2:
-                        s = 0.25
+                        s = ((((0.25/30)*HEIGHT)/30)*HEIGHT)
                     else:
                         s = 0.6
                     tbox = sg.Graph.draw_rectangle(
@@ -877,7 +888,7 @@ def h_cable(x1, x2, y, label=""):
             # white box
             # check for text size
             if len(label) <= 2:
-                s = 0.25
+                s = ((((0.25/30)*HEIGHT)/30)*HEIGHT)
             else:
                 s = 0.6
             sg.Graph.draw_rectangle(
@@ -901,7 +912,7 @@ def v_cable(x, y1, y2, label=""):
         for y in range(round(y1), round(y2), gap):
             # white box
             if len(label) <= 2:
-                s = 0.25
+                s = ((((0.25/30)*HEIGHT)/30)*HEIGHT)
             else:
                 s = 0.6
             sg.Graph.draw_rectangle(
@@ -1065,9 +1076,13 @@ def get_point3():
     return c, d
 
 
+def get_point():
+    x, y = values["graph"]
+    return x, y
+
 def draw_point1(x, y, color="red"):
     try:
-        point1 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
+        point1 = sg.Graph.draw_point(graph, (x, y), size=((0.5/30)*HEIGHT), color=color)
         return point1
     except:
         logerror()
@@ -1075,7 +1090,7 @@ def draw_point1(x, y, color="red"):
 
 def draw_point2(x, y, color="blue"):
     try:
-        point2 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
+        point2 = sg.Graph.draw_point(graph, (x, y), size=((0.5/30)*HEIGHT), color=color)
         return point2
     except:
         logerror()
@@ -1083,15 +1098,23 @@ def draw_point2(x, y, color="blue"):
 
 def draw_point3(x, y, color="green"):
     try:
-        point3 = sg.Graph.draw_point(graph, (x, y), size=0.5, color=color)
+        point3 = sg.Graph.draw_point(graph, (x, y), size=((0.5/30)*HEIGHT), color=color)
         return point3
     except:
         logerror()
 
+def draw_point4(x, y, color='orange'):
+    try:
+        point4 = sg.Graph.draw_point(graph, (x, y), size=((0.5/30)*HEIGHT), color=color)
+        return point4
+    except:
+        logerror()
+
+
 
 def cleanup_2point():
     x = y = a = b = None
-    current_mode = ""
+    current_mode = "select"
     graph.delete_figure(point1)
     graph.delete_figure(point2)
 
@@ -1433,7 +1456,7 @@ col = [
     [notify, notify2, notify3],
     [
         sg.Graph(
-            canvas_size=(600, 600),
+            canvas_size=(700, 600),
             graph_bottom_left=(0, HEIGHT),
             graph_top_right=(WIDTH, 0),
             background_color="white",
@@ -1454,9 +1477,12 @@ col = [
     ],
 ]
 
-rcol = [[sg.Text("Object features")],
+rcol = [[sg.T("0, 0",k='ccord')],
+        [sg.Text("Object features")],
         [sg.Text("Object type:",), sg.Input(k='lblobject_type', readonly=True)],
-        [sg.Text("Coords:"), sg.Input(k='objcoords', readonly=True)]
+        [sg.Text("Coords:"), sg.Input(k='objcoords', readonly=True)],
+        [sg.Text("Tag:"), sg.I(k='tag',readonly=True)],
+        [sg.T('ID'), sg.I(k='ID', readonly=True)],
         ]
 
 
@@ -1472,11 +1498,17 @@ window = sg.Window(
     use_default_focus=True,
     use_ttk_buttons=True,
     resizable=True,
-    margins=(0,0),
+    margins=(0, 0),
     border_depth=0,
     element_padding=(0),
+    location=((0, 0)),
 )
+
 graph = window["graph"]
+
+window.bind('<Control-n>', 'NEW FILE')
+window.bind('<Control-w>', 'QUIT')
+
 TK = graph.TKCanvas
 # DRAW HERE
 # SETUP
@@ -1545,8 +1577,9 @@ newmouse = None
 
 while True:
     event, values = window.read()
-    notify2.update(event)
-    notify3.update(current_mode)
+    window['ccord'].update(values['graph'])
+    notify2.update(f'Event: {event} ')
+    notify3.update(f'Mode: {current_mode} ')
     notify_inputmode.update(input_mode)
     if event == sg.WIN_CLOSED:
         break
@@ -1570,7 +1603,7 @@ while True:
             popup('Could not load template')
 
     if event == "Snap to Grid":
-        if gridSnap == True:
+        if gridSnap is True:
             gridSnap = not gridSnap
             snap_to_grid_off()
             notify3.update(f"Snap to grid: {gridSnap}")
@@ -1782,7 +1815,12 @@ while True:
         graph.delete_figure(hashrect)
         if selected is not None:
             for item in selected[:]:
-                if TK.type(item) == "rectangle" or TK.type(item) == "ellipse":
+                if (
+                    TK.type(item) == "rectangle"
+                    and "digbox" in TK.itemcget(item,"tag")
+                ):
+                    TK.itemconfig("digbox", fill="#D3D3D3", stipple="gray25")
+                elif TK.type(item) == "rectangle" or TK.type(item) == "ellipse":
                     TK.itemconfig(item, fill="white", outline="black")
                 elif (
                     TK.type(item) == "line"
@@ -1790,11 +1828,7 @@ while True:
                     or TK.type(item) == "polygon"
                 ):
                     TK.itemconfig(item, fill="black")
-                elif (
-                    TK.type(item) == "rectangle"
-                    and TK.itemcget(item, "tag") == "digbox"
-                ):
-                    TK.itemconfig("digbox", fill="#D3D3D3", stipple="gray25")
+                
                 selected.remove(item)
 
         current_mode = "select"
@@ -1805,6 +1839,10 @@ while True:
         notify.update("Choose insertion point")
         x, y = get_point1()
         buttoniosingle[event](x, y)
+        
+    if event == 'NEW FILE':
+        sg.popup('New file')
+        print(event,values) 
 
     if event == "n":
         current_mode = event_switch("polyline", "Click next point of line")
@@ -1855,6 +1893,8 @@ while True:
         current_mode = event_switch(
             "road arc", "Please click horizontal section of road arc"
         )
+    if event == "_":
+        current_mode = event_switch("corner", "Please click start point")
     if event == "l" or event == "Line":
         current_mode = event_switch("line", "Please click first point of line")
     if event == "y":
@@ -2048,7 +2088,12 @@ while True:
             current_mode = "line2"
             point1 = draw_point1(x, y, "blue")
             notify.update("Click second point of line")
-
+        elif current_mode == "corner":
+            x, y = get_point1()
+            start_point = (x, y)
+            current_mode = "corner2"
+            point1 = draw_point1(x, y, "purple")
+            notify.update("Click horizontal section of arc")
         elif current_mode == "arc":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -2150,6 +2195,7 @@ while True:
             point2 = draw_point2(a, b, "green")
             digbox(x, y, a, b)
             cleanup_2point()
+            current_mode == "select"
         elif current_mode == "building2":
             if input_mode == "keyboard":
                 a, b = update_cursor_position(cursor)
@@ -2177,6 +2223,30 @@ while True:
             arc(x, y, a, b, "road")
             cleanup_2point()
             current_mode = "road arc"
+        elif current_mode == "corner2":
+            a, b = get_point()
+            point2 = draw_point2(a, b)
+            current_mode = "corner3"
+            notify.update('Please click arc end')
+
+        elif current_mode == "corner3":
+            c, d = get_point()
+            point3 = draw_point3(c, d)
+            current_mode = "corner4"
+            notify.update('Please click road end')
+
+        elif current_mode == "corner4":
+            e, f = get_point()
+            point4 = draw_point4(e, f)
+            road_corner((x,y), (a,b), (c,d), (e,f))
+            graph.delete_figure(point1)
+            graph.delete_figure(point2)
+            graph.delete_figure(point3)
+            graph.delete_figure(point4)
+            x = y = a = b = c = d = e = f = 0
+            current_mode = "select"
+
+
         elif current_mode == "line2":
             if input_mode == "keyboard":
                 a, b = update_cursor_position(cursor)
@@ -2339,8 +2409,12 @@ while True:
             catch_basin(x, y)
         elif current_mode == "select":
             fig = TK.find_withtag("current")
-            window['lblobject_type'].update(TK.type(fig))
-            window['objcoords'].update(TK.coords(fig))
+            print(fig)
+            if fig != ():
+                window['lblobject_type'].update(TK.type(fig))
+                window['objcoords'].update(graph.get_bounding_box(fig))
+                window['tag'].update(TK.itemcget(fig,'tag'))
+                window['ID'].update(graph.get_figures_at_location(values['graph']))
             # drag_figures =sg.Graph.get_figures_at_location(graph,values['graph'])
             # if drag_figures:
             #     for fig in drag_figures:
@@ -2358,8 +2432,9 @@ while True:
                 selected.append(fig)
                 selected.append(fig[0] + 1)
             elif TK.type(fig) == "image":
-                imgb = TK.bbox(fig)
-                figrect = sg.Graph.draw_rectangle(graph,(imgb[0],imgb[1]),(imgb[2],imgb[3]),line_color='red')
+                imgb = graph.get_bounding_box(fig)
+                print(imgb)
+                figrect = sg.Graph.draw_rectangle(graph,(imgb[0][0],imgb[0][1]),(imgb[1][0],imgb[1][1]),line_color='red')
                 selected.append(fig)
                 selected.append(figrect)
             else:
