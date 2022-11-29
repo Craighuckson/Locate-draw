@@ -30,8 +30,8 @@ Print = easy_print
 # CONSTANTS
 
 edge_type = ""
-HEIGHT = 70
-WIDTH = 60
+HEIGHT = 60
+WIDTH = 70
 
 ECURB = [WIDTH / 3, 2, WIDTH / 3, HEIGHT - 2]
 WCURB = [(WIDTH * 2) / 3, 2, (WIDTH * 2) / 3, HEIGHT - 2]
@@ -211,7 +211,7 @@ def show_grid():
     """
     Turns grid on
     """
-    gdwg = "grid.png"
+    gdwg = "grid2.png"
     grid = sg.Graph.draw_image(graph, location=(0, 0), data=convert_to_bytes(gdwg))
     TK.addtag_withtag("grid", grid)
     graph.send_figure_to_back("grid")
@@ -219,12 +219,12 @@ def show_grid():
 
 
 def snap_to_grid_off():
-    sg.Graph.change_coordinates(graph, (0, 600), (600, 0))
+    sg.Graph.change_coordinates(graph, (0, 600), (700, 0))
     graph.update()
 
 
 def snap_to_grid_on():
-    sg.Graph.change_coordinates(graph, (0, 30), (30, 0))
+    sg.Graph.change_coordinates(graph, (0, 30), (35, 0))
     graph.update()
 
 
@@ -1913,14 +1913,14 @@ while True:
             try:
                 show_grid()
             except FileNotFoundError:
-                sg.popup('"grid.png" could not be found - check location')
+                sg.popup('"grid2.png" could not be found - check location')
         else:
             if isGrid == True:
                 isGrid = not isGrid
             try:
                 hide_grid()
             except FileNotFoundError:
-                sg.popup('"grid.png" could not be found - check location')
+                sg.popup('"grid2.png" could not be found - check location')
     if event == "u":
         ids = list(graph.TKCanvas.find_all())
         if len(ids) < 1:
