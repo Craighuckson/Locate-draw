@@ -1,26 +1,27 @@
 import base64
-from enum import Enum
 import io
-import logging
 import json
+import logging
 import pickle
 import time
 from contextlib import suppress
+from enum import Enum
 from tkinter import Image
-import tkinter as tk
-import pyautogui as pag
+from typing import List, Union, Tuple
 
 import PIL.Image
 import PySimpleGUI as sg
-from PIL import ImageGrab
-from PySimpleGUI.PySimpleGUI import (
-    easy_print,
-    popup,
-    popup_get_file,
-    popup_get_text,
-    popup_yes_no,
-)
+
+if sg.running_linux():
+    import pyscreenshot as ImageGrab
+else:
+    from PIL import ImageGrab
+
 import typing
+
+from PySimpleGUI.PySimpleGUI import (easy_print, main, popup, popup_get_file,
+                                     popup_get_text, popup_yes_no)
+
 sg.theme('hot dog stand')
 sg.set_options(font=('Segoe UI',10,'normal'))
 
@@ -29,38 +30,41 @@ Print = easy_print
 
 # CONSTANTS
 
-edge_type = ""
-HEIGHT = 60
-WIDTH = 70
+edge_type: str = ""
+HEIGHT: int = 60 # height of drawing window
+WIDTH:int = 70 # width of drawing window
 
-ECURB = [WIDTH / 3, 2, WIDTH / 3, HEIGHT - 2]
-WCURB = [(WIDTH * 2) / 3, 2, (WIDTH * 2) / 3, HEIGHT - 2]
-NCURB = [2, (HEIGHT * 2) / 3, WIDTH - 2, (HEIGHT * 2) / 3]
-SCURB = [2, HEIGHT / 3, WIDTH - 2, HEIGHT / 3]
-HNCURB = [NCURB[0], SCURB[1] + 2, NCURB[2], SCURB[1] + 2]
-HSCURB = [SCURB[0], NCURB[1] - 2, NCURB[2], NCURB[1] - 2]
+# the four values correspond to int values of points on a line (x1,y1,x2,y2)
+ECURB: List[int] = [WIDTH // 3, HEIGHT * (0.067), WIDTH // 3, HEIGHT * (0.933)]
+WCURB: List[int] = [(WIDTH*2)//3, HEIGHT*0.067, (WIDTH*2)//3, HEIGHT*0.933]
+NCURB: List[int] = [WIDTH*0.067, (HEIGHT*2)//3, WIDTH*0.933, (HEIGHT*2)/3]
+SCURB: List[int] = [WIDTH*0.067, HEIGHT//3, WIDTH-2, HEIGHT//3]
 
-NSTREET = [WIDTH / 2, (NCURB[1] + HEIGHT) / 2]
-SSTREET = [WIDTH / 2, (SCURB[1]) / 2]
-WSTREET = [(WCURB[0] + WIDTH) / 2, HEIGHT / 2]
-ESTREET = [ECURB[0] / 2, HEIGHT / 2, 20]
-HSTREET = [WIDTH / 2, HEIGHT / 2, 20]
+HNCURB: List[int] = [NCURB[0], SCURB[1] + (HEIGHT/15), NCURB[2], SCURB[1] + (HEIGHT/15)]
+HSCURB: List[int] = [SCURB[0], NCURB[1] - (HEIGHT/15), NCURB[2], NCURB[1] - (HEIGHT/15)]
 
-HNCURBLABEL = [27, 13, 12]
-HSCURBLABEL = [27, 19, 12]
+# these are x,y (int) coordinates for street text labels
+NSTREET: List[int] = [WIDTH / 2, (NCURB[1] + HEIGHT) / 2]
+SSTREET: List[int] = [WIDTH / 2, (SCURB[1]) / 2]
+WSTREET: List[int] = [(WCURB[0] + WIDTH) / 2, HEIGHT / 2]
+ESTREET: List[int] = [ECURB[0] / 2, HEIGHT / 2]
+HSTREET: List[int] = [WIDTH / 2, HEIGHT / 2]
 
-NBLHOUSE1 = (2, 8, "s")
-NBLHOUSE2 = (24, 8, "s")
-NWBLHOUSE = (8, 8, "m")
-NEBLHOUSE = (18, 8, "m")
-SBLHOUSE1 = (2, 18, "s")
-SBLHOUSE2 = (24, 18, "s")
-SWBLHOUSE = (9, 16, "m")
-SEBLHOUSE = (16, 16, "m")
-WBLHOUSE1 = (5, 2, "s")
-WBLHOUSE2 = (5, 24, "s")
-EBLHOUSE1 = (20, 2, "s")
-EBLHOUSE2 = (20, 24, "s")
+HNCURBLABEL: List[Union[int,float]] = [(27/30) * WIDTH, (13/30) * HEIGHT, 12] # x, y , fontsize
+HSCURBLABEL: List[Union[int,float]] = [(27/30) * WIDTH, (19/30) * HEIGHT, 12]
+
+NBLHOUSE1: Tuple[Union[int,float,str]] = (WIDTH/15, (4/15)*HEIGHT, "s") # upper left x, upper left y, house size
+NBLHOUSE2: Tuple[Union[int,float,str]] = (24, 8, "s")
+NWBLHOUSE: Tuple[Union[int,float,str]] = (8, 8, "m")
+NEBLHOUSE: Tuple[Union[int,float,str]] = (18, 8, "m")
+SBLHOUSE1: Tuple[Union[int,float,str]] = (WIDTH/15, 18, "s")
+SBLHOUSE2: Tuple[Union[int,float,str]] = (24, 18, "s")
+SWBLHOUSE: Tuple[Union[int,float,str]] = (9, 16, "m")
+SEBLHOUSE: Tuple[Union[int,float,str]] = (16, 16, "m")
+WBLHOUSE1: Tuple[Union[int,float,str]] = (5, HEIGHT/15, "s")
+WBLHOUSE2: Tuple[Union[int,float,str]] = (5, 24, "s")
+EBLHOUSE1: Tuple[Union[int,float,str]] = (20, HEIGHT/15, "s")
+EBLHOUSE2: Tuple[Union[int,float,str]] = (20, 24, "s")
 
 NPLTOPL_DIGBOX = (6, 16, 24, 28)
 NWPLTOPL_DIGBOX = (8, 8, 28, 28)
@@ -85,6 +89,8 @@ SW_DW = ()
 SE_DW = ()
 
 pointlist: list = []
+h_cursor_line = None
+v_cursor_line = None
 
 
 # enums
@@ -129,6 +135,13 @@ def save_element_as_file(element, filename):
     ImageGrab.grab(0)
 
 
+def add_figure_to_record(record: list, figtype: str, *args) -> None:
+    figstr = ""
+    figstr += figtype + ';'
+    figstr += ';'.join([str(x) for x in args])
+    record.append(figstr)
+    #Print(record)
+
 def convert_to_bytes(file_or_bytes, resize=None):
     """
     Will convert into bytes and optionally resize an image that is a file or a base64 bytes object.
@@ -162,7 +175,7 @@ def convert_to_bytes(file_or_bytes, resize=None):
     return bio.getvalue()
 
 
-def convert_measurement():
+def convert_measurement() -> str:
     newmeas = ""
     meas = popup_get_text("Enter measurement(int)")
     try:
@@ -220,10 +233,18 @@ def show_grid():
 
 def snap_to_grid_off():
     sg.Graph.change_coordinates(graph, (0, 600), (700, 0))
+    global HEIGHT
+    global WIDTH
+    WIDTH = 700
+    HEIGHT = 600
     graph.update()
 
 
 def snap_to_grid_on():
+    global HEIGHT
+    global WIDTH
+    HEIGHT = 60
+    WIDTH = 70
     sg.Graph.change_coordinates(graph, (0, 30), (35, 0))
     graph.update()
 
@@ -277,7 +298,7 @@ def rarrow(x1, y1, x2, y2):
     # elif x1 != x2 and y1 != y2:
     # arrow1 = sg.Graph.draw_line(graph,(x1,y1),(x1-(x2-x1),y1-(y2-y1)))
     # arrow2 = sg.Graph.draw_line(graph,(x2,y2),(x2-(x2-x1),y2-(y2-y1)))
-    except:
+    except ValueError:
         pass
     TK.itemconfig(arrow1, arrow="first")
     TK.itemconfig(arrow2, arrow="first")
@@ -423,7 +444,6 @@ def v_multi_arrow(x, yo, y1, y2, meas, measdir="u"):
 def pole(x, y):
     try:
         p = graph.draw_circle((x, y), 1, fill_color="white")
-        TK.addtag_withtag("pole", p)
         TK.itemconfig(p,activefill='blue')
     except:
         logerror()
@@ -468,7 +488,7 @@ def arc(x1, y1, x2, y2, line_type=None):
         elif line_type == "cable":
             TK.itemconfig(id, width=2, dash=(10, 5))
             group("cable", id)
-
+        TK.itemconfig(id, activefill='red')
         return id
     except:
         logerror()
@@ -502,8 +522,8 @@ def vault(x, y, utility=None):
     v1 = graph.draw_rectangle(
         (x - 2, y - 1), (x + 2, y + 1), line_color="black", fill_color='White'
     )
-    #TK.itemconfig(v1,activeoutline='red')
-   
+    TK.itemconfig(v1,activeoutline='red')
+
     v2 = graph.draw_text(vault_label, (x, y), font="Arial 7 bold")
     TK.itemconfig(v2,activefill='red')
     # prfloat(v2)
@@ -521,6 +541,7 @@ def catch_basin(x, y):
         line_color="black",
         line_width=1.5,
     )
+    TK.itemconfig(cb, activeoutline='red')
     group("cb", cb)
 
 
@@ -530,7 +551,8 @@ def hlabel(msg, x, y, size, bold=True):
             msg = "LOCATED AREA"
         isbold = " bold" if bold else " normal"
         fontstr = f"Arial {str(size)} {isbold}"
-        sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+        ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+        TK.itemconfig(ht, activefill='red')
     except:
         logerror()
 
@@ -550,7 +572,8 @@ def vlabel(msg, x, y, size, bold=True):
             msg = "LOCATED AREA"
         isbold = " bold" if bold else " normal"
         fontstr = f"Arial {str(size)} {isbold}"
-        sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+        vt = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+        TK.itemconfig(vt, activefill='red')
     except:
         logerror()
 
@@ -566,9 +589,10 @@ def vlabelm(msg, x, y, size):
 
 def item_stamp(x, y):
     try:
-        sg.Graph.draw_image(
+        im = sg.Graph.draw_image(
             graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
         )
+        TK.itemconfig(im, activeoutline='red')
     except:
         logerror()
 
@@ -710,7 +734,7 @@ def set_landbase(dir, edge_type="CL"):
         vlabel(f"E{edge_type}", sevcurbx + 1, sevcurby2 - 1, 10)
 
     elif dir.lower() == "e":
-        v_road(7, 2, HEIGHT - 2)
+        road(*ECURB)
         vlabel(f"E{edge_type}", 8, 3, 10)
     elif dir.lower() == "w":
         v_road(23, 2, HEIGHT - 2)
@@ -771,7 +795,7 @@ def road(x1, y1, x2, y2):
     try:
         r = graph.DrawLine((x1, y1), (x2, y2), width="3")
         graph.TKCanvas.itemconfig(r, activefill="red")
-        TK.itemconfig(r, capstyle="tk.ROUND")
+        TK.itemconfig(r, capstyle="tk.round")
         TK.addtag_withtag("road", r)
     except:
         logerror()
@@ -795,7 +819,7 @@ def offset_line(x1, y1, x2, y2):
     try:
         offset = graph.draw_line((x1, y1), (x2, y2), width="1")
         graph.TKCanvas.itemconfig(offset, dash=(2, 7))
-        TK.itemconfig(offset, capstyle="tk.ROUND")
+        TK.itemconfig(offset, capstyle="tk.round")
         TK.itemconfig(offset, activefill="red")
         TK.addtag_withtag("oline", offset)
     except:
@@ -805,9 +829,9 @@ def offset_line(x1, y1, x2, y2):
 def cable_poly(*points):
     try:
         cablepoly = sg.Graph.draw_lines(graph, points, width="3")
-        TK.itemconfig(cablepoly, dash=(10, 5))
+        TK.itemconfig(cablepoly, dash=(20, 10))
         TK.itemconfig(cablepoly, activefill='red')
-        TK.itemconfig(cablepoly, capstyle='tk.ROUND')
+        TK.itemconfig(cablepoly, capstyle='tk.round')
     except:
         logerror()
 
@@ -817,7 +841,7 @@ def cable(x1, y1, x2, y2, label=""):
         cable = sg.Graph.draw_line(graph, (x1, y1), (x2, y2), width="3")
         TK.itemconfig(cable, dash=(20, 10))
         TK.itemconfig(cable, activefill='red')
-        TK.itemconfig(cable, capstyle='tk.ROUND')
+        TK.itemconfig(cable, capstyle='tk.round')
         if label:
             # check for horizontal or vertical lines
             if x1 == x2:
@@ -929,7 +953,7 @@ def line(x1, y1, x2, y2):
     try:
         l = sg.Graph.draw_line(graph, (x1, y1), (x2, y2))
         TK.itemconfig(l, activefill="red")
-        TK.itemconfig(l, capstyle="tk.ROUND")
+        TK.itemconfig(l, capstyle="TK.round")
     except:
         logerror()
 
@@ -981,7 +1005,7 @@ def digbox(x1, y1, x2, y2):
         db = graph.draw_rectangle(
             (x1, y1), (x2, y2), fill_color="gainsboro", line_color="black"
         )
-        graph.TKCanvas.itemconfig(db, stipple="gray25")
+        graph.TKCanvas.itemconfig(db, stipple="gray25", activeoutline='red')
         graph.send_figure_to_back(db)
         TK.addtag_withtag("digbox", db)
     except:
@@ -990,7 +1014,7 @@ def digbox(x1, y1, x2, y2):
 
 def building(x1, y1, x2, y2):
     try:
-        sg.Graph.draw_rectangle(
+        b = sg.Graph.draw_rectangle(
             graph,
             (x1, y1),
             (x2, y2),
@@ -998,6 +1022,7 @@ def building(x1, y1, x2, y2):
             line_color="black",
             line_width=1,
         )
+        TK.itemconfig(b, activeoutline='red')
     except:
         logerror()
 
@@ -1046,19 +1071,19 @@ def house(x, y, size, num):
 
 
 def centre_pole():
-    pole(15, 15)
+    pole(WIDTH // 2, HEIGHT // 2)
 
 
 def centre_ped():
-    ped(15, 15)
+    ped(WIDTH // 2, HEIGHT // 2)
 
 
 def centre_tx():
-    transformer(15, 15)
+    transformer(WIDTH // 2, HEIGHT // 2)
 
 
 def centre_stamp():
-    item_stamp(15, 15)
+    item_stamp(WIDTH // 2, HEIGHT // 2)
 
 
 def get_point1():
@@ -1156,6 +1181,10 @@ def hide_cursor(cursorid):
 
 
 def read_from_template(file):
+    """
+    Reads a template from a given text file and loads a base sketch
+    """
+
     if file is not None:
         try:
             with open(file) as f:
@@ -1453,7 +1482,7 @@ lcol = [
 canvasmenu = ["", ["Snap to Grid"]]
 
 col = [
-    [notify, notify2, notify3],
+    [notify, sg.VerticalSeparator(), notify2, sg.VerticalSeparator(), notify3],
     [
         sg.Graph(
             canvas_size=(700, 600),
@@ -1477,7 +1506,10 @@ col = [
     ],
 ]
 
-rcol = [[sg.T("0, 0",k='ccord')],
+rcol = [
+        [sg.T("0, 0", k='ccord')],
+        [sg.T("", k="startpoint")],
+        [sg.T("", k="endpoint")],
         [sg.Text("Object features")],
         [sg.Text("Object type:",), sg.Input(k='lblobject_type', readonly=True)],
         [sg.Text("Coords:"), sg.Input(k='objcoords', readonly=True)],
@@ -1508,6 +1540,8 @@ graph = window["graph"]
 
 window.bind('<Control-n>', 'NEW FILE')
 window.bind('<Control-w>', 'QUIT')
+graph.bind('<Enter>','GRAPH_ENTER')
+graph.bind('<Leave>', 'GRAPH_LEAVE')
 
 TK = graph.TKCanvas
 # DRAW HERE
@@ -1558,6 +1592,8 @@ selected = []
 spoints = []
 dragging = False
 start_point = end_point = prior_rect = None
+etext = 0
+entered_text = ""
 collecting = False
 cpoints = []
 cnodes = []
@@ -1568,6 +1604,8 @@ cursor = None
 hashline = None
 hashrect = None
 newmouse = None
+in_graph = False
+record = []
 
 # cable_poly((14,0),(14,6),(20,6))
 
@@ -1578,22 +1616,38 @@ newmouse = None
 while True:
     event, values = window.read()
     window['ccord'].update(values['graph'])
+    window['startpoint'].update(start_point)
+    window['endpoint'].update(end_point)
     notify2.update(f'Event: {event} ')
     notify3.update(f'Mode: {current_mode} ')
     notify_inputmode.update(input_mode)
     if event == sg.WIN_CLOSED:
         break
-
-    # change drawing size
+    if event.endswith('ENTER'):
+        in_graph = True
+    if event.endswith('LEAVE'):
+        in_graph = False
+        graph.delete_figure(h_cursor_line)
+        graph.delete_figure(v_cursor_line)
 
     if event == "Save":
-        _savefile = popup_get_text("Save file name?").upper()
+        _savefile = popup_get_text("Save file name?")
+        small = sg.popup_yes_no("Save as smaller image?")
         try:
+            _savefile = _savefile.upper()
             save_element_as_file(graph, f"C:\\Users\\Cr\\Documents\\{_savefile}.png")
+            #makes a smaller image
+            if small == "Yes":
+                skt = f"C:\\Users\\Cr\\Documents\\{_savefile}.png"
+                with PIL.Image.open(skt) as im:
+                    rs = im.resize((570,560))
+                    rs.save(skt)
+                    sg.popup('Saved in 600x600 format')
             save_sketch_template(_savefile)
         except ValueError:
             # prevents crashing if file extension not added
             popup("Missing file extension. Please try again")
+
     if event == "Save template only":
         save_sketch_template()
     if event == "Load template":
@@ -1678,20 +1732,45 @@ while True:
             hlabel(values["curbddl"] + rtype, WIDTH - 3, SCURB[1] + 1, 9)
             hlabel(street, SSTREET[0], SSTREET[1], 20)
         elif values["curbddl"] == "W":
-            road(WCURB[0], WCURB[1], WCURB[2], WCURB[3])
+            road(*WCURB)
             vlabel(values["curbddl"] + rtype, WCURB[0] - 1, HEIGHT - 3, 9)
             vlabel(street, WSTREET[0], WSTREET[1], 20)
         elif values["curbddl"] == "E":
-            road(ECURB[0], ECURB[1], ECURB[2], ECURB[3])
+            road(*ECURB)
             vlabel(values["curbddl"] + rtype, ECURB[0] - 1, HEIGHT - 3, 9)
             vlabel(street, ESTREET[0], ESTREET[1], 20)
 
     if event == "m" and current_mode == "chosen":
         current_mode = event_switch("move", "Please click location to move to")
 
-    if event.endswith("MOVE"):
+    if event.endswith("MOVE") and (current_mode == "text"):
 
+        notify2.update(end_point)
+        notify3.update(current_mode)
+        try:
+            end_point = values['graph']
+            sg.Graph.delete_figure(graph, etext)
+            etext = sg.Graph.draw_text(
+                    graph,
+                    entered_text.upper(),
+                    end_point,
+                    color='black',
+                    font='Arial 10 bold'
+                    )
+        except:
+            pass
+
+    if event.endswith("MOVE"):
         notify3.update(end_point)
+
+    if event.endswith("MOVE") and in_graph is True:
+        graph.delete_figure(h_cursor_line)
+        graph.delete_figure(v_cursor_line)
+        cursx, cursy = values['graph']
+        h_cursor_line = sg.Graph.draw_line(graph, (cursx, 0), (cursx, HEIGHT))
+        v_cursor_line = sg.Graph.draw_line(graph, (0, cursy), (WIDTH, cursy))
+        TK.itemconfig(h_cursor_line, state='disabled')
+        TK.itemconfig(v_cursor_line, state='disabled')
 
     if event.endswith("MOVE") and (
         current_mode == "line2"
@@ -1726,6 +1805,7 @@ while True:
         except:
             pass
 
+
     if event.endswith("MOVE") and current_mode == "move":
         try:
             for item in selected:
@@ -1737,6 +1817,7 @@ while True:
         except IndexError:
             pass
 
+    # BUTTON CLICK WITHOUT MOVEMENT
     if event == "graph" and current_mode == "select":
         x, y = values["graph"]
         if not dragging:
@@ -1746,26 +1827,36 @@ while True:
             end_point = (x, y)
         if prior_rect:
             graph.delete_figure(prior_rect)
+        start_point = (x, y)
+
+    if event == "graph" and current_mode == "chosen":
+        x, y = values["graph"]
+        if not dragging:
+            start_point = (x, y)
+            dragging = True
+        else:
+            end_point = (x, y)
+
+
     if event == "graphdrag" and dragging and current_mode == "select":
         try:
             x, y = values["graph"]
             end_point = (x, y)
             graph.delete_figure(prior_rect)
             prior_rect = sg.Graph.draw_rectangle(
-                graph, start_point, end_point, line_color="blue", line_width=1
+                graph, start_point, end_point, fill_color=None, line_color="blue", line_width=1
             )
-        except:
+        except IndexError:
             pass
+
     if event == "graphdrag" and current_mode == "chosen":
+        # FIXME this is still broken for moving a group of items
         x, y = values["graph"]
+        end_point = (x, y)
         try:
             for idx, item in enumerate(selected):
-                graph.relocate_figure(item, x, y)
-            #    deltax = x - spoints[idx][0]
-            #    deltay = y - spoints[idx][1]
-            #    graph.move_figure(item, deltax, deltay)
-
-        except IndexError:
+                graph.relocate_figure(item,x, y)
+        except:
             pass
 
     # if event.endswith('drag'):
@@ -1801,7 +1892,7 @@ while True:
             sg.Graph.move_figure(graph, section, -1, 0)
             cursorpos = update_cursor_position(cursor)
 
-    if event == "Escape:27" and current_mode == "nextcable":
+    if (event == "Escape:27" or event == "=") and current_mode == "nextcable":
         collecting = False
         cable_poly(*cpoints)
         cpoints.clear()
@@ -1809,10 +1900,15 @@ while True:
             sg.Graph.delete_figure(graph, x)
         cnodes.clear()
 
-    if event == "Escape:27":
+    if (event == "Escape:27" or event == "="):
         notify.update("Cancelled")
         graph.delete_figure(hashline)
         graph.delete_figure(hashrect)
+        dragging = False
+        try:
+            graph.delete_figure(figrect)
+        except NameError:
+            pass
         if selected is not None:
             for item in selected[:]:
                 if (
@@ -1820,7 +1916,7 @@ while True:
                     and "digbox" in TK.itemcget(item,"tag")
                 ):
                     TK.itemconfig("digbox", fill="#D3D3D3", stipple="gray25")
-                elif TK.type(item) == "rectangle" or TK.type(item) == "ellipse":
+                elif TK.type(item) == "rectangle" or TK.type(item) == "oval":
                     TK.itemconfig(item, fill="white", outline="black")
                 elif (
                     TK.type(item) == "line"
@@ -1828,7 +1924,7 @@ while True:
                     or TK.type(item) == "polygon"
                 ):
                     TK.itemconfig(item, fill="black")
-                
+
                 selected.remove(item)
 
         current_mode = "select"
@@ -1839,10 +1935,10 @@ while True:
         notify.update("Choose insertion point")
         x, y = get_point1()
         buttoniosingle[event](x, y)
-        
+
     if event == 'NEW FILE':
         sg.popup('New file')
-        print(event,values) 
+        print(event,values)
 
     if event == "n":
         current_mode = event_switch("polyline", "Click next point of line")
@@ -1908,14 +2004,14 @@ while True:
         except NameError:
             pass
     if event == "g":
-        if isGrid == False:
+        if isGrid is False:
             isGrid = not isGrid
             try:
                 show_grid()
             except FileNotFoundError:
                 sg.popup('"grid2.png" could not be found - check location')
         else:
-            if isGrid == True:
+            if isGrid is True:
                 isGrid = not isGrid
             try:
                 hide_grid()
@@ -2137,10 +2233,10 @@ while True:
             current_mode = "arrow2"
         elif current_mode == "arrow2":
             if input_mode == "keyboard":
-                x, y = update_cursor_position(cursor)
+                a, b = update_cursor_position(cursor)
             else:
-                x, y = get_point1()
-            point2 = draw_point2(x, y, color="orange")
+                a, b = get_point1()
+            point2 = draw_point2(a, b, color="orange")
             try:
                 rarrow(x, y, a, b)
             except:
@@ -2158,6 +2254,7 @@ while True:
             # easy_print("received point 2")
             # label = popup_get_text('Label? ')
             cable(x, y, a, b)
+            add_figure_to_record(record, "cable", x, y, a, b)
             cleanup_2point()
             current_mode = "cable"
         elif current_mode == "nextcable":
@@ -2212,6 +2309,7 @@ while True:
                 a, b = get_point2()
             point2 = draw_point2(a, b, "purple")
             road(x, y, a, b)
+            add_figure_to_record(record,"road",x, y, a, b)
             cleanup_2point()
             current_mode = "road"
         elif current_mode == "road arc 2":
@@ -2309,6 +2407,7 @@ while True:
             else:
                 x, y = get_point1()
             hlabel(entered_text, x, y, 12)
+            graph.delete_figure(etext)
             x = y = entered_text = None
         elif current_mode == "street text":
             if input_mode == "keyboard":
@@ -2428,13 +2527,13 @@ while True:
             # notify2.update(TK.type(fig) + ',' +TK.itemcget(fig,'tag'))
             if "ped" in TK.gettags(fig):
                 TK.itemconfig(fig, fill="green")
-                TK.itemconfig(fig[0] + 1, fill="green")
+                TK.itemconfig(fig[0] + 2, fill="green")
                 selected.append(fig)
-                selected.append(fig[0] + 1)
+                selected.append(fig[0] + 2)
             elif TK.type(fig) == "image":
                 imgb = graph.get_bounding_box(fig)
                 print(imgb)
-                figrect = sg.Graph.draw_rectangle(graph,(imgb[0][0],imgb[0][1]),(imgb[1][0],imgb[1][1]),line_color='red')
+                figrect = sg.Graph.draw_rectangle(graph,(imgb[0][0],imgb[0][1]),(imgb[1][0],imgb[1][1]),line_color='red', fill_color='')
                 selected.append(fig)
                 selected.append(figrect)
             else:
@@ -2448,7 +2547,6 @@ while True:
             #         spoints.append(ulc)
             #     except TypeError:
             #         pass
-
             # print(spoints)
             current_mode = "chosen"
 
@@ -2456,7 +2554,7 @@ while True:
             try:
                 x, y = get_point1()
                 for item in selected:
-                    graph.move_figure(item, x - start_point[0],y - start_point[1])
+                    graph.move((x - start_point[0]), (y - start_point[1]))
                 # if TK.itemcget(fig,'tag') == 'arrow1':
 
                 #     graph.relocate_figure('arrow1',x,y)
