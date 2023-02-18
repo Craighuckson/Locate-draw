@@ -17,12 +17,12 @@ if sg.running_linux():
 else:
     from PIL import ImageGrab
 
+
 import typing
 
 from PySimpleGUI.PySimpleGUI import (easy_print, main, popup, popup_get_file,
                                      popup_get_text, popup_yes_no)
-
-sg.theme('hot dog stand')
+sg.theme('gray gray gray')
 sg.set_options(font=('Segoe UI',10,'normal'))
 
 logging.basicConfig(filename="ezdraw.log", level=logging.DEBUG, format="%(asctime)s")
@@ -245,7 +245,7 @@ def snap_to_grid_on():
     global WIDTH
     HEIGHT = 60
     WIDTH = 70
-    sg.Graph.change_coordinates(graph, (0, 30), (35, 0))
+    sg.Graph.change_coordinates(graph, (0, 60), (70, 0))
     graph.update()
 
 
@@ -258,6 +258,11 @@ def group(group_name: str, figure: int):
 
 
 def wipe():
+
+    """
+    Erases drawing
+    """
+
     confirm: str = popup_yes_no("Erase entire image?")
     if confirm == "Yes":
         graph.erase()
@@ -698,7 +703,7 @@ def ped_multiarm(x, y, direction, meas1, meas2, distance, third_arm=False):
 def set_landbase(dir, edge_type="CL"):
     # draws a landbase
     if dir.lower() == "n":
-        h_road(2, WIDTH - 2, 23)
+        road(*NCURB)
         hlabel(f"N{edge_type}", 27, 24, 10)
     elif dir.lower() == "ne":
         h_road(9, 28, 23)
@@ -1502,7 +1507,8 @@ col = [
         sg.Button("Radius", enable_events=True),
         sg.Button("St to St", enable_events=True),
         sg.Button("BL to BL", enable_events=True),
-        sg.B("Read template", enable_events=True, k="read_file")
+        sg.B("Read template", enable_events=True, k="read_file"),
+        sg.B("Form"),
     ],
 ]
 
@@ -1520,6 +1526,17 @@ rcol = [
 
 layout = [[sg.Column(lcol,justification='left',element_justification='left',vertical_alignment='t'), sg.Menu(menu_def), sg.Column(col,justification="left",element_justification='left',expand_x=True), sg.Column(rcol, justification='left',element_justification='left')]]
 
+def make_form_window():
+    landbases = ["NORTH","SOUTH","EAST","WEST","NORTHEAST","NORTHWEST", "SOUTHEAST","SOUTHWEST","HORIZONTAL", "VERTICAL"]
+
+    layout2  = [
+        [sg.Text("Landbase:"), sg.Combo(landbases, k='landbase')],
+        [sg.Text("Primary Street (Horizontal)"), sg.Input(k='street')],
+        [sg.Text("Secondary Street (Vertical)"), sg.I(k='street2')],
+        [sg.Submit(k='form_submit')],
+    ]
+
+    return sg.Window("Sketch Builder",layout2)
 
 window = sg.Window(
     "EZ Draw",
@@ -1623,6 +1640,9 @@ while True:
     notify_inputmode.update(input_mode)
     if event == sg.WIN_CLOSED:
         break
+    if event == "Form":
+        window2 = make_form_window()
+        window2.finalize()
     if event.endswith('ENTER'):
         in_graph = True
     if event.endswith('LEAVE'):
