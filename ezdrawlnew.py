@@ -22,7 +22,7 @@ import typing
 
 from PySimpleGUI.PySimpleGUI import (easy_print, main, popup, popup_get_file,
                                      popup_get_text, popup_yes_no)
-sg.theme('gray gray gray')
+sg.theme('darkgray')
 sg.set_options(font=('Segoe UI',10,'normal'))
 
 logging.basicConfig(filename="ezdraw.log", level=logging.DEBUG, format="%(asctime)s")
@@ -34,6 +34,28 @@ edge_type: str = ""
 HEIGHT: int = 60 # height of drawing window
 WIDTH:int = 70 # width of drawing window
 
+# key mapping
+
+if sg.running_linux():
+    keys = {
+        'esc':'Escape:9',
+        'g':'g:42',
+        'down':'Down:116',
+        'up':'Up:111',
+        'right':'Right:114',
+        'left':'Left:113',
+        
+
+    }
+    keys['Esc'] = 'Escape:9'
+    keys['g'] = 'g:42'
+    keys['Down'] = 'Down:116'
+else:
+    keys = {
+        'esc':'Escape:27',
+        'g':'g'
+
+    }
 # the four values correspond to int values of points on a line (x1,y1,x2,y2)
 ECURB: List[int] = [WIDTH // 3, HEIGHT * (0.067), WIDTH // 3, HEIGHT * (0.933)]
 WCURB: List[int] = [(WIDTH*2)//3, HEIGHT*0.067, (WIDTH*2)//3, HEIGHT*0.933]
@@ -1912,7 +1934,7 @@ while True:
             sg.Graph.move_figure(graph, section, -1, 0)
             cursorpos = update_cursor_position(cursor)
 
-    if (event == "Escape:27" or event == "=") and current_mode == "nextcable":
+    if (event == "Escape:27" or event == "Escape:9" or event == "=") and current_mode == "nextcable":
         collecting = False
         cable_poly(*cpoints)
         cpoints.clear()
@@ -2023,7 +2045,7 @@ while True:
             paste_figure(figure_type, coords, clone)
         except NameError:
             pass
-    if event == "g":
+    if event == "g:42":
         if isGrid is False:
             isGrid = not isGrid
             try:
