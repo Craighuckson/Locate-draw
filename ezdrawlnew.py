@@ -1464,6 +1464,9 @@ def bl_to_bl():
         house(*WBLHOUSE2, hnum2)
         digbox(*WPLTOPL_DIGBOX)
 
+def get_parser_string(input):
+    return input
+
 
 # barebones
 input_mode = "mouse"
@@ -1543,6 +1546,8 @@ rcol = [
         [sg.Text("Coords:"), sg.Input(k='objcoords', readonly=True)],
         [sg.Text("Tag:"), sg.I(k='tag',readonly=True)],
         [sg.T('ID'), sg.I(k='ID', readonly=True)],
+        [sg.T('*PARSER')],
+        [sg.Input(do_not_clear=False, k='parser_input'), sg.Submit(k='parser_submit')],
         ]
 
 
@@ -1662,6 +1667,9 @@ while True:
     notify_inputmode.update(input_mode)
     if event == sg.WIN_CLOSED:
         break
+    if event == "parser_submit":
+        p_in = get_parser_string(values['parser_input'])
+        print(p_in)
     if event == "Form":
         window2 = make_form_window()
         window2.finalize()
