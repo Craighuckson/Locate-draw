@@ -1,8 +1,7 @@
 *.pkl
 *.\dist\
 *.json
-
-
+*.bmp
 __pycache__/ezdrawl.cpython-38.pyc
 build/ezdrawl/Analysis-00.toc
 build/ezdrawl/base_library.zip
@@ -1054,6 +1053,5 @@ dist/ezdrawl/win32com/shell/shell.pyd
 .vscode/launch.json
 .template.txt.un~
 ._vimrc.swp
-ezdraw.log
 castan blank.bmp
 ezdraw.log
