@@ -2,6 +2,7 @@ import base64
 import io
 import json
 import logging
+import pathlib
 import pickle
 import time
 from contextlib import suppress
@@ -201,7 +202,7 @@ def convert_to_bytes(file_or_bytes, resize=None):
     return bio.getvalue()
 
     
-def convert_measurement(meas):
+def convert_measurement(meas=None):
     """
     Converts a measurement string to a formatted string with the unit 'm'.
     The input measurement string should be a number with one, two or three digits.
@@ -1308,7 +1309,7 @@ def parse_bl_string(bl_string: str) -> dict:
     """
     
     bl_list = bl_string.split(",")
-    if len(bl_list) != 6:
+    if len(bl_list) < 6:
         return None
     else:
         # check that landbase is one of n,e,s,w
@@ -1360,7 +1361,17 @@ def render_template(bl_string: str=None):
         m = convert_measurement(bl_dict["measurement"])
         ac = get_arrow_coords(bl_dict["landbase"])
         rarrow(*ac, m)
+        savefile = f'{bl_dict["street_name"]} {bl_dict["house1"]} to {bl_dict["house2"]} tmx.png'
+        path = pathlib.Path(r'C:\Users\Cr\Documents')
+        save_choice = sg.popup_yes_no(f"Save as {savefile}?")
+        if save_choice == "Yes":
+            save_element_as_file(graph, path / f'{savefile}')
+            save_sketch_template(savefile)
+            popup(f"Saved as {savefile}")
+        
         #render_measurement(landbase,bl_dict["mmeasurement)
+
+
 
 def get_cable(landbase: str, choice: str) -> None:
     """
@@ -1883,19 +1894,21 @@ while True:
 
     if event == "Save":
         _savefile = popup_get_text("Save file name?")
-        small = sg.popup_yes_no("Save as smaller image?")
+        #small = sg.popup_yes_no("Save as smaller image?")
         try:
             _savefile = _savefile.upper()
             graph.delete_figure(h_cursor_line)
             graph.delete_figure(v_cursor_line)
             save_element_as_file(graph, f"C:\\Users\\Cr\\Documents\\{_savefile}.png")
             #makes a smaller image
+            '''
             if small == "Yes":
                 skt = f"C:\\Users\\Cr\\Documents\\{_savefile}.png"
                 with PIL.Image.open(skt) as im:
-                    rs = im.resize((570,560))
+                    rs = im.resize((570,560), PIL.Image.BILINEAR)
                     rs.save(skt)
                     sg.popup('Saved in 600x600 format')
+            '''
             save_sketch_template(_savefile)
         except ValueError:
             # prevents crashing if file extension not added
@@ -1904,7 +1917,7 @@ while True:
             # prevents a crash if dialog is cancelled
             pass
 
-    if event == "Save template only":
+    if event == "Save template as...":
         save_sketch_template()
     if event == "Load template":
         try:
