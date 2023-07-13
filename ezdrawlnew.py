@@ -2,6 +2,7 @@ import base64
 import io
 import json
 import logging
+import pathlib
 import pickle
 import time
 from enum import Enum
@@ -101,36 +102,40 @@ else:
 
     }
 # the four values correspond to int values of points on a line (x1,y1,x2,y2)
-ECURB: List[int] = [WIDTH // 3, HEIGHT * (0.067), WIDTH // 3, HEIGHT * (0.933)]
-WCURB: List[int] = [(WIDTH*2)//3, HEIGHT*0.067, (WIDTH*2)//3, HEIGHT*0.933]
-NCURB: List[int] = [WIDTH*0.067, (HEIGHT*2)//3, WIDTH*0.933, (HEIGHT*2)/3]
-SCURB: List[int] = [WIDTH*0.067, HEIGHT//3, WIDTH-2, HEIGHT//3]
+ECURB: list = [WIDTH // 3, HEIGHT * (0.067), WIDTH // 3, HEIGHT * (0.933)]
+WCURB: list = [(WIDTH*2)//3, HEIGHT*0.067, (WIDTH*2)//3, HEIGHT*0.933]
+NCURB: list = [WIDTH*(1/WIDTH), (HEIGHT*2)//3, WIDTH*69/WIDTH, (HEIGHT*2)/3] # type: ignore
+SCURB: list = [WIDTH*(1/WIDTH), HEIGHT//3, WIDTH-2, HEIGHT//3]
 
-HNCURB: List[int] = [NCURB[0], SCURB[1] + (HEIGHT/15), NCURB[2], SCURB[1] + (HEIGHT/15)]
-HSCURB: List[int] = [SCURB[0], NCURB[1] - (HEIGHT/15), NCURB[2], NCURB[1] - (HEIGHT/15)]
+HNCURB: list = [NCURB[0], SCURB[1] + (HEIGHT/15), NCURB[2], SCURB[1] + (HEIGHT/15)]
+HSCURB: list = [SCURB[0], NCURB[1] - (HEIGHT/15), NCURB[2], NCURB[1] - (HEIGHT/15)]
 
 # these are x,y (int) coordinates for street text labels
-NSTREET: List[int] = [WIDTH / 2, (NCURB[1] + HEIGHT) / 2]
-SSTREET: List[int] = [WIDTH / 2, (SCURB[1]) / 2]
-WSTREET: List[int] = [(WCURB[0] + WIDTH) / 2, HEIGHT / 2]
-ESTREET: List[int] = [ECURB[0] / 2, HEIGHT / 2]
-HSTREET: List[int] = [WIDTH / 2, HEIGHT / 2]
+NSTREET: list = [WIDTH / 2, (NCURB[1] + HEIGHT) / 2]
+SSTREET: list = [WIDTH / 2, (SCURB[1]) / 2] # type: ignore
+WSTREET: list = [(WCURB[0] + WIDTH) / 2, HEIGHT / 2]
+ESTREET: list = [ECURB[0] / 2, HEIGHT / 2]
+HSTREET: list = [WIDTH / 2, HEIGHT / 2]
 
-HNCURBLABEL: List[Union[int,float]] = [(27/30) * WIDTH, (13/30) * HEIGHT, 12] # x, y , fontsize
-HSCURBLABEL: List[Union[int,float]] = [(27/30) * WIDTH, (19/30) * HEIGHT, 12]
+#curb labels
+HNCURBLABEL: list = [(65/70) * WIDTH, (42/60) * HEIGHT, 12] # x, y , fontsize
+HSCURBLABEL: list = [(65/70) * WIDTH, (18/60) * HEIGHT, 12]
+WCURBLABEL: list = [(40/70) * WIDTH, (6/60) * HEIGHT, 12]
+ECURBLABEL: list = [(22/70) * WIDTH, (6/60) * HEIGHT, 12]
 
-NBLHOUSE1: Tuple[Union[int,float,str]] = (WIDTH/15, (4/15)*HEIGHT, "s") # upper left x, upper left y, house size
-NBLHOUSE2: Tuple[Union[int,float,str]] = (24, 8, "s")
-NWBLHOUSE: Tuple[Union[int,float,str]] = (8, 8, "m")
-NEBLHOUSE: Tuple[Union[int,float,str]] = (18, 8, "m")
-SBLHOUSE1: Tuple[Union[int,float,str]] = (WIDTH/15, 18, "s")
-SBLHOUSE2: Tuple[Union[int,float,str]] = (24, 18, "s")
-SWBLHOUSE: Tuple[Union[int,float,str]] = (9, 16, "m")
-SEBLHOUSE: Tuple[Union[int,float,str]] = (16, 16, "m")
-WBLHOUSE1: Tuple[Union[int,float,str]] = (5, HEIGHT/15, "s")
-WBLHOUSE2: Tuple[Union[int,float,str]] = (5, 24, "s")
-EBLHOUSE1: Tuple[Union[int,float,str]] = (20, HEIGHT/15, "s")
-EBLHOUSE2: Tuple[Union[int,float,str]] = (20, 24, "s")
+
+NBLHOUSE1: tuple = (WIDTH*0.10, HEIGHT*0.2, "m") # upper left x, upper left y, house size
+NBLHOUSE2: tuple = (WIDTH*0.80, HEIGHT*0.2, "m")
+NWBLHOUSE: tuple = (8, 8, "m")
+NEBLHOUSE: tuple = (18, 8, "m")
+SBLHOUSE1: tuple = (WIDTH*0.1, HEIGHT*0.7, "m")
+SBLHOUSE2: tuple = (WIDTH*0.8, HEIGHT*0.7, "m")
+SWBLHOUSE: tuple = (9, 16, "m")
+SEBLHOUSE: tuple = (16, 16, "m")
+WBLHOUSE1: tuple = (WIDTH*0.2, HEIGHT*0.1, "m")
+WBLHOUSE2: tuple = (WIDTH*0.2, HEIGHT*0.8, "m")
+EBLHOUSE1: tuple = (WIDTH*0.7, HEIGHT*0.1, "m")
+EBLHOUSE2: tuple = (WIDTH*0.7, HEIGHT*0.8, "m") # type: ignore
 
 NPLTOPL_DIGBOX = (6, 16, 24, 28)
 NWPLTOPL_DIGBOX = (8, 8, 28, 28)
@@ -281,7 +286,7 @@ def save_element_as_file(element, filename):
         include_layered_windows=True,
     )
     grab.save(filename)
-    ImageGrab.grab(0)
+    ImageGrab.grab(0) # type: ignore
 
 
 def add_figure_to_record(record: list, figtype: str, *args) -> None:
@@ -323,13 +328,21 @@ def convert_to_bytes(file_or_bytes, resize=None):
     del img
     return bio.getvalue()
 
-
-def convert_measurement() -> str:
+    
+def convert_measurement(meas=None):
     """
-    returns a measurement string with a decimal point and 'm' at the end
+    Converts a measurement string to a formatted string with the unit 'm'.
+    The input measurement string should be a number with one, two or three digits.
+    If the input measurement is empty, None is returned.
+    :return: A formatted string with the unit 'm'.
+    :rtype: str or None
     """
     newmeas = ""
-    meas = popup_get_text("Enter measurement(int)")
+    if meas is None:
+        meas = sg.popup_get_text("Enter measurement(int)")
+    if not isinstance(meas, str):
+        meas = str(meas)
+
     try:
         if len(meas) == 1:
             newmeas = "0." + meas + "m"
@@ -351,21 +364,21 @@ def convert_multi_measurement() -> list:
     """
     newmeas: list = []
     meas = popup_get_text("Enter measurements(int) separated by comma")
-    Print(meas.split(","))
-    for p in meas.split(","):
-        try:
-            if len(p) == 1:
-                newmeas.append("0." + p + "m")
-            elif len(p) == 2:
-                newmeas.append(p[0] + "." + p[1] + "m")
-            elif len(p) == 3:
-                newmeas.append([0] + p[1] + "." + p[2] + "m")
-            assert newmeas is not None
-        except TypeError:
-            logging.exception("empty measurement")
-            return
-    assert len(newmeas) > 1
-    return newmeas
+    if meas is not None:
+        for p in meas.split(","):
+            try:
+                if len(p) == 1:
+                    newmeas.append("0." + p + "m")
+                elif len(p) == 2:
+                    newmeas.append(p[0] + "." + p[1] + "m")
+                elif len(p) == 3:
+                    newmeas.append([0] + p[1] + "." + p[2] + "m")
+                assert newmeas is not None
+            except TypeError:
+                logging.exception("empty measurement")
+                return
+        assert len(newmeas) > 1
+        return newmeas
 
 
 def logerror():
@@ -427,9 +440,10 @@ def wipe():
         pass
 
 
-def rarrow(x1, y1, x2, y2):
+def rarrow(x1, y1, x2, y2, meas=None):
     # horizontal
-    meas = convert_measurement()
+    if meas is None:
+        meas = convert_measurement()
     # notify3.update(slope)
     try:
 
@@ -711,15 +725,17 @@ def hlabel(msg, x, y, size, bold=True):
         fontstr = f"Arial {str(size)} {isbold}"
         ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
         TK.itemconfig(ht, activefill='red')
+        return ht
     except:
         logerror()
 
 
 def hlabelm(msg, x, y, size):
     try:
-        sg.Graph.draw_text(
+        h = sg.Graph.draw_text(
             graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
         )
+        return h
     except:
         logerror()
 
@@ -732,6 +748,7 @@ def vlabel(msg, x, y, size, bold=True):
         fontstr = f"Arial {str(size)} {isbold}"
         vt = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
         TK.itemconfig(vt, activefill='red')
+        return vt
     except:
         logerror()
 
@@ -854,70 +871,73 @@ def ped_multiarm(x, y, direction, meas1, meas2, distance, third_arm=False):
 
 
 def set_landbase(dir, edge_type="CL"):
-    # draws a landbase
-    if dir.lower() == "n":
-        road(*NCURB)
-        hlabel(f"N{edge_type}", 27, 24, 10)
-    elif dir.lower() == "ne":
-        h_road(9, 28, 23)
-        hlabel(f"N{edge_type}", 27, 24, 10)
-        v_road(9, 2, 23)
-        vlabel(f"E{edge_type}", 10, 3, 10)
-    elif dir.lower() == "nw":
-        h_road(2, 23, 23)
-        hlabel(f"N{edge_type}", 3, 22, 10)
-        v_road(23, 2, 23)
-        vlabel(f"W{edge_type}", 22, 3, 10)
-    elif dir.lower() == "s":
-        h_road(2, WIDTH - 2, 7)
-        hlabel(f"S{edge_type}", 27, 8, 10)
-    elif dir.lower() == "sw":
-        h_road(2, 23, 7)
-        hlabel(f"S{edge_type}", 3, 8, 10)
-        v_road(23, 7, 28)
-        swvcurbx = WIDTH - 7
-        swvcurby1 = HEIGHT - 23
-        swvcurby2 = HEIGHT - 2
-        vlabel(f"W{edge_type}", swvcurbx - 1, swvcurby2 - 1, 10)
-    elif dir.lower() == "se":
-        sehcurbx1 = 7
-        sehcurbx2 = 28
-        sehcurby = 7
-        sevcurbx = 7
-        sevcurby1 = 7
-        sevcurby2 = 28
-        h_road(sehcurbx1, sehcurbx2, sehcurby)
-        hlabel(f"S{edge_type}", sehcurbx2 - 1, sehcurby - 1, 10)
-        v_road(sevcurbx, sevcurby1, sevcurby2)
-        vlabel(f"E{edge_type}", sevcurbx + 1, sevcurby2 - 1, 10)
+    try:
+        # draws a landbase
+        if dir.lower() == "n":
+            road(*NCURB)
+            hlabel(f"N{edge_type}", *HNCURBLABEL)   
+        elif dir.lower() == "ne":
+            h_road(9, 28, 23)
+            hlabel(f"N{edge_type}", 27, 24, 10)
+            v_road(9, 2, 23)
+            vlabel(f"E{edge_type}", 10, 3, 10)
+        elif dir.lower() == "nw":
+            h_road(2, 23, 23)
+            hlabel(f"N{edge_type}", 3, 22, 10)
+            v_road(23, 2, 23)
+            vlabel(f"W{edge_type}", 22, 3, 10)
+        elif dir.lower() == "s":
+            road(*SCURB)
+            hlabel(f"S{edge_type}", *HSCURBLABEL)
+        elif dir.lower() == "sw":
+            h_road(2, 23, 7)
+            hlabel(f"S{edge_type}", 3, 8, 10)
+            v_road(23, 7, 28)
+            swvcurbx = WIDTH - 7
+            swvcurby1 = HEIGHT - 23
+            swvcurby2 = HEIGHT - 2
+            vlabel(f"W{edge_type}", swvcurbx - 1, swvcurby2 - 1, 10)
+        elif dir.lower() == "se":
+            sehcurbx1 = 7
+            sehcurbx2 = 28
+            sehcurby = 7
+            sevcurbx = 7
+            sevcurby1 = 7
+            sevcurby2 = 28
+            h_road(sehcurbx1, sehcurbx2, sehcurby)
+            hlabel(f"S{edge_type}", sehcurbx2 - 1, sehcurby - 1, 10)
+            v_road(sevcurbx, sevcurby1, sevcurby2)
+            vlabel(f"E{edge_type}", sevcurbx + 1, sevcurby2 - 1, 10)
 
-    elif dir.lower() == "e":
-        road(*ECURB)
-        vlabel(f"E{edge_type}", 8, 3, 10)
-    elif dir.lower() == "w":
-        v_road(23, 2, HEIGHT - 2)
-        vlabel(f"W{edge_type}", 22, 3, 10)
-    elif dir.lower() == "h":
-        road(*HNCURB)
-        hlabel(f"N{edge_type}", *HNCURBLABEL)
-        road(*HSCURB)
-        hlabel(f"S{edge_type}", *HSCURBLABEL)
-    landbase = dir.lower()
-    return landbase
+        elif dir.lower() == "e":
+            road(*ECURB)
+            vlabel(f"E{edge_type}", *ECURBLABEL)
+        elif dir.lower() == "w":
+            road(*WCURB)
+            vlabel(f"W{edge_type}", *WCURBLABEL)
+        elif dir.lower() == "h":
+            road(*HNCURB)
+            hlabel(f"N{edge_type}", *HNCURBLABEL)
+            road(*HSCURB)
+            hlabel(f"S{edge_type}", *HSCURBLABEL)
+        landbase = dir.lower()
+        return landbase
+    except AttributeError:
+        logerror()
 
 
 def set_street_name(street, landbase):
     # enters street name on sketch
     if landbase.lower() == "n":
-        hlabel(street, 15, 27, 20, bold=False)
+        hlabel(street,*NSTREET, 16, bold=False)
     elif landbase.lower() == "s":
-        hlabel(street, 15, 3, 20, bold=False)
+        hlabel(street, *SSTREET, 16, bold=False)
     elif landbase.lower() == "e":
-        vlabel(street, 3, 15, 20, bold=False)
+        vlabel(street, *ESTREET, 16, bold=False)
     elif landbase.lower() == "w":
-        vlabel(street, 27, 15, 20, bold=False)
+        vlabel(street, *WSTREET, 16, bold=False)
     elif landbase.lower() == "h":
-        hlabel(street, *HSTREET)
+        hlabel(street, *HSTREET, 16, bold=False)
 
 
 def get_intersection_name():
@@ -1232,41 +1252,35 @@ def located_area(x, y):
 
 
 def house(x, y, size, num):
+    # draws a house of size (size) at (x,y)
+    # parameters: x, y, size, num
+    # size: s, m, l
+    # num: house number
+
     if size == "m":
-        bldng = sg.Graph.draw_rectangle(
-            graph, (x, y), (x + 6, y + 6), line_color="black", fill_color="white"
-        )
-        hnumber = hlabel(num, x + 3, y + 3, 16)
-        nbl = hlabel("NBL", x + 3, y - 1, 10)
-        sbl = hlabel("SBL", x + 3, y + 7, 10)
-        wbl = vlabel("WBL", x - 1, y + 3, 10)
-        ebl = vlabel("EBL", x + 7, y + 3, 10)
-        for x in bldng, hnumber, nbl, sbl, wbl, ebl:
-            group("house_m", "x")
+         house_size = 8
     elif size == "l":
-        bldng = sg.Graph.draw_rectangle(
-            graph, (x, y), (x + 8, y + 8), line_color="black", fill_color="white"
-        )
-        hnumber = hlabel(num, x + 4, y + 4, 16)
-        nbl = hlabel("NBL", x + 4, y - 1, 10)
-        sbl = hlabel("SBL", x + 4, y + 9, 10)
-        wbl = vlabel("WBL", x - 1, y + 4, 10)
-        ebl = vlabel("EBL", x + 9, y + 4, 10)
-        for x in bldng, hnumber, nbl, sbl, wbl, ebl:
-            group("house_l", "x")
+        house_size = 10
     elif size == "s":
-        bldng = sg.Graph.draw_rectangle(
-            graph, (x, y), (x + 4, y + 4), line_color="black", fill_color="white"
+        house_size = 6
+    
+    bldng = sg.Graph.draw_rectangle(
+            graph, (x, y), 
+            (x + house_size, y + house_size), 
+            line_color="black", 
+            fill_color="white"
         )
-        hnumber = hlabel(num, x + 2, y + 2, 16)
-        nbl = hlabel("NBL", x + 2, y - 1, 10)
-        sbl = hlabel("SBL", x + 2, y + 5, 10)
-        wbl = vlabel("WBL", x - 1, y + 2, 10)
-        ebl = vlabel("EBL", x + 5, y + 2, 10)
-        for x in bldng, hnumber, nbl, sbl, wbl, ebl:
-            group("house_s", "x")
-
-
+    hnumber = hlabel(num, x + (house_size/2), y + (house_size/2), 16)
+    nbl = hlabel("NBL", x + (house_size/2), y - 1, 10)
+    sbl = hlabel("SBL", x + (house_size/2), y + (house_size + 1), 10)
+    wbl = vlabel("WBL", x - 1, y + (house_size/2), 10)
+    ebl = vlabel("EBL", x + (house_size + 1), y + (house_size/2), 10)
+    # group all items
+    for _ in (bldng,hnumber, nbl, sbl, wbl, ebl):
+        group(f"house{size}", _)
+    
+ 
+    
 def centre_pole():
     pole(WIDTH // 2, HEIGHT // 2)
 
@@ -1417,7 +1431,6 @@ def save_sketch_template(file=""):
         coordslist.append(get_figure_coords(id))
         clonelist.append(clone_item(id))
     list_of_all_figures.extend([typelist, coordslist, clonelist])
-    easy_print(list_of_all_figures)
     if filename is not None:
         with open(filename + ".pkl", "wb") as pk:
             pickle.dump(list_of_all_figures, pk)
@@ -1447,6 +1460,209 @@ def load_sketch_template() -> None:
             TK.create_polygon(y, **z)
         elif x == "arc":
             TK.create_arc(y, **z)
+
+def parse_bl_string(bl_string: str) -> dict:
+    """
+    Parses a string representing a drawing template and returns a dictionary
+
+    The input string should have the following format:
+    "street_name,landbase,choice,house1,house2,measurement"
+
+    The function returns a dictionary with the following keys:
+    - street_name: a string representing the name of the street
+    - landbase: a string representing the direction of the landbase (n, e, s, w)
+    - choice: a string representing the choice (o, i, se, nw)
+    - house1: a string representing the first house number
+    - house2: a string representing the second house number
+    - measurement: a string representing the measurement (a positive integer)
+
+    If the input string does not have the expected format, the function returns None.
+    """
+    
+    bl_list = bl_string.split(",")
+    if len(bl_list) < 6:
+        return None
+    else:
+        # check that landbase is one of n,e,s,w
+        if bl_list[1].strip() not in ["n", "e", "s", "w"]:
+            return None
+        # check that choice is one of o,i,se,nw
+        if bl_list[2].strip() not in ["o", "i", "se", "nw"]:
+            return None
+        # check that measurement is a positive integer
+        if not bl_list[5].strip().isdigit():
+            return None 
+        bl_dict = {
+            "street_name": bl_list[0].strip().upper(),
+            "landbase": bl_list[1].strip(),
+            "choice": bl_list[2].strip(),
+            "house1": bl_list[3].strip(),
+            "house2": bl_list[4].strip(),
+            "measurement": bl_list[5].strip(),
+        }
+        return bl_dict
+
+def render_template(bl_string: str=None):
+    """
+    Renders a drawing template
+
+    Steps:
+    parse bl string -> dictionary
+    from dictionary -> get street name, landbase, choice, house1, house2, measurement
+    bl_to_bl(dir=landbase,house1,house2,street_name)
+    render_cable(landbase,choice)
+    render_measurement(landbase,measurement)
+
+    """
+    if not bl_string:
+        bl_string = sg.popup_get_text("Enter BL string - Separate fields with commas (street name, landbase, choice, house1, house2, measurement))")
+    try:
+        bl_dict = parse_bl_string(bl_string)
+    except AttributeError:
+        popup("Invalid BL string")
+        return
+    if bl_dict is None:
+        #dont want to do anything if the bl string is invalid so just return
+        popup("Invalid BL string")
+        return
+    else:
+        bl_to_bl(bl_dict["landbase"], bl_dict["house1"], bl_dict["house2"], bl_dict["street_name"])
+        c = get_cable(bl_dict["landbase"], bl_dict["choice"])
+        cable(*c,"TMX")
+        m = convert_measurement(bl_dict["measurement"])
+        ac = get_arrow_coords(bl_dict["landbase"])
+        rarrow(*ac, m)
+        savefile = f'{bl_dict["street_name"]} {bl_dict["house1"]} to {bl_dict["house2"]} tmx.png'
+        path = pathlib.Path(r'C:\Users\Cr\Documents')
+        save_choice = sg.popup_yes_no(f"Save as {savefile}?")
+        if save_choice == "Yes":
+            save_element_as_file(graph, path / f'{savefile}')
+            save_sketch_template(savefile)
+            popup(f"Saved as {savefile}")
+        
+        #render_measurement(landbase,bl_dict["mmeasurement)
+
+
+
+def get_cable(landbase: str, choice: str) -> None:
+    """
+    Gets the coordinates for a cable according to the landbase and choice parameters
+
+    Returns a tuple of coordinates (x1, y1, x2, y2)
+
+    Parameters:
+    - landbase: a string representing the direction of the landbase (n, e, s, w)
+    - choice: a string representing the choice (o, i, se, nw)
+    """
+
+    if landbase == "n":
+        y1 = NCURB[1] - 2
+        y2 = NCURB[1] - 2
+        if choice == "o":
+            #wbl to ebl
+            x1 = NBLHOUSE1[0]
+            x2 = NBLHOUSE2[0] + 8
+        elif choice == "i":
+            #ebl to wbl
+            x1 = NBLHOUSE1[0] + 8
+            x2 = NBLHOUSE2[0]
+        elif choice == "se":
+            #ebl to ebl
+            x1 = NBLHOUSE1[0] + 8
+            x2 = NBLHOUSE2[0] + 8
+        elif choice == "nw":
+            #wbl to wbl
+            x1 = NBLHOUSE1[0]
+            x2 = NBLHOUSE2[0]
+    
+    elif landbase == "s":
+        y1 = SCURB[1] + 2
+        y2 = SCURB[1] + 2
+        if choice == "o":
+            #wbl to ebl
+            x1 = SBLHOUSE1[0]
+            x2 = SBLHOUSE2[0] + 8
+        elif choice == "i":
+            #ebl to wbl
+            x1 = SBLHOUSE1[0] + 8
+            x2 = SBLHOUSE2[0]
+        elif choice == "se":
+            #ebl to ebl
+            x1 = SBLHOUSE1[0] + 8
+            x2 = SBLHOUSE2[0] + 8
+        elif choice == "nw":
+            #wbl to wbl
+            x1 = SBLHOUSE1[0]
+            x2 = SBLHOUSE2[0]
+    
+    elif landbase == "e":
+        x1 = ECURB[0] + 2
+        x2 = ECURB[0] + 2
+        if choice == "o":
+            #nbl to sbl
+            y1 = EBLHOUSE1[1]
+            y2 = EBLHOUSE2[1] + 8
+        elif choice == "i":
+            #sbl to nbl
+            y1 = EBLHOUSE1[1] + 8
+            y2 = EBLHOUSE2[1]
+        elif choice == "se":
+            #sbl to sbl
+            y1 = EBLHOUSE1[1] + 8
+            y2 = EBLHOUSE2[1] + 8
+        elif choice == "nw":
+            #nbl to nbl
+            y1 = EBLHOUSE1[1]
+            y2 = EBLHOUSE2[1]
+    
+    elif landbase == "w":
+        x1 = WCURB[0] - 2
+        x2 = WCURB[0] - 2
+        if choice == "o":
+            #nbl to sbl
+            y1 = WBLHOUSE1[1]
+            y2 = WBLHOUSE2[1] + 8
+        elif choice == "i":
+            #sbl to nbl
+            y1 = WBLHOUSE1[1] + 8
+            y2 = WBLHOUSE2[1]
+        elif choice == "se":
+            #sbl to sbl
+            y1 = WBLHOUSE1[1] + 8
+            y2 = WBLHOUSE2[1] + 8
+        elif choice == "nw":
+            #nbl to nbl
+            y1 = WBLHOUSE1[1]
+            y2 = WBLHOUSE2[1]
+
+    return x1, y1, x2, y2
+
+
+def get_arrow_coords(landbase: str) -> None:
+    """
+    Gets the coordinates of the offset arrows according to the landbase as a list [x1, y1, x2, y2]
+
+    Parameters:
+    - landbase: a string representing the direction of the landbase (n, e, s, w)
+
+    Implementation:
+    - For a n landbase, the arrows are placed at (37,38) and (37,40)
+    - For a s landbase, the arrows are placed at (37,20) and (37,22)
+    - For a e landbase, the arrows are placed at (23,28) and (25,28)
+    - For a w landbase, the arrows are placed at (44,28) and (46,28)
+
+    """
+    
+    if landbase == "n":
+        return [37, 38, 37, 40]
+    elif landbase == "s":
+        return [37, 20, 37, 22]
+    elif landbase == "e":
+        return [23, 28, 25, 28]
+    elif landbase == "w":
+        return [44, 28, 46, 28]
+
+    
 
 
 # callback routines
@@ -1596,48 +1812,123 @@ def st_to_st():
         hlabel(street3, 21, 28, 20)
 
 
-def bl_to_bl():
-    dir = get_input("N, S, E or W?")
-    hnum1 = get_input("House number 1?")
+def bl_to_bl(dir=None, hnum1=None, hnum2=None, street=None):
+    if not dir:
+        dir = get_input("N, S, E or W?")
+    if not hnum1:
+        hnum1 = get_input("House number 1?")
     if dir in ["nw", "ne", "se", "sw"]:
         hstreet, vstreet = get_intersection_name()
         set_intersection_name(hstreet, vstreet, dir)
         landbase = set_landbase(dir)
     else:
-        hnum2 = get_input("House number 2?")
-        street = get_input("Street name?")
+        if not hnum2:
+            hnum2 = get_input("House number 2?")
+        if not street:
+            street = get_input("Street name?")
         landbase = set_landbase(dir)
         set_street_name(street, landbase)
     if dir.lower() == "n":
         house(*NBLHOUSE1, hnum1)
         house(*NBLHOUSE2, hnum2)
-        digbox(*NPLTOPL_DIGBOX)
     elif dir.lower() == "nw":
         house(*NWBLHOUSE, hnum1)
-        digbox(*NWPLTOPL_DIGBOX)
     elif dir.lower() == "ne":
         house(*NEBLHOUSE, hnum1)
-        digbox(*NEPLTOPL_DIGBOX)
     elif dir.lower() == "s":
         house(*SBLHOUSE1, hnum1)
         house(*SBLHOUSE2, hnum2)
-        digbox(*SPLTOPL_DIGBOX)
     elif dir.lower() == "sw":
         house(*SWBLHOUSE, hnum1)
-        digbox(*SWPLTOPL_DIGBOX)
     elif dir.lower() == "e":
         house(*EBLHOUSE1, hnum1)
         house(*EBLHOUSE2, hnum2)
-        digbox(*EPLTOPL_DIGBOX)
     elif dir.lower() == "w":
         house(*WBLHOUSE1, hnum1)
         house(*WBLHOUSE2, hnum2)
-        digbox(*WPLTOPL_DIGBOX)
 
 def get_parser_string(input):
     return input
 
 # barebones
+
+menu_def = [
+    ["File", ["Save", "Save template as...", "Load template", "Exit"]],
+    ["Size", ["24", "30"]],
+    ["Input", ["Mouse/Keyboard", "Keyboard"]],
+]
+
+tab2layout = [
+    [
+        sg.Text("Curb: "),
+        sg.DropDown(("N", "S", "E", "W"), k="curbddl"),
+        sg.Radio("CL", "roadtype", k="cl"),
+        sg.Radio("RE", "roadtype", k="re"),
+    ],
+    [
+        sg.B("Change street", k="tab1getstreet"),
+        sg.T(k="tab1street"),
+    ],
+    [sg.B("Intersecting street:", k="tab2getstreet"), sg.I(k="tab1intersection")],
+    [sg.Submit(k="sketchbuild_submit")],
+]
+tab1layout: list = [[]]
+lcol = [
+    [sg.Sizer(0, 0)],
+    [notify_inputmode],
+    [sg.Button('Select', button_color=('yellow', 'black'))],
+    [sg.Button('Line')],
+    [sg.Button('Cable')],
+    [sg.Button('Road')],
+    [sg.Button('Small Text')],
+    [sg.Button('Large Text')],
+    [sg.Button('H.Arrow')],
+    [sg.Button('V.Arrow')],
+]
+
+canvasmenu = ["", ["Snap to Grid","Render Template"]]
+
+col = [
+    [notify, sg.VerticalSeparator(), notify2, sg.VerticalSeparator(), notify3],
+    [
+        sg.Graph(
+            canvas_size=(700, 600),
+            graph_bottom_left=(0, HEIGHT),
+            graph_top_right=(WIDTH, 0),
+            background_color="white",
+            right_click_menu=canvasmenu,
+            key="graph",
+            enable_events=True,
+            motion_events=True,
+            drag_submits=True,
+        ),
+    ],
+    [
+        sg.Button("Short Gas", enable_events=True),
+        sg.Button("Long Gas", enable_events=True),
+        sg.Button("Radius", enable_events=True),
+        sg.Button("St to St", enable_events=True),
+        sg.Button("BL to BL", enable_events=True),
+        sg.B("Read template", enable_events=True, k="read_file"),
+        sg.B("Form"),
+    ],
+]
+
+rcol = [
+        [sg.T("0, 0", k='ccord')],
+        [sg.T("", k="startpoint")],
+        [sg.T("", k="endpoint")],
+        [sg.Text("Object features")],
+        [sg.Text("Object type:",), sg.Input(k='lblobject_type', readonly=True)],
+        [sg.Text("Coords:"), sg.Input(k='objcoords', readonly=True)],
+        [sg.Text("Tag:"), sg.I(k='tag',readonly=True)],
+        [sg.T('ID'), sg.I(k='ID', readonly=True)],
+        [sg.T('*PARSER')],
+        [sg.Input(do_not_clear=False, k='parser_input'), sg.Submit(k='parser_submit')],
+        ]
+
+
+layout = [[sg.Column(lcol,justification='left',element_justification='left',vertical_alignment='t'), sg.Menu(menu_def), sg.Column(col,justification="left",element_justification='left',expand_x=True), sg.Column(rcol, justification='left',element_justification='left')]]
 
 def make_form_window():
     landbases = ["NORTH","SOUTH","EAST","WEST","NORTHEAST","NORTHWEST", "SOUTHEAST","SOUTHWEST","HORIZONTAL", "VERTICAL"]
@@ -1673,7 +1964,7 @@ window.bind('<Control-w>', 'QUIT')
 graph.bind('<Enter>','GRAPH_ENTER')
 graph.bind('<Leave>', 'GRAPH_LEAVE')
 
-TK = graph.TKCanvas
+TK = graph.tk_canvas
 # DRAW HERE
 # SETUP
 
@@ -1806,23 +2097,30 @@ while True:
 
     if event == "Save":
         _savefile = popup_get_text("Save file name?")
-        small = sg.popup_yes_no("Save as smaller image?")
+        #small = sg.popup_yes_no("Save as smaller image?")
         try:
             _savefile = _savefile.upper()
+            graph.delete_figure(h_cursor_line)
+            graph.delete_figure(v_cursor_line)
             save_element_as_file(graph, f"C:\\Users\\Cr\\Documents\\{_savefile}.png")
             #makes a smaller image
+            '''
             if small == "Yes":
                 skt = f"C:\\Users\\Cr\\Documents\\{_savefile}.png"
                 with PIL.Image.open(skt) as im:
-                    rs = im.resize((570,560))
+                    rs = im.resize((570,560), PIL.Image.BILINEAR)
                     rs.save(skt)
                     sg.popup('Saved in 600x600 format')
+            '''
             save_sketch_template(_savefile)
         except ValueError:
             # prevents crashing if file extension not added
             popup("Missing file extension. Please try again")
+        except AttributeError:
+            # prevents a crash if dialog is cancelled
+            pass
 
-    if event == "Save template only":
+    if event == "Save template as...":
         save_sketch_template()
     if event == "Load template":
         try:
@@ -1839,7 +2137,11 @@ while True:
             gridSnap = not gridSnap
             snap_to_grid_on()
             notify3.update(f"Snap to grid: {gridSnap}")
-
+    if event == "Render Template":
+        try:
+            render_template()
+        except FileNotFoundError:
+            popup('Could not load template')
     if event == "Exit":
         window.close()
 
@@ -1943,6 +2245,8 @@ while True:
         cursx, cursy = values['graph']
         h_cursor_line = sg.Graph.draw_line(graph, (cursx, 0), (cursx, HEIGHT))
         v_cursor_line = sg.Graph.draw_line(graph, (0, cursy), (WIDTH, cursy))
+        sg.Graph.send_figure_to_back(graph, h_cursor_line)
+        sg.Graph.send_figure_to_back(graph, v_cursor_line)
         TK.itemconfig(h_cursor_line, state='disabled')
         TK.itemconfig(v_cursor_line, state='disabled')
 
