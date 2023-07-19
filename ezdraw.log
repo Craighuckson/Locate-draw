@@ -12156,3 +12156,166 @@ _tkinter.TclError: bad cap style "TK.round": must be butt, projecting, or round
 2023-02-19 00:26:22,752
 >>>>>>> 8ee39f74ec1bdacef91f7e1da933f0ab0a4a6849
 2023-06-15 08:55:52,484
+2023-06-15 08:55:52,500
+2023-06-15 09:05:11,084
+2023-06-15 09:05:11,084
+2023-06-15 09:14:26,656
+2023-06-15 09:14:26,656
+2023-06-15 09:22:33,851
+2023-06-15 09:22:33,851
+2023-06-15 09:23:38,664
+2023-06-15 09:23:38,664
+2023-06-15 09:35:32,749
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 593, in hlabel
+    ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-15 09:35:33,702
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 593, in hlabel
+    ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-15 09:35:34,421
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 593, in hlabel
+    ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-15 09:35:34,608
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 593, in hlabel
+    ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-15 09:35:34,874
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 593, in hlabel
+    ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-15 09:35:35,139
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 593, in hlabel
+    ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-15 09:35:35,343
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 593, in hlabel
+    ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-15 09:40:58,257
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 637, in item_stamp
+    TK.itemconfig(im, activeoutline='red')
+  File "C:\Python311\Lib\tkinter\__init__.py", line 2959, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\tkinter\__init__.py", line 1692, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: unknown option "-activeoutline"
+2023-06-15 09:42:18,126
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2410, in <module>
+    house(x, y, hs, hn)
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1097, in house
+    (x + house_size, y + house_size),
+    ^
+UnboundLocalError: cannot access local variable 'house_size' where it is not associated with a value
+2023-06-15 09:44:50,444
+2023-06-15 09:44:50,491
+2023-06-15 09:44:50,491
+2023-06-15 09:44:50,585
+2023-06-15 09:44:50,600
+2023-06-15 09:44:50,616
+2023-06-15 09:44:50,616
+2023-06-15 09:44:50,725
+2023-06-15 09:44:50,725
+2023-06-15 09:44:50,741
+2023-06-15 09:44:50,757
+2023-06-15 09:44:50,757
+2023-06-15 09:44:50,757
+2023-06-15 09:44:50,772
+2023-06-15 09:44:50,772
+2023-06-15 09:44:50,772
+2023-06-15 09:44:50,788
+2023-06-15 09:44:50,803
+2023-06-15 09:44:50,834
+2023-06-15 09:44:50,850
+2023-06-15 09:44:50,866
+2023-06-15 09:44:50,882
+2023-06-15 09:44:50,897
+2023-06-15 09:44:50,897
+2023-06-15 09:44:50,897
+2023-06-15 09:44:50,897
+2023-06-15 09:44:50,912
+2023-06-15 09:44:50,912
+2023-06-15 09:44:50,912
+2023-06-15 09:44:50,928
+2023-06-15 09:44:50,944
+2023-06-15 09:44:50,944
+2023-06-15 09:44:50,960
+2023-06-15 09:44:50,960
+2023-06-15 09:44:50,991
+2023-06-15 09:44:51,007
+2023-06-15 09:44:51,007
+2023-06-15 09:44:51,007
+2023-06-15 09:44:51,022
+2023-06-15 09:44:51,038
+2023-06-15 09:44:51,038
+2023-06-15 09:44:51,053
+2023-06-15 09:44:51,069
+2023-06-15 09:44:51,069
+2023-06-15 09:44:51,147
+2023-06-15 09:44:51,163
+2023-06-15 09:44:51,178
+2023-06-15 09:44:51,194
+2023-06-15 13:30:07,030
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 638, in item_stamp
+    TK.itemconfig(im, activeoutline='red')
+  File "C:\Python311\Lib\tkinter\__init__.py", line 2959, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\tkinter\__init__.py", line 1692, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: unknown option "-activeoutline"
+2023-06-16 11:18:38,813
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 617, in vlabel
+    vt = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-16 11:18:39,864
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 617, in vlabel
+    vt = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-16 11:18:40,837
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 617, in vlabel
+    vt = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
+                                   ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2023-06-18 21:21:21,458
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 529, in arc
+    TK.itemconfig(id, width=2, dash=(10, 5))
+                  ^^
+UnboundLocalError: cannot access local variable 'id' where it is not associated with a value
+2023-07-17 22:25:13,538
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 103, in convert_measurement
+    if len(meas) == 1:
+       ^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+2023-07-17 22:25:13,898
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawl.py", line 443, in hlabelm
+    sg.Graph.draw_text(graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal")
+                              ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
