@@ -3,8 +3,6 @@ import sys
 import PySimpleGUI as sg
 from PIL import Image, ImageDraw, ImageFont
 import datetime
-from collections import namedtuple
-from form import get_teldig_data, get_form, save_bitmap
 
 FONT14 = ImageFont.truetype("arial.ttf", 14)
 FONT16 = ImageFont.truetype("arial.ttf", 16)
@@ -12,70 +10,72 @@ FONT10 = ImageFont.truetype("arial.ttf", 10)
 FONT24 = ImageFont.truetype("arial.ttf", 24)
 FFONT = ImageFont.TransposedFont(FONT14, orientation=2)
 
-"""
-steps
-
-want a clear locate sketch generated - end goal
-
-    - get all info needed for paperwork (
-        which form, page #, dig area, which warning, date etc)
-    - get proper form - utility primary or secondary -
-        can do this by reading station code and knowing what page - PARTIAL
-    - other info captured by ahk and sent to text file (
-        page numbers, dig area, warnings)
-    - get date - DONE
-
-- get blank form
-    - in python? need to open sketchtool, export, save as bmp if primary sheet
-
-- open blank version of correct form
-
-- put info to form
-    - using PIL
-    - each item has coordinate , get text from list imported in first step
-
-- load form into teldig - insert image - should be whole - very fast
-
-"""
-
-Rect = namedtuple("Rect", ["ulx", "uly", "lrx", "lry"])
-sample = []
-
 
 def get_filename(prompt:str) -> str:
-    # Define the PySimpleGUI layout for the file selection dialog
-    layout = [
-        [sg.Text(prompt)],
-        [sg.Input(key='file'), sg.FileBrowse()],
-        [sg.Button('OK'), sg.Button('Cancel')]
-    ]
+    """
+    Displays a file dialog window with the given prompt and returns the selected file name.
 
-    # Create the PySimpleGUI window
+    Parameters:
+        prompt (str): The prompt to display in the file dialog window.
+
+    Returns:
+        str: The selected file name, or None if the user cancels the dialog.
+
+    Raises:
+        None
+    """
+    layout = [[sg.Text(prompt)],
+                [sg.Input(k='file'), sg.FileBrowse(file_types=(("Bitmap", "*.bmp"), ("JPEG", "*.jpg"), ("PNG", "*.png"), ("Text", "*.txt")))],
+                [sg.OK(), sg.Cancel()]]
+    
     window = sg.Window('Open File', layout)
 
-    # Loop until the user closes the window or clicks the OK or Cancel button
     while True:
         event, values = window.read()
 
         if event == sg.WINDOW_CLOSED or event == 'Cancel':
-            # User closed the window or clicked the Cancel button
             window.close()
             return None
 
         if event == 'OK':
-            # User clicked the OK button, return the selected file name
             file_name = values['file']
             window.close()
             return file_name
+        
 
 def get_date() -> str:
+    """
+    Returns the current date in the format "YYYY-MM-DD".
+
+    Parameters:
+        None
+
+    Returns:
+        str: The current date in the format "YYYY-MM-DD".
+
+    Raises:
+        None
+    """
     date = datetime.datetime.now()
     year = date.year
     month = date.month
     day = date.day
     return f"{year}-{month:02}-{day:02}"
 
+
 def read_clear_sheet(f: FileIO) -> dict:
+    """
+    Reads text file containing data to fill out a clear locate form and returns a dictionary containing its contents.
+
+    Parameters:
+        f (FileIO): A file-like object representing the text file.
+
+    Returns:
+        dict: A dictionary containing the contents of the clear sheet file.
+
+    Raises:
+        None
+    """
     c = {}
     with open(f, "r") as clearfile:
         c["current_page"] = clearfile.readline().rstrip("\n")
@@ -89,23 +89,83 @@ def read_clear_sheet(f: FileIO) -> dict:
         c["file_name"] = clearfile.readline().rstrip("\n")
     return c
 
-# function add_data_to_ticket. Using PIL, open ticket, write text on image using data from RP_FIXED tuples , save as "output.png"
 
-def add_data_to_ticket(ticket: str, clearsheet_data: dict) -> None:
+def complete_dict_from_clearsheet(clearsheet_data: dict, utility_data: dict) -> None:
+    """
+    Updates the  utility_data dictionary with values from the `clearsheet_data` dictionary.
+
+    For each key in `clearsheet_data`, if the key is also present in  utility_data`, the corresponding value in  utility_data` is updated with the value from `clearsheet_data`.
+    If the key is not present in  utility_data`, it is ignored.
+
+    Parameters:
+        clearsheet_data (dict): A dictionary containing data from a clear sheet.
+     utility_data (dict): A dictionary containing form data.
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    for key, value in clearsheet_data.items():
+        form_field = utility_data.get(key)
+        if form_field is not None:
+            form_field["text"] = value
+        else:
+            #disregard the key
+            pass
+
+
+def add_image_to_image(existing: Image, incoming_filename: str, x: int, y: int) -> Image:
+    """
+    Pastes an incoming image onto an existing image at the specified x and y coordinates.
+
+    Parameters:
+        existing (Image): The image to paste onto.
+        incoming (Image): The image to paste.
+        x (int): The x coordinate to paste the incoming image.
+        y (int): The y coordinate to paste the incoming image.
+
+    Returns:
+        Image: The modified existing image with the incoming image pasted onto it.
+
+    Raises:
+        None
+    """
+    with Image.open(incoming_filename) as incoming:
+        existing.paste(incoming, (x, y))
+    return existing
+
+
+def handle_clear_type(clear_type:str) -> str:
+    clear_type = int(clear_type)
+    if clear_type == 1:
+        return "msg"
+    elif clear_type == 2:
+        return "ftth"
+    elif clear_type == 3:
+        return "foonly"
+
+
+def add_items_to_image(ticket: str, utility: dict) -> None:
     # open ticket
     with Image.open(ticket) as im:
         draw = ImageDraw.Draw(im)
-        # write text on image
-        for key, value in RP_FIXED.items():
-            draw.text(value, clearsheet_data[key], font=value[3])
-        # save as output.png
-        im.save("output.png")
+        ct = handle_clear_type(utility["type"])
+        if ct == "msg":
+            #write on image using rogers_clear tuple
+            draw.text(rogers_clear[0:2], rogers_clear[2], font=rogers_clear[3])
+        elif ct == "ftth":
+            add_image_to_image(im, "ftth.png", rogers_clear[0], rogers_clear[1])
+        elif ct == "foonly":
+            add_image_to_image(im, "foonly.png", rogers_clear[0], rogers_clear[1])
+        
 
 rogers_clear: tuple = (241, 447, "NO ROGERS IN DIG AREA", FONT24)
 aptum_clear: tuple = (241, 447, "NO APTUM FIBRE IN DIG AREA", FONT24)
 envi_clear: tuple = ()
 
-envi_prim_fixed: dict = {
+ENVI_PRIMARY: dict = {
     "units": (761, 96, FONT16),
     "north": (50, 254, "SOME ST", FONT14),
     "south": (448, 253, "SOME ST", FONT14),
@@ -122,9 +182,7 @@ envi_prim_fixed: dict = {
     "date": (620, 975, get_date(), FONT16),
 }
 
-EP_VARIABLE:dict = {}
-
-rogers_primary = {
+ROGERS_PRIMARY = {
     "units": {"x": 760, "y": 95, "text": "", "font": FONT14},
     "north": {"x": 49, "y": 235, "text": "", "font": FONT14},
     "south": {"x": 459, "y": 233, "text": "", "font": FONT14},
@@ -141,14 +199,13 @@ rogers_primary = {
     "date": {"x": 620, "y": 975, "text": get_date(), "font": FONT16},
 }
 
-RP_VARIABLE:dict = {}
 
-aptum_prim: dict = {
-    "units": (756, 90, "1C", FONT14),
-    "north": (53, 252, "SOME ST", FONT14),
-    "south": (450, 252, "SOME ST", FONT14),
-    "west": (53, 284, "SOME ST", FONT14),
-    "east": (450, 279, "SOME ST", FONT14),
+APTUM_PRIMARY: dict = {
+    "units": (756, 90, "", FONT14),
+    "north": (53, 252, "", FONT14),
+    "south": (450, 252, "", FONT14),
+    "west": (53, 284, "", FONT14),
+    "east": (450, 279, "", FONT14),
     "property_line": (22, 742, "Property Line", FONT10),
     "road_edge": (22, 753, "Road Edge", FONT10),
     "pl": (116, 737, "PL", FONT14),
@@ -169,22 +226,14 @@ def main():
         sys.exit()
     # get clearsheet data
     clearsheet_data = read_clear_sheet(clearsheet)
-    add_data_to_ticket(ticket, clearsheet_data)
+    complete_dict_from_clearsheet(clearsheet_data, ROGERS_PRIMARY)
+    #add_items_to_image(ticket, clearsheet_data)
     #show a message that it is done
     sg.popup_ok("Ticket saved to file", title="Done")
-
-
-
-    
-    
 
 
 if __name__ == "__main__":
 
     # READ TELDIG DATA, CLEAR SHEET
     #GET TICKET NUMBER, FORM, UNITS, DIG AREA, CLEAR WARNING - THESE ARE VARIABLE DATA
-
-
-    with Image.open("temp.bmp") as im:
-        draw = ImageDraw.Draw(im)
-        # units
+    main()
