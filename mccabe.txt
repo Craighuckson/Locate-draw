@@ -1,0 +1,174 @@
+ezdrawlnew.py:32:80: E501 line too long (85 > 79 characters)
+ezdrawlnew.py:130:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:138:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:139:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:150:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:217:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:277:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:291:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:323:80: E501 line too long (125 > 79 characters)
+ezdrawlnew.py:325:80: E501 line too long (116 > 79 characters)
+ezdrawlnew.py:352:80: E501 line too long (99 > 79 characters)
+ezdrawlnew.py:354:80: E501 line too long (81 > 79 characters)
+ezdrawlnew.py:387:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:443:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:498:5: SIM105 Use 'contextlib.suppress(ValueError)'
+ezdrawlnew.py:604:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:604:5: E722 do not use bare 'except'
+ezdrawlnew.py:617:80: E501 line too long (96 > 79 characters)
+ezdrawlnew.py:638:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:638:5: E722 do not use bare 'except'
+ezdrawlnew.py:651:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:671:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:671:5: E722 do not use bare 'except'
+ezdrawlnew.py:694:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:694:5: E722 do not use bare 'except'
+ezdrawlnew.py:702:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:702:5: E722 do not use bare 'except'
+ezdrawlnew.py:709:1: E302 expected 2 blank lines, found 1
+ezdrawlnew.py:709:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:710:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:720:1: E302 expected 2 blank lines, found 1
+ezdrawlnew.py:731:80: E501 line too long (109 > 79 characters)
+ezdrawlnew.py:734:80: E501 line too long (109 > 79 characters)
+ezdrawlnew.py:737:80: E501 line too long (108 > 79 characters)
+ezdrawlnew.py:740:80: E501 line too long (110 > 79 characters)
+ezdrawlnew.py:745:1: C901 'arc' is too complex (9)
+ezdrawlnew.py:745:1: F811 redefinition of unused 'arc' from line 720
+ezdrawlnew.py:745:1: E302 expected 2 blank lines, found 1
+ezdrawlnew.py:756:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:761:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:766:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:771:80: E501 line too long (84 > 79 characters)
+ezdrawlnew.py:782:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:782:5: E722 do not use bare 'except'
+ezdrawlnew.py:803:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:803:5: E722 do not use bare 'except'
+ezdrawlnew.py:853:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:853:5: E722 do not use bare 'except'
+ezdrawlnew.py:863:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:863:5: E722 do not use bare 'except'
+ezdrawlnew.py:873:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:876:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:876:5: E722 do not use bare 'except'
+ezdrawlnew.py:883:80: E501 line too long (87 > 79 characters)
+ezdrawlnew.py:885:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:885:5: E722 do not use bare 'except'
+ezdrawlnew.py:892:80: E501 line too long (87 > 79 characters)
+ezdrawlnew.py:895:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:895:5: E722 do not use bare 'except'
+ezdrawlnew.py:914:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:914:5: E722 do not use bare 'except'
+ezdrawlnew.py:997:1: C901 'set_landbase' is too complex (12)
+ezdrawlnew.py:1021:13: F841 local variable 'swvcurby1' is assigned to but never used
+ezdrawlnew.py:1109:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1109:5: E722 do not use bare 'except'
+ezdrawlnew.py:1151:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1151:5: E722 do not use bare 'except'
+ezdrawlnew.py:1161:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1161:5: E722 do not use bare 'except'
+ezdrawlnew.py:1165:1: C901 'cable' is too complex (12)
+ezdrawlnew.py:1225:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1225:5: E722 do not use bare 'except'
+ezdrawlnew.py:1280:9: E741 ambiguous variable name 'l'
+ezdrawlnew.py:1283:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1283:5: E722 do not use bare 'except'
+ezdrawlnew.py:1326:1: C901 'paste_figure' is too complex (9)
+ezdrawlnew.py:1352:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1352:5: E722 do not use bare 'except'
+ezdrawlnew.py:1367:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1367:5: E722 do not use bare 'except'
+ezdrawlnew.py:1374:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1374:5: E722 do not use bare 'except'
+ezdrawlnew.py:1450:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1450:5: E722 do not use bare 'except'
+ezdrawlnew.py:1460:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1460:5: E722 do not use bare 'except'
+ezdrawlnew.py:1470:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1470:5: E722 do not use bare 'except'
+ezdrawlnew.py:1480:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1480:5: E722 do not use bare 'except'
+ezdrawlnew.py:1485:5: F841 local variable 'x' is assigned to but never used
+ezdrawlnew.py:1485:9: F841 local variable 'y' is assigned to but never used
+ezdrawlnew.py:1485:13: F841 local variable 'a' is assigned to but never used
+ezdrawlnew.py:1485:17: F841 local variable 'b' is assigned to but never used
+ezdrawlnew.py:1486:5: F841 local variable 'current_mode' is assigned to but never used
+ezdrawlnew.py:1495:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1495:5: E722 do not use bare 'except'
+ezdrawlnew.py:1548:9: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1548:9: E722 do not use bare 'except'
+ezdrawlnew.py:1574:1: C901 'load_sketch_template' is too complex (9)
+ezdrawlnew.py:1607:80: E501 line too long (80 > 79 characters)
+ezdrawlnew.py:1613:80: E501 line too long (85 > 79 characters)
+ezdrawlnew.py:1646:80: E501 line too long (85 > 79 characters)
+ezdrawlnew.py:1654:80: E501 line too long (121 > 79 characters)
+ezdrawlnew.py:1677:80: E501 line too long (97 > 79 characters)
+ezdrawlnew.py:1688:1: C901 'get_cable' is too complex (21)
+ezdrawlnew.py:1690:80: E501 line too long (84 > 79 characters)
+ezdrawlnew.py:1695:80: E501 line too long (80 > 79 characters)
+ezdrawlnew.py:1784:80: E501 line too long (98 > 79 characters)
+ezdrawlnew.py:1787:80: E501 line too long (80 > 79 characters)
+ezdrawlnew.py:1797:5: SIM116 Use a dictionary lookup instead of 3+ if/elif-statements: return {'n': '[37, 38, 37, 40]', 's': '[37, 20, 37, 22]', 'e': '[23, 28, 25, 28]', 'w': '[44, 28, 46, 28]'}.get(landbase)
+ezdrawlnew.py:1799:5: SIM116 Use a dictionary lookup instead of 3+ if/elif-statements: return {'s': '[37, 20, 37, 22]', 'e': '[23, 28, 25, 28]', 'w': '[44, 28, 46, 28]'}.get(landbase)
+ezdrawlnew.py:1834:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1834:5: E722 do not use bare 'except'
+ezdrawlnew.py:1873:5: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:1873:5: E722 do not use bare 'except'
+ezdrawlnew.py:1880:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:1954:1: C901 'bl_to_bl' is too complex (13)
+ezdrawlnew.py:2013:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:2073:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:2087:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:2246:1: C901 'Loop 2246' is too complex (243)
+ezdrawlnew.py:2277:80: E501 line too long (85 > 79 characters)
+ezdrawlnew.py:2410:9: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:2410:9: E722 do not use bare 'except'
+ezdrawlnew.py:2440:80: E501 line too long (87 > 79 characters)
+ezdrawlnew.py:2443:9: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:2443:9: E722 do not use bare 'except'
+ezdrawlnew.py:2461:9: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:2461:9: E722 do not use bare 'except'
+ezdrawlnew.py:2465:9: SIM105 Use 'contextlib.suppress(IndexError)'
+ezdrawlnew.py:2515:9: SIM105 Use 'contextlib.suppress(Exception)'
+ezdrawlnew.py:2516:17: B007 Loop control variable 'idx' not used within the loop body. If this is intended, start the name with an underscore.
+ezdrawlnew.py:2518:80: E501 line too long (86 > 79 characters)
+ezdrawlnew.py:2520:9: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:2520:9: E722 do not use bare 'except'
+ezdrawlnew.py:2532:80: E501 line too long (98 > 79 characters)
+ezdrawlnew.py:2556:80: E501 line too long (84 > 79 characters)
+ezdrawlnew.py:2569:9: SIM105 Use 'contextlib.suppress(NameError)'
+ezdrawlnew.py:2575:23: E721 do not compare types, for exact checks use `is` / `is not`, for instance checks use `isinstance()`
+ezdrawlnew.py:2579:25: E721 do not compare types, for exact checks use `is` / `is not`, for instance checks use `isinstance()`
+ezdrawlnew.py:2582:24: E721 do not compare types, for exact checks use `is` / `is not`, for instance checks use `isinstance()`
+ezdrawlnew.py:2594:8: SIM118 Use 'event in buttoniosingle' instead of 'event in buttoniosingle.keys()'
+ezdrawlnew.py:2616:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:2622:80: E501 line too long (80 > 79 characters)
+ezdrawlnew.py:2624:80: E501 line too long (80 > 79 characters)
+ezdrawlnew.py:2626:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:2628:80: E501 line too long (87 > 79 characters)
+ezdrawlnew.py:2638:80: E501 line too long (81 > 79 characters)
+ezdrawlnew.py:2646:80: E501 line too long (87 > 79 characters)
+ezdrawlnew.py:2648:80: E501 line too long (84 > 79 characters)
+ezdrawlnew.py:2657:5: SIM102 Use a single if-statement instead of nested if-statements
+ezdrawlnew.py:2663:9: SIM105 Use 'contextlib.suppress(NameError)'
+ezdrawlnew.py:2689:5: SIM102 Use a single if-statement instead of nested if-statements
+ezdrawlnew.py:2700:80: E501 line too long (80 > 79 characters)
+ezdrawlnew.py:2703:80: E501 line too long (81 > 79 characters)
+ezdrawlnew.py:2727:21: E712 comparison to True should be 'if cond is True:' or 'if cond:'
+ezdrawlnew.py:2741:13: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:2741:13: E722 do not use bare 'except'
+ezdrawlnew.py:2753:80: E501 line too long (90 > 79 characters)
+ezdrawlnew.py:2806:13: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:2806:13: E722 do not use bare 'except'
+ezdrawlnew.py:2899:13: SIM105 Use 'contextlib.suppress(Exception)'
+ezdrawlnew.py:2901:13: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:2901:13: E722 do not use bare 'except'
+ezdrawlnew.py:2937:13: B015 Result of comparison is not used. This line doesn't do anything. Did you intend to prepend it with assert?
+ezdrawlnew.py:2954:13: B015 Result of comparison is not used. This line doesn't do anything. Did you intend to prepend it with assert?
+ezdrawlnew.py:3174:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:3175:80: E501 line too long (83 > 79 characters)
+ezdrawlnew.py:3184:80: E501 line too long (82 > 79 characters)
+ezdrawlnew.py:3191:21: E721 do not compare types, for exact checks use `is` / `is not`, for instance checks use `isinstance()`
+ezdrawlnew.py:3220:21: B007 Loop control variable 'item' not used within the loop body. If this is intended, start the name with an underscore.
+ezdrawlnew.py:3234:13: B001 Do not use bare `except:`, it also catches unexpected events like memory errors, interrupts, system exit, and so on.  Prefer `except Exception:`.  If you're sure what you're doing, be explicit and write `except BaseException:`.
+ezdrawlnew.py:3234:13: E722 do not use bare 'except'

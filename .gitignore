@@ -2,6 +2,8 @@
 *.\dist\
 *.json
 *.bmp
+treedwg/
+
 __pycache__/ezdrawl.cpython-38.pyc
 build/ezdrawl/Analysis-00.toc
 build/ezdrawl/base_library.zip
@@ -1055,3 +1057,8 @@ dist/ezdrawl/win32com/shell/shell.pyd
 ._vimrc.swp
 castan blank.bmp
 ezdraw.log
+get-pip.py
+*.png
+*.jpeg
+*.jpg
+*.pyc

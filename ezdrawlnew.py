@@ -1,3 +1,11 @@
+# import section
+from PySimpleGUI.PySimpleGUI import (
+    easy_print,
+    popup,
+    popup_get_file,
+    popup_get_text,
+    popup_yes_no,
+)
 import base64
 import io
 import json
@@ -6,22 +14,20 @@ import pathlib
 import pickle
 import time
 from enum import Enum
-from typing import List, Tuple, Union
-
 import PIL.Image
+from PIL.Image import LANCZOS
 import PySimpleGUI as sg
 
 if sg.running_linux():
-    import pyscreenshot as ImageGrab
+    import pyscreenshot as ImageGrab  # disable=unresolved-import
 else:
     from PIL import ImageGrab
 
 
-from PySimpleGUI.PySimpleGUI import (easy_print, popup, popup_get_file,
-                                     popup_get_text, popup_yes_no)
+# init canvas
+sg.theme("darkgray")
+sg.set_options(font=("Segoe UI", 10, "normal"))
 
-sg.theme('darkgray')
-sg.set_options(font=('Segoe UI',10,'normal'))
 
 logging.basicConfig(filename="ezdraw.log", level=logging.DEBUG, format="%(asctime)s")
 Print = easy_print
@@ -29,113 +35,168 @@ Print = easy_print
 # CONSTANTS
 
 edge_type: str = ""
-HEIGHT: int = 60 # height of drawing window
-WIDTH:int = 70 # width of drawing window
+HEIGHT: int = 60  # height of drawing window
+WIDTH: int = 70  # width of drawing window
 
 # key mapping
-
+# key handler class with method get keys
 if sg.running_linux():
     keys = {
-        'esc':'Escape:9',
-        'g':'g:42',
-        'down':'Down:116',
-        'up':'Up:111',
-        'right':'Right:114',
-        'left':'Left:113',
-        'r':'r:27',
-        'R':'R:27',
-        'c':'c:54',
-        'C':'C:54',
-        's':'s:39',
-        'd':'d:40',
-        'w':'w:25',
-        'a':'a:38',
-        'e':'e:26',
-        'E':'E:26',
-        'q':'q:24',
-        'z':'z:52',
-        'x':'x:53',
-        'f':'f:41',
-        'v':'v:55',
-        't':'t:28',
-        'T':'T:28',
-        'y':'y:29',
-        'u':'u:30',
-        'i':'i:31',
-        'o':'o:32',
-        'p':'p:33',
-        'h':'h:43',
-        'j':'j:44',
-        'k':'k:45',
-        'l':'l:46',
-        'n':'n:57',
-        'm':'m:58',
-        'b':'b:56',
-        'B':'B:56',
-        'V':'V:55',
-        '1':'1:10',
-        '2':'2:11',
-        '3':'3:12',
-        '4':'4:13',
-        '5':'5:14',
-        '6':'6:15',
-        '7':'7:16',
-        '8':'8:17',
-        '9':'9:18',
-        '0':'0:19',
-        '=':'equal:21',
-        '_':'underscore:20',
-        '>':'greater:60',
-        'F1':'F1:67',
-        'F2':'F2:68',
+        "esc": "Escape:9",
+        "g": "g:42",
+        "down": "Down:116",
+        "up": "Up:111",
+        "right": "Right:114",
+        "left": "Left:113",
+        "r": "r:27",
+        "R": "R:27",
+        "c": "c:54",
+        "C": "C:54",
+        "s": "s:39",
+        "d": "d:40",
+        "w": "w:25",
+        "a": "a:38",
+        "e": "e:26",
+        "E": "E:26",
+        "q": "q:24",
+        "z": "z:52",
+        "x": "x:53",
+        "f": "f:41",
+        "v": "v:55",
+        "t": "t:28",
+        "T": "T:28",
+        "y": "y:29",
+        "u": "u:30",
+        "i": "i:31",
+        "o": "o:32",
+        "p": "p:33",
+        "h": "h:43",
+        "j": "j:44",
+        "k": "k:45",
+        "l": "l:46",
+        "n": "n:57",
+        "m": "m:58",
+        "b": "b:56",
+        "B": "B:56",
+        "V": "V:55",
+        "1": "1:10",
+        "2": "2:11",
+        "3": "3:12",
+        "4": "4:13",
+        "5": "5:14",
+        "6": "6:15",
+        "7": "7:16",
+        "8": "8:17",
+        "9": "9:18",
+        "0": "0:19",
+        "=": "equal:21",
+        "_": "underscore:20",
+        ">": "greater:60",
+        "F1": "F1:67",
+        "F2": "F2:68",
     }
-
 else:
     keys = {
-        'esc':'Escape:27',
-        'g':'g',
-        'down':'Down:40',
-        'up':'Up:38',
-        'right':'Right:39',
-        'left':'Left:37',
+        "esc": "Escape:27",
+        "g": "g",
+        "down": "Down:40",
+        "up": "Up:38",
+        "right": "Right:39",
+        "left": "Left:37",
+        "r": "r",
+        "R": "R",
+        "c": "c",
+        "C": "C",
+        "s": "s",
+        "d": "d",
+        "w": "w",
+        "a": "a",
+        "e": "e",
+        "E": "E",
+        "q": "q",
+        "z": "z",
+        "x": "x",
+        "f": "f",
+        "v": "v",
+        "t": "t",
+        "T": "T",
+        "y": "y",
+        "m": "m",
+        "=": "=",
+        "n": "n",
+        "F2": "F2",
+        "F1": "F1",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        ">": ">",
+        "i": "i",
+        "h": "h",
+        "V": "V",
+        "o": "o",
+        "b": "b",
+        "B": "B",
+        "p": "p",
+        "l": "l",
+        "k": "k",
+        "j": "j",
+        "u": "u",
+        "0": "0",
+        "9": "9",
+        "8": "8",
+        "7": "7",
+        "_": "_",
 
 
+
+        # More keys can be added here
     }
-# the four values correspond to int values of points on a line (x1,y1,x2,y2)
-ECURB: list = [WIDTH // 3, HEIGHT * (0.067), WIDTH // 3, HEIGHT * (0.933)]
-WCURB: list = [(WIDTH*2)//3, HEIGHT*0.067, (WIDTH*2)//3, HEIGHT*0.933]
-NCURB: list = [WIDTH*(1/WIDTH), (HEIGHT*2)//3, WIDTH*69/WIDTH, (HEIGHT*2)/3] # type: ignore
-SCURB: list = [WIDTH*(1/WIDTH), HEIGHT//3, WIDTH-2, HEIGHT//3]
 
-HNCURB: list = [NCURB[0], SCURB[1] + (HEIGHT/15), NCURB[2], SCURB[1] + (HEIGHT/15)]
-HSCURB: list = [SCURB[0], NCURB[1] - (HEIGHT/15), NCURB[2], NCURB[1] - (HEIGHT/15)]
+# moved to separate constants file
+# the four values correspond to int values of points on a line (x1,y1,x2,y2)
+ECURB: list = [WIDTH // 3, HEIGHT * 0.067, WIDTH // 3, HEIGHT * 0.933]
+WCURB: list = [(WIDTH * 2) // 3, HEIGHT * 0.067, (WIDTH * 2) // 3, HEIGHT * 0.933]
+NCURB: list = [
+    WIDTH * (1 / WIDTH),
+    HEIGHT * 2 // 3,
+    WIDTH * 69 // WIDTH,
+    HEIGHT * 2 // 3,
+]
+SCURB: list = [WIDTH * (1 / WIDTH), HEIGHT // 3, WIDTH - 2, HEIGHT // 3]
+HNCURB: list = [NCURB[0], SCURB[1] + HEIGHT / 15, NCURB[2], SCURB[1] + HEIGHT / 15]
+HSCURB: list = [SCURB[0], NCURB[1] - HEIGHT / 15, NCURB[2], NCURB[1] - HEIGHT / 15]
 
 # these are x,y (int) coordinates for street text labels
-NSTREET: list = [WIDTH / 2, (NCURB[1] + HEIGHT) / 2]
-SSTREET: list = [WIDTH / 2, (SCURB[1]) / 2] # type: ignore
+NSTREET: list = [WIDTH // 2, (NCURB[1] + HEIGHT) // 2]
+SSTREET: list = [WIDTH / 2, (SCURB[1]) / 2]  # type: ignore
 WSTREET: list = [(WCURB[0] + WIDTH) / 2, HEIGHT / 2]
 ESTREET: list = [ECURB[0] / 2, HEIGHT / 2]
+
 HSTREET: list = [WIDTH / 2, HEIGHT / 2]
 
-#curb labels
-HNCURBLABEL: list = [(65/70) * WIDTH, (42/60) * HEIGHT, 12] # x, y , fontsize
-HSCURBLABEL: list = [(65/70) * WIDTH, (18/60) * HEIGHT, 12]
-WCURBLABEL: list = [(40/70) * WIDTH, (6/60) * HEIGHT, 12]
-ECURBLABEL: list = [(22/70) * WIDTH, (6/60) * HEIGHT, 12]
+# curb labels
+HNCURBLABEL: list = [(65 / 70) * WIDTH, (42 / 60) * HEIGHT, 12]  # x, y , fontsize
+HSCURBLABEL: list = [(65 / 70) * WIDTH, (18 / 60) * HEIGHT, 12]
+WCURBLABEL: list = [(40 / 70) * WIDTH, (6 / 60) * HEIGHT, 12]
+ECURBLABEL: list = [(22 / 70) * WIDTH, (6 / 60) * HEIGHT, 12]
 
 
-NBLHOUSE1: tuple = (WIDTH*0.10, HEIGHT*0.2, "m") # upper left x, upper left y, house size
-NBLHOUSE2: tuple = (WIDTH*0.80, HEIGHT*0.2, "m")
+NBLHOUSE1: tuple = (WIDTH * 0.10, HEIGHT * 0.2, "m")
+NBLHOUSE2: tuple = (WIDTH * 0.80, HEIGHT * 0.2, "m")
 NWBLHOUSE: tuple = (8, 8, "m")
 NEBLHOUSE: tuple = (18, 8, "m")
-SBLHOUSE1: tuple = (WIDTH*0.1, HEIGHT*0.7, "m")
-SBLHOUSE2: tuple = (WIDTH*0.8, HEIGHT*0.7, "m")
+SBLHOUSE1: tuple = (WIDTH * 0.1, HEIGHT * 0.7, "m")
+SBLHOUSE2: tuple = (WIDTH * 0.8, HEIGHT * 0.7, "m")
 SWBLHOUSE: tuple = (9, 16, "m")
 SEBLHOUSE: tuple = (16, 16, "m")
-WBLHOUSE1: tuple = (WIDTH*0.2, HEIGHT*0.1, "m")
-WBLHOUSE2: tuple = (WIDTH*0.2, HEIGHT*0.8, "m")
-EBLHOUSE1: tuple = (WIDTH*0.7, HEIGHT*0.1, "m")
-EBLHOUSE2: tuple = (WIDTH*0.7, HEIGHT*0.8, "m") # type: ignore
+WBLHOUSE1: tuple = (WIDTH * 0.2, HEIGHT * 0.1, "m")
+WBLHOUSE2: tuple = (WIDTH * 0.2, HEIGHT * 0.8, "m")
+EBLHOUSE1: tuple = (WIDTH * 0.7, HEIGHT * 0.1, "m")
+EBLHOUSE2: tuple = (WIDTH * 0.7, HEIGHT * 0.8, "m")
 
 NPLTOPL_DIGBOX = (6, 16, 24, 28)
 NWPLTOPL_DIGBOX = (8, 8, 28, 28)
@@ -159,7 +220,6 @@ NE_DW = ()
 SW_DW = ()
 SE_DW = ()
 
-pointlist: list = []
 h_cursor_line = None
 v_cursor_line = None
 
@@ -169,96 +229,23 @@ notify2 = sg.Text()
 notify3 = sg.Text()
 notify_inputmode = sg.Text(input_mode)
 
-menu_def = [
-    ["File", ["Save", "Save template as...", "Load template", "Exit"]],
-    ["Size", ["24", "30"]],
-    ["Input", ["Mouse/Keyboard", "Keyboard"]],
-]
-
-tab2layout = [
-    [
-        sg.Text("Curb: "),
-        sg.DropDown(("N", "S", "E", "W"), k="curbddl"),
-        sg.Radio("CL", "roadtype", k="cl"),
-        sg.Radio("RE", "roadtype", k="re"),
-    ],
-    [
-        sg.B("Change street", k="tab1getstreet"),
-        sg.T(k="tab1street"),
-    ],
-    [sg.B("Intersecting street:", k="tab2getstreet"), sg.I(k="tab1intersection")],
-    [sg.Submit(k="sketchbuild_submit")],
-]
-tab1layout: list = [[]]
-lcol = [
-    [sg.Sizer(0, 0)],
-    [notify_inputmode],
-    [sg.Button('Select', button_color=('yellow', 'black'))],
-    [sg.Button('Line')],
-    [sg.Button('Cable')],
-    [sg.Button('Road')],
-    [sg.Button('Small Text')],
-    [sg.Button('Large Text')],
-    [sg.Button('H.Arrow')],
-    [sg.Button('V.Arrow')],
-]
-
-canvasmenu = ["", ["Snap to Grid"]]
-
-col = [
-    [notify, sg.VerticalSeparator(), notify2, sg.VerticalSeparator(), notify3],
-    [
-        sg.Graph(
-            canvas_size=(700, 600),
-            graph_bottom_left=(0, HEIGHT),
-            graph_top_right=(WIDTH, 0),
-            background_color="white",
-            right_click_menu=canvasmenu,
-            key="graph",
-            enable_events=True,
-            motion_events=True,
-            drag_submits=True,
-        ),
-    ],
-    [
-        sg.Button("Short Gas", enable_events=True),
-        sg.Button("Long Gas", enable_events=True),
-        sg.Button("Radius", enable_events=True),
-        sg.Button("St to St", enable_events=True),
-        sg.Button("BL to BL", enable_events=True),
-        sg.B("Read template", enable_events=True, k="read_file"),
-        sg.B("Form"),
-    ],
-]
-
-rcol = [
-        [sg.T("0, 0", k='ccord')],
-        [sg.T("", k="startpoint")],
-        [sg.T("", k="endpoint")],
-        [sg.Text("Object features")],
-        [sg.Text("Object type:",), sg.Input(k='lblobject_type', readonly=True)],
-        [sg.Text("Coords:"), sg.Input(k='objcoords', readonly=True)],
-        [sg.Text("Tag:"), sg.I(k='tag',readonly=True)],
-        [sg.T('ID'), sg.I(k='ID', readonly=True)],
-        [sg.T('*PARSER')],
-        [sg.Input(do_not_clear=False, k='parser_input'), sg.Submit(k='parser_submit')],
-        ]
 
 
-layout = [[sg.Column(lcol,justification='left',element_justification='left',vertical_alignment='t'), sg.Menu(menu_def), sg.Column(col,justification="left",element_justification='left',expand_x=True), sg.Column(rcol, justification='left',element_justification='left')]]
 
 # enums
 class CurrentMode(Enum):
     SELECT = 1
     CHOSEN = 2
 
+
 # classes
 
 
-class TDInterface():
-
+class TDInterface:
     def __init__(self):
         pass
+
+
 # WRAPPER FUNCTIONS
 
 
@@ -286,15 +273,16 @@ def save_element_as_file(element, filename):
         include_layered_windows=True,
     )
     grab.save(filename)
-    ImageGrab.grab(0) # type: ignore
+    ImageGrab.grab(0)  # type: ignore
 
 
 def add_figure_to_record(record: list, figtype: str, *args) -> None:
     figstr = ""
-    figstr += figtype + ';'
-    figstr += ';'.join([str(x) for x in args])
+    figstr += figtype + ";"
+    figstr += ";".join([str(x) for x in args])
     record.append(figstr)
-    #Print(record)
+    # Print(record)
+
 
 def convert_to_bytes(file_or_bytes, resize=None):
     """
@@ -313,6 +301,7 @@ def convert_to_bytes(file_or_bytes, resize=None):
         try:
             img = PIL.Image.open(io.BytesIO(base64.b64decode(file_or_bytes)))
         except Exception as e:
+            logging.exception(e)
             dataBytesIO = io.BytesIO(file_or_bytes)
             img = PIL.Image.open(dataBytesIO)
 
@@ -321,14 +310,14 @@ def convert_to_bytes(file_or_bytes, resize=None):
         new_width, new_height = resize
         scale = min(new_height / cur_height, new_width / cur_width)
         img = img.resize(
-            (int(cur_width * scale), int(cur_height * scale)), PIL.Image.ANTIALIAS
+            (int(cur_width * scale), int(cur_height * scale)), resample=LANCZOS
         )
     bio = io.BytesIO()
     img.save(bio, format="PNG")
     del img
     return bio.getvalue()
 
-    
+
 def convert_measurement(meas=None):
     """
     Converts a measurement string to a formatted string with the unit 'm'.
@@ -362,27 +351,25 @@ def convert_multi_measurement() -> list:
     """
     returns a measurement list
     """
-    newmeas: list = []
-    meas = popup_get_text("Enter measurements(int) separated by comma")
-    if meas is not None:
-        for p in meas.split(","):
-            try:
-                if len(p) == 1:
-                    newmeas.append("0." + p + "m")
-                elif len(p) == 2:
-                    newmeas.append(p[0] + "." + p[1] + "m")
-                elif len(p) == 3:
-                    newmeas.append([0] + p[1] + "." + p[2] + "m")
-                assert newmeas is not None
-            except TypeError:
-                logging.exception("empty measurement")
-                return
-        assert len(newmeas) > 1
-        return newmeas
+    measurements = popup_get_text("Enter measurements(int) separated by comma")
+    lom: list = []
+    if measurements is None:
+        logging.exception("empty measurement")
+        return []
+    for p in measurements.split(","):
+        if len(p) == 1:
+            lom.append("0." + p + "m")
+        elif len(p) == 2:
+            lom.append(p[0] + "." + p[1] + "m")
+        elif len(p) == 3:
+            lom.append([0] + p[1] + "." + p[2] + "m")
+    if len(lom) < 1:
+        logging.exception("insufficent measurements")
+        return []
 
 
-def logerror():
-    logging.exception("Caught an error")
+def logerror(e):
+    logging.exception(e)
 
 
 def show_grid():
@@ -430,51 +417,41 @@ def wipe():
 
     """
     Erases drawing
-    
+
     """
 
     confirm: str = popup_yes_no("Erase entire image?")
     if confirm == "Yes":
-        window['graph'].erase()
+        graph.erase()
     else:
         pass
 
 
+def draw_line_and_label(x1, y1, x2, y2, meas, is_horizontal):
+    arrow1 = sg.Graph.draw_line(graph, (x1, y1), (x2, y2))
+    arrow2 = sg.Graph.draw_line(graph, (x2, y2), (x1, y1))
+    if is_horizontal:
+        hlabelm(meas, min(x1, x2) - 4, y1, 11)
+    else:
+        vlabelm(meas, x1, min(y1, y2) - 4, 11)
+    return arrow1, arrow2
+
+
 def rarrow(x1, y1, x2, y2, meas=None):
-    # horizontal
     if meas is None:
         meas = convert_measurement()
-    # notify3.update(slope)
     try:
-
-        if x1 < x2 and y1 == y2:
-            arrow1 = sg.Graph.draw_line(graph, (x1, y1), (x1 - 2, y1))
-            arrow2 = sg.Graph.draw_line(graph, (x2, y2), (x2 + 2, y2))
-            hlabelm(meas, x1 - 4, y1, 11)
-        elif x1 > x2 and y1 == y2:
-            arrow1 = sg.Graph.draw_line(graph, (x1, y1), (x1 + 2, y1))
-            arrow2 = sg.Graph.draw_line(graph, (x2, y2), (x2 - 2, y2))
-            hlabelm(meas, x1 + 4, y1, 11)
-        # vertical
-        elif x1 == x2 and y1 < y2:
-            arrow1 = sg.Graph.draw_line(graph, (x1, y1), (x1, y1 - 2))
-            arrow2 = sg.Graph.draw_line(graph, (x2, y2), (x2, y2 + 2))
-            vlabelm(meas, x1, y1 - 4, 11)
-        elif x1 == x2 and y1 > y2:
-            arrow1 = sg.Graph.draw_line(graph, (x1, y1), (x1, y1 + 2))
-            arrow2 = sg.Graph.draw_line(graph, (x2, y2), (x2, y2 - 2))
-            vlabelm(meas, x1, y1 + 4, 11)
+        if y1 == y2:  # horizontal
+            arrow1, arrow2 = draw_line_and_label(x1, y1, x2, y2, meas, True)
+        elif x1 == x2:  # vertical
+            arrow1, arrow2 = draw_line_and_label(x1, y1, x2, y2, meas, False)
         else:
-            popup("Cant do this")
-        # diagonal ?
-    # elif x1 != x2 and y1 != y2:
-    # arrow1 = sg.Graph.draw_line(graph,(x1,y1),(x1-(x2-x1),y1-(y2-y1)))
-    # arrow2 = sg.Graph.draw_line(graph,(x2,y2),(x2-(x2-x1),y2-(y2-y1)))
-    except ValueError:
-        pass
+            raise ValueError("Coordinates must form a horizontal or vertical line")
+    except ValueError as e:
+        popup(str(e))
+        return
     TK.itemconfig(arrow1, arrow="first")
     TK.itemconfig(arrow2, arrow="first")
-
 
 def arrow(dir, x, y):
     """
@@ -493,33 +470,65 @@ def arrow(dir, x, y):
     try:
         if dir == "n":
             graph.DrawPolygon(
-                [(x, y), (x - ((0.25/30)*HEIGHT), y + ((0.5/30)*HEIGHT)), (x + ((0.25/30)*HEIGHT), y + ((0.5/30)*HEIGHT))],
+                [
+                    (x, y),
+                    (x - ((0.25 / 30) * HEIGHT), y + ((0.5 / 30) * HEIGHT)),
+                    (x + ((0.25 / 30) * HEIGHT), y + ((0.5 / 30) * HEIGHT)),
+                ],
                 fill_color="black",
                 line_color="black",
             )
-            graph.DrawLine((x, y + ((0.5/30)*HEIGHT)), (x, y + ((1.5/30)*HEIGHT)), width=1.5)
+            graph.DrawLine(
+                (x, y + ((0.5 / 30) * HEIGHT)),
+                (x, y + ((1.5 / 30) * HEIGHT)),
+                width=1.5,
+            )
         elif dir == "s":
             graph.DrawPolygon(
-                [(x, y), (x - ((0.25/30)*HEIGHT), y - ((0.5/30)*HEIGHT)), (x + ((0.25/30)*HEIGHT), y - ((0.5/30)*HEIGHT))],
+                [
+                    (x, y),
+                    (x - ((0.25 / 30) * HEIGHT), y - ((0.5 / 30) * HEIGHT)),
+                    (x + ((0.25 / 30) * HEIGHT), y - ((0.5 / 30) * HEIGHT)),
+                ],
                 fill_color="black",
                 line_color="black",
             )
-            graph.DrawLine((x, y - ((0.5/30)*HEIGHT)), (x, y - ((1.5/30)*HEIGHT)), width=1.5)
+            graph.DrawLine(
+                (x, y - ((0.5 / 30) * HEIGHT)),
+                (x, y - ((1.5 / 30) * HEIGHT)),
+                width=1.5,
+            )
         elif dir == "e":
             graph.DrawPolygon(
-                [(x, y), (x - ((0.5/30)*HEIGHT), y - ((0.25/30)*HEIGHT)), (x - ((0.5/30)*HEIGHT), y + ((0.25/30)*HEIGHT))],
+                [
+                    (x, y),
+                    (x - ((0.5 / 30) * HEIGHT), y - ((0.25 / 30) * HEIGHT)),
+                    (x - ((0.5 / 30) * HEIGHT), y + ((0.25 / 30) * HEIGHT)),
+                ],
                 fill_color="black",
                 line_color="black",
             )
-            graph.DrawLine((x - ((0.5/30)*HEIGHT), y), (x - ((1.5/30)*HEIGHT), y), width=1.5)
+            graph.DrawLine(
+                (x - ((0.5 / 30) * HEIGHT), y),
+                (x - ((1.5 / 30) * HEIGHT), y),
+                width=1.5,
+            )
         else:
             graph.DrawPolygon(
-                [(x, y), (x + ((0.5/30)*HEIGHT), y + ((0.25/30)*HEIGHT)), (x + ((0.5/30)*HEIGHT), y - ((0.25/30)*HEIGHT))],
+                [
+                    (x, y),
+                    (x + ((0.5 / 30) * HEIGHT), y + ((0.25 / 30) * HEIGHT)),
+                    (x + ((0.5 / 30) * HEIGHT), y - ((0.25 / 30) * HEIGHT)),
+                ],
                 fill_color="black",
                 line_color="black",
             )
-            graph.DrawLine((x + ((0.5/30)*HEIGHT), y), (x + ((1.5/30)*HEIGHT), y), width=1.5)
-    except:
+            graph.DrawLine(
+                (x + ((0.5 / 30) * HEIGHT), y),
+                (x + ((1.5 / 30) * HEIGHT), y),
+                width=1.5,
+            )
+    except Exception as e:
         logging.exception("caught an error")
 
 
@@ -553,8 +562,8 @@ def h_arrow(x1, x2, y, meas, measdir="l"):
                 hlabelm(meas, x1 - 2.8, y, 11)
             elif measdir.lower() == "r":
                 hlabelm(meas, x2 + 2.8, y, 11)
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)
 
 
 def v_arrow(x, y1, y2, meas, measdir="u"):
@@ -586,8 +595,8 @@ def v_arrow(x, y1, y2, meas, measdir="u"):
                 vlabelm(meas, x, y1 - 2.8, 11)
             elif measdir.lower() == "d":
                 vlabelm(meas, x, y2 + 2.8, 11)
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)
 
 
 def v_multi_arrow(x, yo, y1, y2, meas, measdir="u"):
@@ -609,21 +618,32 @@ def v_multi_arrow(x, yo, y1, y2, meas, measdir="u"):
                 vlabelm(meas, x, yo - 3.3, 11)
             else:
                 vlabelm(meas, x, y2 + 3.3, 11)
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)
 
 
 def pole(x, y):
     try:
         p = graph.draw_circle((x, y), 1, fill_color="white")
-        TK.itemconfig(p,activefill='blue')
-    except:
-        logerror()
+        TK.itemconfig(p, activefill="blue")
+    except Exception as e:
+        logerror(e)
 
 
 def ped_stub(pedx, pedy, stub_endx, stub_endy):
     pass
 
+
+def draw_arc_with_style(graph, start, end, start_angle, end_angle, line_type=None):
+    id = sg.Graph.draw_arc(graph, start, end, start_angle, end_angle, style="arc")
+    if line_type == "road":
+        TK.itemconfig(id, width=3)
+        group("road", id)
+    elif line_type == "cable":
+        TK.itemconfig(id, width=2, dash=(10, 5))
+        group("cable", id)
+    TK.itemconfig(id, activefill="red")
+    return id
 
 def arc(x1, y1, x2, y2, line_type=None):
     """
@@ -633,51 +653,45 @@ def arc(x1, y1, x2, y2, line_type=None):
 
     line_type -default is thin line, accepts 'road' or 'cable'
     """
-    if x2 > x1 and y2 > y1:
-        # down and right
-        id = sg.Graph.draw_arc(
-            graph, (x1 - (x2 - x1), y1), (x2, y2 + (y2 - y1)), -90, 90, style="arc"
-        )
-    elif x2 > x1 and y2 < y1:
-        # up and to the right
-        id = sg.Graph.draw_arc(
-            graph, (x1 - (x2 - x1), y2 - (y1 - y2)), (x2, y1), 90, 270, style="arc"
-        )
-    elif x2 < x1 and y2 > y1:
-        # down and to the left
-        id = sg.Graph.draw_arc(
-            graph, (x2, y1), (x1 + (x1 - x2), y2 + (y2 - y1)), 90, 90, style="arc"
-        )
-    elif x2 < x1 and y2 < y1:
-        # up and to the left
-        id = sg.Graph.draw_arc(
-            graph, (x2, y2 - (y1 - y2)), (x1 + (x1 - x2), y1), -90, 270, style="arc"
-        )
     try:
-        if line_type == "road":
-            TK.itemconfig(id, width=3)
-            group("road", id)
-        elif line_type == "cable":
-            TK.itemconfig(id, width=2, dash=(10, 5))
-            group("cable", id)
-        TK.itemconfig(id, activefill='red')
-        return id
-    except:
-        logerror()
+        if x2 > x1 and y2 > y1:
+            # down and right
+            return draw_arc_with_style(graph, (x1 - (x2 - x1), y1), (x2, y2 + (y2 - y1)), -90, 90, line_type)
+        elif x2 > x1 and y2 < y1:
+            # up and to the right
+            return draw_arc_with_style(graph, (x1 - (x2 - x1), y2 - (y1 - y2)), (x2, y1), 90, 270, line_type)
+        elif x2 < x1 and y2 > y1:
+            # down and to the left
+            return draw_arc_with_style(graph, (x2, y1), (x1 + (x1 - x2), y2 + (y2 - y1)), 90, 90, line_type)
+        elif x2 < x1 and y2 < y1:
+            # up and to the left
+            return draw_arc_with_style(graph, (x2, y2 - (y1 - y2)), (x1 + (x1 - x2), y1), -90, 270, line_type)
+
+    except Exception as e:
+        logerror(e)
+
+
 
 
 def transformer(x, y):
     try:
         txr = graph.draw_rectangle(
-            (x - ((1/HEIGHT)*HEIGHT), y - ((1/HEIGHT)*HEIGHT)), (x + ((1/HEIGHT)*HEIGHT), y + ((1/HEIGHT)*HEIGHT)), line_color="black"
+            (x - ((1 / HEIGHT) * HEIGHT), y - ((1 / HEIGHT) * HEIGHT)),
+            (x + ((1 / HEIGHT) * HEIGHT), y + ((1 / HEIGHT) * HEIGHT)),
+            line_color="black",
         )
         txtri = graph.draw_polygon(
-            [(x, y - ((1/HEIGHT)*HEIGHT)), (x - ((1/HEIGHT)*HEIGHT), y + ((1/HEIGHT)*HEIGHT)), (x + ((1/HEIGHT)*HEIGHT), y + ((1/HEIGHT)*HEIGHT))], fill_color="black"
+            [
+                (x, y - ((1 / HEIGHT) * HEIGHT)),
+                (x - ((1 / HEIGHT) * HEIGHT), y + ((1 / HEIGHT) * HEIGHT)),
+                (x + ((1 / HEIGHT) * HEIGHT), y + ((1 / HEIGHT) * HEIGHT)),
+            ],
+            fill_color="black",
         )
         TK.addtag_withtag("transformer", txr)
         TK.addtag_withtag("transformer", txtri)
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)
 
 
 def vault(x, y, utility=None):
@@ -692,12 +706,12 @@ def vault(x, y, utility=None):
     else:
         vault_label = "HW"
     v1 = graph.draw_rectangle(
-        (x - 2, y - 1), (x + 2, y + 1), line_color="black", fill_color='White'
+        (x - 2, y - 1), (x + 2, y + 1), line_color="black", fill_color="White"
     )
-    TK.itemconfig(v1,activeoutline='red')
+    TK.itemconfig(v1, activeoutline="red")
 
     v2 = graph.draw_text(vault_label, (x, y), font="Arial 7 bold")
-    TK.itemconfig(v2,activefill='red')
+    TK.itemconfig(v2, activefill="red")
     # prfloat(v2)
     graph.bring_figure_to_front(v2)
 
@@ -708,12 +722,12 @@ def vault(x, y, utility=None):
 def catch_basin(x, y):
     cb = sg.Graph.draw_rectangle(
         graph,
-        (x - ((1/HEIGHT)*HEIGHT), y - ((1/HEIGHT)*HEIGHT)),
-        (x + ((1/HEIGHT)*HEIGHT), y + ((1/HEIGHT)*HEIGHT)),
+        (x - ((1 / HEIGHT) * HEIGHT), y - ((1 / HEIGHT) * HEIGHT)),
+        (x + ((1 / HEIGHT) * HEIGHT), y + ((1 / HEIGHT) * HEIGHT)),
         line_color="black",
         line_width=1.5,
     )
-    TK.itemconfig(cb, activeoutline='red')
+    TK.itemconfig(cb, activeoutline="red")
     group("cb", cb)
 
 
@@ -724,10 +738,10 @@ def hlabel(msg, x, y, size, bold=True):
         isbold = " bold" if bold else " normal"
         fontstr = f"Arial {str(size)} {isbold}"
         ht = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
-        TK.itemconfig(ht, activefill='red')
+        TK.itemconfig(ht, activefill="red")
         return ht
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)
 
 
 def hlabelm(msg, x, y, size):
@@ -736,8 +750,8 @@ def hlabelm(msg, x, y, size):
             graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal"
         )
         return h
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def vlabel(msg, x, y, size, bold=True):
@@ -747,10 +761,10 @@ def vlabel(msg, x, y, size, bold=True):
         isbold = " bold" if bold else " normal"
         fontstr = f"Arial {str(size)} {isbold}"
         vt = sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr, angle=90)
-        TK.itemconfig(vt, activefill='red')
+        TK.itemconfig(vt, activefill="red")
         return vt
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def vlabelm(msg, x, y, size):
@@ -758,8 +772,8 @@ def vlabelm(msg, x, y, size):
         sg.Graph.draw_text(
             graph, msg.lower(), (x, y), font="Arial " + str(size) + " normal", angle=90
         )
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def item_stamp(x, y):
@@ -767,9 +781,9 @@ def item_stamp(x, y):
         im = sg.Graph.draw_image(
             graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
         )
-        TK.itemconfig(im, activeoutline='red')
-    except:
-        logerror()
+        TK.itemconfig(im, activeoutline="red")
+    except Exception as e:
+        logerror(e)()
 
 
 def ped(x, y):
@@ -787,8 +801,8 @@ def ped(x, y):
         for item in [pedsq, pedline1, pedline2]:
             group("ped", item)
 
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def ped_1arm(pedx, pedy, intercept_x, intercept_y):
@@ -875,7 +889,7 @@ def set_landbase(dir, edge_type="CL"):
         # draws a landbase
         if dir.lower() == "n":
             road(*NCURB)
-            hlabel(f"N{edge_type}", *HNCURBLABEL)   
+            hlabel(f"N{edge_type}", *HNCURBLABEL)
         elif dir.lower() == "ne":
             h_road(9, 28, 23)
             hlabel(f"N{edge_type}", 27, 24, 10)
@@ -923,13 +937,13 @@ def set_landbase(dir, edge_type="CL"):
         landbase = dir.lower()
         return landbase
     except AttributeError:
-        logerror()
+        logerror(e)()
 
 
 def set_street_name(street, landbase):
     # enters street name on sketch
     if landbase.lower() == "n":
-        hlabel(street,*NSTREET, 16, bold=False)
+        hlabel(street, *NSTREET, 16, bold=False)
     elif landbase.lower() == "s":
         hlabel(street, *SSTREET, 16, bold=False)
     elif landbase.lower() == "e":
@@ -982,8 +996,8 @@ def road(x1, y1, x2, y2):
         graph.TKCanvas.itemconfig(r, activefill="red")
         TK.itemconfig(r, capstyle="round")
         TK.addtag_withtag("road", r)
-    except :
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def road_corner(start, arc_start, arc_end, end):
@@ -997,7 +1011,7 @@ def road_corner(start, arc_start, arc_end, end):
         end: end point (x, y)
     """
     road(*start, *arc_start)
-    arc(*arc_start, *arc_end, 'road')
+    arc(*arc_start, *arc_end, "road")
     road(*arc_end, *end)
 
 
@@ -1024,26 +1038,26 @@ def offset_line(x1, y1, x2, y2):
         TK.itemconfig(offset, capstyle="round")
         TK.itemconfig(offset, activefill="red")
         TK.addtag_withtag("oline", offset)
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def cable_poly(*points):
     try:
         cablepoly = sg.Graph.draw_lines(graph, points, width="3")
         TK.itemconfig(cablepoly, dash=(20, 10))
-        TK.itemconfig(cablepoly, activefill='red')
-        TK.itemconfig(cablepoly, capstyle='round')
-    except:
-        logerror()
+        TK.itemconfig(cablepoly, activefill="red")
+        TK.itemconfig(cablepoly, capstyle="round")
+    except Exception as e:
+        logerror(e)()
 
 
 def cable(x1, y1, x2, y2, label=""):
     try:
         cable = sg.Graph.draw_line(graph, (x1, y1), (x2, y2), width="3")
         TK.itemconfig(cable, dash=(20, 10))
-        TK.itemconfig(cable, activefill='red')
-        TK.itemconfig(cable, capstyle='round')
+        TK.itemconfig(cable, activefill="red")
+        TK.itemconfig(cable, capstyle="round")
         if label:
             # check for horizontal or vertical lines
             if x1 == x2:
@@ -1055,7 +1069,7 @@ def cable(x1, y1, x2, y2, label=""):
                 for y in range(round(y1), round(y2), gap):
                     # white box
                     if len(label) <= 2:
-                        s = ((((0.25/30)*HEIGHT)/30)*HEIGHT)
+                        s = (((0.25 / 30) * HEIGHT) / 30) * HEIGHT
                     else:
                         s = 0.6
                     tbox = sg.Graph.draw_rectangle(
@@ -1082,7 +1096,7 @@ def cable(x1, y1, x2, y2, label=""):
                     # white box
                     # check for text size
                     if len(label) <= 2:
-                        s = ((((0.25/30)*HEIGHT)/30)*HEIGHT)
+                        s = (((0.25 / 30) * HEIGHT) / 30) * HEIGHT
                     else:
                         s = 0.6
                     tbox = sg.Graph.draw_rectangle(
@@ -1098,8 +1112,8 @@ def cable(x1, y1, x2, y2, label=""):
                         graph, label.upper(), (x, y1), font="Arial 7 normal"
                     )
                     TK.addtag_withtag("cable", tlab)
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def h_cable(x1, x2, y, label=""):
@@ -1114,7 +1128,7 @@ def h_cable(x1, x2, y, label=""):
             # white box
             # check for text size
             if len(label) <= 2:
-                s = ((((0.25/30)*HEIGHT)/30)*HEIGHT)
+                s = (((0.25 / 30) * HEIGHT) / 30) * HEIGHT
             else:
                 s = 0.6
             sg.Graph.draw_rectangle(
@@ -1138,7 +1152,7 @@ def v_cable(x, y1, y2, label=""):
         for y in range(round(y1), round(y2), gap):
             # white box
             if len(label) <= 2:
-                s = ((((0.25/30)*HEIGHT)/30)*HEIGHT)
+                s = (((0.25 / 30) * HEIGHT) / 30) * HEIGHT
             else:
                 s = 0.6
             sg.Graph.draw_rectangle(
@@ -1156,8 +1170,8 @@ def line(x1, y1, x2, y2):
         l = sg.Graph.draw_line(graph, (x1, y1), (x2, y2))
         TK.itemconfig(l, activefill="red")
         TK.itemconfig(l, capstyle="round")
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def h_line(x1, x2, y):
@@ -1222,11 +1236,11 @@ def digbox(x1, y1, x2, y2):
         db = graph.draw_rectangle(
             (x1, y1), (x2, y2), fill_color="gainsboro", line_color="black"
         )
-        graph.TKCanvas.itemconfig(db, stipple="gray25", activeoutline='red')
+        graph.TKCanvas.itemconfig(db, stipple="gray25", activeoutline="red")
         sg.Graph.send_figure_to_back(db)
         TK.addtag_withtag("digbox", db)
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def building(x1, y1, x2, y2):
@@ -1239,16 +1253,16 @@ def building(x1, y1, x2, y2):
             line_color="black",
             line_width=1,
         )
-        TK.itemconfig(b, activeoutline='red')
-    except:
-        logerror()
+        TK.itemconfig(b, activeoutline="red")
+    except Exception as e:
+        logerror(e)
 
 
 def located_area(x, y):
     try:
         sg.Graph.draw_text(graph, "LOCATED AREA", (x, y), font="Arial 11 bold")
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def house(x, y, size, num):
@@ -1258,29 +1272,29 @@ def house(x, y, size, num):
     # num: house number
 
     if size == "m":
-         house_size = 8
+        house_size = 8
     elif size == "l":
         house_size = 10
     elif size == "s":
         house_size = 6
-    
+
     bldng = sg.Graph.draw_rectangle(
-            graph, (x, y), 
-            (x + house_size, y + house_size), 
-            line_color="black", 
-            fill_color="white"
-        )
-    hnumber = hlabel(num, x + (house_size/2), y + (house_size/2), 16)
-    nbl = hlabel("NBL", x + (house_size/2), y - 1, 10)
-    sbl = hlabel("SBL", x + (house_size/2), y + (house_size + 1), 10)
-    wbl = vlabel("WBL", x - 1, y + (house_size/2), 10)
-    ebl = vlabel("EBL", x + (house_size + 1), y + (house_size/2), 10)
+        graph,
+        (x, y),
+        (x + house_size, y + house_size),
+        line_color="black",
+        fill_color="white",
+    )
+    hnumber = hlabel(num, x + (house_size / 2), y + (house_size / 2), 16)
+    nbl = hlabel("NBL", x + (house_size / 2), y - 1, 10)
+    sbl = hlabel("SBL", x + (house_size / 2), y + (house_size + 1), 10)
+    wbl = vlabel("WBL", x - 1, y + (house_size / 2), 10)
+    ebl = vlabel("EBL", x + (house_size + 1), y + (house_size / 2), 10)
     # group all items
-    for _ in (bldng,hnumber, nbl, sbl, wbl, ebl):
+    for _ in (bldng, hnumber, nbl, sbl, wbl, ebl):
         group(f"house{size}", _)
-    
- 
-    
+
+
 def centre_pole():
     pole(WIDTH // 2, HEIGHT // 2)
 
@@ -1316,36 +1330,45 @@ def get_point():
     x, y = values["graph"]
     return x, y
 
+
 def draw_point1(x, y, color="red"):
     try:
-        point1 = sg.Graph.draw_point(graph, (x, y), size=((0.5/30)*HEIGHT), color=color)
+        point1 = sg.Graph.draw_point(
+            graph, (x, y), size=((0.5 / 30) * HEIGHT), color=color
+        )
         return point1
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def draw_point2(x, y, color="blue"):
     try:
-        point2 = sg.Graph.draw_point(graph, (x, y), size=((0.5/30)*HEIGHT), color=color)
+        point2 = sg.Graph.draw_point(
+            graph, (x, y), size=((0.5 / 30) * HEIGHT), color=color
+        )
         return point2
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
 
 def draw_point3(x, y, color="green"):
     try:
-        point3 = sg.Graph.draw_point(graph, (x, y), size=((0.5/30)*HEIGHT), color=color)
+        point3 = sg.Graph.draw_point(
+            graph, (x, y), size=((0.5 / 30) * HEIGHT), color=color
+        )
         return point3
-    except:
-        logerror()
+    except Exception as e:
+        logerror(e)()
 
-def draw_point4(x, y, color='orange'):
+
+def draw_point4(x, y, color="orange"):
     try:
-        point4 = sg.Graph.draw_point(graph, (x, y), size=((0.5/30)*HEIGHT), color=color)
+        point4 = sg.Graph.draw_point(
+            graph, (x, y), size=((0.5 / 30) * HEIGHT), color=color
+        )
         return point4
-    except:
-        logerror()
-
+    except Exception as e:
+        logerror(e)()
 
 
 def cleanup_2point():
@@ -1359,7 +1382,7 @@ def edit_text():
     try:
         string = popup_get_text("Enter new text")
         TK.itemconfig("current", text=string)
-    except:
+    except Exception as e:
         popup("Not a text object")
         pass
 
@@ -1412,7 +1435,7 @@ def read_from_template(file):
         except IndexError:
             pass
 
-        except:
+        except Exception as e:
             logging.exception("error")
             popup("There was an error in template file")
 
@@ -1454,12 +1477,13 @@ def load_sketch_template() -> None:
             TK.create_line(y, **z)
         elif x == "text":
             TK.create_text(y, **z)
-        elif x == 'image':
+        elif x == "image":
             pass
         elif x == "polygon":
             TK.create_polygon(y, **z)
         elif x == "arc":
             TK.create_arc(y, **z)
+
 
 def parse_bl_string(bl_string: str) -> dict:
     """
@@ -1478,7 +1502,7 @@ def parse_bl_string(bl_string: str) -> dict:
 
     If the input string does not have the expected format, the function returns None.
     """
-    
+
     bl_list = bl_string.split(",")
     if len(bl_list) < 6:
         return None
@@ -1491,7 +1515,7 @@ def parse_bl_string(bl_string: str) -> dict:
             return None
         # check that measurement is a positive integer
         if not bl_list[5].strip().isdigit():
-            return None 
+            return None
         bl_dict = {
             "street_name": bl_list[0].strip().upper(),
             "landbase": bl_list[1].strip(),
@@ -1502,7 +1526,8 @@ def parse_bl_string(bl_string: str) -> dict:
         }
         return bl_dict
 
-def render_template(bl_string: str=None):
+
+def render_template(bl_string: str = None):
     """
     Renders a drawing template
 
@@ -1515,33 +1540,39 @@ def render_template(bl_string: str=None):
 
     """
     if not bl_string:
-        bl_string = sg.popup_get_text("Enter BL string - Separate fields with commas (street name, landbase, choice, house1, house2, measurement))")
+        bl_string = sg.popup_get_text(
+            "Enter BL string - Separate fields with commas (street name, landbase, choice, house1, house2, measurement))"
+        )
     try:
         bl_dict = parse_bl_string(bl_string)
     except AttributeError:
         popup("Invalid BL string")
         return
     if bl_dict is None:
-        #dont want to do anything if the bl string is invalid so just return
+        # dont want to do anything if the bl string is invalid so just return
         popup("Invalid BL string")
         return
     else:
-        bl_to_bl(bl_dict["landbase"], bl_dict["house1"], bl_dict["house2"], bl_dict["street_name"])
+        bl_to_bl(
+            bl_dict["landbase"],
+            bl_dict["house1"],
+            bl_dict["house2"],
+            bl_dict["street_name"],
+        )
         c = get_cable(bl_dict["landbase"], bl_dict["choice"])
-        cable(*c,"TMX")
+        cable(*c, "TMX")
         m = convert_measurement(bl_dict["measurement"])
         ac = get_arrow_coords(bl_dict["landbase"])
         rarrow(*ac, m)
         savefile = f'{bl_dict["street_name"]} {bl_dict["house1"]} to {bl_dict["house2"]} tmx.png'
-        path = pathlib.Path(r'C:\Users\Cr\Documents')
+        path = pathlib.Path(r"C:\Users\Cr\Documents")
         save_choice = sg.popup_yes_no(f"Save as {savefile}?")
         if save_choice == "Yes":
-            save_element_as_file(graph, path / f'{savefile}')
+            save_element_as_file(graph, path / f"{savefile}")
             save_sketch_template(savefile)
             popup(f"Saved as {savefile}")
-        
-        #render_measurement(landbase,bl_dict["mmeasurement)
 
+        # render_measurement(landbase,bl_dict["mmeasurement)
 
 
 def get_cable(landbase: str, choice: str) -> None:
@@ -1559,79 +1590,79 @@ def get_cable(landbase: str, choice: str) -> None:
         y1 = NCURB[1] - 2
         y2 = NCURB[1] - 2
         if choice == "o":
-            #wbl to ebl
+            # wbl to ebl
             x1 = NBLHOUSE1[0]
             x2 = NBLHOUSE2[0] + 8
         elif choice == "i":
-            #ebl to wbl
+            # ebl to wbl
             x1 = NBLHOUSE1[0] + 8
             x2 = NBLHOUSE2[0]
         elif choice == "se":
-            #ebl to ebl
+            # ebl to ebl
             x1 = NBLHOUSE1[0] + 8
             x2 = NBLHOUSE2[0] + 8
         elif choice == "nw":
-            #wbl to wbl
+            # wbl to wbl
             x1 = NBLHOUSE1[0]
             x2 = NBLHOUSE2[0]
-    
+
     elif landbase == "s":
         y1 = SCURB[1] + 2
         y2 = SCURB[1] + 2
         if choice == "o":
-            #wbl to ebl
+            # wbl to ebl
             x1 = SBLHOUSE1[0]
             x2 = SBLHOUSE2[0] + 8
         elif choice == "i":
-            #ebl to wbl
+            # ebl to wbl
             x1 = SBLHOUSE1[0] + 8
             x2 = SBLHOUSE2[0]
         elif choice == "se":
-            #ebl to ebl
+            # ebl to ebl
             x1 = SBLHOUSE1[0] + 8
             x2 = SBLHOUSE2[0] + 8
         elif choice == "nw":
-            #wbl to wbl
+            # wbl to wbl
             x1 = SBLHOUSE1[0]
             x2 = SBLHOUSE2[0]
-    
+
     elif landbase == "e":
         x1 = ECURB[0] + 2
         x2 = ECURB[0] + 2
         if choice == "o":
-            #nbl to sbl
+            # nbl to sbl
             y1 = EBLHOUSE1[1]
             y2 = EBLHOUSE2[1] + 8
         elif choice == "i":
-            #sbl to nbl
+            # sbl to nbl
             y1 = EBLHOUSE1[1] + 8
             y2 = EBLHOUSE2[1]
         elif choice == "se":
-            #sbl to sbl
+            # sbl to sbl
             y1 = EBLHOUSE1[1] + 8
             y2 = EBLHOUSE2[1] + 8
         elif choice == "nw":
-            #nbl to nbl
+            # nbl to nbl
             y1 = EBLHOUSE1[1]
             y2 = EBLHOUSE2[1]
-    
+
     elif landbase == "w":
         x1 = WCURB[0] - 2
         x2 = WCURB[0] - 2
         if choice == "o":
-            #nbl to sbl
+            # nbl to sbl
             y1 = WBLHOUSE1[1]
             y2 = WBLHOUSE2[1] + 8
         elif choice == "i":
-            #sbl to nbl
+            # sbl to nbl
             y1 = WBLHOUSE1[1] + 8
             y2 = WBLHOUSE2[1]
         elif choice == "se":
-            #sbl to sbl
+            # sbl to sbl
             y1 = WBLHOUSE1[1] + 8
             y2 = WBLHOUSE2[1] + 8
         elif choice == "nw":
-            #nbl to nbl
+            # nbl to nbl
             y1 = WBLHOUSE1[1]
             y2 = WBLHOUSE2[1]
 
@@ -1652,7 +1683,7 @@ def get_arrow_coords(landbase: str) -> None:
     - For a w landbase, the arrows are placed at (44,28) and (46,28)
 
     """
-    
+
     if landbase == "n":
         return [37, 38, 37, 40]
     elif landbase == "s":
@@ -1661,8 +1692,6 @@ def get_arrow_coords(landbase: str) -> None:
         return [23, 28, 25, 28]
     elif landbase == "w":
         return [44, 28, 46, 28]
-
-    
 
 
 # callback routines
@@ -1692,7 +1721,7 @@ def short_gas():
             easy_print(logging.exception("err"))
             pass
 
-    except:
+    except Exception as e:
         easy_print(logging.exception("err"))
         pass
 
@@ -1731,7 +1760,7 @@ def long_gas():
             vlabel(street, 19, 15, 20)
         else:
             easy_print(logging.exception("err"))
-    except:
+    except Exception as e:
         easy_print(logging.exception("err"))
         pass
 
@@ -1847,8 +1876,10 @@ def bl_to_bl(dir=None, hnum1=None, hnum2=None, street=None):
         house(*WBLHOUSE1, hnum1)
         house(*WBLHOUSE2, hnum2)
 
+
 def get_parser_string(input):
     return input
+
 
 # barebones
 
@@ -1876,17 +1907,17 @@ tab1layout: list = [[]]
 lcol = [
     [sg.Sizer(0, 0)],
     [notify_inputmode],
-    [sg.Button('Select', button_color=('yellow', 'black'))],
-    [sg.Button('Line')],
-    [sg.Button('Cable')],
-    [sg.Button('Road')],
-    [sg.Button('Small Text')],
-    [sg.Button('Large Text')],
-    [sg.Button('H.Arrow')],
-    [sg.Button('V.Arrow')],
+    [sg.Button("Select", button_color=("yellow", "black"))],
+    [sg.Button("Line")],
+    [sg.Button("Cable")],
+    [sg.Button("Road")],
+    [sg.Button("Small Text")],
+    [sg.Button("Large Text")],
+    [sg.Button("H.Arrow")],
+    [sg.Button("V.Arrow")],
 ]
 
-canvasmenu = ["", ["Snap to Grid","Render Template"]]
+canvasmenu = ["", ["Snap to Grid", "Render Template"]]
 
 col = [
     [notify, sg.VerticalSeparator(), notify2, sg.VerticalSeparator(), notify3],
@@ -1915,32 +1946,64 @@ col = [
 ]
 
 rcol = [
-        [sg.T("0, 0", k='ccord')],
-        [sg.T("", k="startpoint")],
-        [sg.T("", k="endpoint")],
-        [sg.Text("Object features")],
-        [sg.Text("Object type:",), sg.Input(k='lblobject_type', readonly=True)],
-        [sg.Text("Coords:"), sg.Input(k='objcoords', readonly=True)],
-        [sg.Text("Tag:"), sg.I(k='tag',readonly=True)],
-        [sg.T('ID'), sg.I(k='ID', readonly=True)],
-        [sg.T('*PARSER')],
-        [sg.Input(do_not_clear=False, k='parser_input'), sg.Submit(k='parser_submit')],
-        ]
+    [sg.T("0, 0", k="ccord")],
+    [sg.T("", k="startpoint")],
+    [sg.T("", k="endpoint")],
+    [sg.Text("Object features")],
+    [
+        sg.Text(
+            "Object type:",
+        ),
+        sg.Input(k="lblobject_type", readonly=True),
+    ],
+    [sg.Text("Coords:"), sg.Input(k="objcoords", readonly=True)],
+    [sg.Text("Tag:"), sg.I(k="tag", readonly=True)],
+    [sg.T("ID"), sg.I(k="ID", readonly=True)],
+    [sg.T("*PARSER")],
+    [sg.Input(do_not_clear=False, k="parser_input"), sg.Submit(k="parser_submit")],
+]
 
 
-layout = [[sg.Column(lcol,justification='left',element_justification='left',vertical_alignment='t'), sg.Menu(menu_def), sg.Column(col,justification="left",element_justification='left',expand_x=True), sg.Column(rcol, justification='left',element_justification='left')]]
+layout = [
+    [
+        sg.Column(
+            lcol,
+            justification="left",
+            element_justification="left",
+            vertical_alignment="t",
+        ),
+        sg.Menu(menu_def),
+        sg.Column(
+            col, justification="left", element_justification="left", expand_x=True
+        ),
+        sg.Column(rcol, justification="left", element_justification="left"),
+    ]
+]
+
 
 def make_form_window():
-    landbases = ["NORTH","SOUTH","EAST","WEST","NORTHEAST","NORTHWEST", "SOUTHEAST","SOUTHWEST","HORIZONTAL", "VERTICAL"]
-
-    layout2  = [
-        [sg.Text("Landbase:"), sg.Combo(landbases, k='landbase')],
-        [sg.Text("Primary Street (Horizontal)"), sg.Input(k='street')],
-        [sg.Text("Secondary Street (Vertical)"), sg.I(k='street2')],
-        [sg.Submit(k='form_submit')],
+    landbases = [
+        "NORTH",
+        "SOUTH",
+        "EAST",
+        "WEST",
+        "NORTHEAST",
+        "NORTHWEST",
+        "SOUTHEAST",
+        "SOUTHWEST",
+        "HORIZONTAL",
+        "VERTICAL",
     ]
 
-    return sg.Window("Sketch Builder",layout2)
+    layout2 = [
+        [sg.Text("Landbase:"), sg.Combo(landbases, k="landbase")],
+        [sg.Text("Primary Street (Horizontal)"), sg.Input(k="street")],
+        [sg.Text("Secondary Street (Vertical)"), sg.I(k="street2")],
+        [sg.Submit(k="form_submit")],
+    ]
+
+    return sg.Window("Sketch Builder", layout2)
+
 
 window = sg.Window(
     "EZ Draw",
@@ -1959,10 +2022,10 @@ window = sg.Window(
 
 graph = window["graph"]
 
-window.bind('<Control-n>', 'NEW FILE')
-window.bind('<Control-w>', 'QUIT')
-graph.bind('<Enter>','GRAPH_ENTER')
-graph.bind('<Leave>', 'GRAPH_LEAVE')
+window.bind("<Control-n>", "NEW FILE")
+window.bind("<Control-w>", "QUIT")
+graph.bind("<Enter>", "GRAPH_ENTER")
+graph.bind("<Leave>", "GRAPH_LEAVE")
 
 TK = graph.tk_canvas
 # DRAW HERE
@@ -1989,50 +2052,49 @@ buttoniomulti = {
 }
 
 buttoniosingle = {
-    keys["1"]: ped,
-    keys["2"]: pole,
-    keys["3"]: item_stamp,
-    keys["4"]: transformer,
-    keys["5"]: vault,
-    keys["6"]: catch_basin,
+    "1": ped,
+    "2": pole,
+    "3": item_stamp,
+    "4": transformer,
+    "5": vault,
+    "6": catch_basin,
 }
 
-class DrawManager():
+
+class DrawManager:
     pass
 
-class PolyLine():
+
+class PolyLine:
     pass
 
-class Grid():
-    
+
+class Grid:
     def __init__(self, snap, visible):
         self.snap = snap
-        self.visible= visible
-        
+        self.visible = visible
+
     @property
     def snap(self):
         return self.snap
-    
+
     @snap.setter
     def snap(self, state):
         self.snap = state
-    
+
     @property
     def visible(self):
         return self.visible
-    
+
     @visible.setter
     def visible(self, value):
         self.visible = value
-        
+
     def show(self):
         pass
-    
+
     def hide(self):
         pass
-    
-        
-    
 
 
 # THESE GLOBALS ARE AN EMBARRASSMENT
@@ -2049,7 +2111,7 @@ graph.bind("<B1-Motion>", "drag")
 selected = []
 spoints = []
 dragging = False
-start_point = end_point = prior_rect = None
+start_point = end_point = prior_rect = (0, 0)
 etext = 0
 entered_text = ""
 collecting = False
@@ -2058,7 +2120,7 @@ cnodes = []
 input_mode = "mouse"
 cursorx = 0
 cursory = 0
-cursor = None
+cursor = (0, 0)
 hashline = None
 hashrect = None
 newmouse = None
@@ -2073,45 +2135,45 @@ record = []
 
 while True:
     event, values = window.read()
-    window['ccord'].update(values['graph'])
-    window['startpoint'].update(start_point)
-    window['endpoint'].update(end_point)
-    notify2.update(f'Event: {event} ')
-    notify3.update(f'Mode: {current_mode} ')
+    window["ccord"].update(values["graph"])
+    window["startpoint"].update(start_point)
+    window["endpoint"].update(end_point)
+    notify2.update(f"Event: {event} ")
+    notify3.update(f"Mode: {current_mode} ")
     notify_inputmode.update(input_mode)
     if event == sg.WIN_CLOSED:
         break
     if event == "parser_submit":
-        p_in = get_parser_string(values['parser_input'])
+        p_in = get_parser_string(values["parser_input"])
         print(p_in)
     if event == "Form":
         window2 = make_form_window()
         window2.finalize()
-    if event.endswith('ENTER'):
+    if event.endswith("ENTER"):
         in_graph = True
 
-    if event.endswith('LEAVE'):
+    if event.endswith("LEAVE"):
         in_graph = False
         graph.delete_figure(h_cursor_line)
         graph.delete_figure(v_cursor_line)
 
     if event == "Save":
         _savefile = popup_get_text("Save file name?")
-        #small = sg.popup_yes_no("Save as smaller image?")
+        # small = sg.popup_yes_no("Save as smaller image?")
         try:
             _savefile = _savefile.upper()
             graph.delete_figure(h_cursor_line)
             graph.delete_figure(v_cursor_line)
             save_element_as_file(graph, f"C:\\Users\\Cr\\Documents\\{_savefile}.png")
-            #makes a smaller image
-            '''
+            # makes a smaller image
+            """
             if small == "Yes":
                 skt = f"C:\\Users\\Cr\\Documents\\{_savefile}.png"
                 with PIL.Image.open(skt) as im:
                     rs = im.resize((570,560), PIL.Image.BILINEAR)
                     rs.save(skt)
                     sg.popup('Saved in 600x600 format')
-            '''
+            """
             save_sketch_template(_savefile)
         except ValueError:
             # prevents crashing if file extension not added
@@ -2126,7 +2188,7 @@ while True:
         try:
             load_sketch_template()
         except FileNotFoundError:
-            popup('Could not load template')
+            popup("Could not load template")
 
     if event == "Snap to Grid":
         if gridSnap is True:
@@ -2141,7 +2203,7 @@ while True:
         try:
             render_template()
         except FileNotFoundError:
-            popup('Could not load template')
+            popup("Could not load template")
     if event == "Exit":
         window.close()
 
@@ -2217,24 +2279,26 @@ while True:
             vlabel(street, ESTREET[0], ESTREET[1], 20)
 
     if event == keys["m"] and current_mode == "chosen":
-        current_mode = event_switch("move", "Please click location to move to, press Esc when finished")
+        current_mode = event_switch(
+            "move", "Please click location to move to, press Esc when finished"
+        )
 
     if event.endswith("MOVE") and (current_mode == "text"):
 
         notify2.update(end_point)
         notify3.update(current_mode)
         try:
-            end_point = values['graph']
+            end_point = values["graph"]
             sg.Graph.delete_figure(graph, etext)
             etext = sg.Graph.draw_text(
-                    graph,
-                    entered_text.upper(),
-                    end_point,
-                    color='black',
-                    font='Arial 10 bold'
-                    )
-        except:
-            pass
+                graph,
+                entered_text.upper(),
+                end_point,
+                color="black",
+                font="Arial 10 bold",
+            )
+        except Exception as e:
+            logerror(e)
 
     if event.endswith("MOVE"):
         notify3.update(end_point)
@@ -2242,13 +2306,13 @@ while True:
     if event.endswith("MOVE") and in_graph is True:
         graph.delete_figure(h_cursor_line)
         graph.delete_figure(v_cursor_line)
-        cursx, cursy = values['graph']
+        cursx, cursy = values["graph"]
         h_cursor_line = sg.Graph.draw_line(graph, (cursx, 0), (cursx, HEIGHT))
         v_cursor_line = sg.Graph.draw_line(graph, (0, cursy), (WIDTH, cursy))
         sg.Graph.send_figure_to_back(graph, h_cursor_line)
         sg.Graph.send_figure_to_back(graph, v_cursor_line)
-        TK.itemconfig(h_cursor_line, state='disabled')
-        TK.itemconfig(v_cursor_line, state='disabled')
+        TK.itemconfig(h_cursor_line, state="disabled")
+        TK.itemconfig(v_cursor_line, state="disabled")
 
     if event.endswith("MOVE") and (
         current_mode == "line2"
@@ -2266,10 +2330,12 @@ while True:
             hashline = sg.Graph.draw_line(graph, start_point, end_point, color="black")
             TK.itemconfig(hashline, dash=(2, 2))
 
-        except:
-            pass
+        except Exception as e:
+            logerror(e)
 
-    if event.endswith("MOVE") and (current_mode == "building2" or current_mode == 'digbox2'):
+    if event.endswith("MOVE") and (
+        current_mode == "building2" or current_mode == "digbox2"
+    ):
         notify2.update(end_point)
         notify3.update(current_mode)
         try:
@@ -2277,12 +2343,13 @@ while True:
             end_point = values["graph"]
             sg.Graph.delete_figure(graph, hashrect)
             # TK.coords(hashline,start_point[0]*20,start_point[1]*20,end_point[0]*20,end_point[1*20])
-            hashrect = sg.Graph.draw_rectangle(graph, start_point, end_point, line_color="black")
+            hashrect = sg.Graph.draw_rectangle(
+                graph, start_point, end_point, line_color="black"
+            )
             TK.itemconfig(hashrect, dash=(2, 2))
 
-        except:
+        except Exception as e:
             pass
-
 
     if event.endswith("MOVE") and current_mode == "move":
         try:
@@ -2315,14 +2382,18 @@ while True:
         else:
             end_point = (x, y)
 
-
     if event == "graphdrag" and dragging and current_mode == "select":
         try:
             x, y = values["graph"]
             end_point = (x, y)
             graph.delete_figure(prior_rect)
             prior_rect = sg.Graph.draw_rectangle(
-                graph, start_point, end_point, fill_color=None, line_color="blue", line_width=1
+                graph,
+                start_point,
+                end_point,
+                fill_color=None,
+                line_color="blue",
+                line_width=1,
             )
         except IndexError:
             pass
@@ -2333,8 +2404,10 @@ while True:
         end_point = (x, y)
         try:
             for idx, item in enumerate(selected):
-                graph.move_figure(item, end_point[0] - start_point[0], end_point[1] - start_point[1])
-        except:
+                graph.move_figure(
+                    item, end_point[0] - start_point[0], end_point[1] - start_point[1]
+                )
+        except Exception as e:
             pass
 
     # if event.endswith('drag'):
@@ -2370,7 +2443,7 @@ while True:
             sg.Graph.move_figure(graph, section, -1, 0)
             cursorpos = update_cursor_position(cursor)
 
-    if (event == keys['esc'] or event == keys["="]) and current_mode == "nextcable":
+    if (event == keys["esc"] or event == keys["="]) and current_mode == "nextcable":
         collecting = False
         cable_poly(*cpoints)
         cpoints.clear()
@@ -2389,9 +2462,8 @@ while True:
             pass
         if selected is not None:
             for item in selected[:]:
-                if (
-                    TK.type(item) == "rectangle"
-                    and "digbox" in TK.itemcget(item,"tag")
+                if TK.type(item) == "rectangle" and "digbox" in TK.itemcget(
+                    item, "tag"
                 ):
                     TK.itemconfig("digbox", fill="#D3D3D3", stipple="gray25")
                 elif TK.type(item) == "rectangle" or TK.type(item) == "oval":
@@ -2414,9 +2486,9 @@ while True:
         x, y = get_point1()
         buttoniosingle[event](x, y)
 
-    if event == 'NEW FILE':
-        sg.popup('New file')
-        print(event,values)
+    if event == "NEW FILE":
+        sg.popup("New file")
+        print(event, values)
 
     if event == keys["n"]:
         current_mode = event_switch("polyline", "Click next point of line")
@@ -2426,7 +2498,7 @@ while True:
 
     if event == keys[">"]:
         current_mode = event_switch("arrow1", "Please click first arrow head")
-    if event == keys['s']:
+    if event == keys["s"]:
         current_mode = event_switch("select", "Select figure")
     if event == keys["i"]:
         try:
@@ -2470,7 +2542,7 @@ while True:
         )
     if event == keys["_"]:
         current_mode = event_switch("corner", "Please click start point")
-    if event == keys['l'] or event == "Line":
+    if event == keys["l"] or event == "Line":
         current_mode = event_switch("line", "Please click first point of line")
     if event == keys["y"]:
         if TK.find_withtag("current") is not None:
@@ -2542,23 +2614,21 @@ while True:
 
     if event.endswith("+UP"):
         # signals end of drag or button click
-        if dragging == True:
+        if dragging:
             try:
-                enclosing =  TK.coords(
-                        prior_rect
-                )
-                #Print(enclosing)
+                enclosing = TK.coords(prior_rect)
+                # Print(enclosing)
                 enclosed_items = TK.find_overlapping(*enclosing)
                 graph.delete_figure(prior_rect)
                 enclosed_items = list(enclosed_items)
                 enclosed_items.remove(prior_rect)
-                #Print(enclosed_items)
+                # Print(enclosed_items)
                 for _ in enclosed_items:
-                    TK.itemconfig(_,fill='red')
+                    TK.itemconfig(_, fill="red")
                     selected.append(_)
                 enclosing = []
                 dragging = False
-            except:
+            except Exception as e:
                 pass
             start_point = end_point = prior_rect = None
 
@@ -2623,7 +2693,7 @@ while True:
             hs = popup_get_text("Size (s/m/l):")
             try:
                 house(x, y, hs, hn)
-            except:
+            except Exception as e:
                 logging.exception("ERROR")
 
         elif current_mode == "building":
@@ -2718,10 +2788,10 @@ while True:
             point2 = draw_point2(a, b, color="orange")
             try:
                 rarrow(x, y, a, b)
-            except:
+            except Exception as e:
 
                 # FIXME - can't put 2 arrow heads on same point - crashes
-                pass
+                logerror(e)
             cleanup_2point()
 
         elif current_mode == "endcable":
@@ -2788,7 +2858,7 @@ while True:
                 a, b = get_point2()
             point2 = draw_point2(a, b, "purple")
             road(x, y, a, b)
-            add_figure_to_record(record,"road",x, y, a, b)
+            add_figure_to_record(record, "road", x, y, a, b)
             cleanup_2point()
             current_mode = "road"
         elif current_mode == "road arc 2":
@@ -2804,25 +2874,24 @@ while True:
             a, b = get_point()
             point2 = draw_point2(a, b)
             current_mode = "corner3"
-            notify.update('Please click arc end')
+            notify.update("Please click arc end")
 
         elif current_mode == "corner3":
             c, d = get_point()
             point3 = draw_point3(c, d)
             current_mode = "corner4"
-            notify.update('Please click road end')
+            notify.update("Please click road end")
 
         elif current_mode == "corner4":
             e, f = get_point()
             point4 = draw_point4(e, f)
-            road_corner((x,y), (a,b), (c,d), (e,f))
+            road_corner((x, y), (a, b), (c, d), (e, f))
             graph.delete_figure(point1)
             graph.delete_figure(point2)
             graph.delete_figure(point3)
             graph.delete_figure(point4)
             x = y = a = b = c = d = e = f = 0
             current_mode = "select"
-
 
         elif current_mode == "line2":
             if input_mode == "keyboard":
@@ -2875,7 +2944,7 @@ while True:
             try:
                 v_multi_arrow(x, y, b, d, f"{newmeas[0]},{newmeas[1]}")
             except IndexError:
-                logerror()
+                logerror(e)
             x = y = a = b = c = d = None
             for _ in (point1, point2, point3):
                 graph.delete_figure(_)
@@ -2989,10 +3058,10 @@ while True:
             fig = TK.find_withtag("current")
             print(fig)
             if fig != ():
-                window['lblobject_type'].update(TK.type(fig))
-                window['objcoords'].update(graph.get_bounding_box(fig))
-                window['tag'].update(TK.itemcget(fig,'tag'))
-                window['ID'].update(graph.get_figures_at_location(values['graph']))
+                window["lblobject_type"].update(TK.type(fig))
+                window["objcoords"].update(graph.get_bounding_box(fig))
+                window["tag"].update(TK.itemcget(fig, "tag"))
+                window["ID"].update(graph.get_figures_at_location(values["graph"]))
             # drag_figures =sg.Graph.get_figures_at_location(graph,values['graph'])
             # if drag_figures:
             #     for fig in drag_figures:
@@ -3012,7 +3081,13 @@ while True:
             elif TK.type(fig) == "image":
                 imgb = graph.get_bounding_box(fig)
                 print(imgb)
-                figrect = sg.Graph.draw_rectangle(graph,(imgb[0][0],imgb[0][1]),(imgb[1][0],imgb[1][1]),line_color='red', fill_color='')
+                figrect = sg.Graph.draw_rectangle(
+                    graph,
+                    (imgb[0][0], imgb[0][1]),
+                    (imgb[1][0], imgb[1][1]),
+                    line_color="red",
+                    fill_color="",
+                )
                 selected.append(fig)
                 selected.append(figrect)
             else:
@@ -3046,7 +3121,7 @@ while True:
                 # sg.Graph.delete_figure(bbr)
                 # TK.itemconfig(fig,fill='black')
                 x = y = None
-            except:
+            except Exception as e:
                 logging.exception("There was an error")
 
 
