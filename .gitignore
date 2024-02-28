@@ -1058,7 +1058,6 @@ dist/ezdrawl/win32com/shell/shell.pyd
 castan blank.bmp
 ezdraw.log
 get-pip.py
-*.png
 *.jpeg
 *.jpg
 *.pyc
