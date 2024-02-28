@@ -14486,3 +14486,2031 @@ TypeError: 'NoneType' object is not callable
 2024-02-08 11:36:39,400
 2024-02-08 11:36:39,400
 2024-02-08 11:36:39,400
+2024-02-21 12:23:17,979
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,034
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,044
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,054
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,065
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,076
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,089
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,099
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,109
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,120
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,129
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,138
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,149
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,158
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,167
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,457
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,467
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,475
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,486
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,499
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,509
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,519
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,528
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,537
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,547
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,556
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,566
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,577
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,589
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,599
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,610
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,618
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,628
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,638
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,648
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,659
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,669
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,677
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,687
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,697
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,706
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,714
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,725
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,735
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,744
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,754
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,763
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,772
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,784
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,795
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,806
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,815
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,897
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,906
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,916
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,926
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,937
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,947
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,955
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,966
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,975
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,986
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:18,995
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,006
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,016
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,030
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,038
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,048
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,057
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,067
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,075
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,173
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,184
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,208
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,216
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,226
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,236
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,245
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,257
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,267
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,275
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,293
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,303
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,311
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,332
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,341
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,352
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,359
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,370
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,381
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:19,389
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,544
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,560
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,571
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,582
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,590
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,601
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,611
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,620
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,632
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,642
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,652
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,662
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,672
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,682
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,691
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,701
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,711
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,723
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,733
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,743
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,752
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,763
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,773
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,784
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,795
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,806
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,816
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,824
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,833
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,843
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,853
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,861
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,870
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,879
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,891
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,902
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,912
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,923
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,932
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,940
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,950
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,960
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,970
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,978
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,989
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:23,998
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,007
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,017
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,026
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,036
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,045
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,054
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,747
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,755
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,793
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,804
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,814
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,825
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,834
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,843
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,853
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,863
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,880
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,890
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,900
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,910
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,921
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,933
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,941
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,951
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,962
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,971
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,980
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,990
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:24,999
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,008
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,019
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,029
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,038
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,277
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,287
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,295
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,306
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,317
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,327
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,338
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,349
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,358
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,371
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,380
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,390
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,400
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,410
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,419
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:25,428
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2295, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:23:33,489
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3111, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:23:35,664
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3111, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:24:30,493
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1240, in digbox
+    sg.Graph.send_figure_to_back(db)
+TypeError: Graph.send_figure_to_back() missing 1 required positional argument: 'figure'
+2024-02-21 12:27:12,060
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1240, in digbox
+    sg.Graph.send_figure_to_back(db)
+TypeError: Graph.send_figure_to_back() missing 1 required positional argument: 'figure'
+2024-02-21 12:27:56,147
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 1240, in digbox
+    sg.Graph.send_figure_to_back(db)
+TypeError: Graph.send_figure_to_back() missing 1 required positional argument: 'figure'
+2024-02-21 12:39:35,086
+2024-02-21 12:39:35,086
+2024-02-21 12:39:35,086
+2024-02-21 12:40:30,512
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:30,530
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:30,540
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:30,550
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:30,558
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:30,569
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:30,579
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:30,589
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:30,598
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:40,349
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:40,367
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:40,378
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:40,390
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:40,399
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:40,409
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:40:40,420
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:25,364
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:41:31,418
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,437
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,449
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,462
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,472
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,484
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,495
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,505
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,516
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,524
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,535
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,546
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,555
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,566
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,574
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,584
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,593
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,604
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,614
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,623
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,635
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,645
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,654
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,664
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,673
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,684
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,693
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,702
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,713
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,722
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,733
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,744
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:41:31,752
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:43:50,423
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:44:12,395
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:44:19,675
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:44:25,385
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:44:30,986
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:44:36,254
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:44:41,787
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:45:35,645
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 3112, in <module>
+    graph.move((x - start_point[0]), (y - start_point[1]))
+                    ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-21 12:46:56,820
+2024-02-21 12:46:56,820
+2024-02-21 12:46:56,820
+2024-02-21 12:47:31,145
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,173
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,206
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,228
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,246
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,266
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,289
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,307
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,328
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,348
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,367
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,475
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,509
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,536
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,566
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,839
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,857
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,877
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,897
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,919
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,939
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,959
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:31,981
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:32,001
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:32,019
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,449
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,496
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,531
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,584
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,605
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,628
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,651
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,672
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,704
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,724
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,742
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,759
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,792
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,811
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,833
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,851
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,951
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,968
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:38,987
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,004
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,036
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,053
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,072
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,105
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,126
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,146
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,166
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,185
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,208
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,229
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,247
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,268
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,287
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,306
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,339
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,359
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,378
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,888
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,908
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,927
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-21 12:47:39,959
+Traceback (most recent call last):
+  File "c:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.py", line 2296, in <module>
+    entered_text.upper(),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-27 02:12:22,846
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 922, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Python311\Lib\tkinter\__init__.py", line 2959, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\tkinter\__init__.py", line 1692, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2024-02-27 02:12:28,518
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 922, in line
+    TK.itemconfig(l, capstyle="tk.ROUND")
+  File "C:\Python311\Lib\tkinter\__init__.py", line 2959, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\tkinter\__init__.py", line 1692, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2024-02-27 02:12:35,329
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 810, in cable
+    TK.itemconfig(cable, capstyle='tk.ROUND')
+  File "C:\Python311\Lib\tkinter\__init__.py", line 2959, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\tkinter\__init__.py", line 1692, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+_tkinter.TclError: bad cap style "tk.ROUND": must be butt, projecting, or round
+2024-02-27 02:12:53,158
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                              ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-27 02:13:01,903
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 2388, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+                                ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-27 02:13:14,689
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 2388, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+                                ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-27 02:13:15,942
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 2388, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+                                ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-27 02:13:16,188
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 2388, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+                                ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-27 02:13:17,987
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 2388, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+                                ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-27 02:13:18,014
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 2388, in <module>
+    graph.move_figure(item, x - start_point[0],y - start_point[1])
+                                ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2024-02-27 02:13:34,415
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 566, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 145, in convert_to_bytes
+    img = PIL.Image.open(file_or_bytes)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 3243, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Drilling.bmp'
+2024-02-27 02:13:36,424
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                              ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-27 02:13:37,805
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 566, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 145, in convert_to_bytes
+    img = PIL.Image.open(file_or_bytes)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 3243, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Drilling.bmp'
+2024-02-27 02:13:38,153
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 566, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 145, in convert_to_bytes
+    img = PIL.Image.open(file_or_bytes)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 3243, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Drilling.bmp'
+2024-02-27 02:13:38,733
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 566, in item_stamp
+    graph, location=(x - 0.75, y - 0.75), data=convert_to_bytes("Drilling.bmp")
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 145, in convert_to_bytes
+    img = PIL.Image.open(file_or_bytes)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 3243, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Drilling.bmp'
+2024-02-27 02:13:55,691
+Traceback (most recent call last):
+  File "C:\Users\Cr\Locatedraw\Locate-draw\ezdrawlnew.pyw", line 529, in hlabel
+    sg.Graph.draw_text(graph, msg.upper(), (x, y), font=fontstr)
+                              ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'upper'
+2024-02-27 23:52:50,121
+2024-02-27 23:52:50,121
+2024-02-27 23:52:50,121

@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 import math
 
-def draw_dashed_line(draw, x1, y1, x2, y2, dash_length=8, space_length=4):
+def draw_dashed_line(draw, x1, y1, x2, y2, dash_length=24, space_length=6):
     dx = x2 - x1
     dy = y2 - y1
     length = math.sqrt(dx*dx + dy*dy)
@@ -13,22 +13,24 @@ def draw_dashed_line(draw, x1, y1, x2, y2, dash_length=8, space_length=4):
         x = x1 + i * cos_theta
         y = y1 + i * sin_theta
         if is_dash:
-            draw.line((x, y, x + dash_length * cos_theta, y + dash_length * sin_theta), fill='black', width=3)
+            draw.line((x, y, x + dash_length * cos_theta, y + dash_length * sin_theta), fill='black', width=3,joint='curve')
         is_dash = not is_dash
 
 # create a new image
 img = Image.new('RGB', (400, 400), color='white')
 
 #use anti-aliasing
-img = img.resize((img.width, img.height), Image.ANTIALIAS)
+img = img.resize((img.width, img.height), Image.LANCZOS)
 
 # create a draw object
 draw = ImageDraw.Draw(img)
 
 # draw a dashed line
 x1, y1 = 300, 0
-x2, y2 = 200,400
+x2, y2 = 300,400
 draw_dashed_line(draw, x1, y1, x2, y2)
+draw_dashed_line(draw, 0, 200, 400, 200)
+draw.shape([])
 
 def house(draw, x, y, number):
     rect_x1, rect_y1 = x, y
@@ -38,10 +40,10 @@ def house(draw, x, y, number):
     # draw the number in the middle of the rectangle
     number = 42 # example number
     font = ImageFont.truetype('arial.ttf', 14)
-    text_width, text_height = draw.textsize(str(number), font=font)
-    text_x = x + (80 - text_width) // 2
-    text_y = y + (80 - text_height) // 2
-    draw.text((text_x, text_y), str(number), font=font, fill='black')
+    # get midle of the rectangle
+    x_midpoint = (rect_x1 + rect_x2) / 2
+    y_midpoint = (rect_y1 + rect_y2) / 2
+    draw.text((x_midpoint, y_midpoint), str(number), font=font, fill='black')
 
 def vertical_text(draw,x, y, text, font_size=10):
     """
@@ -58,11 +60,11 @@ def vertical_text(draw,x, y, text, font_size=10):
     - None
     """
     f = ImageFont.truetype('arial.ttf', font_size)
-    vf = ImageFont.TransposedFont(f, orientation=2)
+    vf = ImageFont.TransposedFont(f, orientation=Image.Transpose(Image.ROTATE_90))
     draw.text((x, y), text, font=vf, fill='black')
 
-
-house(draw, 100, 100, 42)
+draw.line((350, 0, 350, 400), fill='black', width=3)
+house(draw, 50, 100, 42)
 vertical_text(draw, 50, 50, "HELLO SHIT", 18)
 
 # show the image wit

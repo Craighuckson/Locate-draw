@@ -1,4 +1,6 @@
 # import section
+from tkinter import W
+import tkinter
 from PySimpleGUI.PySimpleGUI import (
     easy_print,
     popup,
@@ -6,6 +8,7 @@ from PySimpleGUI.PySimpleGUI import (
     popup_get_text,
     popup_yes_no,
 )
+import typing
 import base64
 import io
 import json
@@ -18,14 +21,13 @@ import PIL.Image
 from PIL.Image import LANCZOS
 import PySimpleGUI as sg
 
-if sg.running_linux():
-    import pyscreenshot as ImageGrab  # disable=unresolved-import
-else:
-    from PIL import ImageGrab
+
+from PIL import ImageGrab
+from typing import Final, Literal
 
 
 # init canvas
-sg.theme("darkgray")
+sg.theme(new_theme="darkgray")
 sg.set_options(font=("Segoe UI", 10, "normal"))
 
 
@@ -38,10 +40,11 @@ edge_type: str = ""
 HEIGHT: int = 60  # height of drawing window
 WIDTH: int = 70  # width of drawing window
 
+grid_location = ".\\resources\\grid2.png"
 # key mapping
 # key handler class with method get keys
 if sg.running_linux():
-    keys = {
+    keys: dict[str, str] = {
         "esc": "Escape:9",
         "g": "g:42",
         "down": "Down:116",
@@ -96,7 +99,7 @@ if sg.running_linux():
         "F2": "F2:68",
     }
 else:
-    keys = {
+    keys: dict[str,str]= {
         "esc": "Escape:27",
         "g": "g",
         "down": "Down:40",
@@ -158,7 +161,7 @@ else:
 
 # moved to separate constants file
 # the four values correspond to int values of points on a line (x1,y1,x2,y2)
-ECURB: list = [WIDTH // 3, HEIGHT * 0.067, WIDTH // 3, HEIGHT * 0.933]
+ECURB: list[int] = [WIDTH // 3, HEIGHT * 0.067, WIDTH // 3, HEIGHT * 0.933]
 WCURB: list = [(WIDTH * 2) // 3, HEIGHT * 0.067, (WIDTH * 2) // 3, HEIGHT * 0.933]
 NCURB: list = [
     WIDTH * (1 / WIDTH),
@@ -198,14 +201,14 @@ WBLHOUSE2: tuple = (WIDTH * 0.2, HEIGHT * 0.8, "m")
 EBLHOUSE1: tuple = (WIDTH * 0.7, HEIGHT * 0.1, "m")
 EBLHOUSE2: tuple = (WIDTH * 0.7, HEIGHT * 0.8, "m")
 
-NPLTOPL_DIGBOX = (6, 16, 24, 28)
-NWPLTOPL_DIGBOX = (8, 8, 28, 28)
-NEPLTOPL_DIGBOX = (4, 8, 24, 28)
-SPLTOPL_DIGBOX = (6, 2, 24, 14)
-SWPLTOPL_DIGBOX = (9, 3, 27, 22)
-SEPLTOPL_DIGBOX = (3, 3, 22, 22)
-WPLTOPL_DIGBOX = (14, 6, 28, 24)
-EPLTOPL_DIGBOX = (2, 2, 15, 28)
+NPLTOPL_DIGBOX: Final = (6, 16, 24, 28)
+NWPLTOPL_DIGBOX: Final = (8, 8, 28, 28)
+NEPLTOPL_DIGBOX: Final = (4, 8, 24, 28)
+SPLTOPL_DIGBOX: Final = (6, 2, 24, 14)
+SWPLTOPL_DIGBOX: Final = (9, 3, 27, 22)
+SEPLTOPL_DIGBOX: Final = (3, 3, 22, 22)
+WPLTOPL_DIGBOX: Final = (14, 6, 28, 24)
+EPLTOPL_DIGBOX: Final = (2, 2, 15, 28)
 
 N_DW1 = ()
 N_DW2 = ()
@@ -220,9 +223,9 @@ NE_DW = ()
 SW_DW = ()
 SE_DW = ()
 
+
 h_cursor_line = None
 v_cursor_line = None
-
 input_mode = "mouse"
 notify = sg.Text()
 notify2 = sg.Text()
@@ -230,12 +233,27 @@ notify3 = sg.Text()
 notify_inputmode = sg.Text(input_mode)
 
 
-
-
-# enums
 class CurrentMode(Enum):
+    """
+    Enum representing the current mode of the application.
+
+    Modes:
+    SELECT: The user is in selection mode.
+    CHOSEN: An object has been selected.
+    DRAW: The user is in drawing mode.
+    MEASURE: The user is in measurement mode.
+    DELETE: The user is in delete mode.
+    MOVE: The user is in move mode.
+    EDIT: The user is in edit mode.
+    """
     SELECT = 1
     CHOSEN = 2
+    DRAW = 3
+    MEASURE = 4
+    DELETE = 5
+    MOVE = 6
+    EDIT = 7
+
 
 
 # classes
@@ -249,7 +267,7 @@ class TDInterface:
 # WRAPPER FUNCTIONS
 
 
-def event_switch(modestring: str, notifystring: str) -> str:
+def event_switch(modestring: str, notifystring: str, notify) -> str:
     mode = modestring
     notify.update(notifystring)
     return mode
@@ -318,15 +336,20 @@ def convert_to_bytes(file_or_bytes, resize=None):
     return bio.getvalue()
 
 
-def convert_measurement(meas=None):
+def convert_measurement(meas:str=None) -> str | None:
     """
     Converts a measurement string to a formatted string with the unit 'm'.
     The input measurement string should be a number with one, two or three digits.
     If the input measurement is empty, None is returned.
     :return: A formatted string with the unit 'm'.
     :rtype: str or None
+
+     Example:
+       >>> convert_measurement('123')
+    '1.23m'
+
     """
-    newmeas = ""
+    newmeas:str = ""
     if meas is None:
         meas = sg.popup_get_text("Enter measurement(int)")
     if not isinstance(meas, str):
@@ -374,19 +397,26 @@ def logerror(e):
 
 def show_grid():
     """
-    Turns grid on
+    Displays an image of a grid on the drawing surface
+
+    This function retrieves the grid image location, converts it to bytes, and then draws it on the .
+    It then tags the grid for future reference, sends it to the back of all other figures on the graph,
+    and disables any interactions with it.
     """
-    gdwg = "grid2.png"
-    grid = sg.Graph.draw_image(graph, location=(0, 0), data=convert_to_bytes(gdwg))
-    TK.addtag_withtag("grid", grid)
-    sg.Graph.send_figure_to_back(graph, "grid")
-    TK.itemconfig("grid", state="disabled")
+    grid_filename:str = grid_location
+    grid_id:int = sg.Graph.draw_image(graph, location=(0, 0), data=convert_to_bytes(grid_filename))
+    TK.addtag_withtag("grid", grid_id)
+    sg.Graph.send_figure_to_back(graph, grid_id)
+    TK.itemconfig(tagOrId="grid", state="disabled")
 
 
-def snap_to_grid_off():
+def snap_to_grid_off() -> None:
     """
-    Turns grid off
+    Turns off the snap-to-grid feature in the drawing window.
 
+    This function changes the coordinates of the drawing window to a standard Cartesian plane,
+    with the origin (0,0) at the top left. It also updates the global WIDTH and HEIGHT
+    variables to match the new dimensions of the drawing window, and then updates the drawing to reflect these changes.
     """
     sg.Graph.change_coordinates(graph, (0, 600), (700, 0))
     global HEIGHT
@@ -1237,7 +1267,7 @@ def digbox(x1, y1, x2, y2):
             (x1, y1), (x2, y2), fill_color="gainsboro", line_color="black"
         )
         graph.TKCanvas.itemconfig(db, stipple="gray25", activeoutline="red")
-        sg.Graph.send_figure_to_back(db)
+        sg.Graph.send_figure_to_back(graph, db)
         TK.addtag_withtag("digbox", db)
     except Exception as e:
         logerror(e)()
@@ -1575,7 +1605,7 @@ def render_template(bl_string: str = None):
         # render_measurement(landbase,bl_dict["mmeasurement)
 
 
-def get_cable(landbase: str, choice: str) -> None:
+def get_cable(landbase: str, choice: str) -> tuple:
     """
     Gets the coordinates for a cable according to the landbase and choice parameters
 
@@ -1669,7 +1699,7 @@ def get_cable(landbase: str, choice: str) -> None:
     return x1, y1, x2, y2
 
 
-def get_arrow_coords(landbase: str) -> None:
+def get_arrow_coords(landbase: str) -> list:
     """
     Gets the coordinates of the offset arrows according to the landbase as a list [x1, y1, x2, y2]
 
@@ -1765,8 +1795,8 @@ def long_gas():
         pass
 
 
-def radius_sketch():
-    feature = ["ped", "pole", "tree", "transformer", "waterbox"]
+def radius_sketch() -> None:
+    feature: list[str] = ["ped", "pole", "tree", "transformer", "waterbox"]
     user_type = popup_get_text("Object type ?(ped,pole,tree,transformer,waterbox")
     try:
         radius = int(popup_get_text("Radius in m?(int)"))
@@ -1794,51 +1824,59 @@ def st_to_st():
     street1 = popup_get_text("Street 1 (W or N)")
     street2 = popup_get_text("Street 2 (mid)")
     street3 = popup_get_text("Street 3 (S or E)")
+
     if dir.lower() is None:
         return
-    if dir.lower() == "n":
-        h_road(3, 27, 20)
-        v_road(3, 10, 20)
-        v_road(27, 10, 20)
-        hlabel("NCL", 25, 19, 11)
-        vlabel("ECL", 4, 11, 11)
-        vlabel("WCL", 26, 11, 11)
-        vlabel(street1, 1, 15, 20)
-        hlabel(street2, 15, 23, 20)
-        vlabel(street3, 29, 15, 20)
 
-    elif dir.lower() == "s":
-        h_road(3, 27, 10)
-        v_road(3, 10, 20)
-        v_road(27, 10, 20)
-        hlabel("SCL", 26, 9, 11)
-        vlabel("ECL", 27, 21, 11)
-        vlabel("WCL", 3, 21, 11)
-        vlabel(street1, 1, 15, 20)
-        hlabel(street2, 15, 7, 20)
-        vlabel(street3, 29, 15, 20)
+    actions = {
+        "n": [
+            (h_road, (3, 27, 20)),
+            (v_road, (3, 10, 20)),
+            (v_road, (27, 10, 20)),
+            (hlabel, ("NCL", 25, 19, 11)),
+            (vlabel, ("ECL", 4, 11, 11)),
+            (vlabel, ("WCL", 26, 11, 11)),
+            (vlabel, (street1, 1, 15, 20)),
+            (hlabel, (street2, 15, 23, 20)),
+            (vlabel, (street3, 29, 15, 20))
+        ],
+        "s": [
+            (h_road, (3, 27, 10)),
+            (v_road, (3, 10, 20)),
+            (v_road, (27, 10, 20)),
+            (hlabel, ("SCL", 26, 9, 11)),
+            (vlabel, ("ECL", 27, 21, 11)),
+            (vlabel, ("WCL", 3, 21, 11)),
+            (vlabel, (street1, 1, 15, 20)),
+            (hlabel, (street2, 15, 7, 20)),
+            (vlabel, (street3, 29, 15, 20))
+        ],
+        "w": [
+            (v_road, (20, 3, 27)),
+            (h_road, (10, 20, 3)),
+            (h_road, (10, 20, 27)),
+            (hlabel, ("SCL", 11, 4, 11)),
+            (vlabel, ("WCL", 21, 15, 11)),
+            (hlabel, ("NCL", 11, 26, 11)),
+            (hlabel, (street1, 11, 1, 20)),
+            (vlabel, (street2, 26, 15, 20)),
+            (hlabel, (street3, 11, 29, 20))
+        ],
+        "e": [
+            (v_road, (10, 3, 27)),
+            (h_road, (10, 20, 3)),
+            (h_road, (10, 20, 27)),
+            (hlabel, ("SCL", 19, 4, 11)),
+            (hlabel, ("NCL", 19, 26, 11)),
+            (vlabel, ("ECL", 9, 14, 11)),
+            (hlabel, (street1, 21, 2, 20)),
+            (vlabel, (street2, 5, 14, 20)),
+            (hlabel, (street3, 21, 28, 20))
+        ]
+    }
 
-    elif dir.lower() == "w":
-        v_road(20, 3, 27)
-        h_road(10, 20, 3)
-        h_road(10, 20, 27)
-        hlabel("SCL", 11, 4, 11)
-        vlabel("WCL", 21, 15, 11)
-        hlabel("NCL", 11, 26, 11)
-        hlabel(street1, 11, 1, 20)
-        vlabel(street2, 26, 15, 20)
-        hlabel(street3, 11, 29, 20)
-
-    elif dir.lower() == "e":
-        v_road(10, 3, 27)
-        h_road(10, 20, 3)
-        h_road(10, 20, 27)
-        hlabel("SCL", 19, 4, 11)
-        hlabel("NCL", 19, 26, 11)
-        vlabel("ECL", 9, 14, 11)
-        hlabel(street1, 21, 2, 20)
-        vlabel(street2, 5, 14, 20)
-        hlabel(street3, 21, 28, 20)
+    for action, params in actions.get(dir.lower(), []):
+        action(*params)
 
 
 def bl_to_bl(dir=None, hnum1=None, hnum2=None, street=None):
@@ -1849,32 +1887,25 @@ def bl_to_bl(dir=None, hnum1=None, hnum2=None, street=None):
     if dir in ["nw", "ne", "se", "sw"]:
         hstreet, vstreet = get_intersection_name()
         set_intersection_name(hstreet, vstreet, dir)
-        landbase = set_landbase(dir)
     else:
         if not hnum2:
             hnum2 = get_input("House number 2?")
         if not street:
             street = get_input("Street name?")
-        landbase = set_landbase(dir)
-        set_street_name(street, landbase)
-    if dir.lower() == "n":
-        house(*NBLHOUSE1, hnum1)
-        house(*NBLHOUSE2, hnum2)
-    elif dir.lower() == "nw":
-        house(*NWBLHOUSE, hnum1)
-    elif dir.lower() == "ne":
-        house(*NEBLHOUSE, hnum1)
-    elif dir.lower() == "s":
-        house(*SBLHOUSE1, hnum1)
-        house(*SBLHOUSE2, hnum2)
-    elif dir.lower() == "sw":
-        house(*SWBLHOUSE, hnum1)
-    elif dir.lower() == "e":
-        house(*EBLHOUSE1, hnum1)
-        house(*EBLHOUSE2, hnum2)
-    elif dir.lower() == "w":
-        house(*WBLHOUSE1, hnum1)
-        house(*WBLHOUSE2, hnum2)
+        set_street_name(street, set_landbase(dir))
+
+    houses = {
+        "n": [(*NBLHOUSE1, hnum1), (*NBLHOUSE2, hnum2)],
+        "nw": [(*NWBLHOUSE, hnum1)],
+        "ne": [(*NEBLHOUSE, hnum1)],
+        "s": [(*SBLHOUSE1, hnum1), (*SBLHOUSE2, hnum2)],
+        "sw": [(*SWBLHOUSE, hnum1)],
+        "e": [(*EBLHOUSE1, hnum1), (*EBLHOUSE2, hnum2)],
+        "w": [(*WBLHOUSE1, hnum1), (*WBLHOUSE2, hnum2)]
+    }
+
+    for params in houses.get(dir.lower(), []):
+        house(*params)
 
 
 def get_parser_string(input):
@@ -1981,8 +2012,8 @@ layout = [
 ]
 
 
-def make_form_window():
-    landbases = [
+def make_form_window() -> sg.Window:
+    landbases: list[str] = [
         "NORTH",
         "SOUTH",
         "EAST",
@@ -1995,7 +2026,7 @@ def make_form_window():
         "VERTICAL",
     ]
 
-    layout2 = [
+    layout2:list = [
         [sg.Text("Landbase:"), sg.Combo(landbases, k="landbase")],
         [sg.Text("Primary Street (Horizontal)"), sg.Input(k="street")],
         [sg.Text("Secondary Street (Vertical)"), sg.I(k="street2")],
@@ -2005,7 +2036,7 @@ def make_form_window():
     return sg.Window("Sketch Builder", layout2)
 
 
-window = sg.Window(
+window: sg.Window = sg.Window(
     "EZ Draw",
     layout,
     finalize=True,
@@ -2020,14 +2051,15 @@ window = sg.Window(
     location=((0, 0)),
 )
 
-graph = window["graph"]
+graph:dict = window.key_dict["graph"]
+
 
 window.bind("<Control-n>", "NEW FILE")
 window.bind("<Control-w>", "QUIT")
-graph.bind("<Enter>", "GRAPH_ENTER")
+sg.Graph.bind(graph,"<Enter>", "GRAPH_ENTER")
 graph.bind("<Leave>", "GRAPH_LEAVE")
 
-TK = graph.tk_canvas
+TK: tkinter.Canvas = graph.TKCanvas
 # DRAW HERE
 # SETUP
 
