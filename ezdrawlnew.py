@@ -22,18 +22,17 @@ from PIL.Image import LANCZOS
 import PySimpleGUI as sg
 
 
-from PIL import ImageGrab
+
 from typing import Final, Literal
 
 
 # init canvas
-sg.theme(new_theme="darkgray")
+sg.theme(new_theme="darkgrey11")
+sg.set_global_icon(r"./resources/TICO.PNG")
 sg.set_options(font=("Segoe UI", 10, "normal"))
-
 
 logging.basicConfig(filename="ezdraw.log", level=logging.DEBUG, format="%(asctime)s")
 Print = easy_print
-
 # CONSTANTS
 
 edge_type: str = ""
@@ -127,7 +126,7 @@ else:
         "m": "m",
         "=": "=",
         "n": "n",
-        "F2": "F2",
+        "F2": "F2:113",
         "F1": "F1",
         "1": "1",
         "2": "2",
@@ -267,9 +266,9 @@ class TDInterface:
 # WRAPPER FUNCTIONS
 
 
-def event_switch(modestring: str, notifystring: str, notify) -> str:
+def event_switch(modestring: str, notifystring: str, notification_element) -> str:
     mode = modestring
-    notify.update(notifystring)
+    notification_element.update(notifystring)
     return mode
 
 
@@ -299,7 +298,7 @@ def add_figure_to_record(record: list, figtype: str, *args) -> None:
     figstr += figtype + ";"
     figstr += ";".join([str(x) for x in args])
     record.append(figstr)
-    # Print(record)
+    Print(record)
 
 
 def convert_to_bytes(file_or_bytes, resize=None):
@@ -581,9 +580,9 @@ def h_arrow(x1, x2, y, meas, measdir="l"):
             arrow("w", x1, y)
             arrow("e", x2, y)
             if measdir.lower() == "l":
-                hlabelm(meas, x2 - 2.8, y, 11)
+                hlabelm(meas, x2 - (1/WIDTH), y, (11/HEIGHT) * HEIGHT)
             elif measdir.lower() == "r":
-                hlabelm(meas, x1 + 2.8, y, 11)
+                hlabelm(meas, x1 + (1/WIDTH), y, (11/HEIGHT) * HEIGHT)
 
         else:
             arrow("e", x1, y)
@@ -655,7 +654,7 @@ def v_multi_arrow(x, yo, y1, y2, meas, measdir="u"):
 def pole(x, y):
     try:
         p = graph.draw_circle((x, y), 1, fill_color="white")
-        TK.itemconfig(p, activefill="blue")
+        TK.itemconfig(p, activeoutline="red")
     except Exception as e:
         logerror(e)
 
@@ -720,6 +719,7 @@ def transformer(x, y):
         )
         TK.addtag_withtag("transformer", txr)
         TK.addtag_withtag("transformer", txtri)
+        add_figure_to_record(record,"transformer", x, y)
     except Exception as e:
         logerror(e)
 
@@ -830,6 +830,7 @@ def ped(x, y):
         pedline2 = sg.Graph.draw_line(graph, (x - 1, y + 1), (x + 1, y - 1))
         for item in [pedsq, pedline1, pedline2]:
             group("ped", item)
+        TK.tag_bind("ped","<Button-1>",lambda x: popup('Hey now'))
 
     except Exception as e:
         logerror(e)()
@@ -1538,10 +1539,10 @@ def parse_bl_string(bl_string: str) -> dict:
         return None
     else:
         # check that landbase is one of n,e,s,w
-        if bl_list[1].strip() not in ["n", "e", "s", "w"]:
+        if bl_list[1].strip().lower() not in ["n", "e", "s", "w"]:
             return None
         # check that choice is one of o,i,se,nw
-        if bl_list[2].strip() not in ["o", "i", "se", "nw"]:
+        if bl_list[2].strip().lower() not in ["o", "i", "se", "nw"]:
             return None
         # check that measurement is a positive integer
         if not bl_list[5].strip().isdigit():
@@ -1910,6 +1911,8 @@ def bl_to_bl(dir=None, hnum1=None, hnum2=None, street=None):
 
 def get_parser_string(input):
     return input
+    
+            
 
 
 # barebones
@@ -1923,12 +1926,12 @@ menu_def = [
 tab2layout = [
     [
         sg.Text("Curb: "),
-        sg.DropDown(("N", "S", "E", "W"), k="curbddl"),
-        sg.Radio("CL", "roadtype", k="cl"),
+        sg.DropDown(("N", "S", "E", "W"), key="curbddl"),
+        sg.Radio("CL", "roadtype", key="cl"),
         sg.Radio("RE", "roadtype", k="re"),
     ],
     [
-        sg.B("Change street", k="tab1getstreet"),
+        sg.Button("Change street", key="tab1getstreet"),
         sg.T(k="tab1street"),
     ],
     [sg.B("Intersecting street:", k="tab2getstreet"), sg.I(k="tab1intersection")],
@@ -1971,15 +1974,18 @@ col = [
         sg.Button("Radius", enable_events=True),
         sg.Button("St to St", enable_events=True),
         sg.Button("BL to BL", enable_events=True),
-        sg.B("Read template", enable_events=True, k="read_file"),
+        sg.B("Read template", enable_events=True, k="read_file",auto_size_button="true"),
         sg.B("Form"),
     ],
+    [sg.StatusBar("",k="stb_notify", relief="ridge", expand_x=True,background_color = "yellow",text_color="black",s=2)],
 ]
 
 rcol = [
     [sg.T("0, 0", k="ccord")],
     [sg.T("", k="startpoint")],
     [sg.T("", k="endpoint")],
+    [sg.T("", k="enclosing_rect_coords")],
+    [sg.T("", k="selected_id")],
     [sg.Text("Object features")],
     [
         sg.Text(
@@ -1987,9 +1993,9 @@ rcol = [
         ),
         sg.Input(k="lblobject_type", readonly=True),
     ],
-    [sg.Text("Coords:"), sg.Input(k="objcoords", readonly=True)],
-    [sg.Text("Tag:"), sg.I(k="tag", readonly=True)],
-    [sg.T("ID"), sg.I(k="ID", readonly=True)],
+    [sg.Text("Coords:"), sg.Input(k="objcoords", readonly=True, text_color='black')],
+    [sg.Text("Tag:"), sg.I(k="tag", readonly=True, text_color='black')],
+    [sg.T("ID"), sg.I(k="ID", readonly=True, text_color='black')],
     [sg.T("*PARSER")],
     [sg.Input(do_not_clear=False, k="parser_input"), sg.Submit(k="parser_submit")],
 ]
@@ -1997,13 +2003,13 @@ rcol = [
 
 layout = [
     [
+        sg.Menu(menu_def),
         sg.Column(
             lcol,
             justification="left",
             element_justification="left",
             vertical_alignment="t",
         ),
-        sg.Menu(menu_def),
         sg.Column(
             col, justification="left", element_justification="left", expand_x=True
         ),
@@ -2033,7 +2039,7 @@ def make_form_window() -> sg.Window:
         [sg.Submit(k="form_submit")],
     ]
 
-    return sg.Window("Sketch Builder", layout2)
+    return sg.Window("Sketch Builder", layout2,modal=True,finalize=True)
 
 
 window: sg.Window = sg.Window(
@@ -2043,12 +2049,14 @@ window: sg.Window = sg.Window(
     auto_size_buttons=False,
     return_keyboard_events=True,
     use_default_focus=True,
-    use_ttk_buttons=True,
+    use_ttk_buttons=False,
     resizable=True,
     margins=(0, 0),
     border_depth=0,
     element_padding=(0),
     location=((0, 0)),
+    use_custom_titlebar=False,
+    titlebar_icon = r"./resources/TICO.PNG"
 )
 
 graph:dict = window.key_dict["graph"]
@@ -2056,6 +2064,7 @@ graph:dict = window.key_dict["graph"]
 
 window.bind("<Control-n>", "NEW FILE")
 window.bind("<Control-w>", "QUIT")
+window.bind("<Control-a>", "SELECT_ALL")
 sg.Graph.bind(graph,"<Enter>", "GRAPH_ENTER")
 graph.bind("<Leave>", "GRAPH_LEAVE")
 
@@ -2128,6 +2137,29 @@ class Grid:
     def hide(self):
         pass
 
+def handle_mode(mode, new_mode, color, message):
+    if input_mode == "keyboard":
+        x, y = update_cursor_position(cursor)
+    else:
+        x, y = get_point1()
+    start_point = (x, y)
+    current_mode = new_mode
+    point1 = draw_point1(x, y, color)
+    notify.update(message)
+
+mode_handlers = {
+    "building": ("building2", "black", "Click lower right corner of building"),
+    "road": ("road2", "purple", "Click second point of curb"),
+    "road arc": ("road arc 2", "purple", "Click vertical section of road arc"),
+    "line": ("line2", "blue", "Click second point of line"),
+    "corner": ("corner2", "purple", "Click horizontal section of arc"),
+    "arc": ("arc2", "purple", "Click second point of arc"),
+}
+# FOR LATER - code to handle mode changes
+# insert the code below in the main loop
+#
+#if current_mode in mode_handlers:
+ #   handle_mode(*mode_handlers[current_mode])
 
 # THESE GLOBALS ARE AN EMBARRASSMENT
 
@@ -2137,11 +2169,13 @@ x = y = a = b = 0
 isGrid = False
 gridSnap = True
 graph.bind("<B1-Motion>", "drag")
+graph.set_cursor("crosshair")
 # graph.bind("<Motion>", "motion")
 # graph.bind("<KeyPress-g>",'gridon')
 # graph.bind("<KeyRelease-g>",'gridoff')
 selected = []
 spoints = []
+enclosing = []
 dragging = False
 start_point = end_point = prior_rect = (0, 0)
 etext = 0
@@ -2155,6 +2189,7 @@ cursory = 0
 cursor = (0, 0)
 hashline = None
 hashrect = None
+outline = None
 newmouse = None
 in_graph = False
 record = []
@@ -2167,20 +2202,38 @@ record = []
 
 while True:
     event, values = window.read()
-    window["ccord"].update(values["graph"])
-    window["startpoint"].update(start_point)
-    window["endpoint"].update(end_point)
-    notify2.update(f"Event: {event} ")
-    notify3.update(f"Mode: {current_mode} ")
-    notify_inputmode.update(input_mode)
+    try:
+        window["ccord"].update(f'Coordinates:{values["graph"]}  Dragging:{dragging}')
+        window["startpoint"].update(f'Start point {start_point}')
+        window["endpoint"].update(f'End point {end_point}')
+        window["enclosing_rect_coords"].update(f'Enclosed rectangle coordinates {enclosing}')
+        window["selected_id"].update(f'Selected items ID {selected}')
+        notify2.update(f"Event: {event} ")
+        notify3.update(f"Mode: {current_mode} ")
+    except:
+        pass
+    
     if event == sg.WIN_CLOSED:
         break
     if event == "parser_submit":
         p_in = get_parser_string(values["parser_input"])
         print(p_in)
+        tokens = p_in.split(" ")
+        print(tokens)
+        graph.set_focus()
+        if tokens[0] == "line":
+            road(int(tokens[1]),int(tokens[2]),int(tokens[3]),int(tokens[4]))
+            
     if event == "Form":
         window2 = make_form_window()
-        window2.finalize()
+        event,values = window2.read()
+
+    if event == 'form_submit':
+        popup(values['landbase'])
+        window2.close()
+              
+     
+        
     if event.endswith("ENTER"):
         in_graph = True
 
@@ -2189,6 +2242,14 @@ while True:
         graph.delete_figure(h_cursor_line)
         graph.delete_figure(v_cursor_line)
 
+    if event.endswith("QUIT"):
+        app_done = sg.popup_yes_no("Close application?")
+        if app_done == "Yes":
+            window.close()
+
+    if event.endswith("SELECT_ALL"):
+        [selected.append(x) for x in TK.find_all()]
+        
     if event == "Save":
         _savefile = popup_get_text("Save file name?")
         # small = sg.popup_yes_no("Save as smaller image?")
@@ -2223,6 +2284,7 @@ while True:
             popup("Could not load template")
 
     if event == "Snap to Grid":
+
         if gridSnap is True:
             gridSnap = not gridSnap
             snap_to_grid_off()
@@ -2231,24 +2293,26 @@ while True:
             gridSnap = not gridSnap
             snap_to_grid_on()
             notify3.update(f"Snap to grid: {gridSnap}")
+
     if event == "Render Template":
         try:
             render_template()
         except FileNotFoundError:
             popup("Could not load template")
+            
     if event == "Exit":
         window.close()
 
-    if event == "Keyboard":
-        input_mode = "keyboard"
-        # if cursor was previously disabled, re-enable it
-
-        if TK.itemcget("cursor", "state") == "hidden":
-            TK.itemconfig("cursor", state="normal")
-
-        # draw_cursor if it wasn't already created
-        if not TK.find_withtag("cursor"):
-            cursor = draw_cursor(input_mode)
+##    if event == "Keyboard":
+##        input_mode = "keyboard"
+##        # if cursor was previously disabled, re-enable it
+##
+##        if TK.itemcget("cursor", "state") == "hidden":
+##            TK.itemconfig("cursor", state="normal")
+##
+##        # draw_cursor if it wasn't already created
+##        if not TK.find_withtag("cursor"):
+##            cursor = draw_cursor(input_mode)
 
     if event == "Mouse/Keyboard":
         input_mode = ""
@@ -2286,33 +2350,11 @@ while True:
         file = popup_get_file("Choose template")
         read_from_template(file)
 
-    if event == "sketchbuild_submit":
-        # draw sketchbuilder output
-
-        if values["cl"]:
-            rtype = "CL"
-        else:
-            rtype = "RE"
-        if values["curbddl"] == "N":
-            road(NCURB[0], NCURB[1], NCURB[2], NCURB[3])
-            hlabel(values["curbddl"] + rtype, WIDTH - 3, NCURB[1] - 1, 9)
-            hlabel(street, NSTREET[0], NSTREET[1], 20)
-        elif values["curbddl"] == "S":
-            road(SCURB[0], SCURB[1], SCURB[2], SCURB[3])
-            hlabel(values["curbddl"] + rtype, WIDTH - 3, SCURB[1] + 1, 9)
-            hlabel(street, SSTREET[0], SSTREET[1], 20)
-        elif values["curbddl"] == "W":
-            road(*WCURB)
-            vlabel(values["curbddl"] + rtype, WCURB[0] - 1, HEIGHT - 3, 9)
-            vlabel(street, WSTREET[0], WSTREET[1], 20)
-        elif values["curbddl"] == "E":
-            road(*ECURB)
-            vlabel(values["curbddl"] + rtype, ECURB[0] - 1, HEIGHT - 3, 9)
-            vlabel(street, ESTREET[0], ESTREET[1], 20)
+  
 
     if event == keys["m"] and current_mode == "chosen":
         current_mode = event_switch(
-            "move", "Please click location to move to, press Esc when finished"
+            "move", "Please click location to move to, press Esc when finished", window["stb_notify"]
         )
 
     if event.endswith("MOVE") and (current_mode == "text"):
@@ -2335,16 +2377,16 @@ while True:
     if event.endswith("MOVE"):
         notify3.update(end_point)
 
-    if event.endswith("MOVE") and in_graph is True:
-        graph.delete_figure(h_cursor_line)
-        graph.delete_figure(v_cursor_line)
-        cursx, cursy = values["graph"]
-        h_cursor_line = sg.Graph.draw_line(graph, (cursx, 0), (cursx, HEIGHT))
-        v_cursor_line = sg.Graph.draw_line(graph, (0, cursy), (WIDTH, cursy))
-        sg.Graph.send_figure_to_back(graph, h_cursor_line)
-        sg.Graph.send_figure_to_back(graph, v_cursor_line)
-        TK.itemconfig(h_cursor_line, state="disabled")
-        TK.itemconfig(v_cursor_line, state="disabled")
+##    if event.endswith("MOVE") and in_graph is True:
+##        try:
+##            code to show an outline on highlighted figure
+##            graph.delete_figure(outline)
+##            bbox  = graph.get_bounding_box(TK.find_withtag("current"))
+##            outline = graph.draw_rectangle((bbox[0][0],bbox[0][1]), (bbox[1][0],bbox[1][1]),line_color='blue',line_width=2)
+##            sg.Graph.send_figure_to_back(graph, outline)
+##            TK.itemconfig(outline, state="disabled", dash=(2,2))
+##        except:
+##            pass
 
     if event.endswith("MOVE") and (
         current_mode == "line2"
@@ -2394,53 +2436,10 @@ while True:
         except IndexError:
             pass
 
-    # BUTTON CLICK WITHOUT MOVEMENT
-    if event == "graph" and current_mode == "select":
-        x, y = values["graph"]
-        if not dragging:
-            start_point = (x, y)
-            dragging = True
-        else:
-            end_point = (x, y)
-        if prior_rect:
-            graph.delete_figure(prior_rect)
-        start_point = (x, y)
-
-    if event == "graph" and current_mode == "chosen":
-        x, y = values["graph"]
-        if not dragging:
-            start_point = (x, y)
-            dragging = True
-        else:
-            end_point = (x, y)
-
-    if event == "graphdrag" and dragging and current_mode == "select":
-        try:
-            x, y = values["graph"]
-            end_point = (x, y)
-            graph.delete_figure(prior_rect)
-            prior_rect = sg.Graph.draw_rectangle(
-                graph,
-                start_point,
-                end_point,
-                fill_color=None,
-                line_color="blue",
-                line_width=1,
-            )
-        except IndexError:
-            pass
-
-    if event == "graphdrag" and current_mode == "chosen":
-        # FIXME this is still broken for moving a group of items
-        x, y = values["graph"]
-        end_point = (x, y)
-        try:
-            for idx, item in enumerate(selected):
-                graph.move_figure(
-                    item, end_point[0] - start_point[0], end_point[1] - start_point[1]
-                )
-        except Exception as e:
-            pass
+    if event.endswith("MOVE") and current_mode == "chosen":
+        if selected is None:
+            current_mode = "select"
+   
 
     # if event.endswith('drag'):
     #     try:
@@ -2484,7 +2483,7 @@ while True:
         cnodes.clear()
 
     if event == keys["esc"] or event == keys["="]:
-        notify.update("Cancelled")
+        window["stb_notify"].update("Cancelled")
         graph.delete_figure(hashline)
         graph.delete_figure(hashrect)
         dragging = False
@@ -2493,7 +2492,8 @@ while True:
         except NameError:
             pass
         if selected is not None:
-            for item in selected[:]:
+      #      for item in selected[:]:
+             for item in selected:
                 if TK.type(item) == "rectangle" and "digbox" in TK.itemcget(
                     item, "tag"
                 ):
@@ -2516,22 +2516,25 @@ while True:
     if event in buttoniosingle.keys():
         notify.update("Choose insertion point")
         x, y = get_point1()
-        buttoniosingle[event](x, y)
+        try:
+            buttoniosingle[event](x, y)
+        except Exception as e:
+            print(e)
 
     if event == "NEW FILE":
         sg.popup("New file")
         print(event, values)
 
     if event == keys["n"]:
-        current_mode = event_switch("polyline", "Click next point of line")
+        current_mode = event_switch("polyline", "Click next point of line", window["stb_notify"])
 
     if event == keys["F2"]:
         edit_text()
 
     if event == keys[">"]:
-        current_mode = event_switch("arrow1", "Please click first arrow head")
+        current_mode = event_switch("arrow1", "Please click first arrow head", window["stb_notify"])
     if event == keys["s"]:
-        current_mode = event_switch("select", "Select figure")
+        current_mode = event_switch("select", "Select figure", window["stb_notify"])
     if event == keys["i"]:
         try:
             img = popup_get_file("Select image")
@@ -2539,43 +2542,43 @@ while True:
         except (PIL.UnidentifiedImageError, AttributeError):
             pass
     if event == keys["a"]:
-        current_mode = event_switch("arc", "Please select first arc point")
+        current_mode = event_switch("arc", "Please select first arc point", window["stb_notify"])
     if event == keys["h"]:
-        current_mode = event_switch("harrow", "Please select first arrow point")
+        current_mode = event_switch("harrow", "Please select first arrow point", window["stb_notify"])
     if event == keys["v"]:
-        current_mode = event_switch("varrow", "Please select first arrow point")
+        current_mode = event_switch("varrow", "Please select first arrow point", window["stb_notify"])
     if event == keys["V"]:
-        current_mode = event_switch("vmultiarrow", "Please select reference point")
+        current_mode = event_switch("vmultiarrow", "Please select reference point", window["stb_notify"])
     if event == keys["c"]:
-        current_mode = event_switch("cable", "Please click first point of cable line:")
+        current_mode = event_switch("cable", "Please click first point of cable line:", window["stb_notify"])
     if event == keys["C"]:
         current_mode = event_switch(
-            "cable arc", "Please click horizontal section of cable arc"
+            "cable arc", "Please click horizontal section of cable arc", window["stb_notify"]
         )
     if event == keys["o"]:
         current_mode = event_switch(
-            "offsetline", "Please click first point of offset line:"
+            "offsetline", "Please click first point of offset line:", window["stb_notify"]
         )
     if event == keys["d"]:
-        current_mode = event_switch("digbox", "Please click first point of box:")
+        current_mode = event_switch("digbox", "Please click first point of box:", window["stb_notify"])
     if event == keys["b"]:
         current_mode = event_switch(
-            "building", "Please click upper left corner of building:"
+            "building", "Please click upper left corner of building:", window["stb_notify"]
         )
     if event == keys["z"]:
         current_mode = "resize"
     if event == keys["B"]:
-        current_mode = event_switch("house", "Please click upper left corner of house")
+        current_mode = event_switch("house", "Please click upper left corner of house", window["stb_notify"])
     if event == keys["r"] or event == "Road":
-        current_mode = event_switch("road", "Please click first point of curb line")
+        current_mode = event_switch("road", "Please click first point of curb line", window["stb_notify"])
     if event == keys["R"]:
         current_mode = event_switch(
-            "road arc", "Please click horizontal section of road arc"
+            "road arc", "Please click horizontal section of road arc", window["stb_notify"]
         )
     if event == keys["_"]:
-        current_mode = event_switch("corner", "Please click start point")
+        current_mode = event_switch("corner", "Please click start point", window["stb_notify"])
     if event == keys["l"] or event == "Line":
-        current_mode = event_switch("line", "Please click first point of line")
+        current_mode = event_switch("line", "Please click first point of line", window["stb_notify"])
     if event == keys["y"]:
         if TK.find_withtag("current") is not None:
             clone = clone_item("current")
@@ -2611,18 +2614,21 @@ while True:
     if event == keys["x"]:
         if TK.find_withtag("current") is not None:
             graph.delete_figure(TK.find_withtag("current"))
+        if selected is not None:
+            for item in selected:
+                graph.delete_figure(item)
     if event == keys["t"]:
         entered_text = popup_get_text("Enter text")
-        current_mode = event_switch("text", "Please click to enter text")
+        current_mode = event_switch("text", "Please click to enter text", window["stb_notify"])
     if event == keys["T"]:
         entered_text = popup_get_text("Enter text")
-        current_mode = event_switch("vtext", "Please click to enter text")
+        current_mode = event_switch("vtext", "Please click to enter text", window["stb_notify"])
     if event == keys["e"]:
         entered_text = popup_get_text("Enter street name")
-        current_mode = event_switch("street text", "Please click to enter text")
+        current_mode = event_switch("street text", "Please click to enter text", window["stb_notify"])
     if event == keys["E"]:
         entered_text = popup_get_text("Enter street name")
-        current_mode = event_switch("street vtext", "Please click to enter text")
+        current_mode = event_switch("street vtext", "Please click to enter text", window["stb_notify"])
     # if event == "1":
     #     current_mode = event_switch('ped', 'Click to place pedestal')
     # if event == "!":
@@ -2644,25 +2650,81 @@ while True:
     #     current_mode = "catch basin"
     #     notify.update("Click on catch basin location")
 
+    """
+    All events for button click
+    
+    """
+
+     # BUTTON CLICK WITHOUT MOVEMENT
+    if event == "graph" and current_mode == "select":
+        x, y = values["graph"]
+        if not dragging:
+            start_point = (x, y)
+            dragging = True
+        else:
+            end_point = (x, y)
+        if prior_rect:
+            graph.delete_figure(prior_rect)
+        start_point = (x, y)
+
+    if event == "graph" and current_mode == "chosen":
+        x, y = values["graph"]
+        if not dragging:
+            start_point = (x, y)
+            dragging = True
+        else:
+            end_point = (x, y)
+
+    if event == "graphdrag" and dragging and current_mode == "select":
+        try:
+            x, y = values["graph"]
+            end_point = (x, y)
+            graph.delete_figure(prior_rect)
+            prior_rect = sg.Graph.draw_rectangle(
+                graph,
+                start_point,
+                end_point,
+                fill_color=None,
+                line_color="blue",
+                line_width=1,
+            )
+        except IndexError:
+            pass
+
+    if event == "graphdrag" and current_mode == "chosen":
+        x, y = values["graph"]
+        end_point = (x, y)
+        try:
+            for idx, item in enumerate(selected):
+                dx = end_point[0] - start_point[0]
+                dy = end_point[1] - start_point[1]
+                graph.move_figure(item, dx, dy)
+            start_point = end_point
+        except Exception as e:
+            pass
+        
     if event.endswith("+UP"):
         # signals end of drag or button click
         if dragging:
             try:
                 enclosing = TK.coords(prior_rect)
-                # Print(enclosing)
-                enclosed_items = TK.find_overlapping(*enclosing)
+                print(f'Enclosing rectangle coords: {enclosing}')
+                enclosed_items = TK.find_enclosed(*enclosing)
                 graph.delete_figure(prior_rect)
                 enclosed_items = list(enclosed_items)
-                enclosed_items.remove(prior_rect)
-                # Print(enclosed_items)
-                for _ in enclosed_items:
-                    TK.itemconfig(_, fill="red")
-                    selected.append(_)
+                print(f'Enclosed item IDS are: {enclosed_items}')
+                #enclosed_items.remove(prior_rect)
+                for item in enclosed_items:
+                    print(item)
+                    TK.itemconfig(item, fill="red")
+                    selected.append(item)
+                print(selected)
                 enclosing = []
-                dragging = False
+                
             except Exception as e:
-                pass
+                print(e)
             start_point = end_point = prior_rect = None
+            dragging = False
 
         if current_mode == "cable":
             if input_mode == "keyboard":
@@ -2676,7 +2738,7 @@ while True:
             time.sleep(0.15)
             current_mode = "endcable"
             # easy_print("obtained point1")
-            notify.update("Click second point of line")
+            window["stb_notify"].update("Click second point of line")
 
         elif current_mode == "polyline":
             if input_mode == "keyboard":
@@ -2689,11 +2751,9 @@ while True:
             x = y = point1 = None
             notify.update("Click next point of line")
             current_mode = "nextcable"
+            
         elif current_mode == "cable arc":
-            if input_mode == "keyboard":
-                x, y = update_cursor_position(cursor)
-            else:
-                x, y = get_point1()
+            x, y = get_point1()
             point1 = draw_point1(x, y)
             notify.update("Click vertical section of cable arc")
             current_mode = "cable arc 2"
@@ -2969,6 +3029,7 @@ while True:
             point2 = draw_point2(a, b, "orange")
             current_mode = "vmultiarrow3"
             notify.update("Please select 2ndcable")
+            
         elif current_mode == "vmultiarrow3":
             c, d = get_point3()
             point3 = draw_point3(c, d, "orange")
@@ -2981,6 +3042,7 @@ while True:
             for _ in (point1, point2, point3):
                 graph.delete_figure(_)
             current_mode = "select"
+            
         elif current_mode == "text":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -2989,6 +3051,7 @@ while True:
             hlabel(entered_text, x, y, 12)
             graph.delete_figure(etext)
             x = y = entered_text = None
+            
         elif current_mode == "street text":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -2996,6 +3059,7 @@ while True:
                 x, y = get_point1()
             hlabel(entered_text, x, y, 20, bold=False)
             x = y = entered_text = None
+            
         elif current_mode == "street vtext":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3003,6 +3067,7 @@ while True:
                 x, y = get_point1()
             vlabel(entered_text, x, y, 20, bold=False)
             x = y = entered_text = None
+            
         elif current_mode == "vtext":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3010,6 +3075,7 @@ while True:
                 x, y = get_point1()
             vlabel(entered_text, x, y, 12)
             x = y = entered_text = None
+            
         elif current_mode == "ped":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3017,6 +3083,7 @@ while True:
                 x, y = get_point1()
             ped(x, y)
             x = y = None
+            
         elif current_mode == "ped stub":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3025,6 +3092,7 @@ while True:
             point1 = draw_point1(x, y)
             notify.update("Click cable stub end")
             current_mode = "ped stub 2"
+            
         elif current_mode == "ped stub 2":
             if input_mode == "keyboard":
                 a, b = update_cursor_position(cursor)
@@ -3033,6 +3101,7 @@ while True:
             point2 = draw_point2(a, b, "red")
             ped_1arm(x, y, a, b)
             cleanup_2point()
+            
         elif current_mode == "pole":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3040,6 +3109,7 @@ while True:
                 x, y = get_point1()
             pole(x, y)
             x = y = None
+            
         elif current_mode == "pole stub":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3048,6 +3118,7 @@ while True:
             point1 = draw_point1(x, y)
             notify.update("Click cable stub end")
             current_mode = "pole stub 2"
+            
         elif current_mode == "pole stub 2":
             if input_mode == "keyboard":
                 a, b = update_cursor_position(cursor)
@@ -3056,6 +3127,7 @@ while True:
             point2 = draw_point2(a, b, "red")
             pole_1arm(x, y, a, b)
             cleanup_2point()
+            
         elif current_mode == "itemstamp":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3086,9 +3158,9 @@ while True:
             else:
                 x, y = get_point1()
             catch_basin(x, y)
+            
         elif current_mode == "select":
             fig = TK.find_withtag("current")
-            print(fig)
             if fig != ():
                 window["lblobject_type"].update(TK.type(fig))
                 window["objcoords"].update(graph.get_bounding_box(fig))
@@ -3106,10 +3178,13 @@ while True:
             # bbr= sg.Graph.draw_rectangle(graph,(bb[0]),bb[1], line_color='blue')
             # notify2.update(TK.type(fig) + ',' +TK.itemcget(fig,'tag'))
             if "ped" in TK.gettags(fig):
-                TK.itemconfig(fig, fill="green")
-                TK.itemconfig(fig[0] + 2, fill="green")
+                TK.itemconfig(fig, fill="red")
+                TK.itemconfig(fig[0] + 1, fill ="red")
+                TK.itemconfig(fig[0] + 2, fill="red")
                 selected.append(fig)
+                selected.append(fig[0] + 1)
                 selected.append(fig[0] + 2)
+                
             elif TK.type(fig) == "image":
                 imgb = graph.get_bounding_box(fig)
                 print(imgb)
