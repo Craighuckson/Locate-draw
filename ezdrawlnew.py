@@ -20,7 +20,7 @@ from enum import Enum
 import PIL.Image
 from PIL.Image import LANCZOS
 import PySimpleGUI as sg
-
+from PIL import ImageGrab
 
 
 from typing import Final, Literal
@@ -1911,8 +1911,8 @@ def bl_to_bl(dir=None, hnum1=None, hnum2=None, street=None):
 
 def get_parser_string(input):
     return input
-    
-            
+
+
 
 
 # barebones
@@ -2212,7 +2212,7 @@ while True:
         notify3.update(f"Mode: {current_mode} ")
     except:
         pass
-    
+
     if event == sg.WIN_CLOSED:
         break
     if event == "parser_submit":
@@ -2223,7 +2223,7 @@ while True:
         graph.set_focus()
         if tokens[0] == "line":
             road(int(tokens[1]),int(tokens[2]),int(tokens[3]),int(tokens[4]))
-            
+
     if event == "Form":
         window2 = make_form_window()
         event,values = window2.read()
@@ -2231,9 +2231,9 @@ while True:
     if event == 'form_submit':
         popup(values['landbase'])
         window2.close()
-              
-     
-        
+
+
+
     if event.endswith("ENTER"):
         in_graph = True
 
@@ -2249,7 +2249,7 @@ while True:
 
     if event.endswith("SELECT_ALL"):
         [selected.append(x) for x in TK.find_all()]
-        
+
     if event == "Save":
         _savefile = popup_get_text("Save file name?")
         # small = sg.popup_yes_no("Save as smaller image?")
@@ -2299,7 +2299,7 @@ while True:
             render_template()
         except FileNotFoundError:
             popup("Could not load template")
-            
+
     if event == "Exit":
         window.close()
 
@@ -2350,7 +2350,7 @@ while True:
         file = popup_get_file("Choose template")
         read_from_template(file)
 
-  
+
 
     if event == keys["m"] and current_mode == "chosen":
         current_mode = event_switch(
@@ -2439,7 +2439,7 @@ while True:
     if event.endswith("MOVE") and current_mode == "chosen":
         if selected is None:
             current_mode = "select"
-   
+
 
     # if event.endswith('drag'):
     #     try:
@@ -2652,7 +2652,7 @@ while True:
 
     """
     All events for button click
-    
+
     """
 
      # BUTTON CLICK WITHOUT MOVEMENT
@@ -2702,7 +2702,7 @@ while True:
             start_point = end_point
         except Exception as e:
             pass
-        
+
     if event.endswith("+UP"):
         # signals end of drag or button click
         if dragging:
@@ -2720,17 +2720,15 @@ while True:
                     selected.append(item)
                 print(selected)
                 enclosing = []
-                
+
             except Exception as e:
-                print(e)
+                pass
             start_point = end_point = prior_rect = None
             dragging = False
 
         if current_mode == "cable":
-            if input_mode == "keyboard":
-                x, y = update_cursor_position(cursor)
-            else:
-                x, y = get_point1()
+
+            x, y = get_point1()
             current_mode = "endcable"
             start_point = (x, y)
             point1 = draw_point1(x, y)
@@ -2741,27 +2739,22 @@ while True:
             window["stb_notify"].update("Click second point of line")
 
         elif current_mode == "polyline":
-            if input_mode == "keyboard":
-                x, y = update_cursor_position(cursor)
-            else:
-                x, y = get_point1()
+            x, y = get_point1()
             point1 = draw_point1(x, y)
             cpoints.append((x, y))
             cnodes.append(point1)
             x = y = point1 = None
             notify.update("Click next point of line")
             current_mode = "nextcable"
-            
+
         elif current_mode == "cable arc":
             x, y = get_point1()
             point1 = draw_point1(x, y)
             notify.update("Click vertical section of cable arc")
             current_mode = "cable arc 2"
+
         elif current_mode == "offsetline":
-            if input_mode == "keyboard":
-                x, y = update_cursor_position(cursor)
-            else:
-                x, y = get_point1()
+            x, y = get_point1()
             start_point = (x, y)
             current_mode = "offsetline2"
             point1 = draw_point1(x, y)
@@ -3029,7 +3022,7 @@ while True:
             point2 = draw_point2(a, b, "orange")
             current_mode = "vmultiarrow3"
             notify.update("Please select 2ndcable")
-            
+
         elif current_mode == "vmultiarrow3":
             c, d = get_point3()
             point3 = draw_point3(c, d, "orange")
@@ -3042,7 +3035,7 @@ while True:
             for _ in (point1, point2, point3):
                 graph.delete_figure(_)
             current_mode = "select"
-            
+
         elif current_mode == "text":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3051,7 +3044,7 @@ while True:
             hlabel(entered_text, x, y, 12)
             graph.delete_figure(etext)
             x = y = entered_text = None
-            
+
         elif current_mode == "street text":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3059,7 +3052,7 @@ while True:
                 x, y = get_point1()
             hlabel(entered_text, x, y, 20, bold=False)
             x = y = entered_text = None
-            
+
         elif current_mode == "street vtext":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3067,7 +3060,7 @@ while True:
                 x, y = get_point1()
             vlabel(entered_text, x, y, 20, bold=False)
             x = y = entered_text = None
-            
+
         elif current_mode == "vtext":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3075,7 +3068,7 @@ while True:
                 x, y = get_point1()
             vlabel(entered_text, x, y, 12)
             x = y = entered_text = None
-            
+
         elif current_mode == "ped":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3083,7 +3076,7 @@ while True:
                 x, y = get_point1()
             ped(x, y)
             x = y = None
-            
+
         elif current_mode == "ped stub":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3092,7 +3085,7 @@ while True:
             point1 = draw_point1(x, y)
             notify.update("Click cable stub end")
             current_mode = "ped stub 2"
-            
+
         elif current_mode == "ped stub 2":
             if input_mode == "keyboard":
                 a, b = update_cursor_position(cursor)
@@ -3101,7 +3094,7 @@ while True:
             point2 = draw_point2(a, b, "red")
             ped_1arm(x, y, a, b)
             cleanup_2point()
-            
+
         elif current_mode == "pole":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3109,7 +3102,7 @@ while True:
                 x, y = get_point1()
             pole(x, y)
             x = y = None
-            
+
         elif current_mode == "pole stub":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3118,7 +3111,7 @@ while True:
             point1 = draw_point1(x, y)
             notify.update("Click cable stub end")
             current_mode = "pole stub 2"
-            
+
         elif current_mode == "pole stub 2":
             if input_mode == "keyboard":
                 a, b = update_cursor_position(cursor)
@@ -3127,7 +3120,7 @@ while True:
             point2 = draw_point2(a, b, "red")
             pole_1arm(x, y, a, b)
             cleanup_2point()
-            
+
         elif current_mode == "itemstamp":
             if input_mode == "keyboard":
                 x, y = update_cursor_position(cursor)
@@ -3158,7 +3151,7 @@ while True:
             else:
                 x, y = get_point1()
             catch_basin(x, y)
-            
+
         elif current_mode == "select":
             fig = TK.find_withtag("current")
             if fig != ():
@@ -3184,7 +3177,7 @@ while True:
                 selected.append(fig)
                 selected.append(fig[0] + 1)
                 selected.append(fig[0] + 2)
-                
+
             elif TK.type(fig) == "image":
                 imgb = graph.get_bounding_box(fig)
                 print(imgb)
